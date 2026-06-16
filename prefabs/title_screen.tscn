@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://cuadr67o34aju"]
+
+[ext_resource type="Texture2D" uid="uid://cd34ei0pslh3v" path="res://sprites/Mini UI/senai_intro.png" id="1_aedtt"]
+[ext_resource type="Script" uid="uid://dsdhwq8rdlmdn" path="res://scripts/title_screen.gd" id="1_agckt"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="1_dxql2"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="3_agckt"]
+[ext_resource type="Texture2D" uid="uid://d4hmbckwda5rj" path="res://sprites/Mini UI/jumping_character.png" id="3_u6xng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6xng"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_agckt"]
+
+[sub_resource type="Animation" id="Animation_agckt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/Character:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nvgea"]
+resource_name = "reveal"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.099999994, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 0.79999995),
+"transitions": PackedFloat32Array(0.1, 1),
+"update": 0,
+"values": [Vector2(-350, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/HBoxContainer/Character:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.099999994, 0.79999995, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mcdfo"]
+_data = {
+&"RESET": SubResource("Animation_agckt"),
+&"reveal": SubResource("Animation_nvgea")
+}
+
+[node name="TitleScreen" type="Control" unique_id=57924315]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 36.0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_agckt")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=2068815201]
+layout_mode = 0
+offset_left = -92.0
+offset_right = 364.0
+offset_bottom = 206.0
+texture = ExtResource("1_aedtt")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1996801820]
+layout_mode = 1
+offset_right = 287.0
+offset_bottom = 207.0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1032928629]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1422659687]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=908225332]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("1_dxql2")
+theme_override_font_sizes/font_size = 24
+text = "SENAI GAME"
+
+[node name="Subtitle" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1021357485]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("1_dxql2")
+theme_override_font_sizes/font_size = 12
+text = "A jornada do 
+jovem aprendiz"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1043157161]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u6xng")
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2109397828]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u6xng")
+
+[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=400041979]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_agckt")
+theme_override_fonts/font = ExtResource("1_dxql2")
+theme_override_font_sizes/font_size = 8
+text = "INICIAR"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=481269595]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_u6xng")
+
+[node name="Credits" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1056890789]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_agckt")
+theme_override_fonts/font = ExtResource("1_dxql2")
+theme_override_font_sizes/font_size = 8
+text = "CREDITOS"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=789578703]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxEmpty_agckt")
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1936051324]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_agckt")
+theme_override_fonts/font = ExtResource("1_dxql2")
+theme_override_font_sizes/font_size = 8
+text = "SAIR DO JOGO"
+
+[node name="Character" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1998621908]
+layout_mode = 2
+texture = ExtResource("3_u6xng")
+expand_mode = 2
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1716201788]
+libraries/ = SubResource("AnimationLibrary_mcdfo")
+autoplay = &"reveal"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

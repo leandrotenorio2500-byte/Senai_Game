@@ -1,0 +1,102 @@
+[gd_scene format=4 uid="uid://dsbagef874bed"]
+
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_18hrp"]
+[ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_ro14o"]
+[ext_resource type="Texture2D" uid="uid://ca8pp3nty25ik" path="res://sprites/BACKGROUND/refeitorio.png" id="3_eqc2l"]
+[ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_8pkmy"]
+[ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_p0lk3"]
+[ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="6_eno4a"]
+[ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="7_ajd5g"]
+[ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_di15h"]
+[ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_ro14o"]
+[ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_eqc2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
+size = Vector2(20, 209)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqc2l"]
+texture = ExtResource("9_ro14o")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 0.1
+0:0/animation_frame_0/duration = 0.02
+0:0/animation_frame_1/duration = 0.02
+0:0/animation_frame_2/duration = 0.02
+0:0/animation_frame_3/duration = 0.02
+0:0/animation_frame_4/duration = 0.02
+0:0/animation_frame_5/duration = 0.02
+0:0/animation_frame_6/duration = 0.02
+0:0/animation_frame_7/duration = 0.02
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pkmy"]
+texture = ExtResource("10_eqc2l")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 5.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8pkmy"]
+sources/0 = SubResource("TileSetAtlasSource_eqc2l")
+sources/1 = SubResource("TileSetAtlasSource_8pkmy")
+
+[node name="Forest" type="Node2D" unique_id=1111527481]
+position = Vector2(0, -12)
+
+[node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_18hrp")]
+position = Vector2(29, 163)
+acceleration = 200
+
+[node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_ro14o")]
+position = Vector2(-49, 150)
+limit_top = 0
+limit_right = 525
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
+position = Vector2(0, -14)
+scale = Vector2(1.31, 1.0636364)
+texture = ExtResource("3_eqc2l")
+centered = false
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
+
+[node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
+tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAA=")
+tile_set = ExtResource("4_8pkmy")
+
+[node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
+tile_map_data = PackedByteArray("AAAAAAsAAgADAA0AAAACAAsAAgAFAA0AAAADAAoAAgABAAYAAAADAAsAAgADAA0AAAAEAAsAAgAEAA0AAAAFAAsAAgAFAA0AAAAGAAsAAgADAA0AAAAHAAsAAgAEAA0AAAAIAAoAAgAGAAgAAAAIAAsAAgAFAA0AAAAJAAsAAgADAA0AAAAKAAsAAgAEAA0AAAALAAsAAgAFAA0AAAAMAAsAAgADAA0AAAANAAsAAgAEAA0AAAAOAAsAAgAFAA0AAAAPAAsAAgADAA0AAAAQAAoACQACAAkAAAAQAAsAAgAEAA0AAAARAAsAAgAFAA0AAAASAAsAAgADAA0AAAATAAsAAgAEAA0AAAAUAAoAAgAGAAgAAAAUAAsAAgAFAA0AAAAVAAsAAgADAA0AAAAWAAsAAgAEAA0AAAAXAAsAAgAFAA0AAAAYAAsAAgADAA0AAAAZAAoAAgAGAAYAAAAZAAsAAgAEAA0AAAAaAAoABgAMAAEAAAAaAAsAAgAFAA0AAAAbAAsAAgADAA0AAAAcAAsAAgAEAA0AAAAdAAsAAgAFAA0AAAAeAAoAAgAGAAYAAAAeAAsAAgADAA0AAAAfAAsAAgAEAA0AAAAgAAsAAgAFAA0AAAABAAsAAgAEAA0AAAAAAAwAAgAEAA4AAAABAAkAAgAHAAAAAAABAAwAAgAEAA4AAAACAAwAAgAFAA4AAAADAAwAAgAEAA4AAAAEAAwAAgAFAA4AAAAFAAUABgASAAIAAAAFAAwAAgAEAA4AAAAGAAwAAgAFAA4AAAAHAAgAAgAPAAQAAAAHAAwAAgAEAA4AAAAIAAwAAgAFAA4AAAAJAAwAAgAEAA4AAAAKAAwAAgAFAA4AAAALAAwAAgAEAA4AAAAMAAwAAgAFAA4AAAANAAgAAgABAAEAAAANAAwAAgAEAA4AAAAOAAwAAgAFAA4AAAAPAAwAAgAEAA4AAAAQAAwAAgAFAA4AAAARAAYABgADAAEAAAARAAgAAgAPAAEAAAARAAwAAgAEAA4AAAASAAwAAgAFAA4AAAATAAwAAgAEAA4AAAAUAAwAAgAFAA4AAAAVAAwAAgAEAA4AAAAWAAkAAgAHAAMAAAAWAAwAAgAFAA4AAAAXAAwAAgAEAA4AAAAYAAwAAgAFAA4AAAAZAAwAAgAEAA4AAAAaAAwAAgAFAA4AAAAbAAwAAgAEAA4AAAAcAAkABgAOAAIAAAAcAAwAAgAFAA4AAAAdAAwAAgAEAA4AAAAeAAUABgASAAIAAAAeAAwAAgAFAA4AAAAfAAwAAgAEAA4AAAAgAAkAAgAHAAAAAAAgAAwAAgAFAA4AAAAAAA0AAgAEAA8AAAABAA0AAgAEAA8AAAACAA0AAgAFAA8AAAADAA0AAgAEAA8AAAAEAA0AAgAFAA8AAAAFAA0AAgAEAA8AAAAGAA0AAgAFAA8AAAAHAA0AAgAEAA8AAAAIAA0AAgAFAA8AAAAJAA0AAgAEAA8AAAAKAA0AAgAFAA8AAAALAA0AAgAEAA8AAAAMAA0AAgAFAA8AAAANAA0AAgAEAA8AAAAOAA0AAgAFAA8AAAAPAA0AAgAEAA8AAAAQAA0AAgAFAA8AAAARAA0AAgAEAA8AAAASAA0AAgAFAA8AAAATAA0AAgAEAA8AAAAUAA0AAgAFAA8AAAAVAA0AAgAEAA8AAAAWAA0AAgAFAA8AAAAXAA0AAgAEAA8AAAAYAA0AAgAFAA8AAAAZAA0AAgAEAA8AAAAaAA0AAgAFAA8AAAAbAA0AAgAEAA8AAAAcAA0AAgAFAA8AAAAdAA0AAgAEAA8AAAAeAA0AAgAFAA8AAAAfAA0AAgAEAA8AAAAEAA4AAgAGAA8AAAD+/wwAAgACAA4AAAD+/w0AAgACAA8AAAD//wwAAgADAA4AAAD//w0AAgADAA8AAAAgAA0AAgAFAA8AAAAhAAwAAgAEAA4AAAAhAA0AAgAEAA8AAAAiAAwAAgAFAA4AAAAiAA0AAgAFAA8AAAAjAAwAAgAGAA4AAAAjAA0AAgAGAA8AAAA=")
+tile_set = ExtResource("5_p0lk3")
+
+[node name="LevelEnd" parent="." unique_id=1677674211 instance=ExtResource("6_eno4a")]
+position = Vector2(-10, 19)
+next_level = "1andar"
+
+[node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
+position = Vector2(-9, 10)
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelLimit" unique_id=2018999782]
+position = Vector2(0, 91)
+shape = SubResource("RectangleShape2D_kmspj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
+position = Vector2(542, 102)
+shape = SubResource("RectangleShape2D_kmspj")
+
+[node name="HUD" parent="." unique_id=697345291 instance=ExtResource("7_ajd5g")]
+
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_di15h")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=812904027]
+position = Vector2(-9, 10)
+tile_map_data = PackedByteArray("AAAPAAkAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_8pkmy")

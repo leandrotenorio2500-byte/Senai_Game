@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://b2e3xayj2nr10"]
+
+[ext_resource type="Texture2D" uid="uid://lskw6u4ghb3v" path="res://sprites/Mini UI/game_over.png" id="1_8uthh"]
+[ext_resource type="Script" uid="uid://br5035bof027m" path="res://scripts/game_over.gd" id="1_s76ig"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="2_puky0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puky0"]
+
+[sub_resource type="Animation" id="Animation_puky0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s76ig"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8lptw"]
+_data = {
+&"RESET": SubResource("Animation_puky0"),
+&"fade_in": SubResource("Animation_s76ig")
+}
+
+[node name="GameOver" type="Control" unique_id=1189560886]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s76ig")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1945489743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1167005219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -26.0
+offset_right = 84.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverTitle" type="TextureRect" parent="VBoxContainer" unique_id=1091179340]
+layout_mode = 2
+texture = ExtResource("1_8uthh")
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=632586812]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
+
+[node name="RestartBtn" type="Button" parent="VBoxContainer" unique_id=943304711]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_puky0")
+text = "Reiniciar"
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer" unique_id=1709634253]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
+
+[node name="TitleBtn" type="Button" parent="VBoxContainer" unique_id=658926604]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_puky0")
+text = "Tela Inicial"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1620823385]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=15805780]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_puky0")
+text = "Sair do Jogo"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=687580407]
+libraries/ = SubResource("AnimationLibrary_8lptw")
+autoplay = &"fade_in"
+
+[connection signal="pressed" from="VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBtn" to="." method="_on_title_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

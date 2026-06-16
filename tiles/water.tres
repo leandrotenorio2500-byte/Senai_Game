@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://cng3jq0p65t4y"]
+
+[ext_resource type="Texture2D" uid="uid://cegkm2lj0jdml" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Water_frames (16 x 32).png" id="1_5swia"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ei81g"]
+texture = ExtResource("1_5swia")
+0:0/animation_frame_0/duration = 0.3
+0:0/animation_frame_1/duration = 0.6
+0:0/0 = 0
+0:0/0/modulate = Color(1, 1, 1, 0.56078434)
+0:1/animation_frame_0/duration = 0.3
+0:1/animation_frame_1/duration = 0.6
+0:1/0 = 0
+0:1/0/modulate = Color(1, 1, 1, 0.56078434)
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_ei81g")

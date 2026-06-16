@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dt27lc3lmyg0b"]
+
+[ext_resource type="Script" uid="uid://djq7fwwdck8ut" path="res://scripts/level_end.gd" id="1_y82ty"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bc8j"]
+size = Vector2(21, 161)
+
+[node name="LevelEnd" type="Area2D" unique_id=1677674211]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_y82ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1359206361]
+position = Vector2(3, 78.125)
+shape = SubResource("RectangleShape2D_4bc8j")
+debug_color = Color(9.62615e-07, 0.6293574, 0.48653936, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

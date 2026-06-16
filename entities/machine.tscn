@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d2yx18hvw4vnd"]
+
+[ext_resource type="Script" uid="uid://rl0637r7ytt5" path="res://scripts/machine.gd" id="1_5ob74"]
+[ext_resource type="Texture2D" uid="uid://b04uifxpwfdbq" path="res://sprites/Machine/mach_idle2.png" id="1_8ixou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ob74"]
+atlas = ExtResource("1_8ixou")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45hlw"]
+atlas = ExtResource("1_8ixou")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5def"]
+atlas = ExtResource("1_8ixou")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcb3l"]
+atlas = ExtResource("1_8ixou")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6cfaj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ob74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45hlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5def")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcb3l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr42w"]
+size = Vector2(33, 31.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ob74"]
+size = Vector2(35, 32)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1726818384]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_5ob74")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1135737870]
+sprite_frames = SubResource("SpriteFrames_6cfaj")
+animation = &"idle"
+frame = 3
+frame_progress = 0.8148554
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=216511623]
+position = Vector2(3.5, 7.25)
+shape = SubResource("RectangleShape2D_xr42w")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=484935088 groups=["Enemies"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1406643454]
+position = Vector2(3.5, 7)
+shape = SubResource("RectangleShape2D_5ob74")
+debug_color = Color(0.9962091, 0, 0.1996977, 0.41960785)

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cbkxbllj3s6kl"]
+
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="1_hf53u"]
+[ext_resource type="Script" uid="uid://b0423o74p0ylj" path="res://scripts/pause_menu.gd" id="1_iyb4f"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_iyb4f"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_ntkjb"]
+events = [SubResource("InputEventAction_iyb4f")]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iyb4f"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1287701451]
+process_mode = 3
+visible = false
+script = ExtResource("1_iyb4f")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=176387554]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.30980393)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=655525264]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -20.0
+offset_right = 38.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeBtn" type="Button" parent="VBoxContainer" unique_id=1765432852]
+layout_mode = 2
+theme = ExtResource("1_hf53u")
+shortcut = SubResource("Shortcut_ntkjb")
+text = "Voltar ao Jogo"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=556359553]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_iyb4f")
+
+[node name="TitleBtn" type="Button" parent="VBoxContainer" unique_id=1972025744]
+layout_mode = 2
+theme = ExtResource("1_hf53u")
+text = "Menu Prinicipal
+"
+
+[connection signal="pressed" from="VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/TitleBtn" to="." method="_on_title_btn_pressed"]

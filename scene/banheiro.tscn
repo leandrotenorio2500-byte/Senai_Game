@@ -13,9 +13,10 @@
 size = Vector2(20, 209)
 
 [node name="Forest" type="Node2D" unique_id=1111527481]
+metadata/_edit_vertical_guides_ = [20.0, 20.0]
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_j2i47")]
-position = Vector2(21, 144)
+position = Vector2(23, 147)
 acceleration = 200
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_gljmo")]
@@ -41,11 +42,10 @@ tile_map_data = PackedByteArray("AAAAAAoACQAQAAcAAAAAAAsACQAQAAgAAAABAAoACQARAAc
 tile_set = ExtResource("5_2ahal")
 
 [node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("6_j2i47")]
-position = Vector2(-5, 105)
+position = Vector2(-13, 96)
 scale = Vector2(0.971244, 12.039999)
-collision_layer = 1024
-next_level = "1andar"
-next_player_position_x = 278.0
+next_level = "uid://d2a75r2ne3nbm"
+next_player_position = Vector2(280, 147)
 need_interaction = false
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]

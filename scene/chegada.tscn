@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_sbe76"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="3_c5an2"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="4_070le"]
-[ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="5_7f3ss"]
 [ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="5_h5ou5"]
 [ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="6_e3qm6"]
 [ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="6_oysr6"]
@@ -20,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://tyn50chf80qd" path="res://sprites/BACKGROUND/frontcity.png" id="11_j77hi"]
 [ext_resource type="Texture2D" uid="uid://q0qnro5qafjq" path="res://sprites/npcs/npc6.png" id="12_k0551"]
 [ext_resource type="Texture2D" uid="uid://dsuwenuwlsqxw" path="res://sprites/BACKGROUND/highvlouds.png" id="12_uskk0"]
+[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="20_h5ou5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfesy"]
 texture = ExtResource("5_h5ou5")
@@ -180,10 +180,6 @@ position = Vector2(-9, 10)
 tile_map_data = PackedByteArray("AAAqAAoABQAAAAAAAAAoAAoABgAAAAAAABAFAAoAAwAAAAAAAAATAAoAAgAAAAAAAAAzAAoAAgAAAAAAABA0AAoABwAAAAAAAAAbAAoABAAAAAAAABAdAAoAAQAAAAAAAABNAAoAAAAAAAAAABBQAAoAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_1c8sv")
 
-[node name="LevelEnd" parent="." unique_id=1677674211 instance=ExtResource("5_7f3ss")]
-position = Vector2(1587, 42)
-next_level = "recep"
-
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=961013752]
 position = Vector2(-9, 10)
 collision_mask = 6
@@ -263,3 +259,18 @@ texture = ExtResource("12_uskk0")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 576, 220)
+
+[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("20_h5ou5")]
+position = Vector2(1351, 163)
+next_level = "uid://cg7deh3vprap7"
+next_player_position = Vector2(23, 147)
+
+[node name="CollisionShape2D" parent="LevelChanger" index="0" unique_id=1355855242]
+position = Vector2(7, 7)
+
+[node name="Label" parent="LevelChanger" index="1" unique_id=390673933]
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 27.0
+
+[editable path="LevelChanger"]

@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_c36gr"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_cgl2t"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_d8y6d"]
-[ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="6_a024q"]
 [ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="7_2cbpu"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_g781x"]
+[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="9_4hrr3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
@@ -15,7 +15,7 @@ size = Vector2(20, 209)
 [node name="Forest" type="Node2D" unique_id=1111527481]
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_dvc8x")]
-position = Vector2(152, 147)
+position = Vector2(226, 145)
 acceleration = 200
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_4hrr3")]
@@ -40,21 +40,21 @@ tile_set = ExtResource("4_cgl2t")
 tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAJAAgABgASAAsAAAARAAgABgAWAAsAAAAXAAgABgAWAAsAAAAJAAYABgASAAkAAAARAAYABgAWAAkAAAAXAAYABgAVAAUAAAACAAUABgAZAAcAAAAfAAUABgAZAAEAAAAUAAQABgASAAIAAAAOAAkABgAMAAEAAAAFAAgABgAOAAIAAAAcAAgABgACAAgAAAA=")
 tile_set = ExtResource("5_d8y6d")
 
-[node name="LevelEnd" parent="." unique_id=1677674211 instance=ExtResource("6_a024q")]
-position = Vector2(148, -22)
-next_level = "corredor"
-
-[node name="LevelEnd2" parent="." unique_id=92694204 instance=ExtResource("6_a024q")]
-position = Vector2(277, -23)
-next_level = "banheiro"
-
-[node name="LevelEnd3" parent="." unique_id=899742790 instance=ExtResource("6_a024q")]
-position = Vector2(529, 7)
+[node name="LevelChangerRight" parent="." unique_id=1670860483 instance=ExtResource("9_4hrr3")]
+position = Vector2(530, 93)
+scale = Vector2(0.971244, 12.039999)
+collision_layer = 1024
 next_level = "refeitorio"
+next_player_position_x = 26.0
+need_interaction = false
 
-[node name="LevelEnd4" parent="." unique_id=756159157 instance=ExtResource("6_a024q")]
-position = Vector2(-11, 24)
+[node name="LevelChangerLeft" parent="." unique_id=55319733 instance=ExtResource("9_4hrr3")]
+position = Vector2(-5, 112)
+scale = Vector2(0.971244, 12.039999)
+collision_layer = 1024
 next_level = "almoxarifado"
+next_player_position_x = 502.0
+need_interaction = false
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
 position = Vector2(-9, 10)
@@ -71,3 +71,17 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="HUD" parent="." unique_id=697345291 instance=ExtResource("7_2cbpu")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_g781x")]
+
+[node name="LevelChangerElevator" parent="." unique_id=1911294804 instance=ExtResource("9_4hrr3")]
+position = Vector2(151.00002, 139)
+scale = Vector2(2.0912435, 2.16)
+collision_layer = 1024
+next_level = "corredor"
+next_player_position_x = 199.0
+
+[node name="LevelChangerBathroom" parent="." unique_id=636216679 instance=ExtResource("9_4hrr3")]
+position = Vector2(280, 138)
+scale = Vector2(1.2912436, 2.16)
+collision_layer = 1024
+next_level = "banheiro"
+next_player_position_x = 21.0

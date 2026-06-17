@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://7e1ekf0nhvlv"]
+
+[ext_resource type="Script" uid="uid://dryb503vq6trr" path="res://scripts/level_changer.gd" id="1_3fqlw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4wox"]
+
+[node name="LevelChanger" type="Area2D" unique_id=1670860483]
+collision_layer = 1025
+collision_mask = 2
+script = ExtResource("1_3fqlw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1355855242]
+shape = SubResource("RectangleShape2D_k4wox")
+debug_color = Color(0.26076448, 0.6205006, 0.38406932, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

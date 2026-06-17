@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="6_ve01p"]
 [ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="7_nqjsa"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_fp5cx"]
+[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="9_oj85h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 202.5)
@@ -15,7 +16,7 @@ size = Vector2(20, 202.5)
 [node name="node" type="Node2D" unique_id=1111527481]
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_ocnva")]
-position = Vector2(42, 147)
+position = Vector2(40, 163)
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_oj85h")]
 position = Vector2(-49, 150)
@@ -41,10 +42,6 @@ tile_set = ExtResource("5_hoit2")
 position = Vector2(1097, 23)
 next_level = "producao"
 
-[node name="LevelEnd2" parent="." unique_id=1922518834 instance=ExtResource("6_ve01p")]
-position = Vector2(-10, 22)
-next_level = "corredor"
-
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
 position = Vector2(-9, 10)
 collision_mask = 6
@@ -60,3 +57,11 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="HUD" parent="." unique_id=697345291 instance=ExtResource("7_nqjsa")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_fp5cx")]
+
+[node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
+position = Vector2(-7, 85)
+scale = Vector2(0.971244, 12.039999)
+collision_layer = 1024
+next_level = "corredor"
+next_player_position_x = 378.0
+need_interaction = false

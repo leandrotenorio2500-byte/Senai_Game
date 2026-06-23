@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Senai_Game"
-run/main_scene="uid://cuadr67o34aju"
+run/main_scene="uid://cgnjmixdneuwv"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 

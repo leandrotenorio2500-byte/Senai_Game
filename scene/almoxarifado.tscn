@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_smml3"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_q3m8q"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_8ow8r"]
-[ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="7_7ys4f"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="8_wd2cn"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_ycbo4"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_sl2rw"]
@@ -55,8 +54,6 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
 position = Vector2(542, 102)
 shape = SubResource("RectangleShape2D_kmspj")
-
-[node name="HUD" parent="." unique_id=697345291 instance=ExtResource("7_7ys4f")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_ycbo4")]
 

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dsbagef874bed"]
 
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_18hrp"]
+[ext_resource type="Script" uid="uid://dqqso22gj1sgx" path="res://scripts/scenes_scripts/refeitorio.gd" id="1_p0lk3"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_ro14o"]
 [ext_resource type="Texture2D" uid="uid://ca8pp3nty25ik" path="res://sprites/BACKGROUND/refeitorio.png" id="3_eqc2l"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_8pkmy"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_ro14o"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="10_8pkmy"]
 [ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_eqc2l"]
+[ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="11_8pkmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
@@ -46,8 +48,9 @@ texture = ExtResource("10_eqc2l")
 sources/0 = SubResource("TileSetAtlasSource_eqc2l")
 sources/1 = SubResource("TileSetAtlasSource_8pkmy")
 
-[node name="Forest" type="Node2D" unique_id=1111527481]
-position = Vector2(0, -12)
+[node name="refeitorio" type="Node2D" unique_id=1111527481]
+position = Vector2(0, -22)
+script = ExtResource("1_p0lk3")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_18hrp")]
 position = Vector2(29, 163)
@@ -103,3 +106,6 @@ scale = Vector2(0.971244, 12.039999)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(510, 147)
 need_interaction = false
+
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_8pkmy")]
+visible = false

@@ -113,8 +113,8 @@ expand_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1996801820]
 layout_mode = 1
-offset_right = 287.0
-offset_bottom = 207.0
+offset_right = 498.0
+offset_bottom = 241.0
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 

@@ -1,9 +1,8 @@
-[gd_scene format=3 uid="uid://cuadr67o34aju"]
+[gd_scene format=3 uid="uid://c6a7lfsppc75g"]
 
-[ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="1_aedtt"]
-[ext_resource type="Script" uid="uid://dsdhwq8rdlmdn" path="res://scripts/title_screen.gd" id="1_agckt"]
-[ext_resource type="Texture2D" uid="uid://clhfi7su6a2yl" path="res://sprites/titlescreen2.png" id="2_u6xng"]
-[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="3_agckt"]
+[ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="1_qtu10"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="2_62e2m"]
+[ext_resource type="Texture2D" uid="uid://clhfi7su6a2yl" path="res://sprites/titlescreen2.png" id="2_f676y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
 bg_color = Color(1, 1, 1, 0)
@@ -12,7 +11,7 @@ bg_color = Color(1, 1, 1, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_qtu10"]
-default_font = ExtResource("3_agckt")
+default_font = ExtResource("2_62e2m")
 default_font_size = 22
 Button/colors/font_color = Color(0.822643, 0.8226425, 0.8226429, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -27,7 +26,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="Theme" id="Theme_ee4bf"]
-default_font = ExtResource("3_agckt")
+default_font = ExtResource("2_62e2m")
 default_font_size = 22
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_hover_color = Color(1, 1, 1, 1)
@@ -36,50 +35,12 @@ Button/styles/focus = null
 Button/styles/hover = SubResource("StyleBoxFlat_kbped")
 Button/styles/normal = SubResource("StyleBoxFlat_qtu10")
 
-[sub_resource type="Animation" id="Animation_u6xng"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_agckt"]
-resource_name = "fade in"
-length = 1.0333333
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvgea"]
-_data = {
-&"RESET": SubResource("Animation_u6xng"),
-&"fade in": SubResource("Animation_agckt")
-}
-
 [node name="Title_Screen" type="Control" unique_id=342701394]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
-script = ExtResource("1_agckt")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=2001037373]
 texture_filter = 1
@@ -91,7 +52,7 @@ offset_left = -200.0
 offset_right = 200.0
 offset_bottom = 220.0
 grow_horizontal = 2
-texture = ExtResource("1_aedtt")
+texture = ExtResource("1_qtu10")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1558410734]
 texture_filter = 1
@@ -99,20 +60,12 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -146.5
-offset_top = 1.0
-offset_right = 146.5
-offset_bottom = 97.0
+offset_left = -128.5
+offset_top = 18.0
+offset_right = 128.5
+offset_bottom = 81.0
 grow_horizontal = 2
-texture = ExtResource("2_u6xng")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1190271269]
-layout_mode = 0
-offset_left = -200.0
-offset_top = -1.0
-offset_right = 200.0
-offset_bottom = 219.0
-color = Color(0, 0, 0, 1)
+texture = ExtResource("2_f676y")
 
 [node name="Buttons_manager" type="Control" parent="." unique_id=1771498491]
 layout_mode = 1
@@ -152,11 +105,3 @@ text = "creditos"
 layout_mode = 2
 theme = SubResource("Theme_ee4bf")
 text = "SAIR"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738584462]
-libraries/ = SubResource("AnimationLibrary_nvgea")
-autoplay = &"fade in"
-
-[connection signal="pressed" from="Buttons_manager/VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
-[connection signal="pressed" from="Buttons_manager/VBoxContainer/Créditos" to="." method="_on_créditos_pressed"]
-[connection signal="pressed" from="Buttons_manager/VBoxContainer/Sair" to="." method="_on_sair_pressed"]

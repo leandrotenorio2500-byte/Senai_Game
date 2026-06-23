@@ -377,3 +377,4 @@ func drop_plataform():
 	if Input.is_key_pressed(KEY_SPACE) and Input.is_key_pressed(KEY_DOWN) :
 		position.y +=1
 	
+	

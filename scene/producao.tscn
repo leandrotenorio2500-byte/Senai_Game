@@ -1,18 +1,19 @@
 [gd_scene format=4 uid="uid://b5w4buyvjl8w7"]
 
 [ext_resource type="Texture2D" uid="uid://llygc3cluamh" path="res://sprites/BACKGROUND/producao.png" id="1_rf5m3"]
+[ext_resource type="Script" uid="uid://c5qci4xa0pqux" path="res://scripts/scenes_scripts/producao.gd" id="1_vco0o"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="3_6auqp"]
 [ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="4_c5fjl"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_vco0o"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_jd5co"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="5_vco0o"]
-[ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="7_vco0o"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_u48ys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 202.5)
 
 [node name="node" type="Node2D" unique_id=1111527481]
+script = ExtResource("1_vco0o")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("5_vco0o")]
 position = Vector2(42, 160)
@@ -69,7 +70,5 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit2" unique_id=1022153412]
 position = Vector2(653, -182)
 shape = SubResource("RectangleShape2D_kmspj")
-
-[node name="HUD" parent="." unique_id=697345291 instance=ExtResource("7_vco0o")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_u48ys")]

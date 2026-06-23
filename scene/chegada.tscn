@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="4_070le"]
 [ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="5_h5ou5"]
 [ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="6_e3qm6"]
-[ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="6_oysr6"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="7_74gyu"]
 [ext_resource type="Texture2D" uid="uid://b50ccsatjfu0k" path="res://sprites/npcs/npc1_Sheet.png" id="7_j77hi"]
 [ext_resource type="Texture2D" uid="uid://bm53kcsd4d3c2" path="res://sprites/BACKGROUND/sky.png" id="8_fnv5b"]
@@ -153,7 +152,7 @@ size = Vector2(20, 209)
 [node name="Node2D" type="Node2D" unique_id=1695094910]
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_5g8n5")]
-position = Vector2(163, 178)
+position = Vector2(283, 180)
 acceleration = 200
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_sbe76")]
@@ -172,12 +171,12 @@ tile_map_data = PackedByteArray("AAA/AAwABAADAAIAAABAAAwABAACAAIAAABBAAwABAADAAI
 tile_set = ExtResource("3_c5an2")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1687906122]
-tile_map_data = PackedByteArray("AABNAAsAAQAAAAAAAAAoAAsAAAAZAAcAAAAaAAsAAAANAAYAAAARAAsAAAATAAAAAAAKAAoAAAAfAAMAAAACAAsAAAAKAAAAAAAzAAsAAAAEAAQAAAAUAAoAAAAGAAYAAAAYAAkAAAAGAAYAAAAZAAoAAAAGAAYAAAAEAAoAAAAGAAYAAAAAAAkAAAAGAAYAAAAjAAoAAAAGAAYAAAAsAAoAAAAGAAYAAAA4AAoAAAAGAAYAAAA1AAoAAAABAAYAAAAuAAoAAAABAAYAAAAIAAoAAAAcAAAAAAAVAAoAAAAcAAAAAAAiAAoAAAAcAAAAAAAxAAoAAAAcAAAAAABHAAoAAAAcAAAAAAAHAAsAAAAEAAEAAAAKAAsAAAABAAEAAAANAAsAAAABAAEAAAATAAsAAAAEAAEAAAAVAAsAAAABAAEAAAAdAAsAAAAHAAEAAAAgAAsAAAABAAEAAAAiAAsAAAABAAEAAAAvAAsAAAAHAAEAAAAuAAsAAAAEAAEAAAA0AAsAAAABAAEAAAA2AAsAAAAHAAEAAAAyAAsAAAAEAAEAAABKAAsAAAAEAAEAAABJAAsAAAAHAAEAAABIAAsAAAAHAAEAAABMAAsAAAAHAAEAAABbAAsAAAAHAAEAAABaAAsAAAAHAAEAAABeAAsAAAAHAAEAAABEAAsAAAAEAAQAAABBAAoAAAABAAYAAAAfAAoAAAABAAYAAAA=")
+tile_map_data = PackedByteArray("AABNAAsAAQAAAAAAAAAoAAsAAAAZAAcAAAAaAAsAAAANAAYAAAACAAsAAAAKAAAAAAAzAAsAAAAEAAQAAAAUAAoAAAAGAAYAAAAYAAkAAAAGAAYAAAAZAAoAAAAGAAYAAAAEAAoAAAAGAAYAAAAAAAkAAAAGAAYAAAAjAAoAAAAGAAYAAAAsAAoAAAAGAAYAAAA4AAoAAAAGAAYAAAA1AAoAAAABAAYAAAAuAAoAAAABAAYAAAAIAAoAAAAcAAAAAAAVAAoAAAAcAAAAAAAiAAoAAAAcAAAAAAAxAAoAAAAcAAAAAABHAAoAAAAcAAAAAAAHAAsAAAAEAAEAAAANAAsAAAABAAEAAAAVAAsAAAABAAEAAAAdAAsAAAAHAAEAAAAgAAsAAAABAAEAAAAiAAsAAAABAAEAAAAvAAsAAAAHAAEAAAAuAAsAAAAEAAEAAAA0AAsAAAABAAEAAAA2AAsAAAAHAAEAAAAyAAsAAAAEAAEAAABKAAsAAAAEAAEAAABJAAsAAAAHAAEAAABIAAsAAAAHAAEAAABMAAsAAAAHAAEAAABbAAsAAAAHAAEAAABaAAsAAAAHAAEAAABeAAsAAAAHAAEAAABEAAsAAAAEAAQAAABBAAoAAAABAAYAAAAfAAoAAAABAAYAAAAQAAsAAAABAAEAAAARAAoAAAAfAAMAAAALAAsAAAATAAAAAAAUAAsAAAAEAAEAAAA=")
 tile_set = ExtResource("4_070le")
 
 [node name="npc" type="TileMapLayer" parent="Tiles" unique_id=787642309]
 position = Vector2(-9, 10)
-tile_map_data = PackedByteArray("AAAqAAoABQAAAAAAAAAoAAoABgAAAAAAABAFAAoAAwAAAAAAAAATAAoAAgAAAAAAAAAzAAoAAgAAAAAAABA0AAoABwAAAAAAAAAbAAoABAAAAAAAABAdAAoAAQAAAAAAAABNAAoAAAAAAAAAABBQAAoAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAqAAoABQAAAAAAAAAoAAoABgAAAAAAABAFAAoAAwAAAAAAAAAzAAoAAgAAAAAAABA0AAoABwAAAAAAAAAbAAoABAAAAAAAABAdAAoAAQAAAAAAAABNAAoAAAAAAAAAABBQAAoAAQAAAAAAAAAOAAoAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_1c8sv")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=961013752]
@@ -191,8 +190,6 @@ shape = SubResource("RectangleShape2D_xctcq")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=1985465739]
 position = Vector2(1601, 87)
 shape = SubResource("RectangleShape2D_xctcq")
-
-[node name="HUD" parent="." unique_id=697345291 instance=ExtResource("6_oysr6")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("7_74gyu")]
 
@@ -210,7 +207,7 @@ region_rect = Rect2(0, 0, 576, 220)
 
 [node name="nt" type="ParallaxLayer" parent="ParallaxBackground" unique_id=664380802]
 texture_repeat = 2
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.08, 0.08)
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/nt" unique_id=1218874125]
@@ -222,7 +219,7 @@ region_rect = Rect2(0, 0, 576, 220)
 
 [node name="bc" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1289947007]
 texture_repeat = 2
-motion_scale = Vector2(0.2, 0.2)
+motion_scale = Vector2(0.1, 0.1)
 motion_offset = Vector2(0.17, 0)
 motion_mirroring = Vector2(576, 0)
 
@@ -237,7 +234,7 @@ region_rect = Rect2(0, 0, 576, 220)
 [node name="fc" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1322472007]
 texture_repeat = 2
 position = Vector2(-7, 6)
-motion_scale = Vector2(0.3, 0.3)
+motion_scale = Vector2(0.15, 0.15)
 motion_mirroring = Vector2(576, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/fc" unique_id=1595787599]

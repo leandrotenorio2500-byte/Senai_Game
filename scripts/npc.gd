@@ -18,28 +18,42 @@ var vframes: int = 1:
 var dialog_data: Array[Dictionary] = []
 
 @onready var _area: Area2D = $Area2D
+@onready var _interact_label: Control = $InteractiveLabel
+
 var _sprite: AnimatedSprite2D
 var _player_nearby: bool = false
 
 func _ready() -> void:
 	_sprite = $AnimatedSprite2D
 	_apply_texture()
+	_interact_label.visible = false
 	_area.body_entered.connect(_on_body_entered)
 	_area.body_exited.connect(_on_body_exited)
+	_animate_label()
+
+func _animate_label() -> void:
+	var tween = create_tween().set_loops()
+	tween.tween_property(_interact_label, "position:y", _interact_label.position.y - 5, 0.6)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(_interact_label, "position:y", _interact_label.position.y, 0.6)\
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _process(_delta: float) -> void:
 	if not _player_nearby:
 		return
 	if Input.is_action_just_pressed("interect"):
+		_interact_label.visible = false
 		DialogManager.start_dialog(dialog_data)
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		_player_nearby = true
+		_interact_label.visible = true
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		_player_nearby = false
+		_interact_label.visible = false
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	pass

@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dkf0j03c140ag"]
 
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="1_34xg4"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="2_0u2uj"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_r21wx"]
 animations = []
 
@@ -29,6 +32,41 @@ collision_mask = 2
 position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_xi326")
 debug_color = Color(0, 0.64154917, 0.33751327, 0.41960785)
+
+[node name="InteractiveLabel" type="Control" parent="." unique_id=246423463]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="NinePatchRect" parent="InteractiveLabel" unique_id=980893653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -24.0
+offset_right = -32.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_34xg4")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="InteractiveLabel" unique_id=1279028781]
+layout_mode = 0
+offset_left = -5.0
+offset_top = -22.0
+offset_right = 7.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0u2uj")
+theme_override_font_sizes/font_size = 4
+text = "Enter"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

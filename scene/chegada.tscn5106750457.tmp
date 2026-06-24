@@ -282,9 +282,16 @@ offset_right = 27.0
 [node name="Robson" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("21_e3qm6")]
 position = Vector2(425, 177)
 script = ExtResource("22_j77hi")
+spritesheet = ExtResource("9_3cq5m")
+hframes = 8
+faceset_path = "res://sprites/npcs/npc3_dialog.png"
 
 [node name="Serana" parent="NpcsInteractive" unique_id=1627819014 instance=ExtResource("21_e3qm6")]
 position = Vector2(582, 177)
 script = ExtResource("23_uskk0")
+hframes = 8
+vframes = null
+dialog_data = null
+faceset_path = null
 
 [editable path="LevelChanger"]

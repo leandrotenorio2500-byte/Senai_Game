@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://dkf0j03c140ag"]
 
-[ext_resource type="Script" uid="uid://cc4i7wxh16w0e" path="res://scripts/npc_interactive.gd" id="1_nvred"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_r21wx"]
 animations = []
 
@@ -11,10 +9,9 @@ size = Vector2(13, 25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi326"]
 size = Vector2(17, 25)
 
-[node name="NpcInteractive" type="Area2D" unique_id=69025098 groups=["Npcs"]]
+[node name="Npc" type="Area2D" unique_id=69025098 groups=["Npcs"]]
 collision_layer = 2048
 collision_mask = 2
-script = ExtResource("1_nvred")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1379308821]
 sprite_frames = SubResource("SpriteFrames_r21wx")

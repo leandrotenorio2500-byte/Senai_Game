@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*uid://dgni40vxmpv1t"
+DialogManager="*uid://f6r3btswee6g"
 
 [display]
 

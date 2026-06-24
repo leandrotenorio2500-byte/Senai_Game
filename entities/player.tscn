@@ -327,6 +327,7 @@ max_speed = 100.0
 acceleration = 380
 decceleration = 500
 slide_decceleration = 50
+max_jump_count = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143122044]
 position = Vector2(0, 0.1)

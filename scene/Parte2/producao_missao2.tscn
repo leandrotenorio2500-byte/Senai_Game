@@ -6,7 +6,6 @@
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_fa5cd"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_4t1bx"]
 [ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="6_rcp7j"]
-[ext_resource type="PackedScene" uid="uid://c6a3vb4rr0lqu" path="res://scene/hud.tscn" id="7_n71ly"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_meeqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
@@ -71,7 +70,5 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit2" unique_id=1022153412]
 position = Vector2(-123, 96)
 shape = SubResource("RectangleShape2D_kmspj")
-
-[node name="HUD" parent="." unique_id=697345291 instance=ExtResource("7_n71ly")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_meeqk")]

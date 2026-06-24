@@ -22,8 +22,7 @@ func _ready() -> void:
 	_sprite = $AnimatedSprite2D
 	_apply_texture()
 
-
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	pass  # coloca aqui o que quiser quando algo entra no colisor
 
 
@@ -46,11 +45,11 @@ func _apply_texture() -> void:
 		var atlas := AtlasTexture.new()
 		atlas.atlas = spritesheet
 		atlas.region = Rect2(
-			col * int(spritesheet.get_width() / hframes),
-			0,
-			int(spritesheet.get_width() / hframes),
-			int(spritesheet.get_height() / vframes)
-		)
+	col * (float(spritesheet.get_width()) / hframes),
+	0,
+	float(spritesheet.get_width()) / hframes,
+	float(spritesheet.get_height()) / vframes
+)
 		frames.add_frame("idle", atlas)
 
 	frames.set_animation_loop("idle", true)

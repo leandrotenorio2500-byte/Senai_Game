@@ -34,6 +34,7 @@ Player=""
 Enemies=""
 LethalArea=""
 Projects=""
+Npcs=""
 
 [input]
 
@@ -93,6 +94,7 @@ abrir_mapa={
 2d_physics/layer_9="projects"
 2d_physics/layer_10="interections"
 2d_physics/layer_11="porta"
+2d_physics/layer_12="npcs"
 
 [physics]
 

@@ -8,8 +8,8 @@ animations = []
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wwyu"]
 size = Vector2(13, 25)
 
-[node name="NpcInteractive" type="Area2D" unique_id=69025098]
-collision_layer = 32
+[node name="NpcInteractive" type="Area2D" unique_id=69025098 groups=["Npcs"]]
+collision_layer = 2048
 collision_mask = 2
 script = ExtResource("1_nvred")
 

@@ -8,6 +8,9 @@ animations = []
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1wwyu"]
 size = Vector2(13, 25)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xi326"]
+size = Vector2(17, 25)
+
 [node name="NpcInteractive" type="Area2D" unique_id=69025098 groups=["Npcs"]]
 collision_layer = 2048
 collision_mask = 2
@@ -20,6 +23,15 @@ animation = &""
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602223923]
 position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_1wwyu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=827929150]
+collision_layer = 2048
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=499849559]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_xi326")
+debug_color = Color(0, 0.64154917, 0.33751327, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

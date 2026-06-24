@@ -33,8 +33,18 @@ var _robson_dialog_data: Dictionary = {
 }
 
 @onready var _hud: CanvasLayer = $HUD
+@onready var _interaction_area: Area2D = $NpcsInteractive/NpcInteractive/Area2D
+
+var _player_nearby: bool = false
+
+func _ready() -> void:
+	_interaction_area.body_entered.connect(_on_body_entered)
+	_interaction_area.body_exited.connect(_on_body_exited)
 
 func _process(_delta: float) -> void:
+	if not _player_nearby:
+		return
+
 	if Input.is_action_just_pressed("interect"):
 		if _hud.get_child_count() > 0:
 			return
@@ -44,3 +54,12 @@ func _process(_delta: float) -> void:
 		
 		_hud.add_child(_new_dialog)
 		_new_dialog.start_dialog()
+
+func _on_body_entered(body: Node2D) -> void:
+	# print("corpo entrou: ", body.name, " | grupos: ", body.get_groups())
+	if body.is_in_group("Player"):
+		_player_nearby = true
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		_player_nearby = false

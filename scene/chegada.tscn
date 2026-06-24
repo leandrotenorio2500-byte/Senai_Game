@@ -283,3 +283,4 @@ spritesheet = ExtResource("9_3cq5m")
 hframes = 8
 
 [editable path="LevelChanger"]
+[editable path="NpcsInteractive/NpcInteractive"]

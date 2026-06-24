@@ -280,6 +280,8 @@ offset_right = 27.0
 [node name="NpcInteractive" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("21_e3qm6")]
 position = Vector2(436, 177)
 spritesheet = ExtResource("9_3cq5m")
+hframes = 4
+vframes = 1
 metadata/_edit_group_ = true
 
 [editable path="LevelChanger"]

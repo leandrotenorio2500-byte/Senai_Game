@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b5w4buyvjl8w7"]
 
 [ext_resource type="Texture2D" uid="uid://llygc3cluamh" path="res://sprites/BACKGROUND/producao.png" id="1_rf5m3"]
-[ext_resource type="Script" uid="uid://c5qci4xa0pqux" path="res://scripts/scenes_scripts/producao.gd" id="1_vco0o"]
+[ext_resource type="Script" uid="uid://c5qci4xa0pqux" path="res://scripts/missions/producao.gd" id="1_vco0o"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="3_6auqp"]
 [ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="4_c5fjl"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_vco0o"]

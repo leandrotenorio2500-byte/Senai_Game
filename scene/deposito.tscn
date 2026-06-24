@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://djhs23rtt4sye"]
 
-[ext_resource type="Script" uid="uid://bguwewup552qs" path="res://scripts/scenes_scripts/deposito.gd" id="1_ftmwp"]
+[ext_resource type="Script" uid="uid://bguwewup552qs" path="res://scripts/missions/deposito.gd" id="1_ftmwp"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_ocnva"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_oj85h"]
 [ext_resource type="Texture2D" uid="uid://1iujc401sqf2" path="res://sprites/BACKGROUND/Deposito (2).png" id="3_ftmwp"]

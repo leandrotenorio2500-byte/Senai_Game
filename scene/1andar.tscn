@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://d2a75r2ne3nbm"]
 
-[ext_resource type="Script" uid="uid://cwhvmt0u7otny" path="res://scripts/scenes_scripts/1_andar.gd" id="1_cgl2t"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_dvc8x"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_4hrr3"]
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_c36gr"]
@@ -10,6 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="9_4hrr3"]
 [ext_resource type="Script" uid="uid://dryb503vq6trr" path="res://scripts/level_changer.gd" id="9_c36gr"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="10_c36gr"]
+
+[sub_resource type="GDScript" id="GDScript_4hrr3"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	Globals.area_atual = scene_file_path.get_file().get_basename()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
@@ -25,7 +38,7 @@ shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0)
 
 [node name="Forest" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -6)
-script = ExtResource("1_cgl2t")
+script = SubResource("GDScript_4hrr3")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_dvc8x")]
 position = Vector2(226, 145)

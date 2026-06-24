@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ddflgg8axpct6"]
+
+[ext_resource type="Script" uid="uid://cexihxmbyf6ev" path="res://scripts/dialog_screen.gd" id="1_0q05r"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="1_ai7ay"]
+[ext_resource type="Texture2D" uid="uid://btf7ol6ks1t5r" path="res://sprites/npcs/npc3_dialog.png" id="2_ydwb0"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_0q05r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3vr2"]
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0.235, 0.375)
+
+[node name="DialogScreen" type="Control" unique_id=1501295445]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -58.890015
+offset_right = 100.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_0q05r")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=1001229223]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ai7ay")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=852940515]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.5
+offset_top = -21.554993
+offset_right = 97.5
+offset_bottom = 20.445007
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="Background/HBoxContainer" unique_id=798470359]
+custom_minimum_size = Vector2(42, 0)
+layout_mode = 2
+color = Color(0.20392157, 1, 1, 0)
+
+[node name="TextureRect" type="TextureRect" parent="Background/HBoxContainer/Border" unique_id=63508031]
+layout_mode = 0
+offset_left = -0.5
+offset_right = 41.5
+offset_bottom = 42.0
+texture = ExtResource("2_ydwb0")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer" unique_id=1713599610]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Background/HBoxContainer/VBoxContainer" unique_id=292487394]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0q05r")
+text = "Nome"
+label_settings = SubResource("LabelSettings_x3vr2")
+horizontal_alignment = 2
+
+[node name="Dialog" type="RichTextLabel" parent="Background/HBoxContainer/VBoxContainer" unique_id=1044823037]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_0q05r")
+theme_override_font_sizes/normal_font_size = 6
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "

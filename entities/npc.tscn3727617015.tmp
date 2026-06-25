@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dkf0j03c140ag"]
 
-[ext_resource type="Script" uid="uid://gntxvng4ln1n" path="res://scripts/npc_elements.gd" id="1_0u2uj"]
+[ext_resource type="Script" uid="uid://cc4i7wxh16w0e" path="res://scripts/npc.gd" id="1_0u2uj"]
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="1_34xg4"]
 [ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="2_0u2uj"]
 
@@ -14,8 +14,6 @@ size = Vector2(13, 25)
 size = Vector2(17, 25)
 
 [node name="Npc" type="CharacterBody2D" unique_id=457078932]
-collision_layer = 2048
-collision_mask = 3
 script = ExtResource("1_0u2uj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=767735401]

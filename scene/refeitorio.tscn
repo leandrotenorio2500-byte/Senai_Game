@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://dsbagef874bed"]
 
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_18hrp"]
-[ext_resource type="Script" uid="uid://dqqso22gj1sgx" path="res://scripts/missions/refeitorio.gd" id="1_p0lk3"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_ro14o"]
 [ext_resource type="Texture2D" uid="uid://ca8pp3nty25ik" path="res://sprites/BACKGROUND/refeitorio.png" id="3_eqc2l"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_8pkmy"]
@@ -18,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="11_8pkmy"]
 [ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="14_m4y3p"]
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="15_lfuly"]
+[ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="18_ncpg8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_majwv"]
 texture = ExtResource("7_ncpg8")
@@ -138,7 +138,6 @@ sources/1 = SubResource("TileSetAtlasSource_8pkmy")
 
 [node name="refeitorio" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -22)
-script = ExtResource("1_p0lk3")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_18hrp")]
 position = Vector2(29, 163)
@@ -201,3 +200,8 @@ need_interaction = false
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_8pkmy")]
 visible = false
+
+[node name="Objectives" type="Node2D" parent="." unique_id=1411485978]
+
+[node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("18_ncpg8")]
+position = Vector2(197, 159)

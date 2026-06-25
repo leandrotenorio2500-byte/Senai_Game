@@ -61,7 +61,7 @@ func _on_dialog_manager_finished() -> void:
 
 func _on_dialog_completed() -> void:
 	emit_signal("dialog_finished")
-	print("Conversa concluída com sucesso com o NPC base!")
+	#print("Conversa concluída com sucesso com o NPC base!")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

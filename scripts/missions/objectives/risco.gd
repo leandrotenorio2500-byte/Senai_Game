@@ -7,10 +7,10 @@ func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body):
-	if body.is_in_group("Player") and not ja_coletado:
-		if QuestManager.quests["aprendiz_senai"]["current_step"] == 0:
+	if body.is_in_group("Player") and not ja_coletado and QuestManager.quests["identificar_riscos"]["started"]:
+		if QuestManager.quests["identificar_riscos"]["current_step"] == 0:
 			ja_coletado = true
-			QuestManager.progress_quest("aprendiz_senai")
+			QuestManager.progress_quest("identificar_riscos")
 			
 			# Isso vai deletar o nó 'Risco' e TODOS os filhos dele juntos!
 			queue_free()

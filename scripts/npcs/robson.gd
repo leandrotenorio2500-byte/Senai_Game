@@ -21,25 +21,19 @@ func _ready() -> void:
 			"dialog": "Ah, que massa! Cara, fico feliz demais da vida quando ver a garotada tendo oportunidades assim logo cedo.", 
 			"faceset": npc_faceset_path
 		},
-		{
-			"title": npc_name, 
-			"dialog": "O mercado de trabalho precisa muito disso, e começar com o pé direito num lugar legal faz toda a diferença.", 
-			"faceset": npc_faceset_path
-		},
-		{
-			"title": npc_name, 
-			"dialog": "Seja muito bem-vindo, viu? Aproveite bastante. Se precisar de qualquer ajuda para se situar por aqui, é só me gritar!", 
-			"faceset": npc_faceset_path
-		},
+		#{
+			#"title": npc_name, 
+			#"dialog": "O mercado de trabalho precisa muito disso, e começar com o pé direito num lugar legal faz toda a diferença.", 
+			#"faceset": npc_faceset_path
+		#},
+		#{
+			#"title": npc_name, 
+			#"dialog": "Seja muito bem-vindo, viu? Aproveite bastante. Se precisar de qualquer ajuda para se situar por aqui, é só me gritar!", 
+			#"faceset": npc_faceset_path
+		#},
 	]
 	super._ready()
 
 func _on_dialog_completed() -> void:
 	# Chama o comportamento padrão do script pai (emitir o sinal)
 	super._on_dialog_completed()
-	
-	# Executa a sua ação personalizada aqui!
-	_dar_recompensa_ao_jogador()
-
-func _dar_recompensa_ao_jogador() -> void:
-	print("Robson diz: Obrigado por conversar comigo! Aqui está sua recompensa de Jovem Aprendiz.")

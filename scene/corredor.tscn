@@ -56,6 +56,9 @@ position = Vector2(419, 79)
 [node name="LevelChanger" parent="." index="7" unique_id=1028902330]
 position = Vector2(-125, 153)
 
+[node name="LevelChanger" parent="." index="7" unique_id=1028902330]
+position = Vector2(-125, 153)
+
 [node name="LevelChangerLeft" parent="." index="8" unique_id=104915545 instance=ExtResource("3_7mjj7")]
 position = Vector2(-13, 75)
 scale = Vector2(0.971244, 12.039999)
@@ -70,10 +73,5 @@ next_player_position = Vector2(151, 147)
 
 [node name="CollisionShape2D" parent="Elevetor" index="0" unique_id=1355855242]
 position = Vector2(2, 6.5)
-
-[node name="LevelChanger2" parent="." index="12" unique_id=2054639017 instance=ExtResource("3_7mjj7")]
-position = Vector2(297, 131)
-next_level = "uid://b5w4buyvjl8w7"
-next_player_position = Vector2(21, 160)
 
 [editable path="Elevetor"]

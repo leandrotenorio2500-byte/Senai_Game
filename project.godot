@@ -18,12 +18,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*uid://dgni40vxmpv1t"
+DialogManager="*uid://f6r3btswee6g"
 
 [display]
 
 window/size/viewport_width=400
 window/size/viewport_height=220
 window/size/mode=2
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/layer_11="door"
 
@@ -33,6 +35,7 @@ Player=""
 Enemies=""
 LethalArea=""
 Projects=""
+Npcs=""
 
 [input]
 
@@ -92,6 +95,7 @@ abrir_mapa={
 2d_physics/layer_9="projects"
 2d_physics/layer_10="interections"
 2d_physics/layer_11="porta"
+2d_physics/layer_12="npcs"
 
 [physics]
 

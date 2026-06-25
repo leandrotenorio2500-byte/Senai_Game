@@ -30,6 +30,7 @@ const JUMP_VELOCITY = -300.0
 @export var wall_jump_velocity = 200
 
 var knockback_vector := Vector2.ZERO
+var blocked: bool = false
 
 var direction = 0
 
@@ -51,7 +52,11 @@ func _ready() -> void:
 		Globals.should_position = false
 	
 
-func _physics_process(delta: float) -> void:		
+func _physics_process(delta: float) -> void:	
+	if blocked:
+		velocity.x = 0
+		move_and_slide()
+		return	
 	
 	match status:
 		PlayerState.idle:

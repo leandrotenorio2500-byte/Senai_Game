@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://w3gpkqkiuft"]
 
+[ext_resource type="Script" uid="uid://bp3gnhc4cxo6r" path="res://scripts/levels/almoxarifado.gd" id="1_smml3"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_wd2cn"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_sl2rw"]
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_smml3"]
@@ -15,6 +16,7 @@ size = Vector2(20, 209)
 
 [node name="almoxarife" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -6)
+script = ExtResource("1_smml3")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_wd2cn")]
 position = Vector2(502, 145)
@@ -72,3 +74,5 @@ position = Vector2(99, -3)
 
 [node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("9_smml3")]
 position = Vector2(182, 144)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=627340578]

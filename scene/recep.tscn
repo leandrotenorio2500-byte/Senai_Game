@@ -81,10 +81,12 @@ tile_set = ExtResource("4_dt7ot")
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_ok7cm")]
 visible = false
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=886528879]
-
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
 
 [node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
 position = Vector2(227, 147)
 script = ExtResource("11_dhp2d")
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
+
+[node name="MissionHUD" type="CanvasLayer" parent="." unique_id=95516621]

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://hsi0kfbxvd07"]
+
+[ext_resource type="Script" uid="uid://b0y53wy5m1ktj" path="res://scripts/quest_screen.gd" id="1_4md87"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_k54ji"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3vr2"]
+font_size = 9
+shadow_size = 0
+shadow_offset = Vector2(0.235, 0.375)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4md87"]
+font = ExtResource("4_k54ji")
+font_size = 8
+font_color = Color(0.9612289, 0.961229, 0.9612289, 1)
+
+[node name="MissionScreen" type="Control" unique_id=1501295445]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -212.0
+offset_right = 95.0
+offset_bottom = -195.11
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_4md87")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1348502541]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1682489509]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=292487394]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_k54ji")
+text = "Titulo da missão"
+label_settings = SubResource("LabelSettings_x3vr2")
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1551707607]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Descrição da missão"
+label_settings = SubResource("LabelSettings_4md87")

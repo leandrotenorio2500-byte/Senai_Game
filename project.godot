@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Globals="*uid://dgni40vxmpv1t"
 DialogManager="*uid://f6r3btswee6g"
+QuestManager="*uid://bs7ej8nntf26w"
 
 [display]
 

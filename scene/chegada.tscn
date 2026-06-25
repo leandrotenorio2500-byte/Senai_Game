@@ -21,8 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://dsuwenuwlsqxw" path="res://sprites/BACKGROUND/highvlouds.png" id="12_uskk0"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="20_h5ou5"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="21_e3qm6"]
-[ext_resource type="Script" uid="uid://pn7h8p2hoykj" path="res://entities/npcs/robson.gd" id="22_j77hi"]
-[ext_resource type="Script" uid="uid://dggt2erjb4lfo" path="res://entities/npcs/serana.gd" id="23_uskk0"]
+[ext_resource type="Script" uid="uid://pn7h8p2hoykj" path="res://scripts/npcs/robson.gd" id="22_j77hi"]
+[ext_resource type="Script" uid="uid://dggt2erjb4lfo" path="res://scripts/npcs/serana.gd" id="23_uskk0"]
+[ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="24_3cq5m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfesy"]
 texture = ExtResource("5_h5ou5")
@@ -286,5 +287,16 @@ script = ExtResource("22_j77hi")
 [node name="Serana" parent="NpcsInteractive" unique_id=1627819014 instance=ExtResource("21_e3qm6")]
 position = Vector2(582, 177)
 script = ExtResource("23_uskk0")
+
+[node name="Objectives" type="Node2D" parent="." unique_id=708189174]
+
+[node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("24_3cq5m")]
+position = Vector2(361, 171)
+
+[node name="Risco2" parent="Objectives" unique_id=1063510358 instance=ExtResource("24_3cq5m")]
+position = Vector2(193, 126)
+
+[node name="Risco3" parent="Objectives" unique_id=1112108304 instance=ExtResource("24_3cq5m")]
+position = Vector2(112, 180)
 
 [editable path="LevelChanger"]

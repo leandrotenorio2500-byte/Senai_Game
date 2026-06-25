@@ -33,3 +33,13 @@ func _ready() -> void:
 		},
 	]
 	super._ready()
+
+func _on_dialog_completed() -> void:
+	# Chama o comportamento padrão do script pai (emitir o sinal)
+	super._on_dialog_completed()
+	
+	# Executa a sua ação personalizada aqui!
+	_dar_recompensa_ao_jogador()
+
+func _dar_recompensa_ao_jogador() -> void:
+	print("Robson diz: Obrigado por conversar comigo! Aqui está sua recompensa de Jovem Aprendiz.")

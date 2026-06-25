@@ -1,5 +1,7 @@
 extends Node2D
 
+signal dialog_finished
+
 var spritesheet: Texture2D:
 	set(value):
 		spritesheet = value
@@ -44,6 +46,22 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interect"):
 		_interact_label.visible = false
 		DialogManager.start_dialog(dialog_data)
+		
+		if DialogManager.has_signal("dialog_ended"):
+			# Conecta uma única vez para saber quando fechar
+			if not DialogManager.dialog_ended.is_connected(_on_dialog_manager_finished):
+				DialogManager.dialog_ended.connect(_on_dialog_manager_finished)
+
+func _on_dialog_manager_finished() -> void:
+	if DialogManager.dialog_ended.is_connected(_on_dialog_manager_finished):
+		DialogManager.dialog_ended.disconnect(_on_dialog_manager_finished)
+	
+	# Executa a lógica de sucesso do diálogo
+	_on_dialog_completed()
+
+func _on_dialog_completed() -> void:
+	emit_signal("dialog_finished")
+	print("Conversa concluída com sucesso com o NPC base!")
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

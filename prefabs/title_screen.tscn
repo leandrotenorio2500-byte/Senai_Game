@@ -3,38 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="1_aedtt"]
 [ext_resource type="Script" uid="uid://dsdhwq8rdlmdn" path="res://scripts/title_screen.gd" id="1_agckt"]
 [ext_resource type="Texture2D" uid="uid://clhfi7su6a2yl" path="res://sprites/titlescreen2.png" id="2_u6xng"]
-[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="3_agckt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee4bf"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Theme" id="Theme_qtu10"]
-default_font = ExtResource("3_agckt")
-default_font_size = 22
-Button/colors/font_color = Color(0.822643, 0.8226425, 0.8226429, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/styles/focus = null
-Button/styles/hover = SubResource("StyleBoxFlat_ee4bf")
-Button/styles/normal = SubResource("StyleBoxFlat_62e2m")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbped"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtu10"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Theme" id="Theme_ee4bf"]
-default_font = ExtResource("3_agckt")
-default_font_size = 22
-Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = SubResource("StyleBoxFlat_kbped")
-Button/styles/normal = SubResource("StyleBoxFlat_qtu10")
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="4_u6xng"]
 
 [sub_resource type="Animation" id="Animation_u6xng"]
 length = 0.001
@@ -67,10 +36,26 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_nvgea"]
+resource_name = "fadein"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nvgea"]
 _data = {
 &"RESET": SubResource("Animation_u6xng"),
-&"fade in": SubResource("Animation_agckt")
+&"fade in": SubResource("Animation_agckt"),
+&"fadein": SubResource("Animation_nvgea")
 }
 
 [node name="Title_Screen" type="Control" unique_id=342701394]
@@ -138,25 +123,30 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Iniciar" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=702414146]
+[node name="start" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=1581224940]
 layout_mode = 2
-theme = SubResource("Theme_qtu10")
-text = "INICIAR jogo"
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("4_u6xng")
+text = "iniciar jogo"
 
-[node name="Créditos" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=708134635]
+[node name="credits" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=1194678397]
 layout_mode = 2
-theme = SubResource("Theme_ee4bf")
+size_flags_horizontal = 4
+theme = ExtResource("4_u6xng")
 text = "creditos"
 
-[node name="Sair" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=60487276]
+[node name="QuitButton" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=313223171]
 layout_mode = 2
-theme = SubResource("Theme_ee4bf")
-text = "SAIR"
+size_flags_horizontal = 4
+theme = ExtResource("4_u6xng")
+text = "Sair
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738584462]
 libraries/ = SubResource("AnimationLibrary_nvgea")
-autoplay = &"fade in"
+autoplay = &"fadein"
 
-[connection signal="pressed" from="Buttons_manager/VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
-[connection signal="pressed" from="Buttons_manager/VBoxContainer/Créditos" to="." method="_on_créditos_pressed"]
-[connection signal="pressed" from="Buttons_manager/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[connection signal="pressed" from="Buttons_manager/VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons_manager/VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Buttons_manager/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

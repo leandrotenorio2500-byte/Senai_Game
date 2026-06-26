@@ -21,8 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://dsuwenuwlsqxw" path="res://sprites/BACKGROUND/highvlouds.png" id="12_uskk0"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="20_h5ou5"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="21_e3qm6"]
-[ext_resource type="Script" uid="uid://pn7h8p2hoykj" path="res://entities/npcs/robson.gd" id="22_j77hi"]
-[ext_resource type="Script" uid="uid://dggt2erjb4lfo" path="res://entities/npcs/serana.gd" id="23_uskk0"]
+[ext_resource type="Script" uid="uid://pn7h8p2hoykj" path="res://scripts/npcs/robson.gd" id="22_j77hi"]
+[ext_resource type="Script" uid="uid://dggt2erjb4lfo" path="res://scripts/npcs/serana.gd" id="23_uskk0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfesy"]
 texture = ExtResource("5_h5ou5")

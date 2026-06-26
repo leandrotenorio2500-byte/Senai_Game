@@ -1,5 +1,7 @@
 extends Node
 
+signal dialog_ended
+
 const _DIALOG_SCREEN: PackedScene = preload("res://entities/dialog_screen.tscn")
 
 var _player: CharacterBody2D = null
@@ -38,3 +40,5 @@ func start_dialog(dialog_data: Array[Dictionary]) -> void:
 func _on_dialog_closed() -> void:
 	if _player:
 		_player.blocked = false
+		
+	dialog_ended.emit()

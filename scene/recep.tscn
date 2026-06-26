@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cg7deh3vprap7"]
 
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_h127m"]
-[ext_resource type="Script" uid="uid://0u78w2edx7hj" path="res://scripts/missions/recep.gd" id="1_n14ru"]
+[ext_resource type="Script" uid="uid://ggdw56ujguy5" path="res://scripts/levels/recep.gd" id="1_ok7cm"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_ok7cm"]
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_n14ru"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_dt7ot"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="6_h127m"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_6c8f1"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
+[ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
 
 [sub_resource type="TileSet" id="TileSet_ok7cm"]
 
@@ -17,7 +19,7 @@ size = Vector2(20, 202.5)
 
 [node name="recepcao" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -6)
-script = ExtResource("1_n14ru")
+script = ExtResource("1_ok7cm")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_h127m")]
 position = Vector2(42, 147)
@@ -78,3 +80,13 @@ tile_set = ExtResource("4_dt7ot")
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_ok7cm")]
 visible = false
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
+
+[node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
+position = Vector2(227, 147)
+script = ExtResource("11_dhp2d")
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
+
+[node name="MissionHUD" type="CanvasLayer" parent="." unique_id=95516621]

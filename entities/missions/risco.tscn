@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bvj1hyicuv5wm"]
+
+[ext_resource type="Script" uid="uid://u1uparygoq72" path="res://scripts/missions/objectives/risco.gd" id="1_ain5q"]
+[ext_resource type="Texture2D" uid="uid://cy2peeb8ql802" path="res://sprites/Common Pick-ups/Small_Coin (16 x 16).png" id="1_dj36k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ain5q"]
+atlas = ExtResource("1_dj36k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob5fp"]
+atlas = ExtResource("1_dj36k")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1tba"]
+atlas = ExtResource("1_dj36k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hleij"]
+atlas = ExtResource("1_dj36k")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qc5gh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ain5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob5fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1tba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hleij")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd2c1"]
+size = Vector2(8, 8)
+
+[node name="Risco" type="Node2D" unique_id=1845881561]
+script = ExtResource("1_ain5q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=650460907]
+sprite_frames = SubResource("SpriteFrames_qc5gh")
+animation = &"idle"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1317296588]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1733705914]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_gd2c1")

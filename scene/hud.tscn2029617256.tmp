@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://c6a3vb4rr0lqu"]
+
+[ext_resource type="Texture2D" uid="uid://cqqd2wm4xivel" path="res://sprites/Mini UI/coins/00_Coin-Sprites.png" id="1_lky30"]
+[ext_resource type="Script" uid="uid://cjqauwd8rombg" path="res://scripts/hug_manager.gd" id="1_qy82l"]
+[ext_resource type="Texture2D" uid="uid://c2jgfymmleyhf" path="res://sprites/Mini UI/coins/01_Coin-Sprites.png" id="2_qy82l"]
+[ext_resource type="Texture2D" uid="uid://omppuygm40o8" path="res://sprites/Mini UI/coins/02_Coin-Sprites.png" id="3_sjh6b"]
+[ext_resource type="Texture2D" uid="uid://dtj08tvcncyd" path="res://sprites/Mini UI/coins/03_Coin-Sprites.png" id="4_xphas"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="5_kc6cu"]
+[ext_resource type="Texture2D" uid="uid://c75i44fbkbj6g" path="res://sprites/Mini UI/mapa_icon.png" id="7_qy82l"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_b48p2"]
+frames = 4
+frame_0/texture = ExtResource("1_lky30")
+frame_1/texture = ExtResource("2_qy82l")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_sjh6b")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_xphas")
+frame_3/duration = 1.0
+
+[node name="HUD" type="CanvasLayer" unique_id=697345291]
+script = ExtResource("1_qy82l")
+
+[node name="Control" type="Control" parent="." unique_id=1170427716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=599100126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="LifeContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1450863064]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="LifeIcon" type="TextureRect" parent="Control/MarginContainer/LifeContainer" unique_id=1858736484]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("7_qy82l")
+
+[node name="LifeSeparator" type="Label" parent="Control/MarginContainer/LifeContainer" unique_id=1796700909]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_kc6cu")
+theme_override_font_sizes/font_size = 8
+text = "X"
+vertical_alignment = 1
+
+[node name="LifeCounter" type="Label" parent="Control/MarginContainer/LifeContainer" unique_id=1514310699]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_kc6cu")
+theme_override_font_sizes/font_size = 8
+text = "01"
+vertical_alignment = 1
+
+[node name="CoinsContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1192282022]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="CoinsIcon" type="TextureRect" parent="Control/MarginContainer/CoinsContainer" unique_id=761568766]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AnimatedTexture_b48p2")
+
+[node name="CoinsCounter" type="Label" parent="Control/MarginContainer/CoinsContainer" unique_id=1773324877]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_kc6cu")
+theme_override_font_sizes/font_size = 8
+text = "000"
+vertical_alignment = 1

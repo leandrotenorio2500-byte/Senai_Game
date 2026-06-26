@@ -24,3 +24,8 @@ func _ready() -> void:
 		},
 	]
 	super._ready()
+	
+func _on_dialog_completed() -> void:
+	# Chama o comportamento padrão do script pai (emitir o sinal)
+	super._on_dialog_completed()
+	

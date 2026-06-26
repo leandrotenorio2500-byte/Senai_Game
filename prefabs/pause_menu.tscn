@@ -14,7 +14,6 @@ events = [SubResource("InputEventAction_iyb4f")]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1287701451]
 process_mode = 3
-visible = false
 script = ExtResource("1_iyb4f")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=176387554]
@@ -42,7 +41,7 @@ grow_vertical = 2
 layout_mode = 2
 theme = ExtResource("1_hf53u")
 shortcut = SubResource("Shortcut_ntkjb")
-text = "Voltar ao Jogo"
+text = "Voltar"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=556359553]
 layout_mode = 2

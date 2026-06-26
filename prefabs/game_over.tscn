@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b2e3xayj2nr10"]
 
-[ext_resource type="Texture2D" uid="uid://lskw6u4ghb3v" path="res://sprites/Mini UI/game_over.png" id="1_8uthh"]
 [ext_resource type="Script" uid="uid://br5035bof027m" path="res://scripts/game_over.gd" id="1_s76ig"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="2_puky0"]
+[ext_resource type="Texture2D" uid="uid://wxrr8fdistcy" path="res://sprites/GAMEOVER.png" id="2_s76ig"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puky0"]
 
@@ -82,7 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0.79607844)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1167005219]
 layout_mode = 1
@@ -100,7 +100,7 @@ grow_vertical = 2
 
 [node name="GameOverTitle" type="TextureRect" parent="VBoxContainer" unique_id=1091179340]
 layout_mode = 2
-texture = ExtResource("1_8uthh")
+texture = ExtResource("2_s76ig")
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=632586812]
 layout_mode = 2
@@ -109,10 +109,12 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
 [node name="RestartBtn" type="Button" parent="VBoxContainer" unique_id=943304711]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_puky0")
 text = "Reiniciar"
 
 [node name="HSeparator3" type="HSeparator" parent="VBoxContainer" unique_id=1709634253]
+visible = false
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
 
@@ -120,9 +122,10 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_puky0")
-text = "Tela Inicial"
+text = "menu principal"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1620823385]
+visible = false
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
 
@@ -130,7 +133,8 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_puky0")
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_puky0")
-text = "Sair do Jogo"
+text = "Sair
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=687580407]
 libraries/ = SubResource("AnimationLibrary_8lptw")

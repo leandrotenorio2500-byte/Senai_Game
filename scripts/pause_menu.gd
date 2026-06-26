@@ -1,5 +1,6 @@
 extends CanvasLayer
 @onready var resume_btn: Button = $VBoxContainer/ResumeBtn
+@onready var title_btn: Button = $VBoxContainer/TitleBtn
 
 
 # Called when the node enters the scene tree for the first time.
@@ -8,7 +9,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
+func _process(delta: float) -> void:
 	pass
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -17,10 +18,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_tree().paused = true
 
 func _on_resume_btn_pressed() -> void:
-		visible = false
-		get_tree().paused = false
-		resume_btn.grab_focus()
-
+	visible = false
+	get_tree().paused = false
+	resume_btn.grab_focus()
 
 func _on_title_btn_pressed() -> void:
 	get_tree().change_scene_to_file("res://prefabs/title_screen.tscn")

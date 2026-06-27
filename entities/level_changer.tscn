@@ -22,6 +22,7 @@ shape = SubResource("RectangleShape2D_k4wox")
 debug_color = Color(0.26076448, 0.6205006, 0.38406932, 0.41960785)
 
 [node name="Label" type="Label" parent="." unique_id=390673933]
+texture_filter = 1
 offset_left = -15.0
 offset_top = -16.0
 offset_right = 19.0

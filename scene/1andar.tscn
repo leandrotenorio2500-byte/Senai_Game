@@ -17,6 +17,21 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_c7te7"]
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_r8le0"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_lpnjl"]
+[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="18_tmvpu"]
+
+[sub_resource type="GDScript" id="GDScript_4hrr3"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	Globals.area_atual = scene_file_path.get_file().get_basename()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uobok"]
 texture = ExtResource("7_tmvpu")
@@ -114,20 +129,6 @@ sources/5 = SubResource("TileSetAtlasSource_ffmf3")
 sources/6 = SubResource("TileSetAtlasSource_jgala")
 sources/7 = SubResource("TileSetAtlasSource_s4tub")
 
-[sub_resource type="GDScript" id="GDScript_4hrr3"]
-script/source = "extends Node2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	Globals.area_atual = scene_file_path.get_file().get_basename()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
 
@@ -201,8 +202,6 @@ shape = SubResource("RectangleShape2D_kmspj")
 position = Vector2(542, 64)
 shape = SubResource("RectangleShape2D_kmspj")
 
-[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_g781x")]
-
 [node name="Vestiario" parent="." unique_id=417721268 instance=ExtResource("9_4hrr3")]
 position = Vector2(375, 131)
 
@@ -220,7 +219,7 @@ collision_layer = 1024
 collision_mask = 2
 script = ExtResource("9_c36gr")
 next_level = "uid://ny0qilao0tam"
-next_player_position = Vector2(18, 147)
+next_player_position = Vector2(30, 147)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Banheiro" unique_id=1505246882]
 position = Vector2(2, 5.5)
@@ -237,7 +236,10 @@ label_settings = SubResource("LabelSettings_07uvj")
 autowrap_mode = 2
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("10_c36gr")]
-visible = false
+
+[node name="transition" parent="." unique_id=266359478 instance=ExtResource("18_tmvpu")]
+
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_g781x")]
 
 [connection signal="body_entered" from="Banheiro" to="Banheiro" method="_on_body_entered"]
 [connection signal="body_exited" from="Banheiro" to="Banheiro" method="_on_body_exited"]

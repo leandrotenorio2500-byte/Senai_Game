@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
 [ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
+[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="12_dhp2d"]
 
 [sub_resource type="TileSet" id="TileSet_ok7cm"]
 
@@ -67,8 +68,6 @@ shape = SubResource("RectangleShape2D_kmspj")
 position = Vector2(419, 48)
 shape = SubResource("RectangleShape2D_kmspj")
 
-[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_6c8f1")]
-
 [node name="LevelChanger" parent="." unique_id=1028902330 instance=ExtResource("6_h127m")]
 position = Vector2(22, 132)
 next_level = "uid://cc7gs4taylqkd"
@@ -90,3 +89,8 @@ script = ExtResource("11_dhp2d")
 [node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
 
 [node name="MissionHUD" type="CanvasLayer" parent="." unique_id=95516621]
+
+[node name="transition" parent="." unique_id=266359478 instance=ExtResource("12_dhp2d")]
+
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_6c8f1")]
+visible = false

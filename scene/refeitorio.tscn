@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="14_m4y3p"]
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="15_lfuly"]
 [ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="18_ncpg8"]
+[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="20_d5jcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_majwv"]
 texture = ExtResource("7_ncpg8")
@@ -209,3 +210,5 @@ visible = false
 position = Vector2(197, 159)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1356432637]
+
+[node name="transition" parent="." unique_id=266359478 instance=ExtResource("20_d5jcm")]

@@ -27,7 +27,7 @@ sources/0 = SubResource("TileSetAtlasSource_el3nv")
 [node name="corredor" unique_id=1111527481 instance=ExtResource("1_y4mxa")]
 
 [node name="Player" parent="." index="0" unique_id=1967718643]
-position = Vector2(378, 142)
+position = Vector2(376, 147)
 
 [node name="Sprite2D" parent="." index="2" unique_id=662053670]
 scale = Vector2(1.0050001, 0.99999994)
@@ -36,7 +36,7 @@ scale = Vector2(1.0050001, 0.99999994)
 tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAYAAAAAAA0ABAANAAgAAAACAAsABAAPAAYAAAACAA0ABAAPAAgAAAAGAAsABAAPAAYAAAAGAA0ABAAPAAgAAAAKAAsABAANAAYAAAAKAA0ABAANAAgAAAAMAAsABAAPAAYAAAAMAA0ABAAPAAgAAAAOAAsABAANAAYAAAAOAA0ABAANAAgAAAAQAAsABAAPAAYAAAAQAA0ABAAPAAgAAAAWAAsABAANAAYAAAAWAA0ABAANAAgAAAAYAAsABAANAAYAAAAYAA0ABAANAAgAAAAEAAsABAANAAYAAAAEAA0ABAANAAgAAAARAA0ABAAPAAgAAAATAA0ABAANAAgAAAAVAA0ABAAPAAgAAAARAAsABAAPAAYAAAATAAsABAANAAYAAAAHAA0ABAANAAgAAAAJAA0ABAAPAAgAAAAPAA0ABAANAAgAAAAaAAsABAAPAAYAAAAaAA0ABAAPAAgAAAAHAAsABAANAAYAAAAJAAsABAAPAAYAAAAPAAsABAANAAYAAAAVAAsABAAPAAYAAAA=")
 
 [node name="Decoration" parent="Tiles" parent_id_path=PackedInt32Array(1042751921) index="1" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAACAAUABgAZAAUAAAAHAAkABgASAAoAAAAHAAYABgASAAkAAAAMAAcABgABAAwAAAAXAAUABgAZAAMAAAANAAkABgAJAAwAAAAMAAQABgASAAIAAAASAAkABgAZAAoAAAASAAYABgARAAUAAAAEAAgABgAOAAIAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAHAAkABgASAAoAAAACAAUABgAZAAUAAAAHAAYABgASAAkAAAAMAAcABgABAAwAAAAXAAUABgAZAAMAAAANAAkABgAJAAwAAAAMAAQABgASAAIAAAASAAkABgAZAAoAAAASAAYABgARAAUAAAAEAAgABgAOAAIAAAA=")
 
 [node name="TileMapLayer" parent="Tiles" parent_id_path=PackedInt32Array(1042751921) index="2" unique_id=1618311414]
 visible = false
@@ -53,10 +53,7 @@ next_level = "uid://djhs23rtt4sye"
 [node name="CollisionShape2D2" parent="LevelLimit" parent_id_path=PackedInt32Array(378625645) index="1" unique_id=469442997]
 position = Vector2(419, 79)
 
-[node name="LevelChanger" parent="." index="7" unique_id=1028902330]
-position = Vector2(-125, 153)
-
-[node name="LevelChanger" parent="." index="7" unique_id=1028902330]
+[node name="LevelChanger" parent="." index="6" unique_id=1028902330]
 position = Vector2(-125, 153)
 
 [node name="LevelChangerLeft" parent="." index="8" unique_id=104915545 instance=ExtResource("3_7mjj7")]
@@ -73,5 +70,16 @@ next_player_position = Vector2(151, 147)
 
 [node name="CollisionShape2D" parent="Elevetor" index="0" unique_id=1355855242]
 position = Vector2(2, 6.5)
+
+[node name="MissionHUD" parent="." index="13" unique_id=95516621]
+visible = false
+
+[node name="PauseMenu" parent="." index="15" unique_id=1287701451]
+visible = true
+
+[node name="LevelChanger2" parent="." index="16" unique_id=1682377288 instance=ExtResource("3_7mjj7")]
+position = Vector2(295, 132)
+next_level = "uid://b5w4buyvjl8w7"
+next_player_position = Vector2(20, 147)
 
 [editable path="Elevetor"]

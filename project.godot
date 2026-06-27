@@ -26,7 +26,6 @@ QuestManager="*uid://bs7ej8nntf26w"
 window/size/viewport_width=400
 window/size/viewport_height=220
 window/size/mode=2
-window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/layer_11="door"
 

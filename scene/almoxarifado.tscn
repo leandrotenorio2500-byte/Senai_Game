@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_8ow8r"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="8_wd2cn"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_ycbo4"]
+[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="9_q3m8q"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_sl2rw"]
 [ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="9_smml3"]
 
@@ -57,17 +58,12 @@ shape = SubResource("RectangleShape2D_kmspj")
 position = Vector2(542, 102)
 shape = SubResource("RectangleShape2D_kmspj")
 
-[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_ycbo4")]
-
 [node name="LevelChangerRight" parent="." unique_id=1670860483 instance=ExtResource("8_wd2cn")]
 position = Vector2(530, 93)
 scale = Vector2(0.971244, 12.039999)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(16, 147)
 need_interaction = false
-
-[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_sl2rw")]
-visible = false
 
 [node name="Objectives" type="Node2D" parent="." unique_id=1803445187]
 position = Vector2(99, -3)
@@ -76,3 +72,10 @@ position = Vector2(99, -3)
 position = Vector2(182, 144)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=627340578]
+
+[node name="transition" parent="." unique_id=266359478 instance=ExtResource("9_q3m8q")]
+
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_sl2rw")]
+visible = false
+
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_ycbo4")]

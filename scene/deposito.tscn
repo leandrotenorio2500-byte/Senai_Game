@@ -137,7 +137,6 @@ position = Vector2(755, 60)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_fp5cx")]
-visible = false
 
 [node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
 position = Vector2(-7, 85)
@@ -147,7 +146,5 @@ next_player_position = Vector2(390, 147)
 need_interaction = false
 
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("11_hoit2")]
-visible = false
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_4hj14")]
-visible = false

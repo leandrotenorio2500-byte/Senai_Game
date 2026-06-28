@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bju8t2u71443p"]
+
+[ext_resource type="AudioStream" uid="uid://bln8ef5kongvw" path="res://Audio/moodmode-8-bit-arcade-138828.mp3" id="1_je0cb"]
+[ext_resource type="Script" uid="uid://ok00u35vnuxh" path="res://prefabs/trilha.gd" id="2_317km"]
+
+[node name="Trilha" type="AudioStreamPlayer" unique_id=2076150940]
+stream = ExtResource("1_je0cb")
+volume_db = -21.666
+pitch_scale = 0.93
+autoplay = true
+script = ExtResource("2_317km")

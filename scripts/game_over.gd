@@ -2,6 +2,7 @@ extends Control
 @onready var restart_btn: Button = $VBoxContainer/RestartBtn
 @onready var title_btn: Button = $VBoxContainer/TitleBtn
 @onready var quit_button: Button = $VBoxContainer/QuitButton
+@onready var toque: AudioStreamPlayer = $toque
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,13 +16,16 @@ func _process(_delta: float) -> void:
 
 
 func _on_restart_btn_pressed() -> void:
+	toque.play()
 	get_tree().change_scene_to_file("res://scene/recep.tscn")
 	
 
 
 func _on_title_btn_pressed() -> void:
+	toque.play()
 	get_tree().change_scene_to_file("res://prefabs/title_screen.tscn")
 
 
 func _on_quit_button_pressed() -> void:
+	toque.play()
 	get_tree().quit()

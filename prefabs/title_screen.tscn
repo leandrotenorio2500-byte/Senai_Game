@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dsdhwq8rdlmdn" path="res://scripts/title_screen.gd" id="1_agckt"]
 [ext_resource type="Texture2D" uid="uid://clhfi7su6a2yl" path="res://sprites/titlescreen2.png" id="2_u6xng"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="4_u6xng"]
+[ext_resource type="AudioStream" uid="uid://bci14mlbivyrf" path="res://Audio/floraphonic-8-bit-game-2-186976.mp3" id="5_agckt"]
 
 [sub_resource type="Animation" id="Animation_u6xng"]
 length = 0.001
@@ -146,6 +147,10 @@ text = "Sair
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738584462]
 libraries/ = SubResource("AnimationLibrary_nvgea")
 autoplay = &"fadein"
+
+[node name="toque" type="AudioStreamPlayer" parent="." unique_id=1162936321]
+stream = ExtResource("5_agckt")
+volume_db = -26.0
 
 [connection signal="pressed" from="Buttons_manager/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons_manager/VBoxContainer/credits" to="." method="_on_credits_pressed"]

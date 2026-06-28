@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="1_hf53u"]
 [ext_resource type="Script" uid="uid://b0423o74p0ylj" path="res://scripts/pause_menu.gd" id="1_iyb4f"]
+[ext_resource type="AudioStream" uid="uid://bci14mlbivyrf" path="res://Audio/floraphonic-8-bit-game-2-186976.mp3" id="3_ntkjb"]
 
 [sub_resource type="InputEventAction" id="InputEventAction_iyb4f"]
 action = &"ui_cancel"
@@ -53,5 +54,10 @@ theme = ExtResource("1_hf53u")
 text = "Menu Prinicipal
 "
 
+[node name="toque" type="AudioStreamPlayer" parent="." unique_id=1816806741]
+stream = ExtResource("3_ntkjb")
+volume_db = -26.542
+
+[connection signal="button_down" from="VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_button_down"]
 [connection signal="pressed" from="VBoxContainer/ResumeBtn" to="." method="_on_resume_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/TitleBtn" to="." method="_on_title_btn_pressed"]

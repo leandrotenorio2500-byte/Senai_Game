@@ -15,11 +15,16 @@ run/main_scene="uid://cgnjmixdneuwv"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/output_latency=1
+
 [autoload]
 
 Globals="*uid://dgni40vxmpv1t"
 DialogManager="*uid://f6r3btswee6g"
 QuestManager="*uid://bs7ej8nntf26w"
+Trilha="*uid://bju8t2u71443p"
 
 [display]
 

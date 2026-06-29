@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://45mwrnvephn5" path="res://scripts/intro.gd" id="1_rpf0p"]
 [ext_resource type="Texture2D" uid="uid://1g8wt00w06dl" path="res://sprites/Mini UI/AzulIndigo.jpeg" id="2_syu3n"]
+[ext_resource type="AudioStream" uid="uid://dwegyy5hx4oxl" path="res://sounds/intro.mp3" id="3_syu3n"]
 
 [sub_resource type="Animation" id="Animation_dlfbb"]
 length = 0.001
@@ -81,3 +82,7 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1653309131]
 libraries/ = SubResource("AnimationLibrary_srnjo")
 autoplay = &"fade_in"
+
+[node name="Intro" type="AudioStreamPlayer" parent="." unique_id=160885924]
+stream = ExtResource("3_syu3n")
+volume_db = -6.5

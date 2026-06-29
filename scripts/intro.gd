@@ -1,6 +1,8 @@
 extends Node2D
+@onready var intro: AudioStreamPlayer = $Intro
 
 func _ready() -> void:
+	intro.play()
 	Trilha.stream_paused = true
 	$AnimationPlayer.play("fade_in")
 	await get_tree().create_timer(6.0).timeout

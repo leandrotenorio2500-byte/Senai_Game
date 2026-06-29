@@ -68,13 +68,10 @@ position = Vector2(182, 144)
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2013026700]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_gljmo")]
-visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_so73h")]
-visible = false
 
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("11_58lsq")]
-visible = false
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("6_j2i47")]
 position = Vector2(29, 132)

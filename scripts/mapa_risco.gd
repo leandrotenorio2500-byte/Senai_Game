@@ -41,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			atualizar_posicao()
 			
 			$AnimationPlayer.play("fade_in")
-			get_tree().paused = true
+			#get_tree().paused = true
 			
 			# Espera o fade_in acabar antes de permitir fechar
 			await $AnimationPlayer.animation_finished
@@ -55,5 +55,5 @@ func _unhandled_input(event: InputEvent) -> void:
 			await $AnimationPlayer.animation_finished
 			
 			visible = false
-			get_tree().paused = false
+			#get_tree().paused = false
 			esta_animando = false

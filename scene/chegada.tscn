@@ -269,7 +269,7 @@ next_level = "uid://cg7deh3vprap7"
 next_player_position = Vector2(23, 147)
 
 [node name="CollisionShape2D" parent="LevelChanger" index="0" unique_id=1355855242]
-position = Vector2(7, 7)
+position = Vector2(6, 7)
 
 [node name="Label" parent="LevelChanger" index="1" unique_id=390673933]
 offset_left = -9.0

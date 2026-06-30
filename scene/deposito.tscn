@@ -142,7 +142,7 @@ shape = SubResource("RectangleShape2D_kmspj")
 position = Vector2(-7, 85)
 scale = Vector2(0.971244, 12.039999)
 next_level = "uid://d370titfa8sud"
-next_player_position = Vector2(390, 147)
+next_player_position = Vector2(380, 147)
 need_interaction = false
 
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("11_hoit2")]

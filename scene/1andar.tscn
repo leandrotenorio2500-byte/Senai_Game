@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ch4ouypohfw4r" path="res://sprites/npcs/coroa.png" id="8_74gwh"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_g781x"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="9_4hrr3"]
-[ext_resource type="Script" uid="uid://dryb503vq6trr" path="res://scripts/level_changer.gd" id="9_c36gr"]
 [ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_cpjcu"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="10_c36gr"]
 [ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_uxfsb"]
@@ -18,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_r8le0"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_lpnjl"]
 [ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="18_tmvpu"]
+[ext_resource type="PackedScene" uid="uid://q456oehenf8o" path="res://entities/elevador.tscn" id="19_74gwh"]
 
 [sub_resource type="GDScript" id="GDScript_4hrr3"]
 script/source = "extends Node2D
@@ -132,21 +132,12 @@ sources/7 = SubResource("TileSetAtlasSource_s4tub")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4wox"]
-size = Vector2(28, 45)
-
-[sub_resource type="LabelSettings" id="LabelSettings_07uvj"]
-font_size = 6
-outline_size = 1
-outline_color = Color(0.02617561, 0.026175609, 0.026175609, 1)
-shadow_color = Color(0.0627451, 0.0627451, 0.0627451, 0)
-
 [node name="1andar" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -6)
 script = SubResource("GDScript_4hrr3")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_dvc8x")]
-position = Vector2(226, 145)
+position = Vector2(108, 144)
 acceleration = 200
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_4hrr3")]
@@ -205,43 +196,17 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="Vestiario" parent="." unique_id=417721268 instance=ExtResource("9_4hrr3")]
 position = Vector2(375, 131)
 
-[node name="Elevator" parent="." unique_id=1026836408 instance=ExtResource("9_4hrr3")]
-position = Vector2(150, 132)
-next_level = "uid://d370titfa8sud"
-next_player_position = Vector2(120, 160)
-
-[node name="CollisionShape2D" parent="Elevator" index="0" unique_id=1355855242]
-position = Vector2(2, 6.5)
-
-[node name="Banheiro" type="Area2D" parent="." unique_id=143007559]
-position = Vector2(278, 132)
-collision_layer = 1024
-collision_mask = 2
-script = ExtResource("9_c36gr")
-next_level = "uid://ny0qilao0tam"
-next_player_position = Vector2(30, 147)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Banheiro" unique_id=1505246882]
-position = Vector2(2, 5.5)
-shape = SubResource("RectangleShape2D_k4wox")
-debug_color = Color(0.26076448, 0.6205006, 0.38406932, 0.41960785)
-
-[node name="Label" type="Label" parent="Banheiro" unique_id=390673933]
-offset_left = -15.0
-offset_top = -16.0
-offset_right = 19.0
-offset_bottom = -4.0
-text = "Press Enter"
-label_settings = SubResource("LabelSettings_07uvj")
-autowrap_mode = 2
-
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("10_c36gr")]
+visible = false
 
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("18_tmvpu")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_g781x")]
 
-[connection signal="body_entered" from="Banheiro" to="Banheiro" method="_on_body_entered"]
-[connection signal="body_exited" from="Banheiro" to="Banheiro" method="_on_body_exited"]
+[node name="porta" parent="." unique_id=1634810480 instance=ExtResource("19_74gwh")]
+position = Vector2(154, 120)
 
-[editable path="Elevator"]
+[node name="LevelChanger" parent="." unique_id=1757882377 instance=ExtResource("9_4hrr3")]
+position = Vector2(278, 131)
+next_level = "uid://ny0qilao0tam"
+next_player_position = Vector2(30, 147)

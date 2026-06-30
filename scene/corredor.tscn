@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cg7deh3vprap7" path="res://scene/recep.tscn" id="1_y4mxa"]
 [ext_resource type="Texture2D" uid="uid://cjfy10x6racpt" path="res://sprites/npcs/zelador.png" id="2_7mjj7"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="3_7mjj7"]
+[ext_resource type="PackedScene" uid="uid://q456oehenf8o" path="res://entities/elevador.tscn" id="4_el3nv"]
 
 [sub_resource type="TileSet" id="TileSet_o56hb"]
 
@@ -25,11 +26,10 @@ texture = ExtResource("2_7mjj7")
 sources/0 = SubResource("TileSetAtlasSource_el3nv")
 
 [node name="corredor" unique_id=1111527481 instance=ExtResource("1_y4mxa")]
+metadata/_edit_vertical_guides_ = [388.0, 388.0]
 
 [node name="Player" parent="." index="0" unique_id=1967718643]
 position = Vector2(376, 147)
-wall_acceleration = 350
-wall_jump_velocity = 200
 
 [node name="Sprite2D" parent="." index="2" unique_id=662053670]
 scale = Vector2(1.0050001, 0.99999994)
@@ -51,6 +51,7 @@ tile_set = SubResource("TileSet_7mjj7")
 [node name="LevelChangerRight" parent="." index="4" unique_id=1670860483]
 position = Vector2(411, 51)
 next_level = "uid://djhs23rtt4sye"
+next_player_position = Vector2(40, 155)
 
 [node name="CollisionShape2D2" parent="LevelLimit" parent_id_path=PackedInt32Array(378625645) index="1" unique_id=469442997]
 position = Vector2(419, 79)
@@ -65,23 +66,13 @@ next_level = "uid://cg7deh3vprap7"
 next_player_position = Vector2(388, 147)
 need_interaction = false
 
-[node name="Elevetor" parent="." index="9" unique_id=115273048 instance=ExtResource("3_7mjj7")]
-position = Vector2(118, 131)
-next_level = "uid://d2a75r2ne3nbm"
-next_player_position = Vector2(151, 147)
-
-[node name="CollisionShape2D" parent="Elevetor" index="0" unique_id=1355855242]
-position = Vector2(2, 6.5)
-
-[node name="MissionHUD" parent="." index="13" unique_id=95516621]
-visible = false
-
-[node name="PauseMenu" parent="." index="15" unique_id=1287701451]
+[node name="PauseMenu" parent="." index="14" unique_id=1287701451]
 visible = true
+
+[node name="porta" parent="." index="15" unique_id=1634810480 instance=ExtResource("4_el3nv")]
+position = Vector2(122, 120)
 
 [node name="LevelChanger2" parent="." index="16" unique_id=1682377288 instance=ExtResource("3_7mjj7")]
 position = Vector2(295, 132)
 next_level = "uid://b5w4buyvjl8w7"
 next_player_position = Vector2(20, 147)
-
-[editable path="Elevetor"]

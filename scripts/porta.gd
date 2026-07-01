@@ -27,7 +27,6 @@ func _on_body_exited(body: Node2D) -> void:
 		
 func _unhandled_input(event: InputEvent) -> void:
 	if jogador_on_area and event.is_action_pressed("interect"):
-		# SÓ roda o código se o painel estiver escondido!
 		if not painel.visible:
 			get_viewport().set_input_as_handled()
 			painel.visible = true
@@ -35,12 +34,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			
 			if ref_player:
 				ref_player.set_physics_process(false) # Desliga o _physics_process
-				
-				# Opcional: Se o seu player tiver animações, você pode forçar 
-				# a animação de "parado" aqui para ele não congelar correndo:
-				if ref_player.has_node("AnimatedSprite2D"):
-					ref_player.get_node("AnimatedSprite2D").play("indle")
-
 
 func start_floating_animation() -> void:
 	var original_y = label.position.y
@@ -58,8 +51,6 @@ func start_floating_animation() -> void:
 	float_tween.tween_property(label, "position:y", original_y, duration)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_IN_OUT)
-
-	
 
 
 func _on_fechar_pressed() -> void:

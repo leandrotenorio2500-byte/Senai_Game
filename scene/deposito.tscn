@@ -29,7 +29,7 @@ texture = ExtResource("7_fp5cx")
 0:0/animation_frame_6/duration = 1.0
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 12)
+0:0/0/texture_origin = Vector2i(0, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8ek7"]
 texture = ExtResource("8_hhovy")
@@ -44,7 +44,7 @@ texture = ExtResource("8_hhovy")
 0:0/animation_frame_6/duration = 1.0
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 12)
+0:0/0/texture_origin = Vector2i(0, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4usfb"]
 texture = ExtResource("9_asn2w")
@@ -59,7 +59,7 @@ texture = ExtResource("9_asn2w")
 0:0/animation_frame_6/duration = 1.0
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 12)
+0:0/0/texture_origin = Vector2i(0, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbu4n"]
 texture = ExtResource("10_r4k77")
@@ -74,7 +74,7 @@ texture = ExtResource("10_r4k77")
 0:0/animation_frame_6/duration = 1.0
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 12)
+0:0/0/texture_origin = Vector2i(0, 7)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wm8g"]
 texture = ExtResource("11_o2bc7")
@@ -93,10 +93,10 @@ size = Vector2(20, 202.5)
 script = ExtResource("1_ftmwp")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_ocnva")]
-position = Vector2(38, 127)
+position = Vector2(347, 147)
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_oj85h")]
-position = Vector2(-49, 150)
+position = Vector2(389, -21)
 limit_top = 0
 limit_right = 739
 position_smoothing_enabled = true
@@ -111,17 +111,17 @@ centered = false
 [node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
 
 [node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
-position = Vector2(0, 10)
+position = Vector2(0, 16)
 tile_map_data = PackedByteArray("AAAAAAwABAAOAAMAAAACAAwABAAQAAMAAAAEAAwABAAOAAMAAAAGAAwABAAQAAMAAAAIAAwABAASAAMAAAAKAAwABAAOAAMAAAAMAAwABAAQAAMAAAAOAAwABAASAAMAAAAQAAwABAAOAAMAAAASAAwABAAQAAMAAAAUAAwABAASAAMAAAAWAAwABAAOAAMAAAAYAAwABAAQAAMAAAAaAAwABAASAAMAAAAcAAwABAAOAAMAAAAeAAwABAAQAAMAAAAgAAwABAASAAMAAAAiAAwABAAOAAMAAAAkAAwABAAQAAMAAAAmAAwABAASAAMAAAAoAAwABAAOAAMAAAAqAAwABAAQAAMAAAAAAAoABAAOAAEAAAACAAoABAAQAAEAAAAEAAoABAAOAAEAAAAGAAoABAAQAAEAAAAIAAoABAASAAEAAAAKAAoABAAOAAEAAAAMAAoABAAQAAEAAAAOAAoABAASAAEAAAAQAAoABAAOAAEAAAASAAoABAAQAAEAAAAUAAoABAASAAEAAAAWAAoABAAOAAEAAAAYAAoABAAQAAEAAAAaAAoABAASAAEAAAAcAAoABAAOAAEAAAAeAAoABAAQAAEAAAAgAAoABAASAAEAAAAiAAoABAAOAAEAAAAkAAoABAAQAAEAAAAmAAoABAASAAEAAAAoAAoABAAOAAEAAAAqAAoABAAQAAEAAAAsAAoABAAQAAEAAAAsAAwABAAQAAMAAAAuAAoABAAQAAEAAAAuAAwABAAQAAMAAAA=")
 tile_set = ExtResource("4_4hj14")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
 position = Vector2(1, 0)
-tile_map_data = PackedByteArray("AAAHAAcABQADAAEAAAANAAcABQAQAAEAAAATAAcABQAWAAEAAAAdAAcABQAKAAEAAAAjAAcABQADAAEAAAApAAcABQAQAAEAAAAkAAkABQACAAsAABAEAAkABQALAA0AAAAWAAkABQALAA0AAAAWAAgABQALAA0AAAAfAAkABQALAA0AAAAnAAkABQALAA0AAAAtAAkABQALAA0AAAAtAAgABQALAA0AAAAEAAgABQAOAAwAAAALAAgABQAIAAwAAAAZAAgABQAIAAwAAAACAAgABgAOAAIAAAA=")
+tile_map_data = PackedByteArray("AAACAAgABQAOAAwAAAAFAAcABQADAAEAAAAJAAgABQAIAAwAAAALAAcABQAQAAEAAAARAAcABQAWAAEAAAATAAgABQALAA0AAAATAAkABQALAA0AAAAVAAgABgAOAAIAAAAcAAgABQAIAAwAAAAeAAcABQAKAAEAAAAgAAkABQALAA0AAAAkAAcABQADAAEAAAAlAAkABQACAAsAABAoAAkABQALAA0AAAAqAAcABQAQAAEAAAAYAAkABgAhAAYAAAAtAAgABQALAA0AAAAtAAkABQALAA0AAAACAAkABQALAA0AAAA=")
 tile_set = ExtResource("5_hoit2")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=712453566]
-tile_map_data = PackedByteArray("AAAIAAkAAwAAAAAAAAARAAkAAgAAAAAAABATAAkAAQAAAAAAAAArAAkAAQAAAAAAAAAeAAkAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAArAAkAAQAAAAAAAAAeAAkAAAAAAAAAAAALAAkAAgAAAAAAABANAAkAAQAAAAAAAAASAAkAAwAAAAAAABA=")
 tile_set = SubResource("TileSet_sus8b")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
@@ -138,13 +138,11 @@ shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_fp5cx")]
 
-[node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
-position = Vector2(-7, 85)
-scale = Vector2(0.971244, 12.039999)
-next_level = "uid://d370titfa8sud"
-next_player_position = Vector2(380, 147)
-need_interaction = false
-
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("11_hoit2")]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_4hj14")]
+
+[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
+position = Vector2(392, 131)
+next_level = "uid://d370titfa8sud"
+next_player_position = Vector2(136, 147)

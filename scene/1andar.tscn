@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uobok"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tmvpu"]
 texture = ExtResource("7_tmvpu")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -48,7 +48,7 @@ texture = ExtResource("7_tmvpu")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jrhys"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74gwh"]
 texture = ExtResource("8_74gwh")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -63,14 +63,14 @@ texture = ExtResource("8_74gwh")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4fxr"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cpjcu"]
 texture = ExtResource("9_cpjcu")
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a2ot5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxfsb"]
 texture = ExtResource("10_uxfsb")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0t86s"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bqdcd"]
 texture = ExtResource("11_bqdcd")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -85,7 +85,7 @@ texture = ExtResource("11_bqdcd")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 7)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffmf3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c7te7"]
 texture = ExtResource("12_c7te7")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -100,7 +100,7 @@ texture = ExtResource("12_c7te7")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-11, 7)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jgala"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8le0"]
 texture = ExtResource("13_r8le0")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -115,24 +115,35 @@ texture = ExtResource("13_r8le0")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s4tub"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lpnjl"]
 texture = ExtResource("14_lpnjl")
-0:1/0 = 0
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
 
 [sub_resource type="TileSet" id="TileSet_70mu7"]
-sources/0 = SubResource("TileSetAtlasSource_uobok")
-sources/1 = SubResource("TileSetAtlasSource_jrhys")
-sources/2 = SubResource("TileSetAtlasSource_h4fxr")
-sources/3 = SubResource("TileSetAtlasSource_a2ot5")
-sources/4 = SubResource("TileSetAtlasSource_0t86s")
-sources/5 = SubResource("TileSetAtlasSource_ffmf3")
-sources/6 = SubResource("TileSetAtlasSource_jgala")
-sources/7 = SubResource("TileSetAtlasSource_s4tub")
+sources/0 = SubResource("TileSetAtlasSource_tmvpu")
+sources/1 = SubResource("TileSetAtlasSource_74gwh")
+sources/2 = SubResource("TileSetAtlasSource_cpjcu")
+sources/3 = SubResource("TileSetAtlasSource_uxfsb")
+sources/4 = SubResource("TileSetAtlasSource_bqdcd")
+sources/5 = SubResource("TileSetAtlasSource_c7te7")
+sources/6 = SubResource("TileSetAtlasSource_r8le0")
+sources/7 = SubResource("TileSetAtlasSource_lpnjl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
 
-[node name="1andar" type="Node2D" unique_id=1111527481]
+[node name="andar2" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -6)
 script = SubResource("GDScript_4hrr3")
 
@@ -143,7 +154,7 @@ acceleration = 200
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_4hrr3")]
 position = Vector2(-49, 150)
 limit_top = 0
-limit_right = 524
+limit_right = 621
 position_smoothing_enabled = true
 position_smoothing_speed = 5.0
 
@@ -156,30 +167,16 @@ centered = false
 [node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
 
 [node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
-tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAYAAAAAAA0ABAANAAgAAAACAAsABAAPAAYAAAACAA0ABAAPAAgAAAAEAAsABAANAAYAAAAEAA0ABAANAAgAAAAGAAsABAANAAYAAAAGAA0ABAANAAgAAAAIAAsABAAPAAYAAAAIAA0ABAAPAAgAAAAJAAsABAANAAYAAAAJAA0ABAANAAgAAAALAAsABAAPAAYAAAALAA0ABAAPAAgAAAAMAAsABAANAAYAAAAMAA0ABAANAAgAAAAOAAsABAAPAAYAAAAOAA0ABAAPAAgAAAARAAsABAANAAYAAAARAA0ABAANAAgAAAATAAsABAAPAAYAAAATAA0ABAAPAAgAAAAQAAsABAANAAYAAAAQAA0ABAANAAgAAAASAAsABAAPAAYAAAASAA0ABAAPAAgAAAAWAAsABAANAAYAAAAWAA0ABAANAAgAAAAYAAsABAAPAAYAAAAYAA0ABAAPAAgAAAAVAAsABAANAAYAAAAVAA0ABAANAAgAAAAXAAsABAAPAAYAAAAXAA0ABAAPAAgAAAAaAAsABAANAAYAAAAaAA0ABAANAAgAAAAcAAsABAANAAYAAAAcAA0ABAANAAgAAAAeAAsABAANAAYAAAAeAA0ABAANAAgAAAAgAAsABAAPAAYAAAAgAA0ABAAPAAgAAAA=")
+tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAYAAAAAAA0ABAANAAgAAAACAAsABAAPAAYAAAACAA0ABAAPAAgAAAAEAAsABAANAAYAAAAEAA0ABAANAAgAAAAGAAsABAANAAYAAAAGAA0ABAANAAgAAAAIAAsABAAPAAYAAAAIAA0ABAAPAAgAAAAJAAsABAANAAYAAAAJAA0ABAANAAgAAAALAAsABAAPAAYAAAALAA0ABAAPAAgAAAAMAAsABAANAAYAAAAMAA0ABAANAAgAAAAOAAsABAAPAAYAAAAOAA0ABAAPAAgAAAARAAsABAANAAYAAAARAA0ABAANAAgAAAATAAsABAAPAAYAAAATAA0ABAAPAAgAAAAQAAsABAANAAYAAAAQAA0ABAANAAgAAAASAAsABAAPAAYAAAASAA0ABAAPAAgAAAAWAAsABAANAAYAAAAWAA0ABAANAAgAAAAYAAsABAAPAAYAAAAYAA0ABAAPAAgAAAAVAAsABAANAAYAAAAVAA0ABAANAAgAAAAXAAsABAAPAAYAAAAXAA0ABAAPAAgAAAAaAAsABAANAAYAAAAaAA0ABAANAAgAAAAcAAsABAANAAYAAAAcAA0ABAANAAgAAAAeAAsABAANAAYAAAAeAA0ABAANAAgAAAAgAAsABAAPAAYAAAAgAA0ABAAPAAgAAAAiAAsABAANAAYAAAAiAA0ABAANAAgAAAAkAAsABAAPAAYAAAAkAA0ABAAPAAgAAAAlAAsABAANAAYAAAAlAA0ABAANAAgAAAAnAAsABAAPAAYAAAAnAA0ABAAPAAgAAAA=")
 tile_set = ExtResource("4_cgl2t")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAARAAgABgAWAAsAAAAXAAgABgAWAAsAAAAJAAYABgASAAkAAAARAAYABgAWAAkAAAAXAAYABgAVAAUAAAACAAUABgAZAAcAAAAfAAUABgAZAAEAAAAUAAQABgASAAIAAAAJAAkABgASAAoAAAAGAAgABgAOAAIAAAAcAAcABgABAAwAAAACAAcABgABAAwAAAANAAgABgACAAgAAAAUAAkABgAMAAEAAAA=")
+tile_map_data = PackedByteArray("AAADAAkABgAeAAsAAAADAAUABgAZAAcAAAAIAAcABgABAAwAAAANAAkABgASAAoAAAANAAYABgASAAcAAAAUAAgABgAWAAsAAAAUAAYABgAWAAkAAAAYAAYABgAVAAUAAAAYAAgABgAWAAsAAAAdAAcABgABAAwAAAAjAAUABgAZAAEAAAAjAAkABgAhAAIAAAARAAgABgAJAAgAAAAaAAgABgAOAAIAAAAdAAQABgASAAIAAAAIAAQABgASAAIAAAAgAAkABgAMAAEAAAA=")
 tile_set = ExtResource("5_d8y6d")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1858587757]
-tile_map_data = PackedByteArray("AAAVAAkABAAAAAAAAAATAAkAAAAAAAAAABAMAAkABgAAAAAAABAFAAkAAQAAAAAAAAAEAAkABQAAAAAAABA=")
+tile_map_data = PackedByteArray("AAAQAAkABgAAAAAAABAKAAkAAQAAAAAAAAAJAAkABQAAAAAAABAhAAkAAAAAAAAAAAAfAAkABAAAAAAAABAWAAkABwAAAAAAAAA=")
 tile_set = SubResource("TileSet_70mu7")
-
-[node name="Refeitorio" parent="." unique_id=1670860483 instance=ExtResource("9_4hrr3")]
-position = Vector2(535, 63)
-scale = Vector2(0.971244, 12.039999)
-next_level = "uid://dsbagef874bed"
-next_player_position = Vector2(15, 147)
-need_interaction = false
-
-[node name="Almoxarifado" parent="." unique_id=55319733 instance=ExtResource("9_4hrr3")]
-position = Vector2(-11, 57.000004)
-scale = Vector2(0.971244, 12.039999)
-next_level = "uid://w3gpkqkiuft"
-next_player_position = Vector2(505, 147)
-need_interaction = false
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
 position = Vector2(-9, 10)
@@ -190,23 +187,32 @@ position = Vector2(1, 95)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
-position = Vector2(542, 64)
+position = Vector2(639, 69)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="Vestiario" parent="." unique_id=417721268 instance=ExtResource("9_4hrr3")]
-position = Vector2(375, 131)
+position = Vector2(390, 131)
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("10_c36gr")]
-visible = false
 
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("18_tmvpu")]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_g781x")]
 
 [node name="porta" parent="." unique_id=1634810480 instance=ExtResource("19_74gwh")]
-position = Vector2(154, 120)
+position = Vector2(218, 120)
 
 [node name="LevelChanger" parent="." unique_id=1757882377 instance=ExtResource("9_4hrr3")]
-position = Vector2(278, 131)
+position = Vector2(327, 131)
 next_level = "uid://ny0qilao0tam"
+next_player_position = Vector2(30, 147)
+
+[node name="LevelChanger2" parent="." unique_id=1670860483 instance=ExtResource("9_4hrr3")]
+position = Vector2(54, 131)
+next_level = "uid://w3gpkqkiuft"
+next_player_position = Vector2(536, 147)
+
+[node name="LevelChanger3" parent="." unique_id=75352674 instance=ExtResource("9_4hrr3")]
+position = Vector2(568, 132)
+next_level = "uid://dsbagef874bed"
 next_player_position = Vector2(30, 147)

@@ -2,7 +2,6 @@ extends Control
 @onready var prim_andar: Button = $VBoxContainer/PrimAndar
 @onready var seg_andar: Button = $VBoxContainer/SegAndar
 @onready var terc_andar: Button = $VBoxContainer/TercAndar
-@onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var painel: Control = $"."
 
 func _ready() -> void:
@@ -15,29 +14,26 @@ func _ready() -> void:
 	if cena_atual == "res://scene/1andar.tscn":
 		$VBoxContainer/SegAndar.visible = false
 		
-	if cena_atual == "res://scene/2andar.tscn":
-		$VBoxContainer/Trc_andar.visible = false
+	if cena_atual == "res://scene/andar_3.tscn" :
+		$VBoxContainer/TercAndar.visible = false
 
 func _on_prim_andar_pressed() -> void:
-	Globals.next_player_position = Vector2(120.0, 147.0) 
+	Globals.next_player_position = Vector2(264.0, 147.0) 
 	Globals.should_position = true
 	
 	get_tree().change_scene_to_file("res://scene/corredor.tscn")
 
-
-
 func _on_seg_andar_pressed() -> void:
-	Globals.next_player_position = Vector2(150.0, 147.0) 
+	Globals.next_player_position = Vector2(216.0, 147.0) 
 	Globals.should_position = true
 	
 	get_tree().change_scene_to_file("res://scene/1andar.tscn")
 
-
 func _on_terc_andar_pressed() -> void:
-	Globals.next_player_position = Vector2(320.0, 147.0) 
+	Globals.next_player_position = Vector2(200.0, 147.0) 
 	Globals.should_position = true
 	
-	get_tree().change_scene_to_file("res://scene/2andar.tscn")
+	get_tree().change_scene_to_file("res://scene/andar_3.tscn")
 
 func _on_fechar_pressed() -> void:
 	painel.visible = false

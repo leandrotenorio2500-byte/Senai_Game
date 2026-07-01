@@ -76,4 +76,4 @@ position = Vector2(182, 144)
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("6_j2i47")]
 position = Vector2(29, 132)
 next_level = "uid://d2a75r2ne3nbm"
-next_player_position = Vector2(280, 147)
+next_player_position = Vector2(329, 147)

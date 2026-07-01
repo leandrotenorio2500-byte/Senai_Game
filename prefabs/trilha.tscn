@@ -5,7 +5,7 @@
 
 [node name="Trilha" type="AudioStreamPlayer" unique_id=2076150940]
 stream = ExtResource("1_317km")
-volume_db = -20.533
+volume_db = -35.24
 pitch_scale = 0.93
 autoplay = true
 parameters/looping = true

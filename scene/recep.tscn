@@ -81,6 +81,7 @@ tile_set = ExtResource("4_dt7ot")
 visible = false
 
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
+visible = false
 
 [node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
 position = Vector2(227, 147)

@@ -198,7 +198,7 @@ tile_set = SubResource("TileSet_8pkmy")
 position = Vector2(-13, 114)
 scale = Vector2(0.971244, 12.039999)
 next_level = "uid://d2a75r2ne3nbm"
-next_player_position = Vector2(510, 147)
+next_player_position = Vector2(569, 147)
 need_interaction = false
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_8pkmy")]
@@ -208,7 +208,5 @@ visible = false
 
 [node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("18_ncpg8")]
 position = Vector2(197, 159)
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1356432637]
 
 [node name="transition" parent="." unique_id=266359478 instance=ExtResource("20_d5jcm")]

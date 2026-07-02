@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cljhvr6g5eo86"]
+
+[ext_resource type="AudioStream" uid="uid://il5p6mnvcju0" path="res://sounds/ding.mp3" id="1_jpv14"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=44526338]
+stream = ExtResource("1_jpv14")
+volume_db = -12.08

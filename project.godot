@@ -15,18 +15,23 @@ run/main_scene="uid://cgnjmixdneuwv"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/output_latency=1
+
 [autoload]
 
 Globals="*uid://dgni40vxmpv1t"
 DialogManager="*uid://f6r3btswee6g"
 QuestManager="*uid://bs7ej8nntf26w"
+Trilha="*uid://bju8t2u71443p"
+Transicao="*uid://h2dh7pqwx0mo"
 
 [display]
 
 window/size/viewport_width=400
 window/size/viewport_height=220
 window/size/mode=2
-window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/layer_11="door"
 

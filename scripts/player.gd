@@ -8,6 +8,10 @@ extends CharacterBody2D
 @onready var one_way_block_detector: RayCast2D = $OneWayBlockDetector
 @onready var left_danger_detector: RayCast2D = $LeftDangerDetector
 @onready var right_danger_detector: RayCast2D = $RightDangerDetector
+@onready var jump: AudioStreamPlayer = $jump
+@onready var run_sound: AudioStreamPlayer = $Run
+
+
 
 enum PlayerState {
 	idle,
@@ -83,6 +87,7 @@ func _physics_process(delta: float) -> void:
 	drop_plataform()
 
 func go_to_idle_state():
+	run_sound.stop()
 	status = PlayerState.idle
 	anim.play("idle")
 
@@ -106,6 +111,7 @@ func idle_state(delta):
 			return		
 	
 func go_to_walk_state():
+	run_sound.play()
 	status = PlayerState.walk
 	anim.play("walk")
 	
@@ -130,6 +136,7 @@ func walk_state(delta):
 		return	
 
 func go_to_jump_state():
+	jump.play()
 	status = PlayerState.jump
 	anim.play("jump")
 	velocity.y = JUMP_VELOCITY
@@ -139,6 +146,7 @@ func jump_state(delta):
 	apply_gravity(delta)
 	move(delta)
 	if Input.is_action_just_pressed("jump") && can_jump():
+		
 		go_to_jump_state()
 		return 
 		

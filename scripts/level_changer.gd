@@ -21,7 +21,7 @@ func _ready() -> void:
 
 # Quando o jogador entra na área
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") or body.name == "Player":
+	if body.is_in_group("Player") or body.name == "Player":		
 		jogador_on_area = true
 		
 		if not need_interaction:
@@ -64,12 +64,18 @@ func start_floating_animation() -> void:
 
 # Lógica do teleporte
 func transport() -> void:
+	# Desativa a label para não ficar flutuando na tela preta
+	interaction_label.visible = false
+	# Impede que o jogador aperte o botão de novo durante a transição
+	jogador_on_area = false 
+	
 	Globals.next_player_position = next_player_position
 	Globals.should_position = true
+	
 	call_deferred("load_next_scene")
 
 func load_next_scene() -> void:
 	if next_level != "":
-		get_tree().change_scene_to_file(next_level)
+		Transicao.mudar_cena(next_level)
 	else:
 		push_warning("Aviso: 'next_level' não foi definido nesta Area2D!")

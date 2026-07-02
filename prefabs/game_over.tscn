@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://br5035bof027m" path="res://scripts/game_over.gd" id="1_s76ig"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="2_puky0"]
 [ext_resource type="Texture2D" uid="uid://wxrr8fdistcy" path="res://sprites/GAMEOVER.png" id="2_s76ig"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="4_8lptw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_puky0"]
 
@@ -139,6 +140,8 @@ text = "Sair
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=687580407]
 libraries/ = SubResource("AnimationLibrary_8lptw")
 autoplay = &"fade_in"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("4_8lptw")]
 
 [connection signal="pressed" from="VBoxContainer/RestartBtn" to="." method="_on_restart_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/TitleBtn" to="." method="_on_title_btn_pressed"]

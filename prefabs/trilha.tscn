@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bju8t2u71443p"]
+
+[ext_resource type="AudioStream" uid="uid://du1tx3thn8qdy" path="res://sounds/1missao.mp3" id="1_317km"]
+[ext_resource type="Script" uid="uid://ok00u35vnuxh" path="res://prefabs/trilha.gd" id="2_317km"]
+
+[node name="Trilha" type="AudioStreamPlayer" unique_id=2076150940]
+stream = ExtResource("1_317km")
+volume_db = -35.24
+pitch_scale = 0.93
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_317km")

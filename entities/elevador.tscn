@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://q456oehenf8o"]
+
+[ext_resource type="Script" uid="uid://c223q43a6qcuu" path="res://scripts/porta.gd" id="1_rwnf1"]
+[ext_resource type="Script" uid="uid://t808x2nucrul" path="res://scripts/painel.gd" id="2_w7sw2"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="3_w7sw2"]
+[ext_resource type="AudioStream" uid="uid://il5p6mnvcju0" path="res://sounds/ding.mp3" id="4_kccnt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kccnt"]
+size = Vector2(42, 45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7sw2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.09620472, 0.096204765, 0.096204646, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 1
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kccnt"]
+bg_color = Color(0.8569273, 0.8569273, 0.8569273, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.12659225, 8.368885e-05, 0.05176367, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 1
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y034q"]
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 2
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_y034q"]
+default_font = ExtResource("3_w7sw2")
+Button/colors/font_color = Color(0.1663743, 0.1663743, 0.16637424, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 6
+Button/styles/focus = SubResource("StyleBoxFlat_w7sw2")
+Button/styles/normal = SubResource("StyleBoxFlat_kccnt")
+Button/styles/pressed = SubResource("StyleBoxFlat_y034q")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7sw2"]
+font = ExtResource("3_w7sw2")
+font_size = 6
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="porta" type="Area2D" unique_id=1634810480]
+collision_layer = 1024
+collision_mask = 2
+script = ExtResource("1_rwnf1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592479071]
+position = Vector2(-2, 17.5)
+shape = SubResource("RectangleShape2D_kccnt")
+
+[node name="painel" type="Control" parent="." unique_id=1506502181]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 18.0
+offset_top = -6.0
+offset_right = 49.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+script = ExtResource("2_w7sw2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="painel" unique_id=930352922]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -17.5
+offset_right = 12.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_y034q")
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="TercAndar" type="Button" parent="painel/VBoxContainer" unique_id=1818421396]
+layout_mode = 2
+text = "3 Andar"
+
+[node name="SegAndar" type="Button" parent="painel/VBoxContainer" unique_id=307935720]
+layout_mode = 2
+text = "2 Andar"
+
+[node name="PrimAndar" type="Button" parent="painel/VBoxContainer" unique_id=478676384]
+layout_mode = 2
+text = "1 Andar"
+
+[node name="Fechar" type="Button" parent="painel/VBoxContainer" unique_id=1128137540]
+layout_mode = 2
+text = "Fechar"
+
+[node name="label" type="Label" parent="." unique_id=1204956198]
+offset_left = -21.0
+offset_top = -2.0
+offset_right = 17.0
+offset_bottom = 4.0
+text = "Aperte (Enter)"
+label_settings = SubResource("LabelSettings_w7sw2")
+
+[node name="Ding" type="AudioStreamPlayer" parent="." unique_id=1210146170]
+stream = ExtResource("4_kccnt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="painel/VBoxContainer/TercAndar" to="painel" method="_on_terc_andar_pressed"]
+[connection signal="pressed" from="painel/VBoxContainer/SegAndar" to="painel" method="_on_seg_andar_pressed"]
+[connection signal="pressed" from="painel/VBoxContainer/PrimAndar" to="painel" method="_on_prim_andar_pressed"]
+[connection signal="pressed" from="painel/VBoxContainer/Fechar" to="." method="_on_fechar_pressed"]
+[connection signal="pressed" from="painel/VBoxContainer/Fechar" to="painel" method="_on_fechar_pressed"]

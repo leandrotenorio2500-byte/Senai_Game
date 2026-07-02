@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d0mguxmvkyl37"]
+
+[ext_resource type="AudioStream" uid="uid://bci14mlbivyrf" path="res://sounds/floraphonic-8-bit-game-2-186976.mp3" id="1_r22tb"]
+
+[node name="toque" type="AudioStreamPlayer" unique_id=2031439243]
+stream = ExtResource("1_r22tb")
+volume_db = -26.542
+max_polyphony = 2

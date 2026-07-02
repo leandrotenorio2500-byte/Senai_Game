@@ -33,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			fechar.grab_focus()
 			
 			if ref_player:
-				ref_player.set_physics_process(false) # Desliga o _physics_process
+				ref_player.set_physics_process(false)
 
 func start_floating_animation() -> void:
 	var original_y = label.position.y
@@ -58,6 +58,5 @@ func _on_fechar_pressed() -> void:
 	if jogador_on_area:
 		label.visible = true
 		
-	# --- REATIVA OS COMANDOS/FÍSICA DO PLAYER ---
 	if ref_player:
 		ref_player.set_physics_process(true) # Devolve o controle ao jogador.

@@ -169,8 +169,6 @@ _data = {
 [node name="mapa_risco" type="CanvasLayer" unique_id=1704704291]
 process_mode = 3
 script = ExtResource("1_b7qg2")
-metadata/_edit_horizontal_guides_ = [86.0]
-metadata/_edit_vertical_guides_ = [176.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=533212766]
 offset_right = 401.0

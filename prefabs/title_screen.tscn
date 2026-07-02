@@ -60,11 +60,13 @@ _data = {
 }
 
 [node name="Title_Screen" type="Control" unique_id=342701394]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+mouse_filter = 2
 script = ExtResource("1_agckt")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=2001037373]

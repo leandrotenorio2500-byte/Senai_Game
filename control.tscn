@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bh07oi7rni1gj"]
+
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="1_0fbet"]
+
+[node name="Control" type="Control" unique_id=516543608]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1979695309]
+layout_mode = 0
+offset_right = 134.0
+offset_bottom = 64.0
+theme = ExtResource("1_0fbet")
+text = "ooi
+"

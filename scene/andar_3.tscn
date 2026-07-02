@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bxkccy4g7ui4i"]
 
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_l8g2q"]
+[ext_resource type="Script" uid="uid://d2dn60y8ru6us" path="res://scripts/levels/andar_3.gd" id="1_p660s"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_6uf62"]
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_hk1o5"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_phmo5"]
@@ -16,9 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://q456oehenf8o" path="res://entities/elevador.tscn" id="14_6uf62"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="15_p660s"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="16_acts7"]
-[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="17_s6weq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i216q"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acts7"]
 texture = ExtResource("6_acts7")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -33,7 +33,7 @@ texture = ExtResource("6_acts7")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_opvyu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6weq"]
 texture = ExtResource("7_s6weq")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -48,14 +48,14 @@ texture = ExtResource("7_s6weq")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pfi4k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5nv3v"]
 texture = ExtResource("8_5nv3v")
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iwy6k"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4dgk"]
 texture = ExtResource("9_n4dgk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bp8yn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7gsc"]
 texture = ExtResource("10_i7gsc")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -70,7 +70,7 @@ texture = ExtResource("10_i7gsc")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 7)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iginu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7nmi"]
 texture = ExtResource("11_r7nmi")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -85,7 +85,7 @@ texture = ExtResource("11_r7nmi")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-11, 7)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ofr7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx71c"]
 texture = ExtResource("12_tx71c")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -100,21 +100,22 @@ texture = ExtResource("12_tx71c")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eh5p4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvrni"]
 texture = ExtResource("13_vvrni")
 0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lfe31"]
-sources/0 = SubResource("TileSetAtlasSource_i216q")
-sources/1 = SubResource("TileSetAtlasSource_opvyu")
-sources/2 = SubResource("TileSetAtlasSource_pfi4k")
-sources/3 = SubResource("TileSetAtlasSource_iwy6k")
-sources/4 = SubResource("TileSetAtlasSource_bp8yn")
-sources/5 = SubResource("TileSetAtlasSource_iginu")
-sources/6 = SubResource("TileSetAtlasSource_4ofr7")
-sources/7 = SubResource("TileSetAtlasSource_eh5p4")
+sources/0 = SubResource("TileSetAtlasSource_acts7")
+sources/1 = SubResource("TileSetAtlasSource_s6weq")
+sources/2 = SubResource("TileSetAtlasSource_5nv3v")
+sources/3 = SubResource("TileSetAtlasSource_n4dgk")
+sources/4 = SubResource("TileSetAtlasSource_i7gsc")
+sources/5 = SubResource("TileSetAtlasSource_r7nmi")
+sources/6 = SubResource("TileSetAtlasSource_tx71c")
+sources/7 = SubResource("TileSetAtlasSource_vvrni")
 
 [node name="andar3" type="Node2D" unique_id=1197957424]
+script = ExtResource("1_p660s")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_l8g2q")]
 position = Vector2(107, 147)
@@ -149,7 +150,7 @@ tile_set = SubResource("TileSet_lfe31")
 position = Vector2(202, 120)
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("15_p660s")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("16_acts7")]
-
-[node name="transition" parent="." unique_id=266359478 instance=ExtResource("17_s6weq")]
+visible = false

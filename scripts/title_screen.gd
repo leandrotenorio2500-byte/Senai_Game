@@ -10,13 +10,10 @@ extends Control
 func _ready() -> void:
 	Trilha.stream_paused = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_start_pressed() -> void:
 	toque.play()
-	get_tree().change_scene_to_file("res://scene/chegada.tscn")
+	Transicao.mudar_cena("res://scene/chegada.tscn")
 
 func _on_credits_pressed() -> void:
 	toque.play()

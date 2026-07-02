@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://h2dh7pqwx0mo"]
 
+[ext_resource type="Script" uid="uid://dvb5737oujvp1" path="res://scripts/transition.gd" id="1_3mf5h"]
 [ext_resource type="Shader" uid="uid://cww4bxfpdsi1e" path="res://prefabs/transition.gdshader" id="1_g12jt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_umpe1"]
@@ -67,11 +68,13 @@ _data = {
 }
 
 [node name="transition" type="CanvasLayer" unique_id=266359478]
+script = ExtResource("1_3mf5h")
 
 [node name="fill" type="ColorRect" parent="." unique_id=17830963]
 material = SubResource("ShaderMaterial_umpe1")
 offset_right = 400.0
 offset_bottom = 220.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="anim" type="AnimationPlayer" parent="fill" unique_id=1152360490]

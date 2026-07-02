@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_c7te7"]
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_r8le0"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_lpnjl"]
-[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="18_tmvpu"]
 [ext_resource type="PackedScene" uid="uid://q456oehenf8o" path="res://entities/elevador.tscn" id="19_74gwh"]
 
 [sub_resource type="GDScript" id="GDScript_4hrr3"]
@@ -192,12 +191,14 @@ shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="Vestiario" parent="." unique_id=417721268 instance=ExtResource("9_4hrr3")]
 position = Vector2(390, 131)
+next_level = "uid://bnh3kfsh5f8lr"
+next_player_position = Vector2(40, 147)
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("10_c36gr")]
-
-[node name="transition" parent="." unique_id=266359478 instance=ExtResource("18_tmvpu")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_g781x")]
+visible = false
 
 [node name="porta" parent="." unique_id=1634810480 instance=ExtResource("19_74gwh")]
 position = Vector2(218, 120)

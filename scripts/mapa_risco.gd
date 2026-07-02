@@ -8,12 +8,14 @@ var esta_animando: bool = false
 var positions = {
 	"recep": Vector2(130, 150),
 	"corredor": Vector2(174, 150),
-	"1andar": Vector2(173, 118),
+	"1andar": Vector2(174, 118),
 	"almoxarifado": Vector2(130, 118),
 	"banheiro": Vector2(192, 118),
 	"refeitorio": Vector2(288, 118),
 	"deposito": Vector2(192, 150),
 	"producao": Vector2(268, 150),
+	"vestiario": Vector2(240, 118),
+	"andar_3": Vector2(174, 86)
 }
 
 func atualizar_posicao():

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c223q43a6qcuu" path="res://scripts/porta.gd" id="1_rwnf1"]
 [ext_resource type="Script" uid="uid://t808x2nucrul" path="res://scripts/painel.gd" id="2_w7sw2"]
 [ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="3_w7sw2"]
+[ext_resource type="AudioStream" uid="uid://il5p6mnvcju0" path="res://sounds/ding.mp3" id="4_kccnt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kccnt"]
 size = Vector2(42, 45)
@@ -121,6 +122,9 @@ offset_right = 17.0
 offset_bottom = 4.0
 text = "Aperte (Enter)"
 label_settings = SubResource("LabelSettings_w7sw2")
+
+[node name="Ding" type="AudioStreamPlayer" parent="." unique_id=1210146170]
+stream = ExtResource("4_kccnt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

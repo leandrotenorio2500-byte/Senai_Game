@@ -159,9 +159,11 @@ position_smoothing_speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
 z_index = -1
+position = Vector2(326, 159)
 scale = Vector2(1.31, 1)
 texture = ExtResource("3_c36gr")
 centered = false
+offset = Vector2(-248.85495, -159)
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
 

@@ -334,9 +334,8 @@ max_jump_count = 1
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1143122044]
 position = Vector2(0, 0.1)
 sprite_frames = SubResource("SpriteFrames_merdl")
-animation = &"wall"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.4180703
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=984632276]
 position = Vector2(1, 1)

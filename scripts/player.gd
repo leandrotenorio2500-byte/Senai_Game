@@ -11,8 +11,12 @@ extends CharacterBody2D
 @onready var jump: AudioStreamPlayer = $jump
 @onready var run_sound: AudioStreamPlayer = $Run
 
-
-
+func play_run():
+	anim.play("walk")
+	
+func play_idle():
+	anim.play("idle")
+	
 enum PlayerState {
 	idle,
 	walk,

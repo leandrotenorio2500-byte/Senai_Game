@@ -124,6 +124,7 @@ offset_left = -58.5
 offset_right = 58.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_u6xng")
 alignment = 1
 
 [node name="start" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=1581224940]

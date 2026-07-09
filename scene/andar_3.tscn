@@ -17,8 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://q456oehenf8o" path="res://entities/elevador.tscn" id="14_6uf62"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="15_p660s"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="16_acts7"]
+[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="18_acts7"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_acts7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6weq"]
 texture = ExtResource("6_acts7")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -33,7 +34,7 @@ texture = ExtResource("6_acts7")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6weq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5nv3v"]
 texture = ExtResource("7_s6weq")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -48,14 +49,14 @@ texture = ExtResource("7_s6weq")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5nv3v"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4dgk"]
 texture = ExtResource("8_5nv3v")
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n4dgk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7gsc"]
 texture = ExtResource("9_n4dgk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7gsc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7nmi"]
 texture = ExtResource("10_i7gsc")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -70,7 +71,7 @@ texture = ExtResource("10_i7gsc")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 7)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7nmi"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx71c"]
 texture = ExtResource("11_r7nmi")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -85,7 +86,7 @@ texture = ExtResource("11_r7nmi")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(-11, 7)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx71c"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvrni"]
 texture = ExtResource("12_tx71c")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
@@ -100,19 +101,19 @@ texture = ExtResource("12_tx71c")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 5)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvrni"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i216q"]
 texture = ExtResource("13_vvrni")
 0:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lfe31"]
-sources/0 = SubResource("TileSetAtlasSource_acts7")
-sources/1 = SubResource("TileSetAtlasSource_s6weq")
-sources/2 = SubResource("TileSetAtlasSource_5nv3v")
-sources/3 = SubResource("TileSetAtlasSource_n4dgk")
-sources/4 = SubResource("TileSetAtlasSource_i7gsc")
-sources/5 = SubResource("TileSetAtlasSource_r7nmi")
-sources/6 = SubResource("TileSetAtlasSource_tx71c")
-sources/7 = SubResource("TileSetAtlasSource_vvrni")
+sources/0 = SubResource("TileSetAtlasSource_s6weq")
+sources/1 = SubResource("TileSetAtlasSource_5nv3v")
+sources/2 = SubResource("TileSetAtlasSource_n4dgk")
+sources/3 = SubResource("TileSetAtlasSource_i7gsc")
+sources/4 = SubResource("TileSetAtlasSource_r7nmi")
+sources/5 = SubResource("TileSetAtlasSource_tx71c")
+sources/6 = SubResource("TileSetAtlasSource_vvrni")
+sources/7 = SubResource("TileSetAtlasSource_i216q")
 
 [node name="andar3" type="Node2D" unique_id=1197957424]
 script = ExtResource("1_p660s")
@@ -140,7 +141,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_phmo5")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=116611288]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAMAAkABgASAAoAAAAMAAYABgAOAAkAAAAVAAkABgAhAAsAAAADAAkABgAeAAsAAAAHAAcABgABAAwAAAAcAAcABgABAAwAAAABAAgABgAOAAIAAAAQAAgABgACAAgAAAAQAAQABgASAAIAAAAVAAYABgAZAAkAAAADAAYABgAdAAkAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAMAAkABgASAAoAAAAMAAYABgAOAAkAAAAVAAkABgAhAAsAAAADAAkABgAeAAsAAAAHAAcABgABAAwAAAAcAAcABgABAAwAAAABAAgABgAOAAIAAAAQAAgABgACAAgAAAAQAAQABgASAAIAAAAVAAYABgAZAAkAAAADAAYABgAdAAkAAAAYAAkABgAMAAEAAAAKAAkABgAKAAEAAAA=")
 tile_set = ExtResource("5_p660s")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=578304847]
@@ -154,3 +155,13 @@ visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("16_acts7")]
 visible = false
+
+[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("18_acts7")]
+position = Vector2(54, 131)
+next_level = "uid://cjegie06e0nd3"
+next_player_position = Vector2(360, 147)
+
+[node name="LevelChanger2" parent="." unique_id=412636877 instance=ExtResource("18_acts7")]
+position = Vector2(341, 131)
+next_level = "uid://hd0j0j5ds7ko"
+next_player_position = Vector2(39, 147)

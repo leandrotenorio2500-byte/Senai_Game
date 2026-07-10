@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bvj1hyicuv5wm"]
 
-[ext_resource type="Script" uid="uid://u1uparygoq72" path="res://scripts/missions/objectives/risco.gd" id="1_ain5q"]
+[ext_resource type="Script" uid="uid://u1uparygoq72" path="res://scripts/missions/ponto_risco/objectives/risco.gd" id="1_ain5q"]
 [ext_resource type="Texture2D" uid="uid://cy2peeb8ql802" path="res://sprites/Common Pick-ups/Small_Coin (16 x 16).png" id="1_dj36k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ain5q"]

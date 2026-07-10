@@ -30,7 +30,7 @@ load_path = "res://.godot/imported/button2pressed.png-73610e133d824ca77ac4e17fe6
 
 [sub_resource type="Animation" id="Animation_g7ghk"]
 resource_name = "Entrada"
-length = 2.0
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,10 +38,10 @@ tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-80, 174), Vector2(104, 174)]
+"values": [Vector2(-80, 174), Vector2(60, 174)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -50,7 +50,7 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -137,7 +137,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(104, 174), Vector2(335, 174)]
+"values": [Vector2(60, 174), Vector2(335, 174)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -210,7 +210,7 @@ centered = false
 position = Vector2(0, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=875413492]
-position = Vector2(196, 212)
+position = Vector2(198, 213)
 shape = SubResource("RectangleShape2D_kpsck")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("3_lh8g8")]
@@ -223,10 +223,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = -81.0
-offset_right = 402.0
-offset_bottom = 133.0
+offset_right = 401.0
+offset_bottom = 214.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -246,7 +244,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="buttonManager/Container" unique_id=314595106]
 layout_mode = 2
-text = "               SELECIONE O EPI CORRETO            3/4"
+text = "               setor eletrico            3/4"
 label_settings = SubResource("LabelSettings_uoa4q")
 horizontal_alignment = 1
 

@@ -6,11 +6,137 @@
 [ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_smml3"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_q3m8q"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_8ow8r"]
+[ext_resource type="Texture2D" uid="uid://cdxo0rdrrcgt6" path="res://sprites/npcs/coroa2.png" id="7_2e7bl"]
+[ext_resource type="Texture2D" uid="uid://ch4ouypohfw4r" path="res://sprites/npcs/coroa.png" id="8_kedey"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="8_wd2cn"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_ycbo4"]
-[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="9_q3m8q"]
+[ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_sfps4"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_sl2rw"]
 [ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="9_smml3"]
+[ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_wuasn"]
+[ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="11_jeksh"]
+[ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_gucgu"]
+[ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_4c0h4"]
+[ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_yctf2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
+texture = ExtResource("7_2e7bl")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bln1"]
+texture = ExtResource("8_kedey")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2trmm"]
+texture = ExtResource("9_sfps4")
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fruwx"]
+texture = ExtResource("10_wuasn")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u2wj"]
+texture = ExtResource("11_jeksh")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 7)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ngk"]
+texture = ExtResource("12_gucgu")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-11, 7)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a5tq"]
+texture = ExtResource("13_4c0h4")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 3.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rshrm"]
+texture = ExtResource("14_yctf2")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 5)
+
+[sub_resource type="TileSet" id="TileSet_sxnay"]
+sources/0 = SubResource("TileSetAtlasSource_muhhk")
+sources/1 = SubResource("TileSetAtlasSource_5bln1")
+sources/2 = SubResource("TileSetAtlasSource_2trmm")
+sources/3 = SubResource("TileSetAtlasSource_fruwx")
+sources/4 = SubResource("TileSetAtlasSource_4u2wj")
+sources/5 = SubResource("TileSetAtlasSource_g5ngk")
+sources/6 = SubResource("TileSetAtlasSource_6a5tq")
+sources/7 = SubResource("TileSetAtlasSource_rshrm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
@@ -46,6 +172,10 @@ tile_set = ExtResource("4_q3m8q")
 tile_map_data = PackedByteArray("AAAeAAkAAwABAAEAAAAbAAkAAwAFAAEAAAAYAAkAAwABAAUAAAAVAAkAAwABAAEAAAARAAkAAwAKAAIAAAAOAAkAAwAOAAEAAAALAAkAAwAFAAUAAAAIAAkAAwAFAAEAAAAEAAkAAwAKAAcAAAABAAkAAwAOAAEAAAAFAAYABgADAAEAAAAQAAQABgASAAIAAAAhAAkABgAeAAsAAAA=")
 tile_set = ExtResource("5_8ow8r")
 
+[node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1123380789]
+tile_map_data = PackedByteArray("AAAKAAkAAwAAAAAAABA=")
+tile_set = SubResource("TileSet_sxnay")
+
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
 position = Vector2(-9, 10)
 collision_mask = 6
@@ -66,14 +196,17 @@ position = Vector2(182, 144)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=627340578]
 
-[node name="transition" parent="." unique_id=266359478 instance=ExtResource("9_q3m8q")]
-
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_sl2rw")]
 visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_ycbo4")]
+visible = false
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("8_wd2cn")]
 position = Vector2(534, 132)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(55, 147)
+
+[node name="LevelChanger2" parent="." unique_id=2065898854 instance=ExtResource("8_wd2cn")]
+position = Vector2(182, 139)
+next_level = "uid://cnl52jib1k51f"

@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="13_f6ajn"]
 [ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons/button4pressed.png" id="14_7yqtr"]
 [ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons/button4hover.png" id="15_jgb6v"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="16_8j167"]
+[ext_resource type="Texture2D" uid="uid://wxrr8fdistcy" path="res://sprites/GAMEOVER.png" id="17_r01f8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpsck"]
 size = Vector2(433, 20)
@@ -30,7 +32,7 @@ load_path = "res://.godot/imported/button2pressed.png-73610e133d824ca77ac4e17fe6
 
 [sub_resource type="Animation" id="Animation_g7ghk"]
 resource_name = "Entrada"
-length = 2.0
+length = 1.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,10 +40,10 @@ tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-80, 174), Vector2(104, 174)]
+"values": [Vector2(-80, 174), Vector2(60, 174)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -50,7 +52,7 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -134,10 +136,10 @@ tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
+"times": PackedFloat32Array(0, 2.6666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(104, 174), Vector2(335, 174)]
+"values": [Vector2(60, 174), Vector2(335, 174)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -160,7 +162,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.2333333),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -211,7 +213,7 @@ centered = false
 position = Vector2(0, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=875413492]
-position = Vector2(196, 214)
+position = Vector2(196, 213)
 shape = SubResource("RectangleShape2D_kpsck")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("2_0ik4u")]
@@ -247,7 +249,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="buttonManager/Container" unique_id=314595106]
 layout_mode = 2
-text = "               SELECIONE O EPI CORRETO            2/4"
+text = "               setor quimico            2/4"
 label_settings = SubResource("LabelSettings_uoa4q")
 horizontal_alignment = 1
 
@@ -283,5 +285,53 @@ texture_hover = ExtResource("12_ys0bb")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1101694581]
 libraries/ = SubResource("AnimationLibrary_uoa4q")
 autoplay = &"Entrada"
+
+[node name="gameover" type="CanvasLayer" parent="." unique_id=1825909601]
+visible = false
+
+[node name="Control" type="Control" parent="gameover" unique_id=1745403730]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 396.0
+offset_bottom = 221.0
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="gameover/Control" unique_id=621106375]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0.019925633, 0.019925632, 0.019925632, 1)
+
+[node name="Button" type="Button" parent="gameover/Control" unique_id=1656120382]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 33.5
+offset_right = 89.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("16_8j167")
+text = "TENTAR NOVAMENTE"
+
+[node name="TextureRect" type="TextureRect" parent="gameover/Control" unique_id=1775961765]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.99999
+offset_top = -39.499992
+offset_right = 37.0
+offset_bottom = -11.499992
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.526542, 1.526542)
+texture = ExtResource("17_r01f8")
 
 [connection signal="pressed" from="buttonManager/Container/container/quimico" to="." method="_on_quimico_pressed"]

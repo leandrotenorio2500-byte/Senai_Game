@@ -1,37 +1,40 @@
 extends Node2D 
 
 var ja_coletado = false
+var id_unica: String = ""
 
 func _ready():
-	# Busca a Area2D que está logo abaixo deste nó e conecta o sinal dela
 	$Area2D.body_entered.connect(_on_body_entered)
-	
-	# Conecta ao sinal global do QuestManager para saber quando qualquer missão iniciar
 	QuestManager.quest_started.connect(_on_quest_started)
 	
-	# Verifica o estado inicial ao carregar o mapa
+	# get_path() gera um caminho único absoluto na árvore de nós (ex: "/root/Fase1/Risco_01")
+	# Convertemos para String para salvar na lista da missão de forma segura
+	id_unica = String(get_path())
+		
 	_verificar_visibilidade_inicial()
 
 func _verificar_visibilidade_inicial() -> void:
 	var missao = QuestManager.missao_atual
 	
-	# Se a missão já estiver ativa (iniciada ou em andamento), o ponto fica visível
-	if missao and missao.id == "identificar_riscos" and (missao.estado_atual == "iniciada" or missao.estado_atual == "em_andamento"):
-		_mostrar_ponto_de_risco(true)
-	else:
-		# Caso contrário (pendente ou outra missão), começa totalmente escondido
-		_mostrar_ponto_de_risco(false)
+	if missao and missao.id == "identificar_riscos":
+		
+		# Pergunta para a missão se essa ID de caminho único já foi coletada
+		if missao.has_method("verificar_item_coletado") and missao.verificar_item_coletado(id_unica):
+			queue_free() # Se sim, o item se apaga na hora
+			return
+			
+		if missao.estado_atual == "iniciada" or missao.estado_atual == "em_andamento":
+			_mostrar_ponto_de_risco(true)
+			return
 
-# Função chamada automaticamente quando a Julia (ou qualquer gatilho) inicia uma missão
+	_mostrar_ponto_de_risco(false)
+
 func _on_quest_started(quest_id: String) -> void:
 	if quest_id == "identificar_riscos":
 		_mostrar_ponto_de_risco(true)
 
-# Controla tanto a parte visual quanto a colisão do objeto
 func _mostrar_ponto_de_risco(mostrar: bool) -> void:
 	visible = mostrar
-	
-	# Desativa a colisão para o player não esbarrar em algo invisível
 	if has_node("Area2D/CollisionShape2D"):
 		$Area2D/CollisionShape2D.disabled = not mostrar
 
@@ -43,8 +46,10 @@ func _on_body_entered(body):
 			if missao.estado_atual == "iniciada" or missao.estado_atual == "em_andamento":
 				ja_coletado = true
 				
-				# Envia a notificação de progresso usando a nova função unificada
-				QuestManager.notificar_progresso_missao({"amount": 1})
+				# Envia exatamente a chave 'item_id' contendo o caminho único
+				QuestManager.notificar_progresso_missao({
+					"amount": 1,
+					"item_id": id_unica
+				})
 				
-				# Deleta o nó 'Risco' e todos os seus filhos
 				queue_free()

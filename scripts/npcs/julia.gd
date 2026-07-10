@@ -25,7 +25,7 @@ func atualizar_dialogo() -> void:
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Parabéns, você completou a primeira missão!!!",
+				"dialog": "Parabéns, você completou a primeira missão! Agora fale com Manoela no almoxarifado para sua proxima missão!",
 				"faceset": npc_faceset_path
 			}
 		]

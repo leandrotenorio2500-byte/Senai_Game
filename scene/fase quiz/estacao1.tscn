@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="13_wemfy"]
 [ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons/button4pressed.png" id="14_1lkf8"]
 [ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons/button4hover.png" id="15_fdkwh"]
+[ext_resource type="Texture2D" uid="uid://b52fktigbh0vv" path="res://sprites/Mini UI/npchead.png" id="16_c44kn"]
+[ext_resource type="Texture2D" uid="uid://cemq50t58ct2g" path="res://sprites/selecao_titulo.png" id="17_kp6xe"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="17_o7ric"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="18_kp6xe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umbx8"]
 size = Vector2(433, 20)
@@ -30,7 +34,7 @@ load_path = "res://.godot/imported/button2pressed.png-73610e133d824ca77ac4e17fe6
 
 [sub_resource type="Animation" id="Animation_g7ghk"]
 resource_name = "Entrada"
-length = 2.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -38,10 +42,10 @@ tracks/0/path = NodePath("Player:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-80, 174), Vector2(104, 174)]
+"values": [Vector2(-80, 174), Vector2(60, 174)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -50,7 +54,7 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -63,26 +67,88 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("buttonManager:position")
+tracks/2/path = NodePath("Introducao/painel de introducao/ColorRect:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.23333333, 0.9),
+"times": PackedFloat32Array(2.5666666, 3.4666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, -80), Vector2(0, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("buttonManager:modulate")
+tracks/3/path = NodePath("Introducao/painel de introducao/TextureRect:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.23333333, 0.9),
-"transitions": PackedFloat32Array(2.2191324, 0.21618864),
+"times": PackedFloat32Array(2.5666666, 3.4666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Introducao/painel de introducao/NinePatchRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2.5666666, 3.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.3333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"mostrar_introducao"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Introducao/painel de introducao/pronto:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.84, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Introducao/painel de introducao/titulo:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.565, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Introducao/painel de introducao/titulo:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2.565, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-299, -2), Vector2(47, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_igefe"]
@@ -123,6 +189,105 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Introducao/painel de introducao/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Introducao/painel de introducao/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Introducao/painel de introducao/NinePatchRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Introducao/painel de introducao/pronto:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Introducao/painel de introducao/titulo:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Introducao/painel de introducao/titulo:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-299, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_c44kn"]
+resource_name = "buttons"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buttonManager:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -99), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buttonManager:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_745m4"]
 resource_name = "saida"
@@ -137,7 +302,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(104, 174), Vector2(335, 174)]
+"values": [Vector2(60, 174), Vector2(335, 174)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -160,7 +325,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.2333333),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -196,10 +361,11 @@ tracks/4/keys = {
 _data = {
 &"Entrada": SubResource("Animation_g7ghk"),
 &"RESET": SubResource("Animation_igefe"),
+&"buttons": SubResource("Animation_c44kn"),
 &"saida": SubResource("Animation_745m4")
 }
 
-[node name="Node2D" type="Node2D" unique_id=451005418]
+[node name="estacao1" type="Node2D" unique_id=451005418]
 script = ExtResource("1_n5bs6")
 proxima_cena = "uid://bcpqa6ys1cf70"
 
@@ -248,7 +414,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="buttonManager/Container" unique_id=2072176874]
 layout_mode = 2
-text = "               SELECIONE O EPI CORRETO            1/4"
+text = "               area de construcao            1/4"
 label_settings = SubResource("LabelSettings_4acmp")
 horizontal_alignment = 1
 
@@ -285,4 +451,83 @@ texture_hover = ExtResource("15_fdkwh")
 libraries/ = SubResource("AnimationLibrary_4acmp")
 autoplay = &"Entrada"
 
+[node name="Introducao" type="CanvasLayer" parent="." unique_id=328499263]
+
+[node name="painel de introducao" type="Control" parent="Introducao" unique_id=1254852171]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Introducao/painel de introducao" unique_id=600457056]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0170001
+anchor_bottom = 1.082
+offset_right = 370.32
+offset_bottom = 185.72
+color = Color(0.03137255, 0.03137255, 0.03137255, 0.5294118)
+
+[node name="TextureRect" type="TextureRect" parent="Introducao/painel de introducao" unique_id=580188220]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 0
+offset_left = 79.0
+offset_top = 69.0
+offset_right = 152.29788
+offset_bottom = 122.0
+texture = ExtResource("16_c44kn")
+flip_h = true
+
+[node name="titulo" type="TextureRect" parent="Introducao/painel de introducao" unique_id=1555874384]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -2.0
+offset_right = 5.0
+offset_bottom = 38.0
+grow_vertical = 2
+texture = ExtResource("17_kp6xe")
+stretch_mode = 3
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Introducao/painel de introducao" unique_id=1278091670]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 98.0
+offset_top = 77.0
+offset_right = 300.0
+offset_bottom = 128.0
+texture = ExtResource("17_o7ric")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="RichTextLabel" parent="Introducao/painel de introducao/NinePatchRect" unique_id=605264333]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 193.0
+offset_bottom = 54.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_c44kn")
+theme_override_font_sizes/normal_font_size = 6
+text = "\"Muito bem, aprendiz. Agora e hora de colocar seus conhecimentos em pratica. Em cada cenario, voce devera identificar os riscos e selecionar o conjunto de EPIs adequado antes de iniciar a atividade. Observe o ambiente com atencao e faca escolhas seguras.\""
+fit_content = true
+
+[node name="pronto" type="Button" parent="Introducao/painel de introducao" unique_id=1426737926]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 153.0
+offset_top = 158.0
+offset_right = 228.0
+offset_bottom = 179.0
+theme = ExtResource("18_kp6xe")
+text = "Pronto"
+
 [connection signal="pressed" from="buttonManager/Container/opocoes/construcao" to="." method="_on_construcao_pressed"]
+[connection signal="pressed" from="Introducao/painel de introducao/pronto" to="." method="_on_pronto_pressed"]

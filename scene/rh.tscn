@@ -117,6 +117,7 @@ size = Vector2(20, 209)
 [node name="RH" type="Node2D" unique_id=1414757530]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1388496289]
+z_index = -1
 texture = ExtResource("1_p7yi5")
 centered = false
 
@@ -139,7 +140,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("2_md2p5")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=512127042]
-tile_map_data = PackedByteArray("AAAWAAkABgAeAAsAAAAUAAgABgAOAAIAAAAJAAQABgASAAIAAAA=")
+tile_map_data = PackedByteArray("AAAWAAkABgAeAAsAAAAUAAgABgAOAAIAAAAJAAQABgASAAIAAAAKAAkABgAEABEAAAAHAAkABgABABAAAAAOAAkABgAMABAAAAABAAkABgAIAA8AAAAKAAcABgAEABAAAAAEAAkABgAEABEAAAASAAgABgAJAAgAAAA=")
 tile_set = ExtResource("3_w8fa7")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1406020534]

@@ -23,6 +23,7 @@ func register_hud(hud: CanvasLayer) -> void:
 func _inicializar_fila_de_missoes() -> void:
 	# Adiciona a missão de riscos como a primeira
 	fila_de_missoes.append(QuestIdentificarRiscos.new())
+	fila_de_missoes.append(QuestQuizEpi.new())
 	
 	# No futuro, você adicionará as outras aqui:
 	# fila_de_missoes.append(QuestFalarComNPC.new())

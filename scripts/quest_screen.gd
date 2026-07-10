@@ -18,14 +18,15 @@ func update_display(quest_id: String) -> void:
 	if missao == null or missao.id != quest_id:
 		return
 		
-	# Define o título principal da missão pegando direto do objeto
+	# Define o título principal da missão pegando direto do objeto ativo
 	_title.text = missao.title
 	
-	# Como a nova arquitetura suporta scripts customizados para cada missão, 
-	# nós verificamos se a missão atual possui propriedades de contador (como a de riscos)
+	# --- CONDIÇÃO PARA MISSÕES COM SISTEMA DE COLETA / CONTADOR ---
 	if "current_count" in missao and "target_count" in missao:
-		# Se tiver contador, mostra a descrição e o progresso ex: "Encontre os pontos de risco no mapa (1/3)"
+		# Se a missão tiver variáveis numéricas de contagem, adiciona o sufixo (X/Y)
 		_subtitle.text = missao.description + " (" + str(missao.current_count) + "/" + str(missao.target_count) + ")"
+	
+	# --- CONDIÇÃO PARA MISSÕES NORMAIS (Diálogos, ir até um local, etc.) ---
 	else:
-		# Se for uma missão sem contador (ex: apenas falar com alguém), mostra só a descrição
+		# Se for uma missão sem coleta, exibe apenas o texto direto da descrição
 		_subtitle.text = missao.description

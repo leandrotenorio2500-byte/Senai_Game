@@ -1,7 +1,7 @@
 extends Control
 class_name MissionScreen
 
-# Referências baseadas na estrutura da imagem enviada
+# Referências baseadas na estrutura da sua cena
 @onready var _title: Label = $HBoxContainer/VBoxContainer/Title
 @onready var _subtitle: Label = $HBoxContainer/VBoxContainer/Subtitle
 
@@ -12,20 +12,21 @@ func _ready() -> void:
 
 # Função chamada pelo QuestManager para atualizar os textos visualizados
 func update_display(quest_id: String) -> void:
-	if not QuestManager.quests.has(quest_id):
+	var missao = QuestManager.missao_atual
+	
+	# Se não houver missão ativa ou o ID não bater, não faz nada
+	if missao == null or missao.id != quest_id:
 		return
 		
-	var quest_data = QuestManager.quests[quest_id]
+	# Define o título principal da missão pegando direto do objeto ativo
+	_title.text = missao.title
 	
-	# Define o título principal da missão
-	_title.text = quest_data["title"]
+	# --- CONDIÇÃO PARA MISSÕES COM SISTEMA DE COLETA / CONTADOR ---
+	if "current_count" in missao and "target_count" in missao:
+		# Se a missão tiver variáveis numéricas de contagem, adiciona o sufixo (X/Y)
+		_subtitle.text = missao.description + " (" + str(missao.current_count) + "/" + str(missao.target_count) + ")"
 	
-	# Pega o passo atual da missão
-	var current_step_idx = quest_data["current_step"]
-	
-	# Previne erros caso a missão já tenha fechado mas a UI tente atualizar
-	if current_step_idx < quest_data["steps"].size():
-		var step = quest_data["steps"][current_step_idx]
-		
-		# Monta a String final ex: "Encontre os pontos de risco no mapa (1/3)"
-		_subtitle.text = step["description"] + " (" + str(step["current_count"]) + "/" + str(step["target_count"]) + ")"
+	# --- CONDIÇÃO PARA MISSÕES NORMAIS (Diálogos, ir até um local, etc.) ---
+	else:
+		# Se for uma missão sem coleta, exibe apenas o texto direto da descrição
+		_subtitle.text = missao.description

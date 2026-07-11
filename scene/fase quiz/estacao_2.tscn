@@ -1,0 +1,497 @@
+[gd_scene format=3 uid="uid://bcpqa6ys1cf70"]
+
+[ext_resource type="Texture2D" uid="uid://devoi004sgyn" path="res://sprites/BACKGROUND/estacao2.png" id="1_rhcir"]
+[ext_resource type="Script" uid="uid://bnwh43140vaqf" path="res://scripts/fase quiz/estacao_2.gd" id="1_sp866"]
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="2_0ik4u"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="4_sp866"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_8j167"]
+[ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons/button1pressed.png" id="6_r01f8"]
+[ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons/button1hover.png" id="7_ewhy7"]
+[ext_resource type="Texture2D" uid="uid://ccnlex2oefcfd" path="res://Buttons/button2norma.png" id="8_enhxq"]
+[ext_resource type="Texture2D" uid="uid://dwrpp48k6cx3e" path="res://Buttons/button2hover.png" id="9_ni56i"]
+[ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons/button3normal.png" id="10_kwv10"]
+[ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons/button3pressed.png" id="11_w51e5"]
+[ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons/button3hoverl.png" id="12_ys0bb"]
+[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="13_f6ajn"]
+[ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons/button4pressed.png" id="14_7yqtr"]
+[ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons/button4hover.png" id="15_jgb6v"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="16_8j167"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="16_ewhy7"]
+[ext_resource type="Texture2D" uid="uid://h588gbqa22ft" path="res://sprites/gameoverquiz.png" id="17_enhxq"]
+[ext_resource type="Texture2D" uid="uid://b52fktigbh0vv" path="res://sprites/Mini UI/npchead.png" id="19_ni56i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpsck"]
+size = Vector2(433, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uoa4q"]
+font = ExtResource("4_sp866")
+font_size = 19
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hygsg"]
+load_path = "res://.godot/imported/button2pressed.png-73610e133d824ca77ac4e17fe6d4a5e0.ctex"
+
+[sub_resource type="Animation" id="Animation_g7ghk"]
+resource_name = "Entrada"
+length = 1.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-80, 174), Vector2(60, 174)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_run"
+}, {
+"args": [],
+"method": &"play_idle"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buttonManager:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.23333333, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -80), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buttonManager:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.23333333, 0.9),
+"transitions": PackedFloat32Array(2.2191324, 0.21618864),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_igefe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 184)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buttonManager:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buttonManager:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gameover/Control/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("gameover/Control/TextureRect:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(109, -54)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gameover/TextureRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("gameover/Control/NinePatchRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("gameover/Control/tentarnovamente:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ewhy7"]
+resource_name = "game_over"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gameover/Control/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gameover/Control/TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(109, -54), Vector2(109, 21)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gameover/TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gameover/Control/NinePatchRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("gameover/Control/tentarnovamente:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_745m4"]
+resource_name = "saida"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.6666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, 174), Vector2(335, 174)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_run"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"carregar_proxima_fase"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buttonManager:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2333, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buttonManager:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2333, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uoa4q"]
+_data = {
+&"Entrada": SubResource("Animation_g7ghk"),
+&"RESET": SubResource("Animation_igefe"),
+&"game_over": SubResource("Animation_ewhy7"),
+&"saida": SubResource("Animation_745m4")
+}
+
+[node name="estacao2" type="Node2D" unique_id=455651115]
+script = ExtResource("1_sp866")
+proxima_cena = "uid://de3s3i5o486yu"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=204844358]
+texture = ExtResource("1_rhcir")
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1990115163]
+position = Vector2(0, -17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=875413492]
+position = Vector2(196, 213)
+shape = SubResource("RectangleShape2D_kpsck")
+
+[node name="Player" parent="." unique_id=1967718643 instance=ExtResource("2_0ik4u")]
+position = Vector2(-9, 184)
+
+[node name="buttonManager" type="Control" parent="." unique_id=1559058415]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -81.0
+offset_right = 402.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="buttonManager" unique_id=1361565020]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.5
+offset_top = -106.0
+offset_right = 199.5
+offset_bottom = 111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="buttonManager/Container" unique_id=314595106]
+layout_mode = 2
+text = "               setor quimico            2/4"
+label_settings = SubResource("LabelSettings_uoa4q")
+horizontal_alignment = 1
+
+[node name="container" type="HBoxContainer" parent="buttonManager/Container" unique_id=1373539018]
+layout_mode = 2
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="solda" type="TextureButton" parent="buttonManager/Container/container" unique_id=978498953]
+layout_mode = 2
+texture_normal = ExtResource("13_f6ajn")
+texture_pressed = ExtResource("14_7yqtr")
+texture_hover = ExtResource("15_jgb6v")
+
+[node name="construcao" type="TextureButton" parent="buttonManager/Container/container" unique_id=605723126]
+layout_mode = 2
+texture_normal = ExtResource("5_8j167")
+texture_pressed = ExtResource("6_r01f8")
+texture_hover = ExtResource("7_ewhy7")
+
+[node name="quimico" type="TextureButton" parent="buttonManager/Container/container" unique_id=514489198]
+layout_mode = 2
+texture_normal = ExtResource("8_enhxq")
+texture_pressed = SubResource("CompressedTexture2D_hygsg")
+texture_hover = ExtResource("9_ni56i")
+
+[node name="eletrico" type="TextureButton" parent="buttonManager/Container/container" unique_id=395713456]
+layout_mode = 2
+texture_normal = ExtResource("10_kwv10")
+texture_pressed = ExtResource("11_w51e5")
+texture_hover = ExtResource("12_ys0bb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1101694581]
+libraries/ = SubResource("AnimationLibrary_uoa4q")
+autoplay = &"Entrada"
+
+[node name="gameover" type="CanvasLayer" parent="." unique_id=91227956]
+
+[node name="Control" type="Control" parent="gameover" unique_id=981329667]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -110.5
+offset_right = 198.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="gameover/Control" unique_id=925786227]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0.13333334, 0.13333334, 0.13333334, 0.6156863)
+
+[node name="TextureRect" type="TextureRect" parent="gameover/Control" unique_id=1142380318]
+layout_mode = 0
+offset_left = 109.0
+offset_top = -54.0
+offset_right = 287.0
+offset_bottom = -6.0
+texture = ExtResource("17_enhxq")
+
+[node name="tentarnovamente" type="Button" parent="gameover/Control" unique_id=564490250]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 109.0
+offset_top = 154.0
+offset_right = 287.0
+offset_bottom = 175.0
+theme = ExtResource("16_8j167")
+text = "TENTAR NOVAMENTE"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="gameover/Control" unique_id=87206930]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 113.0
+offset_top = 85.5
+offset_right = 291.0
+offset_bottom = 125.5
+texture = ExtResource("16_ewhy7")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="Label" type="RichTextLabel" parent="gameover/Control/NinePatchRect" unique_id=1102187345]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 5.0
+offset_right = 162.0
+offset_bottom = 43.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_sp866")
+theme_override_font_sizes/normal_font_size = 6
+text = "\"Esse nao e o conjunto de EPIs adequado para esta atividade. Trabalhar sem a protecao correta pode causar acidentes. Revise sua escolha e tente novamente.\""
+fit_content = true
+
+[node name="TextureRect" type="TextureRect" parent="gameover" unique_id=1980826931]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_left = 79.0
+offset_top = 81.0
+offset_right = 140.0
+offset_bottom = 125.0
+texture = ExtResource("19_ni56i")
+flip_h = true
+
+[connection signal="pressed" from="buttonManager/Container/container/solda" to="." method="_on_solda_pressed"]
+[connection signal="pressed" from="buttonManager/Container/container/construcao" to="." method="_on_construcao_pressed"]
+[connection signal="pressed" from="buttonManager/Container/container/quimico" to="." method="_on_quimico_pressed"]
+[connection signal="pressed" from="buttonManager/Container/container/eletrico" to="." method="_on_eletrico_pressed"]
+[connection signal="pressed" from="gameover/Control/tentarnovamente" to="." method="_on_tentarnovamente_pressed"]

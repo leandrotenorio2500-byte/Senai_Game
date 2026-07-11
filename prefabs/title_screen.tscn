@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dsdhwq8rdlmdn" path="res://scripts/title_screen.gd" id="1_agckt"]
 [ext_resource type="Texture2D" uid="uid://clhfi7su6a2yl" path="res://sprites/titlescreen2.png" id="2_u6xng"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="4_u6xng"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="5_agckt"]
 
 [sub_resource type="Animation" id="Animation_u6xng"]
 length = 0.001
@@ -59,11 +60,13 @@ _data = {
 }
 
 [node name="Title_Screen" type="Control" unique_id=342701394]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+mouse_filter = 2
 script = ExtResource("1_agckt")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=2001037373]
@@ -121,6 +124,7 @@ offset_left = -58.5
 offset_right = 58.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_u6xng")
 alignment = 1
 
 [node name="start" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=1581224940]
@@ -146,6 +150,8 @@ text = "Sair
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=738584462]
 libraries/ = SubResource("AnimationLibrary_nvgea")
 autoplay = &"fadein"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("5_agckt")]
 
 [connection signal="pressed" from="Buttons_manager/VBoxContainer/start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons_manager/VBoxContainer/credits" to="." method="_on_credits_pressed"]

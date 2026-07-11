@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://7e1ekf0nhvlv"]
 
 [ext_resource type="Script" uid="uid://dryb503vq6trr" path="res://scripts/level_changer.gd" id="1_3fqlw"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="2_xobjf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4wox"]
-size = Vector2(28, 45)
+size = Vector2(35, 45)
 
 [sub_resource type="LabelSettings" id="LabelSettings_07uvj"]
+font = ExtResource("2_xobjf")
 font_size = 6
 outline_size = 1
 outline_color = Color(0.02617561, 0.026175609, 0.026175609, 1)
@@ -22,11 +24,12 @@ shape = SubResource("RectangleShape2D_k4wox")
 debug_color = Color(0.26076448, 0.6205006, 0.38406932, 0.41960785)
 
 [node name="Label" type="Label" parent="." unique_id=390673933]
-offset_left = -15.0
-offset_top = -16.0
-offset_right = 19.0
-offset_bottom = -4.0
-text = "Press Enter"
+texture_filter = 1
+offset_left = -18.0
+offset_top = -15.0
+offset_right = 20.0
+offset_bottom = -3.0
+text = "Aperte (Enter)"
 label_settings = SubResource("LabelSettings_07uvj")
 autowrap_mode = 2
 

@@ -1,15 +1,90 @@
 [gd_scene format=4 uid="uid://djhs23rtt4sye"]
 
-[ext_resource type="Script" uid="uid://bguwewup552qs" path="res://scripts/missions/deposito.gd" id="1_ftmwp"]
+[ext_resource type="Script" uid="uid://c54lc2wcgtr8m" path="res://scripts/levels/deposito.gd" id="1_ftmwp"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_ocnva"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_oj85h"]
 [ext_resource type="Texture2D" uid="uid://1iujc401sqf2" path="res://sprites/BACKGROUND/Deposito (2).png" id="3_ftmwp"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_4hj14"]
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_hoit2"]
-[ext_resource type="PackedScene" uid="uid://dt27lc3lmyg0b" path="res://entities/level_end.tscn" id="6_ve01p"]
+[ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="7_fp5cx"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_fp5cx"]
+[ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="8_hhovy"]
+[ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="9_asn2w"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="9_oj85h"]
+[ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="10_r4k77"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="11_4hj14"]
+[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="11_hoit2"]
+[ext_resource type="Texture2D" uid="uid://cjfy10x6racpt" path="res://sprites/npcs/zelador.png" id="11_o2bc7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agt3t"]
+texture = ExtResource("7_fp5cx")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x8ek7"]
+texture = ExtResource("8_hhovy")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4usfb"]
+texture = ExtResource("9_asn2w")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 6)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gbu4n"]
+texture = ExtResource("10_r4k77")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 7)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wm8g"]
+texture = ExtResource("11_o2bc7")
+
+[sub_resource type="TileSet" id="TileSet_sus8b"]
+sources/0 = SubResource("TileSetAtlasSource_agt3t")
+sources/1 = SubResource("TileSetAtlasSource_x8ek7")
+sources/2 = SubResource("TileSetAtlasSource_4usfb")
+sources/3 = SubResource("TileSetAtlasSource_gbu4n")
+sources/4 = SubResource("TileSetAtlasSource_2wm8g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 202.5)
@@ -18,31 +93,36 @@ size = Vector2(20, 202.5)
 script = ExtResource("1_ftmwp")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_ocnva")]
-position = Vector2(40, 163)
+position = Vector2(347, 147)
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_oj85h")]
-position = Vector2(-49, 150)
+position = Vector2(389, -21)
 limit_top = 0
-limit_right = 1095
+limit_right = 739
 position_smoothing_enabled = true
 position_smoothing_speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
+z_index = -3
+position = Vector2(0, -5)
 texture = ExtResource("3_ftmwp")
 centered = false
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
 
 [node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
-tile_map_data = PackedByteArray("AABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAACAAYAAAAAAAwABAACAAcAAAABAAsABAADAAYAAAABAAwABAADAAcAAAACAAsABAAEAAYAAAACAAwABAAEAAcAAAADAAsABAACAAYAAAADAAwABAACAAcAAAAEAAsABAADAAYAAAAEAAwABAADAAcAAAAFAAsABAAEAAYAAAAFAAwABAAEAAcAAAAGAAsABAAFAAYAAAAGAAwABAAFAAcAAAAHAAsABAACAAYAAAAHAAwABAACAAcAAAAIAAsABAADAAYAAAAIAAwABAADAAcAAAAJAAsABAAEAAYAAAAJAAwABAAEAAcAAAAKAAsABAACAAYAAAAKAAwABAACAAcAAAALAAsABAADAAYAAAALAAwABAADAAcAAAAMAAsABAAEAAYAAAAMAAwABAAEAAcAAAANAAsABAAFAAYAAAANAAwABAAFAAcAAAAOAAsABAAGAAYAAAAOAAwABAAGAAcAAAAPAAsABAAHAAYAAAAPAAwABAAHAAcAAAAQAAsABAACAAYAAAAQAAwABAACAAcAAAARAAsABAADAAYAAAARAAwABAADAAcAAAASAAsABAAEAAYAAAASAAwABAAEAAcAAAATAAsABAAFAAYAAAATAAwABAAFAAcAAAAUAAsABAACAAYAAAAUAAwABAACAAcAAAAVAAsABAADAAYAAAAVAAwABAADAAcAAAAWAAsABAAEAAYAAAAWAAwABAAEAAcAAAAXAAsABAAFAAYAAAAXAAwABAAFAAcAAAAYAAsABAAGAAYAAAAYAAwABAAGAAcAAAAZAAsABAAHAAYAAAAZAAwABAAHAAcAAAAaAAsABAACAAYAAAAaAAwABAACAAcAAAAbAAsABAADAAYAAAAbAAwABAADAAcAAAAcAAsABAAEAAYAAAAcAAwABAAEAAcAAAAdAAsABAAFAAYAAAAdAAwABAAFAAcAAAAeAAsABAAGAAYAAAAeAAwABAAGAAcAAAAfAAsABAACAAYAAAAfAAwABAACAAcAAAAgAAsABAADAAYAAAAgAAwABAADAAcAAAAhAAsABAAEAAYAAAAhAAwABAAEAAcAAAAiAAsABAAFAAYAAAAiAAwABAAFAAcAAAAjAAsABAAGAAYAAAAjAAwABAAGAAcAAAAkAAsABAACAAYAAAAkAAwABAACAAcAAAAlAAsABAADAAYAAAAlAAwABAADAAcAAAAmAAsABAAEAAYAAAAmAAwABAAEAAcAAAAnAAsABAAFAAYAAAAnAAwABAAFAAcAAAAoAAsABAAGAAYAAAAoAAwABAAGAAcAAAApAAsABAACAAYAAAApAAwABAACAAcAAAAqAAsABAADAAYAAAAqAAwABAADAAcAAAArAAsABAAEAAYAAAArAAwABAAEAAcAAAAsAAsABAAFAAYAAAAsAAwABAAFAAcAAAAtAAsABAAGAAYAAAAtAAwABAAGAAcAAAAuAAsABAACAAYAAAAuAAwABAACAAcAAAAvAAsABAADAAYAAAAvAAwABAADAAcAAAAwAAsABAAEAAYAAAAwAAwABAAEAAcAAAAxAAsABAAFAAYAAAAxAAwABAAFAAcAAAAyAAsABAAGAAYAAAAyAAwABAAGAAcAAAAzAAsABAACAAYAAAAzAAwABAACAAcAAAA0AAsABAADAAYAAAA0AAwABAADAAcAAAA1AAsABAAEAAYAAAA1AAwABAAEAAcAAAA2AAsABAACAAYAAAA2AAwABAACAAcAAAA3AAsABAADAAYAAAA3AAwABAADAAcAAAA4AAsABAAEAAYAAAA4AAwABAAEAAcAAAA5AAsABAAFAAYAAAA5AAwABAAFAAcAAAA6AAsABAAGAAYAAAA6AAwABAAGAAcAAAA7AAsABAACAAYAAAA7AAwABAACAAcAAAA8AAsABAADAAYAAAA8AAwABAADAAcAAAA9AAsABAAEAAYAAAA9AAwABAAEAAcAAAA+AAsABAAFAAYAAAA+AAwABAAFAAcAAAA/AAsABAAGAAYAAAA/AAwABAAGAAcAAAA/AA0AAQACAAMAAABAAAsABAACAAYAAABAAAwABAACAAcAAABAAA0AAQACAAMAAABBAAsABAACAAYAAABBAAwABAACAAcAAABBAA0AAQACAAMAAABCAAsABAADAAYAAABCAAwABAADAAcAAABCAA0AAQACAAMAAABDAAsABAAEAAYAAABDAAwABAAEAAcAAABDAA0AAQACAAMAAABEAAsABAAFAAYAAABEAAwABAAFAAcAAABEAA0AAQACAAMAAABFAAsABAAGAAYAAABFAAwABAAGAAcAAABFAA0AAQACAAMAAABGAA0AAQACAAMAAABHAA0AAQACAAMAAABIAA0AAQACAAMAAABJAA0AAQACAAMAAAA=")
+position = Vector2(0, 16)
+tile_map_data = PackedByteArray("AAAAAAwABAAOAAMAAAACAAwABAAQAAMAAAAEAAwABAAOAAMAAAAGAAwABAAQAAMAAAAIAAwABAASAAMAAAAKAAwABAAOAAMAAAAMAAwABAAQAAMAAAAOAAwABAASAAMAAAAQAAwABAAOAAMAAAASAAwABAAQAAMAAAAUAAwABAASAAMAAAAWAAwABAAOAAMAAAAYAAwABAAQAAMAAAAaAAwABAASAAMAAAAcAAwABAAOAAMAAAAeAAwABAAQAAMAAAAgAAwABAASAAMAAAAiAAwABAAOAAMAAAAkAAwABAAQAAMAAAAmAAwABAASAAMAAAAoAAwABAAOAAMAAAAqAAwABAAQAAMAAAAAAAoABAAOAAEAAAACAAoABAAQAAEAAAAEAAoABAAOAAEAAAAGAAoABAAQAAEAAAAIAAoABAASAAEAAAAKAAoABAAOAAEAAAAMAAoABAAQAAEAAAAOAAoABAASAAEAAAAQAAoABAAOAAEAAAASAAoABAAQAAEAAAAUAAoABAASAAEAAAAWAAoABAAOAAEAAAAYAAoABAAQAAEAAAAaAAoABAASAAEAAAAcAAoABAAOAAEAAAAeAAoABAAQAAEAAAAgAAoABAASAAEAAAAiAAoABAAOAAEAAAAkAAoABAAQAAEAAAAmAAoABAASAAEAAAAoAAoABAAOAAEAAAAqAAoABAAQAAEAAAAsAAoABAAQAAEAAAAsAAwABAAQAAMAAAAuAAoABAAQAAEAAAAuAAwABAAQAAMAAAA=")
 tile_set = ExtResource("4_4hj14")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
+position = Vector2(1, 0)
+tile_map_data = PackedByteArray("AAACAAgABQAOAAwAAAAFAAcABQADAAEAAAAJAAgABQAIAAwAAAALAAcABQAQAAEAAAARAAcABQAWAAEAAAATAAgABQALAA0AAAATAAkABQALAA0AAAAVAAgABgAOAAIAAAAcAAgABQAIAAwAAAAeAAcABQAKAAEAAAAgAAkABQALAA0AAAAkAAcABQADAAEAAAAlAAkABQACAAsAABAoAAkABQALAA0AAAAqAAcABQAQAAEAAAAYAAkABgAhAAYAAAAtAAgABQALAA0AAAAtAAkABQALAA0AAAACAAkABQALAA0AAAA=")
 tile_set = ExtResource("5_hoit2")
 
-[node name="LevelEnd" parent="." unique_id=1677674211 instance=ExtResource("6_ve01p")]
-position = Vector2(1097, 23)
-next_level = "producao"
+[node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=712453566]
+tile_map_data = PackedByteArray("AAArAAkAAQAAAAAAAAAeAAkAAAAAAAAAAAALAAkAAgAAAAAAABANAAkAAQAAAAAAAAASAAkAAwAAAAAAABA=")
+tile_set = SubResource("TileSet_sus8b")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
 position = Vector2(-9, 10)
@@ -53,16 +133,16 @@ position = Vector2(1, 95)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
-position = Vector2(1114, 56)
+position = Vector2(755, 60)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_fp5cx")]
 
-[node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
-position = Vector2(-7, 85)
-scale = Vector2(0.971244, 12.039999)
-next_level = "uid://d370titfa8sud"
-need_interaction = false
+[node name="transition" parent="." unique_id=266359478 instance=ExtResource("11_hoit2")]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_4hj14")]
-visible = false
+
+[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
+position = Vector2(392, 131)
+next_level = "uid://d370titfa8sud"
+next_player_position = Vector2(136, 147)

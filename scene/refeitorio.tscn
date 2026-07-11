@@ -105,38 +105,6 @@ sources/8 = SubResource("TileSetAtlasSource_tp3mq")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqc2l"]
-texture = ExtResource("9_ro14o")
-0:0/size_in_atlas = Vector2i(2, 2)
-0:0/animation_speed = 0.1
-0:0/animation_frame_0/duration = 0.02
-0:0/animation_frame_1/duration = 0.02
-0:0/animation_frame_2/duration = 0.02
-0:0/animation_frame_3/duration = 0.02
-0:0/animation_frame_4/duration = 0.02
-0:0/animation_frame_5/duration = 0.02
-0:0/animation_frame_6/duration = 0.02
-0:0/animation_frame_7/duration = 0.02
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pkmy"]
-texture = ExtResource("10_eqc2l")
-0:0/size_in_atlas = Vector2i(2, 2)
-0:0/animation_speed = 5.0
-0:0/animation_frame_0/duration = 1.0
-0:0/animation_frame_1/duration = 1.0
-0:0/animation_frame_2/duration = 1.0
-0:0/animation_frame_3/duration = 1.0
-0:0/animation_frame_4/duration = 1.0
-0:0/animation_frame_5/duration = 1.0
-0:0/animation_frame_6/duration = 1.0
-0:0/animation_frame_7/duration = 1.0
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_8pkmy"]
-sources/0 = SubResource("TileSetAtlasSource_eqc2l")
-sources/1 = SubResource("TileSetAtlasSource_8pkmy")
-
 [node name="refeitorio" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -22)
 script = ExtResource("1_utceq")
@@ -162,7 +130,7 @@ centered = false
 [node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
 
 [node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
-tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAwABAANAAYAAAACAAwABAAPAAYAAAAEAAwABAANAAYAAAAGAAwABAAPAAYAAAAIAAwABAANAAYAAAAKAAwABAAPAAYAAAAWAAwABAANAAYAAAAYAAwABAAPAAYAAAAcAAwABAANAAYAAAAeAAwABAANAAYAAAAgAAwABAAPAAYAAAAAAA4ABAANAAgAAAACAA4ABAAPAAgAAAAEAA4ABAANAAgAAAALAA4ABAANAAgAAAANAA4ABAAPAAgAAAAPAA4ABAANAAgAAAAVAA4ABAANAAgAAAAXAA4ABAAPAAgAAAAYAA4ABAAPAAgAAAAcAA4ABAANAAgAAAAZAA4ABAANAAgAAAAbAA4ABAAPAAgAAAAeAA4ABAANAAgAAAAgAA4ABAAPAAgAAAAGAA4ABAAPAAgAAAAKAA4ABAAPAAgAAAALAAwABAANAAYAAAANAAwABAAPAAYAAAAPAAwABAANAAYAAAARAAwABAANAAYAAAARAA4ABAANAAgAAAATAAwABAAPAAYAAAATAA4ABAAPAAgAAAAWAA4ABAANAAgAAAAVAAwABAANAAYAAAAXAAwABAAPAAYAAAAZAAwABAANAAYAAAAbAAwABAAPAAYAAAAIAA4ABAANAAgAAAA=")
+tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAwABAAPAAYAAAACAAwABAAPAAYAAAAEAAwABAANAAYAAAAGAAwABAAPAAYAAAAIAAwABAANAAYAAAAKAAwABAAPAAYAAAAWAAwABAANAAYAAAAYAAwABAAPAAYAAAAcAAwABAANAAYAAAAeAAwABAANAAYAAAAgAAwABAAPAAYAAAAAAA4ABAAPAAgAAAACAA4ABAAPAAgAAAAEAA4ABAANAAgAAAALAA4ABAANAAgAAAANAA4ABAAPAAgAAAAPAA4ABAANAAgAAAAVAA4ABAANAAgAAAAXAA4ABAAPAAgAAAAYAA4ABAAPAAgAAAAcAA4ABAANAAgAAAAZAA4ABAANAAgAAAAbAA4ABAAPAAgAAAAeAA4ABAANAAgAAAAgAA4ABAAPAAgAAAAGAA4ABAAPAAgAAAAKAA4ABAAPAAgAAAALAAwABAANAAYAAAANAAwABAAPAAYAAAAPAAwABAANAAYAAAARAAwABAANAAYAAAARAA4ABAANAAgAAAATAAwABAAPAAYAAAATAA4ABAAPAAgAAAAWAA4ABAANAAgAAAAVAAwABAANAAYAAAAXAAwABAAPAAYAAAAZAAwABAANAAYAAAAbAAwABAAPAAYAAAAIAA4ABAANAAgAAAD+/wwABAANAAYAAAD+/w4ABAANAAgAAAA=")
 tile_set = ExtResource("4_8pkmy")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
@@ -179,7 +147,7 @@ position = Vector2(-9, 10)
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelLimit" unique_id=2018999782]
-position = Vector2(0, 91)
+position = Vector2(-18, 92)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
@@ -187,25 +155,20 @@ position = Vector2(542, 102)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_di15h")]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=812904027]
-position = Vector2(-9, 10)
-tile_map_data = PackedByteArray("AAAPAAkAAQAAAAAAAAA=")
-tile_set = SubResource("TileSet_8pkmy")
+visible = false
 
 [node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("10_8pkmy")]
-position = Vector2(-13, 114)
+position = Vector2(-16, 114)
 scale = Vector2(0.971244, 12.039999)
 next_level = "uid://d2a75r2ne3nbm"
-next_player_position = Vector2(510, 147)
+next_player_position = Vector2(569, 147)
 need_interaction = false
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_8pkmy")]
 visible = false
 
 [node name="Objectives" type="Node2D" parent="." unique_id=1411485978]
+visible = false
 
 [node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("18_ncpg8")]
 position = Vector2(197, 159)
-
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1356432637]

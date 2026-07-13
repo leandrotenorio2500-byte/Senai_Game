@@ -4,17 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://b58r8fa2etkek" path="res://sprites/BACKGROUND/estacao1.png" id="2_djbvy"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="3_ojqfj"]
 [ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="4_lhmw7"]
-[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons_Skin_Changer/button1normal.png" id="5_phd53"]
-[ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons_Skin_Changer/button1pressed.png" id="6_lbf5d"]
-[ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons_Skin_Changer/button1hover.png" id="7_541ls"]
-[ext_resource type="Texture2D" uid="uid://ccnlex2oefcfd" path="res://Buttons_Skin_Changer/button2norma.png" id="8_rclmy"]
-[ext_resource type="Texture2D" uid="uid://dwrpp48k6cx3e" path="res://Buttons_Skin_Changer/button2hover.png" id="9_csbjv"]
-[ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons_Skin_Changer/button3normal.png" id="10_ksofd"]
-[ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons_Skin_Changer/button3pressed.png" id="11_qod6e"]
-[ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons_Skin_Changer/button3hoverl.png" id="12_6rejq"]
-[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons_Skin_Changer/button4normal.png" id="13_1q4y8"]
-[ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons_Skin_Changer/button4pressed.png" id="14_kp04m"]
-[ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons_Skin_Changer/button4hover.png" id="15_d7ese"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_phd53"]
+[ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons/button1pressed.png" id="6_lbf5d"]
+[ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons/button1hover.png" id="7_541ls"]
+[ext_resource type="Texture2D" uid="uid://ccnlex2oefcfd" path="res://Buttons/button2norma.png" id="8_rclmy"]
+[ext_resource type="Texture2D" uid="uid://dwrpp48k6cx3e" path="res://Buttons/button2hover.png" id="9_csbjv"]
+[ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons/button3normal.png" id="10_ksofd"]
+[ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons/button3pressed.png" id="11_qod6e"]
+[ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons/button3hoverl.png" id="12_6rejq"]
+[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="13_1q4y8"]
+[ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons/button4pressed.png" id="14_kp04m"]
+[ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons/button4hover.png" id="15_d7ese"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="19_ab5dk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umbx8"]
@@ -51,7 +51,7 @@ tracks/1/path = NodePath("Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 1.7),
+"times": PackedFloat32Array(0, 1.7),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -117,7 +117,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_c44kn"]
 resource_name = "buttons"
-length = 1.1333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -125,10 +124,10 @@ tracks/0/path = NodePath("buttonManager:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -99), Vector2(0, 19.55)]
+"values": [Vector2(0, -99), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -137,7 +136,7 @@ tracks/1/path = NodePath("buttonManager:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -247,7 +246,7 @@ anchor_bottom = 0.5
 offset_left = 1.0
 offset_top = -81.0
 offset_right = 402.0
-offset_bottom = 124.47
+offset_bottom = 133.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -259,9 +258,9 @@ anchor_top = 0.0050000004
 anchor_right = 1.102
 anchor_bottom = 1.019
 offset_left = -0.09799957
-offset_top = -22.07
+offset_top = -0.07000005
 offset_right = 0.09799194
-offset_bottom = -22.06601
+offset_bottom = -0.06600952
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -310,6 +309,4 @@ text = "Escolher"
 libraries/ = SubResource("AnimationLibrary_4acmp")
 autoplay = &"Entrada"
 
-[connection signal="pressed" from="buttonManager/Container/opocoes/default" to="." method="_on_default_skin_button_pressed"]
-[connection signal="pressed" from="buttonManager/Container/opocoes/npc_6" to="." method="_on_npc_6_skin_button_pressed"]
-[connection signal="pressed" from="buttonManager/Container/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="buttonManager/Container/opocoes/default" to="." method="_on_construcao_pressed"]

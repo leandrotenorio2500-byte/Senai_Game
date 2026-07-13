@@ -1,0 +1,19 @@
+extends Node2D
+
+@export_file("*.tscn")
+var proxima_cena: String
+
+func _ready() -> void:
+	pass
+
+func carregar_proxima_fase():
+	Transicao.mudar_cena(proxima_cena)
+
+func _on_construcao_pressed() -> void:
+	$buttonManager.visible = false
+
+	$Player.play_run()
+	$AnimationPlayer.play("saida")
+
+func mostrar_botoes() -> void:
+	$AnimationPlayer.play("buttons")

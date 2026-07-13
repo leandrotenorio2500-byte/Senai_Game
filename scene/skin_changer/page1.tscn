@@ -1,0 +1,305 @@
+[gd_scene format=3 uid="uid://dd8a8tmbl34hn"]
+
+[ext_resource type="Script" uid="uid://df7rm1cibep0c" path="res://scripts/skin_changer/page1.gd" id="1_bq4xw"]
+[ext_resource type="Texture2D" uid="uid://b58r8fa2etkek" path="res://sprites/BACKGROUND/estacao1.png" id="2_djbvy"]
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="3_ojqfj"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="4_lhmw7"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_phd53"]
+[ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons/button1pressed.png" id="6_lbf5d"]
+[ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons/button1hover.png" id="7_541ls"]
+[ext_resource type="Texture2D" uid="uid://ccnlex2oefcfd" path="res://Buttons/button2norma.png" id="8_rclmy"]
+[ext_resource type="Texture2D" uid="uid://dwrpp48k6cx3e" path="res://Buttons/button2hover.png" id="9_csbjv"]
+[ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons/button3normal.png" id="10_ksofd"]
+[ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons/button3pressed.png" id="11_qod6e"]
+[ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons/button3hoverl.png" id="12_6rejq"]
+[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="13_1q4y8"]
+[ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons/button4pressed.png" id="14_kp04m"]
+[ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons/button4hover.png" id="15_d7ese"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umbx8"]
+size = Vector2(433, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4acmp"]
+font = ExtResource("4_lhmw7")
+font_size = 19
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g7ghk"]
+load_path = "res://.godot/imported/button2pressed.png-73610e133d824ca77ac4e17fe6d4a5e0.ctex"
+
+[sub_resource type="Animation" id="Animation_g7ghk"]
+resource_name = "Entrada"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-80, 174), Vector2(60, 174)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_run"
+}, {
+"args": [],
+"method": &"play_idle"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"mostrar_botoes"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_igefe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9, 184)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buttonManager:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -81)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("buttonManager:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_c44kn"]
+resource_name = "buttons"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("buttonManager:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -99), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("buttonManager:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_745m4"]
+resource_name = "saida"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(60, 174), Vector2(335, 174)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_run"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"carregar_proxima_fase"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("buttonManager:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2333, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("buttonManager:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2333, 0.8666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -80)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4acmp"]
+_data = {
+&"Entrada": SubResource("Animation_g7ghk"),
+&"RESET": SubResource("Animation_igefe"),
+&"buttons": SubResource("Animation_c44kn"),
+&"saida": SubResource("Animation_745m4")
+}
+
+[node name="SkinChanger" type="Node2D" unique_id=451005418]
+script = ExtResource("1_bq4xw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1057135770]
+z_index = -3
+texture = ExtResource("2_djbvy")
+centered = false
+
+[node name="Player" parent="." unique_id=875629651 instance=ExtResource("3_ojqfj")]
+position = Vector2(-9, 184)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1843909254]
+position = Vector2(5, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1423361554]
+position = Vector2(196, 193)
+shape = SubResource("RectangleShape2D_umbx8")
+
+[node name="buttonManager" type="Control" parent="." unique_id=364600521]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -81.0
+offset_right = 402.0
+offset_bottom = 133.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="buttonManager" unique_id=1671429165]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.102000006
+anchor_top = 0.0050000004
+anchor_right = 1.102
+anchor_bottom = 1.019
+offset_left = -0.09799957
+offset_top = -0.07000005
+offset_right = 0.09799194
+offset_bottom = -0.06600952
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="buttonManager/Container" unique_id=2072176874]
+layout_mode = 2
+text = "Escolha a skin do personagem desejado"
+label_settings = SubResource("LabelSettings_4acmp")
+horizontal_alignment = 1
+
+[node name="opocoes" type="HBoxContainer" parent="buttonManager/Container" unique_id=475098062]
+layout_mode = 2
+theme_override_constants/separation = 23
+alignment = 1
+
+[node name="construcao" type="TextureButton" parent="buttonManager/Container/opocoes" unique_id=1296037287]
+layout_mode = 2
+texture_normal = ExtResource("5_phd53")
+texture_pressed = ExtResource("6_lbf5d")
+texture_hover = ExtResource("7_541ls")
+
+[node name="quimico" type="TextureButton" parent="buttonManager/Container/opocoes" unique_id=167995304]
+layout_mode = 2
+texture_normal = ExtResource("8_rclmy")
+texture_pressed = SubResource("CompressedTexture2D_g7ghk")
+texture_hover = ExtResource("9_csbjv")
+
+[node name="eletrico" type="TextureButton" parent="buttonManager/Container/opocoes" unique_id=536881752]
+layout_mode = 2
+texture_normal = ExtResource("10_ksofd")
+texture_pressed = ExtResource("11_qod6e")
+texture_hover = ExtResource("12_6rejq")
+
+[node name="fodase" type="TextureButton" parent="buttonManager/Container/opocoes" unique_id=1411738852]
+layout_mode = 2
+texture_normal = ExtResource("13_1q4y8")
+texture_pressed = ExtResource("14_kp04m")
+texture_hover = ExtResource("15_d7ese")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1646704432]
+libraries/ = SubResource("AnimationLibrary_4acmp")
+autoplay = &"Entrada"
+
+[connection signal="pressed" from="buttonManager/Container/opocoes/construcao" to="." method="_on_construcao_pressed"]

@@ -60,10 +60,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -128.5
-offset_top = 18.0
-offset_right = 128.5
-offset_bottom = 81.0
+offset_left = -146.5
+offset_top = 12.0
+offset_right = 146.5
+offset_bottom = 108.0
 grow_horizontal = 2
 texture = ExtResource("2_f676y")
 
@@ -74,8 +74,8 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = 147.0
-offset_bottom = 147.0
+offset_top = 146.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -85,8 +85,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -58.5
-offset_right = 58.5
+offset_left = -60.5
+offset_top = -37.0
+offset_right = 60.5
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -95,6 +97,11 @@ alignment = 1
 layout_mode = 2
 theme = SubResource("Theme_qtu10")
 text = "INICIAR jogo"
+
+[node name="Personagens" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=794724166]
+layout_mode = 2
+theme = SubResource("Theme_qtu10")
+text = "Personagens"
 
 [node name="Créditos" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=708134635]
 layout_mode = 2

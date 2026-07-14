@@ -11,3 +11,14 @@ func mudar_cena(caminho_da_nova_cena: String) -> void:
 	get_tree().change_scene_to_file(caminho_da_nova_cena)
 	
 	anim.play("transition_in")
+
+func transicao():
+
+	anim.play("transition_out")
+
+	await anim.animation_finished
+
+
+func voltar():
+
+	anim.play("transition_in")

@@ -42,6 +42,7 @@ Enemies=""
 LethalArea=""
 Projects=""
 Npcs=""
+Prateleiras=""
 
 [input]
 
@@ -102,6 +103,7 @@ abrir_mapa={
 2d_physics/layer_10="interections"
 2d_physics/layer_11="porta"
 2d_physics/layer_12="npcs"
+2d_physics/layer_13="prateleira"
 
 [physics]
 

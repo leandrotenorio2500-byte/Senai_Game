@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://coukkna7m7wm8"]
+
+[ext_resource type="Script" uid="uid://ddsp7yu8wxntj" path="res://scripts/fase deposito/tela_prateleira.gd" id="1_j5cih"]
+
+[node name="TelaPrateleira" type="CanvasLayer" unique_id=33972061]
+script = ExtResource("1_j5cih")
+
+[node name="Control" type="Control" parent="." unique_id=1124131805]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control" unique_id=1585174327]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 13.0
+offset_right = 242.0
+offset_bottom = 36.0
+text = "prateleira A-1"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=148956352]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control" unique_id=147363304]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 171.0
+offset_right = 218.0
+offset_bottom = 202.0
+text = "fechar
+"

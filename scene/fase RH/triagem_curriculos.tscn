@@ -1,0 +1,294 @@
+[gd_scene format=3 uid="uid://dei5o2ar8cxul"]
+
+[ext_resource type="Script" uid="uid://mtfmgdak0ra0" path="res://scripts/fase RH/triagem_curriculos.gd" id="1_4mrg3"]
+[ext_resource type="Texture2D" uid="uid://cexqjkh4ot71v" path="res://sprites/BACKGROUND/MESA.png" id="2_m5cup"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_m5cup"]
+[ext_resource type="Script" uid="uid://dmy0hqjpeduhg" path="res://scripts/fase RH/painel_curriculos.gd" id="4_lcu7l"]
+[ext_resource type="Texture2D" uid="uid://vsfx1kfyliuu" path="res://scene/fase RH/folha.png" id="5_gr7qo"]
+
+[sub_resource type="Theme" id="Theme_m5cup"]
+Label/colors/font_color = Color(6.180691e-05, 6.180692e-05, 6.180691e-05, 1)
+Label/font_sizes/font_size = 5
+Label/fonts/font = ExtResource("3_m5cup")
+
+[sub_resource type="Theme" id="Theme_lcu7l"]
+
+[sub_resource type="Theme" id="Theme_eqntl"]
+HSeparator/constants/separation = -1
+
+[sub_resource type="Theme" id="Theme_4mrg3"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 0
+Label/constants/paragraph_spacing = 0
+Label/font_sizes/font_size = 5
+Label/fonts/font = ExtResource("3_m5cup")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5cup"]
+bg_color = Color(0.13725491, 0.8745098, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.019607844, 0.7372549, 0.019607844, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lcu7l"]
+bg_color = Color(0.105882354, 0.9372549, 0.09019608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.019607844, 0.7372549, 0.019607844, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqntl"]
+bg_color = Color(0.13725491, 0.8745098, 0, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="Theme" id="Theme_gr7qo"]
+Button/colors/font_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_m5cup")
+Button/styles/hover = SubResource("StyleBoxFlat_m5cup")
+Button/styles/normal = SubResource("StyleBoxFlat_lcu7l")
+Button/styles/pressed = SubResource("StyleBoxFlat_eqntl")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gr7qo"]
+bg_color = Color(0.8745098, 0.33333334, 0.10980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6745098, 0.17254902, 0.10980392, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpe81"]
+bg_color = Color(0.8745098, 0.33333334, 0.10980392, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.827451, 0.08627451, 0.08627451, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goqej"]
+bg_color = Color(0.84279007, 0.36271837, 0.23152265, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 12
+
+[sub_resource type="Theme" id="Theme_goqej"]
+Button/colors/font_color = Color(0.856927, 0.85692734, 0.85692716, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("3_m5cup")
+Button/styles/hover = SubResource("StyleBoxFlat_gr7qo")
+Button/styles/normal = SubResource("StyleBoxFlat_mpe81")
+Button/styles/pressed = SubResource("StyleBoxFlat_goqej")
+
+[node name="TriagemCurriculos" type="Control" unique_id=711394065]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4mrg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=761019944]
+texture = ExtResource("2_m5cup")
+centered = false
+
+[node name="PainelRequisitos" type="Control" parent="." unique_id=154572528]
+layout_mode = 1
+anchor_left = 0.042
+anchor_top = 0.21327272
+anchor_right = 0.21500002
+anchor_bottom = 0.55036366
+offset_left = -1.8000002
+offset_top = -7.92
+offset_right = 1.9999924
+offset_bottom = -8.080002
+theme = SubResource("Theme_m5cup")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PainelRequisitos" unique_id=641237924]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08179452
+anchor_top = 0.02027027
+anchor_right = 1.1092193
+anchor_bottom = 1.3851352
+offset_left = 0.028999925
+offset_top = -0.5
+offset_right = 0.026992798
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cargo" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=1440648422]
+layout_mode = 2
+theme = SubResource("Theme_lcu7l")
+theme_override_constants/line_spacing = 3
+text = "cargo"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="PainelRequisitos/VBoxContainer" unique_id=1321347237]
+layout_mode = 2
+theme = SubResource("Theme_eqntl")
+
+[node name="requisitos" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=1931022784]
+layout_mode = 2
+text = "Requisitos:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="escolaridade" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=1842155710]
+layout_mode = 2
+text = "escolaridade"
+autowrap_mode = 2
+
+[node name="curso" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=570779403]
+layout_mode = 2
+text = "curso"
+autowrap_mode = 2
+
+[node name="habilidades" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=1982446256]
+layout_mode = 2
+text = "habilidades"
+autowrap_mode = 2
+
+[node name="horario" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=239642691]
+layout_mode = 2
+text = "horario"
+
+[node name="experiencia" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=563623349]
+layout_mode = 2
+text = "experi
+"
+autowrap_mode = 2
+
+[node name="PainelCurriculos" type="Control" parent="." unique_id=297632091]
+anchors_preset = 0
+offset_left = 185.0
+offset_top = 71.0
+offset_right = 283.0
+offset_bottom = 173.0
+theme = SubResource("Theme_4mrg3")
+script = ExtResource("4_lcu7l")
+
+[node name="TextureRect" type="TextureRect" parent="PainelCurriculos" unique_id=1013585829]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -24.0
+offset_right = 101.0
+offset_bottom = 108.0
+texture = ExtResource("5_gr7qo")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="PainelCurriculos" unique_id=1189511657]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.0
+offset_right = 45.0
+offset_bottom = 99.0
+grow_horizontal = 2
+
+[node name="Nome" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=729286045]
+layout_mode = 2
+text = "NOME"
+
+[node name="Idade" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=534997787]
+layout_mode = 2
+text = "IDADE"
+
+[node name="HSeparator" type="HSeparator" parent="PainelCurriculos/HBoxContainer" unique_id=784248045]
+layout_mode = 2
+
+[node name="habilidades" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=285831290]
+layout_mode = 2
+text = "habilidades
+"
+autowrap_mode = 2
+
+[node name="Curso" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=1692854628]
+layout_mode = 2
+text = "CURSO"
+autowrap_mode = 2
+
+[node name="Escolaridade" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=1902392406]
+layout_mode = 2
+text = "ESCOLARIDADE"
+
+[node name="Experiencia" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=255119099]
+layout_mode = 2
+text = "EXPERIENCIA"
+autowrap_mode = 2
+
+[node name="Horario" type="Label" parent="PainelCurriculos/HBoxContainer" unique_id=1272829980]
+layout_mode = 2
+text = "HORARIO"
+
+[node name="aprovado" type="Button" parent="." unique_id=962169720]
+visible = false
+layout_mode = 0
+offset_left = 295.0
+offset_top = 157.0
+offset_right = 340.0
+offset_bottom = 202.0
+theme = SubResource("Theme_gr7qo")
+text = "Aprovar"
+
+[node name="reprovado" type="Button" parent="." unique_id=932844313]
+visible = false
+layout_mode = 0
+offset_left = 131.0
+offset_top = 159.99998
+offset_right = 176.0
+offset_bottom = 204.99998
+rotation = -0.0025035837
+theme = SubResource("Theme_goqej")
+text = "Reprovar"
+
+[node name="Feedback" type="Control" parent="." unique_id=1379456592]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Reaction" type="TextureRect" parent="Feedback" unique_id=822239967]
+visible = false
+layout_mode = 0
+offset_left = 344.0
+offset_top = 5.0
+offset_right = 384.0
+offset_bottom = 45.0
+
+[connection signal="pressed" from="aprovado" to="." method="_on_aprovado_pressed"]
+[connection signal="pressed" from="reprovado" to="." method="_on_reprovado_pressed"]

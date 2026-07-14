@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://kf72um7rhjhk"]
+
+[ext_resource type="Script" uid="uid://cd6cihnwy6dfu" path="res://scripts/fase deposito/prateleira.gd" id="1_tolqh"]
+[ext_resource type="Texture2D" uid="uid://cbua2713meigd" path="res://scene/fase deposito/Prateleira.png" id="2_cirf4"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_kugmy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0flem"]
+size = Vector2(80, 137)
+
+[sub_resource type="Theme" id="Theme_8fb22"]
+Label/font_sizes/font_size = 7
+Label/fonts/font = ExtResource("3_kugmy")
+
+[node name="Prateleira" type="Area2D" unique_id=1258851462]
+collision_layer = 1024
+collision_mask = 2
+script = ExtResource("1_tolqh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=418175178]
+texture = ExtResource("2_cirf4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=320068152]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_0flem")
+
+[node name="Label" type="Label" parent="." unique_id=1833308051]
+offset_left = -43.0
+offset_top = 23.0
+offset_right = 43.0
+offset_bottom = 31.0
+theme = SubResource("Theme_8fb22")
+text = "[Enter] Abrir prateleira"
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1835808230]
+position = Vector2(0, 44)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -140,7 +140,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_44apb")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=512127042]
-tile_map_data = PackedByteArray("AAACAAkABgAhAAsAAAAMAAQABgASAAIAAAAFAAkABgAKAAEAAAAGAAgABgAOAAIAAAAHAAUABgADAAEAAAAQAAkABgAhABEAAAALAAkABgATABEAAAAVAAkABgAaAA8AAAA=")
+tile_map_data = PackedByteArray("AAACAAkABgAhAAsAAAAMAAQABgASAAIAAAAGAAgABgAOAAIAAAAHAAUABgADAAEAAAAQAAkABgAhABEAAAALAAkABgATABEAAAAVAAkABgAaAA8AAAA=")
 tile_set = ExtResource("5_81w2e")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1406020534]

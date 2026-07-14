@@ -71,7 +71,7 @@ func verificar(resposta):
 	else:
 		reaction.texture = reaction_errado
 
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(0,5).timeout
 
 	indice += 1
 
@@ -80,14 +80,24 @@ func verificar(resposta):
 		mostrar_vaga()
 		mostrar_curriculo()
 
+		$PainelCurriculos.position = $PainelCurriculos.posicao_inicial
+		$PainelCurriculos.rotation_degrees = 0
 	else:
-
 		finalizar()
 	
 
 func finalizar():
 
-	$LabelFeedback.text = "Parabéns! Você concluiu a triagem."
+	await Transicao.transicao()
+
+	var tela_resultado = preload("res://scene/fase RH/resultado_rh.tscn").instantiate()
+
+	tela_resultado.acertos = pontos / 100
+	tela_resultado.total = curriculos.size()
+
+	add_child(tela_resultado)
+
+	Transicao.voltar()
 
 var curriculos = [
 {#1

@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="9_7dw6d"]
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="10_g8c4p"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="11_742wn"]
+[ext_resource type="Texture2D" uid="uid://cy6ic0m5ddvwn" path="res://sprites/npcs/NPCs.png" id="14_qxqpa"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="14_xlwon"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnx74"]
@@ -101,6 +102,165 @@ texture = ExtResource("10_g8c4p")
 texture = ExtResource("11_742wn")
 0:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xlwon"]
+texture = ExtResource("14_qxqpa")
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/animation_speed = 4.0
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/animation_frame_2/duration = 1.0
+0:2/animation_frame_3/duration = 1.0
+0:2/animation_frame_4/duration = 1.0
+0:2/animation_frame_5/duration = 1.0
+0:2/animation_frame_6/duration = 1.0
+0:2/animation_frame_7/duration = 1.0
+0:2/0 = 0
+0:2/0/texture_origin = Vector2i(0, 8)
+0:2/0/z_index = 1
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/animation_speed = 4.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/z_index = 1
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/animation_speed = 4.0
+0:4/animation_frame_0/duration = 1.0
+0:4/animation_frame_1/duration = 1.0
+0:4/animation_frame_2/duration = 1.0
+0:4/animation_frame_3/duration = 1.0
+0:4/animation_frame_4/duration = 1.0
+0:4/animation_frame_5/duration = 1.0
+0:4/animation_frame_6/duration = 1.0
+0:4/animation_frame_7/duration = 1.0
+0:4/0 = 0
+0:4/0/texture_origin = Vector2i(0, 8)
+0:4/0/z_index = 1
+0:6/size_in_atlas = Vector2i(2, 2)
+0:6/animation_speed = 4.0
+0:6/animation_frame_0/duration = 1.0
+0:6/animation_frame_1/duration = 1.0
+0:6/animation_frame_2/duration = 1.0
+0:6/animation_frame_3/duration = 1.0
+0:6/animation_frame_4/duration = 1.0
+0:6/animation_frame_5/duration = 1.0
+0:6/animation_frame_6/duration = 1.0
+0:6/animation_frame_7/duration = 1.0
+0:6/0 = 0
+0:6/0/texture_origin = Vector2i(0, 8)
+0:6/0/z_index = 1
+0:8/size_in_atlas = Vector2i(2, 2)
+0:8/animation_speed = 4.0
+0:8/animation_frame_0/duration = 1.0
+0:8/animation_frame_1/duration = 1.0
+0:8/animation_frame_2/duration = 1.0
+0:8/animation_frame_3/duration = 1.0
+0:8/animation_frame_4/duration = 1.0
+0:8/animation_frame_5/duration = 1.0
+0:8/animation_frame_6/duration = 1.0
+0:8/animation_frame_7/duration = 1.0
+0:8/0 = 0
+0:8/0/texture_origin = Vector2i(0, 8)
+0:8/0/z_index = 1
+0:10/size_in_atlas = Vector2i(2, 2)
+0:10/animation_speed = 4.0
+0:10/animation_frame_0/duration = 1.0
+0:10/animation_frame_1/duration = 1.0
+0:10/animation_frame_2/duration = 1.0
+0:10/animation_frame_3/duration = 1.0
+0:10/animation_frame_4/duration = 1.0
+0:10/animation_frame_5/duration = 1.0
+0:10/animation_frame_6/duration = 1.0
+0:10/animation_frame_7/duration = 1.0
+0:10/0 = 0
+0:10/0/texture_origin = Vector2i(0, 8)
+0:10/0/z_index = 1
+0:12/size_in_atlas = Vector2i(2, 2)
+0:12/animation_speed = 4.0
+0:12/animation_frame_0/duration = 1.0
+0:12/animation_frame_1/duration = 1.0
+0:12/animation_frame_2/duration = 1.0
+0:12/animation_frame_3/duration = 1.0
+0:12/animation_frame_4/duration = 1.0
+0:12/animation_frame_5/duration = 1.0
+0:12/animation_frame_6/duration = 1.0
+0:12/animation_frame_7/duration = 1.0
+0:12/0 = 0
+0:12/0/texture_origin = Vector2i(0, 8)
+0:12/0/z_index = 1
+17:2/size_in_atlas = Vector2i(2, 2)
+17:2/animation_speed = 4.0
+17:2/animation_frame_0/duration = 1.0
+17:2/animation_frame_1/duration = 1.0
+17:2/animation_frame_2/duration = 1.0
+17:2/animation_frame_3/duration = 1.0
+17:2/animation_frame_4/duration = 1.0
+17:2/animation_frame_5/duration = 1.0
+17:2/animation_frame_6/duration = 1.0
+17:2/animation_frame_7/duration = 1.0
+17:2/0 = 0
+17:2/0/texture_origin = Vector2i(0, 8)
+17:2/0/z_index = 1
+17:4/size_in_atlas = Vector2i(2, 2)
+17:4/animation_speed = 4.0
+17:4/animation_frame_0/duration = 1.0
+17:4/animation_frame_1/duration = 1.0
+17:4/animation_frame_2/duration = 1.0
+17:4/animation_frame_3/duration = 1.0
+17:4/animation_frame_4/duration = 1.0
+17:4/animation_frame_5/duration = 1.0
+17:4/animation_frame_6/duration = 1.0
+17:4/animation_frame_7/duration = 1.0
+17:4/0 = 0
+17:4/0/texture_origin = Vector2i(0, 8)
+17:4/0/z_index = 1
+17:6/size_in_atlas = Vector2i(2, 2)
+17:6/animation_speed = 4.0
+17:6/animation_frame_0/duration = 1.0
+17:6/animation_frame_1/duration = 1.0
+17:6/animation_frame_2/duration = 1.0
+17:6/animation_frame_3/duration = 1.0
+17:6/animation_frame_4/duration = 1.0
+17:6/animation_frame_5/duration = 1.0
+17:6/animation_frame_6/duration = 1.0
+17:6/animation_frame_7/duration = 1.0
+17:6/0 = 0
+17:6/0/texture_origin = Vector2i(0, 8)
+17:6/0/z_index = 1
+17:8/size_in_atlas = Vector2i(2, 2)
+17:8/animation_speed = 4.0
+17:8/animation_frame_0/duration = 1.0
+17:8/animation_frame_1/duration = 1.0
+17:8/animation_frame_2/duration = 1.0
+17:8/animation_frame_3/duration = 1.0
+17:8/animation_frame_4/duration = 1.0
+17:8/animation_frame_5/duration = 1.0
+17:8/animation_frame_6/duration = 1.0
+17:8/animation_frame_7/duration = 1.0
+17:8/0 = 0
+17:8/0/texture_origin = Vector2i(0, 8)
+17:8/0/z_index = 1
+17:14/size_in_atlas = Vector2i(2, 2)
+17:14/animation_speed = 4.0
+17:14/animation_frame_0/duration = 1.0
+17:14/animation_frame_1/duration = 1.0
+17:14/animation_frame_2/duration = 1.0
+17:14/animation_frame_3/duration = 1.0
+17:14/animation_frame_4/duration = 1.0
+17:14/animation_frame_5/duration = 1.0
+17:14/animation_frame_6/duration = 1.0
+17:14/animation_frame_7/duration = 1.0
+17:14/0 = 0
+17:14/0/texture_origin = Vector2i(0, 8)
+17:14/0/z_index = 1
+
 [sub_resource type="TileSet" id="TileSet_geimp"]
 sources/0 = SubResource("TileSetAtlasSource_cnx74")
 sources/1 = SubResource("TileSetAtlasSource_tsla6")
@@ -110,6 +270,7 @@ sources/4 = SubResource("TileSetAtlasSource_340ms")
 sources/5 = SubResource("TileSetAtlasSource_b7htf")
 sources/6 = SubResource("TileSetAtlasSource_xy0pv")
 sources/7 = SubResource("TileSetAtlasSource_0voli")
+sources/8 = SubResource("TileSetAtlasSource_xlwon")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2clqo"]
 size = Vector2(20, 209)
@@ -117,7 +278,7 @@ size = Vector2(20, 209)
 [node name="RH" type="Node2D" unique_id=1414757530]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1388496289]
-z_index = -1
+z_index = -5
 texture = ExtResource("1_p7yi5")
 centered = false
 
@@ -140,10 +301,11 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("2_md2p5")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=512127042]
-tile_map_data = PackedByteArray("AAAWAAkABgAeAAsAAAAUAAgABgAOAAIAAAAJAAQABgASAAIAAAAKAAkABgAEABEAAAAHAAkABgABABAAAAAOAAkABgAMABAAAAABAAkABgAIAA8AAAAKAAcABgAEABAAAAAEAAkABgAEABEAAAASAAgABgAJAAgAAAA=")
+tile_map_data = PackedByteArray("AAAJAAQABgASAAIAAAAHAAkABgABABAAAAAKAAcABgAEABAAAAAOAAkABgAeAAsAAAAQAAkABgAMAAEAAAATAAkABgAEABEAAAAEAAkABgAHABMAAAADAAgABgAJAAgAAAAVAAkABgAaAA8AAAABAAkABgAMABAAAAAMAAkABgAQAAEAAAAYAAgABgAOAAIAAAAKAAkABgABABMAAAA=")
 tile_set = ExtResource("3_w8fa7")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1406020534]
+tile_map_data = PackedByteArray("AAAGAAkACAAAAAwAAAA=")
 tile_set = SubResource("TileSet_geimp")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=1090342524]
@@ -159,6 +321,10 @@ position = Vector2(418, 101)
 shape = SubResource("RectangleShape2D_2clqo")
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("14_xlwon")]
-position = Vector2(358, 132)
+position = Vector2(230, 131)
 next_level = "uid://bxkccy4g7ui4i"
 next_player_position = Vector2(55, 147)
+
+[node name="LevelChanger2" parent="." unique_id=477304737 instance=ExtResource("14_xlwon")]
+position = Vector2(163, 142)
+next_level = "uid://dei5o2ar8cxul"

@@ -141,7 +141,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_phmo5")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=116611288]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAMAAkABgASAAoAAAAMAAYABgAOAAkAAAAVAAkABgAhAAsAAAADAAkABgAeAAsAAAAHAAcABgABAAwAAAAcAAcABgABAAwAAAABAAgABgAOAAIAAAAQAAgABgACAAgAAAAQAAQABgASAAIAAAAVAAYABgAZAAkAAAADAAYABgAdAAkAAAAYAAkABgAMAAEAAAAKAAkABgAKAAEAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAMAAkABgASAAoAAAAMAAYABgAOAAkAAAAVAAkABgAhAAsAAAADAAkABgAeAAsAAAAHAAcABgABAAwAAAAcAAcABgABAAwAAAABAAgABgAOAAIAAAAQAAgABgACAAgAAAAQAAQABgASAAIAAAAVAAYABgAZAAkAAAADAAYABgAdAAkAAAAYAAkABgAMAAEAAAAJAAkABgAQAAEAAAA=")
 tile_set = ExtResource("5_p660s")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=578304847]
@@ -159,7 +159,7 @@ visible = false
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("18_acts7")]
 position = Vector2(54, 131)
 next_level = "uid://cjegie06e0nd3"
-next_player_position = Vector2(360, 147)
+next_player_position = Vector2(232, 147)
 
 [node name="LevelChanger2" parent="." unique_id=412636877 instance=ExtResource("18_acts7")]
 position = Vector2(341, 131)

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://mtfmgdak0ra0" path="res://scripts/fase RH/triagem_curriculos.gd" id="1_4mrg3"]
 [ext_resource type="Texture2D" uid="uid://cexqjkh4ot71v" path="res://sprites/BACKGROUND/MESA.png" id="2_m5cup"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_m5cup"]
+[ext_resource type="Script" uid="uid://dmy0hqjpeduhg" path="res://scripts/fase RH/painel_curriculos.gd" id="4_lcu7l"]
+[ext_resource type="Texture2D" uid="uid://vsfx1kfyliuu" path="res://scene/fase RH/folha.png" id="5_gr7qo"]
 
 [sub_resource type="Theme" id="Theme_m5cup"]
 Label/colors/font_color = Color(6.180691e-05, 6.180692e-05, 6.180691e-05, 1)
@@ -198,6 +200,15 @@ offset_top = 71.0
 offset_right = 283.0
 offset_bottom = 173.0
 theme = SubResource("Theme_4mrg3")
+script = ExtResource("4_lcu7l")
+
+[node name="TextureRect" type="TextureRect" parent="PainelCurriculos" unique_id=1013585829]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -24.0
+offset_right = 101.0
+offset_bottom = 108.0
+texture = ExtResource("5_gr7qo")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="PainelCurriculos" unique_id=1189511657]
 layout_mode = 1
@@ -245,30 +256,34 @@ layout_mode = 2
 text = "HORARIO"
 
 [node name="aprovado" type="Button" parent="." unique_id=962169720]
+visible = false
 layout_mode = 0
-offset_left = 299.0
-offset_top = 142.0
-offset_right = 344.0
-offset_bottom = 187.0
+offset_left = 295.0
+offset_top = 157.0
+offset_right = 340.0
+offset_bottom = 202.0
 theme = SubResource("Theme_gr7qo")
 text = "Aprovar"
 
 [node name="reprovado" type="Button" parent="." unique_id=932844313]
+visible = false
 layout_mode = 0
-offset_left = 124.999985
-offset_top = 142.99998
-offset_right = 169.99998
-offset_bottom = 187.99998
+offset_left = 131.0
+offset_top = 159.99998
+offset_right = 176.0
+offset_bottom = 204.99998
 rotation = -0.0025035837
 theme = SubResource("Theme_goqej")
 text = "Reprovar"
 
 [node name="Feedback" type="Control" parent="." unique_id=1379456592]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Reaction" type="TextureRect" parent="Feedback" unique_id=822239967]
+visible = false
 layout_mode = 0
 offset_left = 344.0
 offset_top = 5.0

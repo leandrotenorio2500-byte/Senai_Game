@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dy1h36dkacoix"]
+
+[ext_resource type="Script" uid="uid://cnogwcemrcol4" path="res://scripts/fase RH/resultado_rh.gd" id="1_eicmv"]
+[ext_resource type="Texture2D" uid="uid://ckkub2axw048c" path="res://scene/fase RH/Resultado.png" id="2_sesjb"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="3_v306k"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="4_1qgk8"]
+
+[sub_resource type="Theme" id="Theme_i32yq"]
+Label/fonts/font = ExtResource("3_v306k")
+
+[node name="ResultadoRH" type="Control" unique_id=1533308671]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eicmv")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1021316202]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0.023529412, 0.023529412, 0.09411765, 0.76862746)
+
+[node name="titulo" type="TextureRect" parent="." unique_id=1382687485]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 9.0
+offset_right = 339.0
+offset_bottom = 75.0
+size_flags_horizontal = 4
+texture = ExtResource("2_sesjb")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=275180027]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 77.0
+offset_right = 100.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme = SubResource("Theme_i32yq")
+
+[node name="acertos" type="Label" parent="VBoxContainer2" unique_id=1112682148]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "acertos"
+
+[node name="avaliacao" type="Label" parent="VBoxContainer2" unique_id=1742451242]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "avaliacao"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=389139772]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -85.0
+offset_top = -54.0
+offset_right = 85.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_1qgk8")
+
+[node name="Concluir" type="Button" parent="VBoxContainer" unique_id=344823309]
+layout_mode = 2
+text = "Concluir"
+
+[node name="Jogar Novamente" type="Button" parent="VBoxContainer" unique_id=1504847068]
+layout_mode = 2
+text = "Jogar Novamente"
+
+[connection signal="pressed" from="VBoxContainer/Concluir" to="." method="_on_concluir_pressed"]
+[connection signal="pressed" from="VBoxContainer/Jogar Novamente" to="." method="_on_jogar_novamente_pressed"]

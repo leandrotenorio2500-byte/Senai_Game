@@ -32,6 +32,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
+z_index = -3
 texture = ExtResource("3_n14ru")
 centered = false
 
@@ -42,7 +43,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_dt7ot")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAATAAkABgABAAQAAAANAAgABgAOAAIAAAAYAAcABgACAAgAAAAEAAQABgASAAIAAAATAAYABgALAAUAAAAPAAkABgAMAAEAAAAFAAkABgAKAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAATAAkABgABAAQAAAAEAAQABgASAAIAAAAPAAkABgAMAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAAEAAkABgAQAAEAAAATAAcABgALAAUAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAANAAkABgAFAAIAAAA=")
 tile_set = ExtResource("5_dhp2d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1618311414]

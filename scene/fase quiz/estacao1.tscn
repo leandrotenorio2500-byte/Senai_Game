@@ -7,8 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_o7ric"]
 [ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons/button1pressed.png" id="6_kp6xe"]
 [ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons/button1hover.png" id="7_y0jl1"]
-[ext_resource type="Texture2D" uid="uid://ccnlex2oefcfd" path="res://Buttons/button2norma.png" id="8_21x5v"]
-[ext_resource type="Texture2D" uid="uid://dwrpp48k6cx3e" path="res://Buttons/button2hover.png" id="9_ct8lm"]
 [ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons/button3normal.png" id="10_kkscd"]
 [ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons/button3pressed.png" id="11_8ikc3"]
 [ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons/button3hoverl.png" id="12_jiwj4"]
@@ -29,8 +27,14 @@ font_size = 19
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mc3mf"]
+load_path = "res://.godot/imported/button2norma.png-85d297eb7bcb193b97d2d16a0199f84a.ctex"
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g7ghk"]
 load_path = "res://.godot/imported/button2pressed.png-73610e133d824ca77ac4e17fe6d4a5e0.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_c44kn"]
+load_path = "res://.godot/imported/button2hover.png-3c89d9a42689a894a8b50ba855f500c3.ctex"
 
 [sub_resource type="Animation" id="Animation_g7ghk"]
 resource_name = "Entrada"
@@ -431,9 +435,9 @@ texture_hover = ExtResource("7_y0jl1")
 
 [node name="quimico" type="TextureButton" parent="buttonManager/Container/opocoes" unique_id=167995304]
 layout_mode = 2
-texture_normal = ExtResource("8_21x5v")
+texture_normal = SubResource("CompressedTexture2D_mc3mf")
 texture_pressed = SubResource("CompressedTexture2D_g7ghk")
-texture_hover = ExtResource("9_ct8lm")
+texture_hover = SubResource("CompressedTexture2D_c44kn")
 
 [node name="eletrico" type="TextureButton" parent="buttonManager/Container/opocoes" unique_id=536881752]
 layout_mode = 2

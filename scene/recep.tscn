@@ -82,7 +82,7 @@ tile_set = ExtResource("4_dt7ot")
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
 
 [node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
-position = Vector2(227, 147)
+position = Vector2(227, 145)
 script = ExtResource("11_dhp2d")
 
 [node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]

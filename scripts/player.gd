@@ -48,6 +48,9 @@ var jump_count = 0
 var status: PlayerState
 
 func _ready() -> void:
+	# Aplica os SpriteFrames da skin selecionada antes de qualquer animação tocar
+	if anim:
+		anim.sprite_frames = SkinManager.get_current_sprite_frames()
 	
 	Globals.player_life = 3
 	go_to_idle_state()
@@ -55,8 +58,6 @@ func _ready() -> void:
 	# Checa se o player veio de um teleporte
 	if Globals.should_position:
 		global_position = Globals.next_player_position
-		
-		# Reseta a variável para não teleportar de novo por engano depois
 		Globals.should_position = false
 	
 

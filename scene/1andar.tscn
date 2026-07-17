@@ -150,6 +150,7 @@ script = SubResource("GDScript_4hrr3")
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_dvc8x")]
 position = Vector2(108, 144)
 acceleration = 200
+wall_acceleration = 250
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_4hrr3")]
 position = Vector2(-49, 150)

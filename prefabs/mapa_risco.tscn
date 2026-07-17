@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://bfvwda63jtxq7" path="res://sprites/mapa de risco.png" id="1_5yql7"]
 [ext_resource type="Script" uid="uid://drfl1en321kvl" path="res://scripts/mapa_risco.gd" id="1_b7qg2"]
 [ext_resource type="Texture2D" uid="uid://c75i44fbkbj6g" path="res://sprites/Mini UI/mapa_icon.png" id="3_wnorl"]
+[ext_resource type="Script" uid="uid://d0ywhwqie334c" path="res://scripts/fase mapa/Buttons.gd" id="4_4s135"]
+[ext_resource type="Texture2D" uid="uid://l2nln0wjaum4" path="res://sprites/Mini UI/cadeado.png" id="4_j8ck1"]
+[ext_resource type="Theme" uid="uid://otxo4w55qddg" path="res://Buttons_map.tres" id="4_valvg"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="5_j8ck1"]
 
 [sub_resource type="Animation" id="Animation_wnorl"]
 length = 0.001
@@ -53,6 +57,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Areas:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Areas:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 132)]
 }
 
 [sub_resource type="Animation" id="Animation_v25f6"]
@@ -106,6 +134,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Areas:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Areas:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 132), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_4s135"]
 resource_name = "fade_in_2"
@@ -158,6 +210,30 @@ tracks/3/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Areas:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Areas:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 154)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4s135"]
 _data = {
@@ -166,11 +242,28 @@ _data = {
 &"fade_out": SubResource("Animation_4s135")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v25f6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_valvg"]
+
+[sub_resource type="Theme" id="Theme_j8ck1"]
+Button/styles/hover = SubResource("StyleBoxFlat_v25f6")
+Button/styles/normal = SubResource("StyleBoxFlat_valvg")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqxdc"]
+line_spacing = 1.0
+font = ExtResource("5_j8ck1")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4s135"]
+
+[sub_resource type="Theme" id="Theme_valvg"]
+Button/styles/hover = SubResource("StyleBoxFlat_4s135")
+
 [node name="mapa_risco" type="CanvasLayer" unique_id=1704704291]
 process_mode = 3
 script = ExtResource("1_b7qg2")
-metadata/_edit_horizontal_guides_ = [86.0]
-metadata/_edit_vertical_guides_ = [176.0]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=533212766]
 offset_right = 401.0
@@ -183,7 +276,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 154.0
-offset_bottom = 154.00012
+offset_bottom = 154.0
 texture = ExtResource("1_5yql7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=347853723]
@@ -196,3 +289,483 @@ texture = ExtResource("3_wnorl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247484681]
 libraries/ = SubResource("AnimationLibrary_4s135")
+
+[node name="Areas" type="Control" parent="." unique_id=586148808]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_top = 132.0
+offset_right = 401.0
+offset_bottom = 352.0
+theme = SubResource("Theme_j8ck1")
+
+[node name="Producao" type="Control" parent="Areas" unique_id=1208924594]
+anchors_preset = 0
+offset_left = 268.0
+offset_top = 137.0
+offset_right = 346.0
+offset_bottom = 169.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Producao" unique_id=1981595709]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Producao/Bloqueio" unique_id=1054785101]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 9.0
+offset_top = 14.0
+offset_right = 12.5199995
+offset_bottom = 18.52
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Producao/Bloqueio" unique_id=714305787]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 73.0
+offset_bottom = 23.0
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+
+[node name="Pontos" type="Control" parent="Areas/Producao" unique_id=662449481]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Prod2" type="Button" parent="Areas/Producao/Pontos" unique_id=813738481 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Producao"
+mapa = NodePath("../../../..")
+
+[node name="Prod" type="Button" parent="Areas/Producao/Pontos" unique_id=1386082957 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 13.0
+offset_right = 44.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Producao"
+mapa = NodePath("../../../..")
+
+[node name="Prod3" type="Button" parent="Areas/Producao/Pontos" unique_id=922712969 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 13.0
+offset_right = 60.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Producao"
+mapa = NodePath("../../../..")
+
+[node name="Prod4" type="Button" parent="Areas/Producao/Pontos" unique_id=626374365 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 13.0
+offset_right = 76.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Producao"
+mapa = NodePath("../../../..")
+
+[node name="Deposito" type="Control" parent="Areas" unique_id=2129988467]
+anchors_preset = 0
+offset_left = 191.0
+offset_top = 137.0
+offset_right = 266.0
+offset_bottom = 169.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Deposito" unique_id=1678460628]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Deposito/Bloqueio" unique_id=1607220598]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 9.0
+offset_top = 14.0
+offset_right = 12.5199995
+offset_bottom = 18.52
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Deposito/Bloqueio" unique_id=403097402]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 73.0
+offset_bottom = 23.0
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+
+[node name="Pontos" type="Control" parent="Areas/Deposito" unique_id=232544716]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dep1" type="Button" parent="Areas/Deposito/Pontos" unique_id=268654958 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 13.0
+offset_right = 37.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Deposito"
+mapa = NodePath("../../../..")
+
+[node name="Dep2" type="Button" parent="Areas/Deposito/Pontos" unique_id=435598488 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 13.0
+offset_right = 54.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Deposito"
+mapa = NodePath("../../../..")
+
+[node name="Dep3" type="Button" parent="Areas/Deposito/Pontos" unique_id=1735958202 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 13.0
+offset_right = 71.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Deposito"
+mapa = NodePath("../../../..")
+
+[node name="RH" type="Control" parent="Areas" unique_id=1414883405]
+anchors_preset = 0
+offset_left = 129.0
+offset_top = 73.0
+offset_right = 175.0
+offset_bottom = 105.0
+
+[node name="Bloqueio" type="Control" parent="Areas/RH" unique_id=939318945]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -16.0
+offset_right = 23.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cadeado" type="TextureRect" parent="Areas/RH/Bloqueio" unique_id=1668060319]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/RH/Bloqueio" unique_id=1533291162]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/RH" unique_id=873306159]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RH_button" type="Button" parent="Areas/RH/Pontos" unique_id=1988024544 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 13.0
+offset_right = 42.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "RH"
+mapa = NodePath("../../../..")
+
+[node name="Diretoria" type="Control" parent="Areas" unique_id=1757457139]
+anchors_preset = 0
+offset_left = 205.0
+offset_top = 73.0
+offset_right = 251.0
+offset_bottom = 105.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Diretoria" unique_id=650211675]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Diretoria/Bloqueio" unique_id=317295637]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Diretoria/Bloqueio" unique_id=280513286]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/Diretoria" unique_id=45925844]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Diretoria" type="Button" parent="Areas/Diretoria/Pontos" unique_id=1383768640 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 13.0
+offset_right = 46.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "RH"
+mapa = NodePath("../../../..")
+
+[node name="Recepcao" type="Control" parent="Areas" unique_id=1218222354]
+anchors_preset = 0
+offset_left = 129.0
+offset_top = 137.0
+offset_right = 174.0
+offset_bottom = 169.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Recepcao" unique_id=1019262474]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Recepcao/Bloqueio" unique_id=641957439]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Recepcao/Bloqueio" unique_id=1907404601]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/Recepcao" unique_id=498635533]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Recep" type="Button" parent="Areas/Recepcao/Pontos" unique_id=1462177094 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 13.0
+offset_right = 42.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Recepcao"
+mapa = NodePath("../../../..")
+
+[node name="Banheiro" type="Control" parent="Areas" unique_id=636068005]
+anchors_preset = 0
+offset_left = 192.0
+offset_top = 105.0
+offset_right = 238.0
+offset_bottom = 137.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Banheiro" unique_id=264536775]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Banheiro/Bloqueio" unique_id=724079242]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Banheiro/Bloqueio" unique_id=924303356]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/Banheiro" unique_id=914311914]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="banheiro" type="Button" parent="Areas/Banheiro/Pontos" unique_id=219951476 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 13.0
+offset_right = 42.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Banheiro"
+mapa = NodePath("../../../..")
+
+[node name="Vestiario" type="Control" parent="Areas" unique_id=1564249533]
+anchors_preset = 0
+offset_left = 239.0
+offset_top = 106.0
+offset_right = 287.0
+offset_bottom = 137.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Vestiario" unique_id=33117151]
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Vestiario/Bloqueio" unique_id=172578515]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Vestiario/Bloqueio" unique_id=1446284265]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/Vestiario" unique_id=308293559]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vestiario" type="Button" parent="Areas/Vestiario/Pontos" unique_id=106420991 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 13.0
+offset_right = 42.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Vestiario"
+mapa = NodePath("../../../..")
+
+[node name="Legenda" type="Control" parent="." unique_id=1072985447]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_valvg")
+
+[node name="Mecanico" type="TextureButton" parent="Legenda" unique_id=380425368]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 56.0
+offset_right = 105.0
+offset_bottom = 63.0
+
+[node name="Fisico" type="TextureButton" parent="Legenda" unique_id=834393175]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 71.0
+offset_right = 94.0
+offset_bottom = 78.0
+
+[node name="Quimico" type="TextureButton" parent="Legenda" unique_id=1778732759]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 86.0
+offset_right = 98.0
+offset_bottom = 93.0
+
+[node name="Biologico" type="TextureButton" parent="Legenda" unique_id=1742463453]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 101.0
+offset_right = 104.0
+offset_bottom = 108.0
+
+[node name="Ergonomico" type="TextureButton" parent="Legenda" unique_id=1617921180]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 116.0
+offset_right = 93.0
+offset_bottom = 129.0
+
+[connection signal="pressed" from="Legenda/Mecanico" to="." method="_on_mecanico_pressed"]
+[connection signal="pressed" from="Legenda/Fisico" to="." method="_on_fisico_pressed"]
+[connection signal="pressed" from="Legenda/Quimico" to="." method="_on_quimico_pressed"]
+[connection signal="pressed" from="Legenda/Biologico" to="." method="_on_biologico_pressed"]
+[connection signal="pressed" from="Legenda/Ergonomico" to="." method="_on_ergonomico_pressed"]

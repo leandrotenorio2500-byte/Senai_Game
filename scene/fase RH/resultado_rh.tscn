@@ -73,6 +73,7 @@ layout_mode = 2
 text = "Concluir"
 
 [node name="Jogar Novamente" type="Button" parent="VBoxContainer" unique_id=1504847068]
+process_mode = 3
 layout_mode = 2
 text = "Jogar Novamente"
 

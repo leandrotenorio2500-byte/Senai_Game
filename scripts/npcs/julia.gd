@@ -4,7 +4,7 @@ var npc_faceset_path = "res://sprites/npcs/julia_dialog.png"
 var npc_name = "Julia"
 
 func _ready() -> void:
-	spritesheet = load("res://sprites/npcs/julia.png")
+	spritesheet = load("res://sprites/npcs/coroa2.png")
 	hframes = 8
 	
 	QuestManager.quest_started.connect(_on_quest_state_changed)
@@ -39,7 +39,7 @@ func atualizar_dialogo() -> void:
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Opa, tudo bem? Seja muito bem-vindo!",
+				"dialog": "Olá, tudo bem? Seja muito bem-vindo!",
 				"faceset": npc_faceset_path
 			},
 			{
@@ -49,7 +49,7 @@ func atualizar_dialogo() -> void:
 			},
 			{
 				"title": npc_name,
-				"dialog": "Mas antes, eu vou precisar de um favor: que você identifique 3 pontos de risco no nosso ambiente.",
+				"dialog": "Mas antes, eu vou precisar de um favor: que você identifique 9 pontos de risco no nosso ambiente.",
 				"faceset": npc_faceset_path
 			}
 		]

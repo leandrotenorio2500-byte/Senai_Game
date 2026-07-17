@@ -13,17 +13,23 @@ signal quest_completed(quest_id)
 var quests = {
 	"identificar_riscos": {
 		"title": "Identificando riscos do mapa",
-		"started": false,       
+		"started": false,
 		"current_step": 0,
+		"completed": false,
+
 		"steps": [
 			{
-				"description": "Encontre os pontos de risco no mapa",
-				"target_count": 3,
+				"description": "Converse com os responsáveis pelos setores",
+				"target_count": 9,
 				"current_count": 0
 			},
-		],
-		"completed": false
-	},
+			{
+				"description": "Preencha corretamente o mapa de risco",
+				"target_count": 1,
+				"current_count": 0
+			}
+		]
+	}
 }
 
 # Instancia ou atualiza a interface da missão na tela

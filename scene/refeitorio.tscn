@@ -18,7 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="11_8pkmy"]
 [ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="14_m4y3p"]
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="15_lfuly"]
-[ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="18_ncpg8"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_d5jcm"]
+[ext_resource type="Script" uid="uid://burneumq4qkct" path="res://scripts/npcs/Guliherme.gd" id="20_chod4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_majwv"]
 texture = ExtResource("7_ncpg8")
@@ -157,6 +158,11 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_di15h")]
 visible = false
 
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_8pkmy")]
+visible = false
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=1988332142]
+
 [node name="LevelChangerLeft" parent="." unique_id=1670860483 instance=ExtResource("10_8pkmy")]
 position = Vector2(-16, 114)
 scale = Vector2(0.971244, 12.039999)
@@ -164,11 +170,9 @@ next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(569, 147)
 need_interaction = false
 
-[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_8pkmy")]
-visible = false
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=1932026092]
+position = Vector2(128, 0)
 
-[node name="Objectives" type="Node2D" parent="." unique_id=1411485978]
-visible = false
-
-[node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("18_ncpg8")]
-position = Vector2(197, 159)
+[node name="Guilherme" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_d5jcm")]
+position = Vector2(118, 163)
+script = ExtResource("20_chod4")

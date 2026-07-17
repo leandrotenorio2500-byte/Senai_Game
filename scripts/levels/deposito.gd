@@ -1,11 +1,12 @@
 extends Node2D
+class_name Deposito
 
+@onready var _dialog_hud: CanvasLayer = $DialogHUD
+@onready var _mission_hud: CanvasLayer = $MissionHUD
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	DialogManager.register_player($Player)
+	DialogManager.register_hud(_dialog_hud)
+	QuestManager.register_hud(_mission_hud)
+	
 	Globals.area_atual = scene_file_path.get_file().get_basename()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

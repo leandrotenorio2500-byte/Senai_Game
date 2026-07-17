@@ -11,7 +11,7 @@ animations = []
 size = Vector2(13, 25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xi326"]
-size = Vector2(17, 25)
+size = Vector2(35, 25)
 
 [node name="Npc" type="CharacterBody2D" unique_id=457078932]
 collision_layer = 2048

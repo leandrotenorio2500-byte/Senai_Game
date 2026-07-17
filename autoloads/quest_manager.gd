@@ -19,20 +19,35 @@ func _ready() -> void:
 func register_hud(hud: CanvasLayer) -> void:
 	_hud = hud
 
-# Preenche a lista com as missões na ordem correta
-func _inicializar_fila_de_missoes() -> void:
-	# Adiciona a missão de riscos como a primeira
-	fila_de_missoes.append(QuestIdentificarRiscos.new())
-	fila_de_missoes.append(QuestQuizEpi.new())
-	
-	# No futuro, você adicionará as outras aqui:
-	# fila_de_missoes.append(QuestFalarComNPC.new())
-	# fila_de_missoes.append(QuestApagarIncendio.new())
+signal quest_started(quest_id) 
+signal quest_updated(quest_id, step_index)
+signal quest_completed(quest_id)
 
-func _avancar_proxima_missao() -> void:
-	if fila_de_missoes.is_empty():
-		print("Todas as missões do jogo foram concluídas!")
-		missao_atual = null
+var quests = {
+	"identificar_riscos": {
+		"title": "Identificando riscos do mapa",
+		"started": false,
+		"current_step": 0,
+		"completed": false,
+
+		"steps": [
+			{
+				"description": "Converse com os responsáveis pelos setores",
+				"target_count": 9,
+				"current_count": 0
+			},
+			{
+				"description": "Preencha corretamente o mapa de risco",
+				"target_count": 1,
+				"current_count": 0
+			}
+		]
+	}
+}
+
+# Instancia ou atualiza a interface da missão na tela
+func show_quest_ui(quest_id: String) -> void:
+	if _hud == null:
 		return
 		
 	# Pega a primeira missão da fila e remove ela da lista

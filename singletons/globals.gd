@@ -26,3 +26,30 @@ func _ready() -> void:
 func tocar_ding() -> void:
 	if audio_player:
 		audio_player.play()
+		
+func desbloquear_setor(nome:String):
+
+	setores_desbloqueados[nome] = true
+
+var respostas_mapa = {
+	"producao": [],
+	"deposito": [],
+	"almoxarifado": [],
+	"refeitorio": [],
+	"banheiro": [],
+	"vestiario": [],
+	"recepcao": [],
+	"rh": []
+}
+
+var setores_desbloqueados = {
+	"Recepcao": false,
+	"RH": false,
+	"Producao": false,
+	"Deposito": false,
+	"Almoxarifado": false,
+	"Banheiro": false,
+	"Refeitorio": false,
+	"Vestiario": false,
+	"Diretoria": false
+}

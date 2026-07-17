@@ -71,6 +71,7 @@ _data = {
 script = ExtResource("1_3mf5h")
 
 [node name="fill" type="ColorRect" parent="." unique_id=17830963]
+z_index = 100
 material = SubResource("ShaderMaterial_umpe1")
 offset_right = 400.0
 offset_bottom = 220.0

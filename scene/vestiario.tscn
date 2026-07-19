@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="14_owqpn"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="16_erb64"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="17_nmh0s"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="18_vafrk"]
+[ext_resource type="Script" uid="uid://cc501u5xk1kgo" path="res://scripts/npcs/Pedro-vestiario.gd" id="19_umk8x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j01h7"]
 texture = ExtResource("4_nro01")
@@ -165,5 +167,16 @@ next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(393, 147)
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("16_erb64")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("17_nmh0s")]
+visible = false
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=1358262719]
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=1957178076]
+position = Vector2(128, 0)
+
+[node name="Pedro" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("18_vafrk")]
+position = Vector2(112, 145)
+script = ExtResource("19_umk8x")

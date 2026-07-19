@@ -12,14 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_ycbo4"]
 [ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_sfps4"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_sl2rw"]
-[ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="9_smml3"]
 [ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_wuasn"]
 [ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="11_jeksh"]
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_gucgu"]
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_4c0h4"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_yctf2"]
-[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_sfps4"]
-[ext_resource type="Script" uid="uid://cotlqy4g77ghs" path="res://scripts/npcs/manoela.gd" id="20_sfps4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_2e7bl")
@@ -189,12 +186,6 @@ shape = SubResource("RectangleShape2D_kmspj")
 position = Vector2(600, 104)
 shape = SubResource("RectangleShape2D_kmspj")
 
-[node name="Objectives" type="Node2D" parent="." unique_id=1803445187]
-position = Vector2(99, -3)
-
-[node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("9_smml3")]
-position = Vector2(182, 144)
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=627340578]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_sl2rw")]
@@ -207,16 +198,3 @@ visible = false
 position = Vector2(534, 132)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(55, 147)
-
-[node name="NpcsInteractive" type="Node2D" parent="." unique_id=1156578390]
-
-[node name="Manoela" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_sfps4")]
-position = Vector2(223, 145)
-script = ExtResource("20_sfps4")
-next_level = "res://scene/fase quiz/estacao1.tscn"
-next_player_position = Vector2(0, 147)
-
-[node name="AnimatedSprite2D" parent="NpcsInteractive/Manoela" index="0" unique_id=767735401]
-flip_h = true
-
-[editable path="NpcsInteractive/Manoela"]

@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_u48ys"]
 [ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="9_fxift"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_vco0o"]
-[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="10_jd5co"]
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="10_rlckr"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="14_42s4n"]
+[ext_resource type="Script" uid="uid://bkio044oeq8yn" path="res://scripts/npcs/Carlos.gd" id="15_d0l18"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="16_fxift"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yk34j"]
 texture = ExtResource("7_42s4n")
@@ -94,7 +96,6 @@ tile_map_data = PackedByteArray("AAAWAAkABAAYABMAAAAMAAkABAAOAAcAAAAOAAkABAACAAE
 tile_set = ExtResource("5_jd5co")
 
 [node name="NPCS" type="TileMapLayer" parent="Tiles" unique_id=496240625]
-tile_map_data = PackedByteArray("AAAIAAkAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_2m7sa")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
@@ -122,12 +123,22 @@ position = Vector2(653, -182)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_vco0o")]
-
-[node name="transition" parent="." unique_id=266359478 instance=ExtResource("10_jd5co")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_u48ys")]
+visible = false
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=1980714963]
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("8_c5fjl")]
 position = Vector2(39, 131)
 next_level = "uid://d370titfa8sud"
 next_player_position = Vector2(425, 147)
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=1851013481]
+
+[node name="Carlos" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("14_42s4n")]
+position = Vector2(112, 145)
+script = ExtResource("15_d0l18")
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("16_fxift")]

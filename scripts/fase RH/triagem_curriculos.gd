@@ -66,7 +66,7 @@ func verificar(resposta):
 	var correto = candidato_aprovado()
 
 	if resposta == correto:
-		pontos += 100
+		pontos += 1
 		reaction.texture = reaction_correto
 	else:
 		reaction.texture = reaction_errado
@@ -92,7 +92,7 @@ func finalizar():
 
 	var tela_resultado = preload("res://scene/fase RH/resultado_rh.tscn").instantiate()
 
-	tela_resultado.acertos = pontos / 100
+	tela_resultado.acertos = pontos
 	tela_resultado.total = curriculos.size()
 
 	add_child(tela_resultado)

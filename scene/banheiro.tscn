@@ -8,9 +8,9 @@
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_2ahal"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="6_j2i47"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_so73h"]
-[ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="9_21n25"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_gljmo"]
-[ext_resource type="PackedScene" uid="uid://h2dh7pqwx0mo" path="res://prefabs/Transition.tscn" id="11_58lsq"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="11_2ahal"]
+[ext_resource type="Script" uid="uid://ij1u8roxuj2g" path="res://scripts/npcs/Joao-banheiro.gd" id="12_2ahal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
@@ -60,20 +60,23 @@ shape = SubResource("RectangleShape2D_kmspj")
 position = Vector2(419, 67)
 shape = SubResource("RectangleShape2D_kmspj")
 
-[node name="Objectives" type="Node2D" parent="." unique_id=1646759643]
-
-[node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("9_21n25")]
-position = Vector2(182, 144)
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=1019379449]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2013026700]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_gljmo")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_so73h")]
-
-[node name="transition" parent="." unique_id=266359478 instance=ExtResource("11_58lsq")]
+visible = false
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("6_j2i47")]
 position = Vector2(29, 132)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(329, 147)
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=1754066709]
+
+[node name="João" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("11_2ahal")]
+position = Vector2(112, 145)
+script = ExtResource("12_2ahal")

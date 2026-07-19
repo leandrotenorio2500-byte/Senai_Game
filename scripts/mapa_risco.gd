@@ -24,38 +24,140 @@ func atualizar_posicao():
 
 func _ready() -> void:
 	visible = false
+	Globals.abrir_mapa.connect(abrir_mapa)
+	Globals.fechar_mapa.connect(fechar_mapa)
+	
+func carregar_respostas():
 
+	for setor in $Areas.get_children():
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		if Globals.respostas_mapa.has(setor.name):
+
+			var respostas = Globals.respostas_mapa[setor.name]
+			var pontos = setor.get_node("Pontos")
+
+			for i in range(pontos.get_child_count()):
+
+				var circulo = pontos.get_child(i)
+
+				circulo.tipo_risco = respostas[i]
+				circulo.atualizar_cor()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("abrir_mapa"):
-		# Se já estiver abrindo ou fechando, ignora o clique para não bugar
-		if esta_animando:
-			return
-			
-		if not visible:
-			# --- ABRIR O MAPA ---
-			esta_animando = true
-			visible = true
-			atualizar_posicao()
-			
-			$AnimationPlayer.play("fade_in")
-			#get_tree().paused = true
-			
-			# Espera o fade_in acabar antes de permitir fechar
-			await $AnimationPlayer.animation_finished
-			esta_animando = false
+		if visible:
+			fechar_mapa()
 		else:
-			# --- FECHAR O MAPA ---
-			esta_animando = true
-			$AnimationPlayer.play("fade_out")
+			abrir_mapa()
+
+
+func abrir_mapa() -> void:
+	if esta_animando or visible:
+		return
+
+	esta_animando = true
+	visible = true
+
+	atualizar_posicao()
+	atualizar_setores()
+	carregar_respostas()
+
+	Globals.mapa_aberto.emit()
+
+	$AnimationPlayer.play("fade_in")
+	await $AnimationPlayer.animation_finished
+
+	esta_animando = false
+
+
+func fechar_mapa() -> void:
+	if esta_animando or not visible:
+		return
+
+	esta_animando = true
+
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+
+	visible = false
+
+	Globals.mapa_fechado.emit()
+
+	esta_animando = false
+
+var risco_selecionado = TipoRisco.NENHUM
+
+func selecionar_vermelho():
+	risco_selecionado = TipoRisco.QUIMICO
+
+func selecionar_verde():
+	risco_selecionado = TipoRisco.FISICO
+
+func selecionar_azul():
+	risco_selecionado = TipoRisco.ACIDENTE
+
+func selecionar_amarelo():
+	risco_selecionado = TipoRisco.ERGONOMICO
+
+func selecionar_marrom():
+	risco_selecionado = TipoRisco.BIOLOGICO
+	
+enum TipoRisco {
+	NENHUM,
+	QUIMICO,
+	FISICO,
+	BIOLOGICO,
+	ERGONOMICO,
+	ACIDENTE
+}
+
+func _on_mecanico_pressed() -> void:
+	risco_selecionado = TipoRisco.ACIDENTE
+
+func _on_fisico_pressed() -> void:
+	risco_selecionado = TipoRisco.FISICO
+
+func _on_quimico_pressed() -> void:
+	risco_selecionado = TipoRisco.QUIMICO
+
+func _on_biologico_pressed() -> void:
+	risco_selecionado = TipoRisco.BIOLOGICO
+
+func _on_ergonomico_pressed() -> void:
+	risco_selecionado = TipoRisco.ERGONOMICO
+	
+func salvar_respostas():
+
+	Globals.respostas_mapa.clear()
+
+	for setor in $Areas.get_children():
+
+		var respostas = []
+		var pontos = setor.get_node("Pontos")
+
+		for circulo in pontos.get_children():
+
+			respostas.append(circulo.tipo_risco)
+
+		Globals.respostas_mapa[setor.name] = respostas
+
+func atualizar_setores():
+
+	for setor in $Areas.get_children():
+
+		var desbloqueado = Globals.setores_desbloqueados[setor.name]
+
+		setor.get_node("Bloqueio").visible = !desbloqueado
+
+		var pontos = setor.get_node("Pontos")
+
+		for circulo in pontos.get_children():
+
+			circulo.visible = desbloqueado
 			
-			# Espera o fade_out acabar antes de sumir e despausar
-			await $AnimationPlayer.animation_finished
-			
-			visible = false
-			#get_tree().paused = false
-			esta_animando = false
+
+
+
+func _on_close_pressed() -> void:
+	fechar_mapa()

@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
 [ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
-[ext_resource type="PackedScene" uid="uid://bvj1hyicuv5wm" path="res://entities/missions/risco.tscn" id="12_dhp2d"]
+[ext_resource type="Script" uid="uid://dxwtiudpqhv0f" path="res://scripts/npcs/Ana-recepcao.gd" id="11_wm1ee"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="13_wm1ee"]
 
 [sub_resource type="TileSet" id="TileSet_ok7cm"]
 
@@ -44,7 +45,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_dt7ot")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAATAAkABgABAAQAAAAEAAQABgASAAIAAAAPAAkABgAMAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAAEAAkABgAQAAEAAAATAAcABgALAAUAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAANAAkABgAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAAEAAQABgASAAIAAAAPAAkABgAMAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAAEAAkABgAQAAEAAAATAAcABgALAAUAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAANAAkABgAFAAIAAAA=")
 tile_set = ExtResource("5_dhp2d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1618311414]
@@ -78,24 +79,22 @@ next_player_position = Vector2(1355, 160)
 tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAUAAAACAAsABAANAAUAAAAEAAsABAANAAUAAAAGAAsABAANAAUAAAAIAAsABAANAAUAAAAKAAsABAANAAUAAAAMAAsABAANAAUAAAAOAAsABAANAAUAAAAQAAsABAANAAUAAAASAAsABAANAAUAAAAUAAsABAANAAUAAAAWAAsABAANAAUAAAAYAAsABAANAAUAAAAAAA0ABAANAAcAAAACAA0ABAAPAAcAAAAEAA0ABAAPAAcAAAAGAA0ABAAPAAcAAAAIAA0ABAAPAAcAAAAKAA0ABAANAAcAAAAMAA0ABAAPAAcAAAAOAA0ABAAPAAcAAAAQAA0ABAAPAAcAAAASAA0ABAAPAAcAAAARAA0ABAANAAcAAAATAA0ABAAPAAcAAAAVAA0ABAAPAAcAAAAXAA0ABAAPAAcAAAAZAA0ABAAPAAcAAAA=")
 tile_set = ExtResource("4_dt7ot")
 
-[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_ok7cm")]
-visible = false
-
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
 
 [node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
-position = Vector2(227, 145)
+position = Vector2(227, 147)
 script = ExtResource("11_dhp2d")
 
-[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
+[node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]
+position = Vector2(300, 142)
+script = ExtResource("11_wm1ee")
 
-[node name="MissionHUD" type="CanvasLayer" parent="." unique_id=95516621]
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_6c8f1")]
 visible = false
 
-[node name="Objectives" type="Node2D" parent="." unique_id=2134034105]
-position = Vector2(0, -5)
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_ok7cm")]
+visible = false
 
-[node name="Risco" parent="Objectives" unique_id=1845881561 instance=ExtResource("12_dhp2d")]
-position = Vector2(177, 137)
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("13_wm1ee")]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bbp0gthr5ivf3"]
+
+[node name="ResultatdoQuiz" type="Node2D" unique_id=1988260573]
+
+[node name="Label" type="Label" parent="." unique_id=878227073]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Parabens"

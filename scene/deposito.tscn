@@ -14,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="10_r4k77"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="11_4hj14"]
 [ext_resource type="Texture2D" uid="uid://cjfy10x6racpt" path="res://sprites/npcs/zelador.png" id="11_o2bc7"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="15_fp5cx"]
+[ext_resource type="Script" uid="uid://bdkblsr85dgu1" path="res://scripts/npcs/Sarah.gd" id="16_hhovy"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="17_asn2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_agt3t"]
 texture = ExtResource("7_fp5cx")
@@ -120,8 +123,13 @@ tile_map_data = PackedByteArray("AAACAAgABQAOAAwAAAAFAAcABQADAAEAAAAJAAgABQAIAAw
 tile_set = ExtResource("5_hoit2")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=712453566]
-tile_map_data = PackedByteArray("AAArAAkAAQAAAAAAAAAeAAkAAAAAAAAAAAALAAkAAgAAAAAAABANAAkAAQAAAAAAAAASAAkAAwAAAAAAABA=")
+tile_map_data = PackedByteArray("AAArAAkAAQAAAAAAAAAeAAkAAAAAAAAAAAANAAkAAQAAAAAAAAALAAkAAwAAAAAAABACAAkAAAAAAAAAAAAIAAkAAAAAAAAAABA=")
 tile_set = SubResource("TileSet_sus8b")
+
+[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
+position = Vector2(392, 131)
+next_level = "uid://d370titfa8sud"
+next_player_position = Vector2(136, 147)
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
 position = Vector2(-9, 10)
@@ -141,7 +149,10 @@ visible = false
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("11_4hj14")]
 visible = false
 
-[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
-position = Vector2(392, 131)
-next_level = "uid://d370titfa8sud"
-next_player_position = Vector2(136, 147)
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=970012525]
+
+[node name="Npc" parent="." unique_id=457078932 instance=ExtResource("15_fp5cx")]
+position = Vector2(319, 145)
+script = ExtResource("16_hhovy")
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("17_asn2w")]

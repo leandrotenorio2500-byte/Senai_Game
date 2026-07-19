@@ -4,15 +4,15 @@
 [ext_resource type="Script" uid="uid://drevvc2dxadvg" path="res://scripts/fase quiz/estacao_1.gd" id="1_n5bs6"]
 [ext_resource type="Texture2D" uid="uid://b58r8fa2etkek" path="res://sprites/BACKGROUND/estacao1.png" id="2_n5bs6"]
 [ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="4_c44kn"]
-[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_o7ric"]
-[ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons/button1pressed.png" id="6_kp6xe"]
-[ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons/button1hover.png" id="7_y0jl1"]
-[ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons/button3normal.png" id="10_kkscd"]
-[ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons/button3pressed.png" id="11_8ikc3"]
-[ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons/button3hoverl.png" id="12_jiwj4"]
-[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="13_wemfy"]
-[ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons/button4pressed.png" id="14_1lkf8"]
-[ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons/button4hover.png" id="15_fdkwh"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons_Skin_Changer/button1normal.png" id="5_o7ric"]
+[ext_resource type="Texture2D" uid="uid://c85a8q85am22j" path="res://Buttons_Skin_Changer/button1pressed.png" id="6_kp6xe"]
+[ext_resource type="Texture2D" uid="uid://w8tgxa6imldj" path="res://Buttons_Skin_Changer/button1hover.png" id="7_y0jl1"]
+[ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons_Skin_Changer/button3normal.png" id="10_kkscd"]
+[ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons_Skin_Changer/button3pressed.png" id="11_8ikc3"]
+[ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons_Skin_Changer/button3hoverl.png" id="12_jiwj4"]
+[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons_Skin_Changer/button4normal.png" id="13_wemfy"]
+[ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons_Skin_Changer/button4pressed.png" id="14_1lkf8"]
+[ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons_Skin_Changer/button4hover.png" id="15_fdkwh"]
 [ext_resource type="Texture2D" uid="uid://b52fktigbh0vv" path="res://sprites/Mini UI/npchead.png" id="16_c44kn"]
 [ext_resource type="Texture2D" uid="uid://cemq50t58ct2g" path="res://sprites/selecao_titulo.png" id="17_kp6xe"]
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="17_o7ric"]
@@ -473,6 +473,19 @@ offset_right = 370.32
 offset_bottom = 185.72
 color = Color(0.03137255, 0.03137255, 0.03137255, 0.5294118)
 
+[node name="titulo" type="TextureRect" parent="Introducao/painel de introducao" unique_id=1555874384]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_right = 351.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("17_kp6xe")
+stretch_mode = 3
+
 [node name="TextureRect" type="TextureRect" parent="Introducao/painel de introducao" unique_id=580188220]
 modulate = Color(1, 1, 1, 0)
 z_index = 1
@@ -483,20 +496,6 @@ offset_right = 152.29788
 offset_bottom = 122.0
 texture = ExtResource("16_c44kn")
 flip_h = true
-
-[node name="titulo" type="TextureRect" parent="Introducao/painel de introducao" unique_id=1555874384]
-modulate = Color(1, 1, 1, 0)
-z_index = 1
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = -299.0
-offset_top = -2.0
-offset_right = 5.0
-offset_bottom = 38.0
-grow_vertical = 2
-texture = ExtResource("17_kp6xe")
-stretch_mode = 3
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Introducao/painel de introducao" unique_id=1278091670]
 modulate = Color(1, 1, 1, 0)

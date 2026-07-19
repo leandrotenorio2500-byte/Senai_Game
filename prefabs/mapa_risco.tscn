@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://l2nln0wjaum4" path="res://sprites/Mini UI/cadeado.png" id="4_j8ck1"]
 [ext_resource type="Theme" uid="uid://otxo4w55qddg" path="res://Buttons_map.tres" id="4_valvg"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="5_j8ck1"]
+[ext_resource type="ButtonGroup" uid="uid://0jnruypxt8t7" path="res://button_group.tres" id="8_8504l"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="8_lqxdc"]
 
 [sub_resource type="Animation" id="Animation_wnorl"]
 length = 0.001
@@ -81,6 +83,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 132)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Close:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_v25f6"]
@@ -158,6 +172,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 132), Vector2(0, 0)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Close:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_4s135"]
 resource_name = "fade_in_2"
@@ -234,6 +260,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 154)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Close:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4s135"]
 _data = {
@@ -261,6 +299,59 @@ font_color = Color(0, 0, 0, 1)
 [sub_resource type="Theme" id="Theme_valvg"]
 Button/styles/hover = SubResource("StyleBoxFlat_4s135")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqxdc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dnr7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_io3d6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_lqxdc"]
+Button/styles/hover = SubResource("StyleBoxFlat_lqxdc")
+Button/styles/normal = SubResource("StyleBoxFlat_4dnr7")
+Button/styles/pressed = SubResource("StyleBoxFlat_io3d6")
+
+[sub_resource type="Theme" id="Theme_k5f81"]
+Button/styles/hover = SubResource("StyleBoxFlat_lqxdc")
+Button/styles/normal = SubResource("StyleBoxFlat_4dnr7")
+Button/styles/pressed = SubResource("StyleBoxFlat_io3d6")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5f81"]
+bg_color = Color(0.8235294, 0, 0.11764706, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8504l"]
+bg_color = Color(0.8247356, 0, 0.11601872, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.11415807, 0.11415809, 0.11415807, 1)
+
+[sub_resource type="Theme" id="Theme_4dnr7"]
+Button/colors/font_color = Color(0.8329024, 0.832902, 0.83290213, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 15
+Button/fonts/font = ExtResource("8_lqxdc")
+Button/styles/hover = SubResource("StyleBoxFlat_k5f81")
+Button/styles/normal = SubResource("StyleBoxFlat_8504l")
+
 [node name="mapa_risco" type="CanvasLayer" unique_id=1704704291]
 process_mode = 3
 script = ExtResource("1_b7qg2")
@@ -276,7 +367,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 154.0
-offset_bottom = 154.0
+offset_bottom = 154.00012
 texture = ExtResource("1_5yql7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=347853723]
@@ -295,9 +386,9 @@ modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = 132.0
+offset_top = 154.0
 offset_right = 401.0
-offset_bottom = 352.0
+offset_bottom = 373.99994
 theme = SubResource("Theme_j8ck1")
 
 [node name="Producao" type="Control" parent="Areas" unique_id=1208924594]
@@ -414,6 +505,7 @@ text = "Investigue este setor"
 label_settings = SubResource("LabelSettings_lqxdc")
 
 [node name="Pontos" type="Control" parent="Areas/Deposito" unique_id=232544716]
+z_index = 10
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -729,43 +821,77 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme = SubResource("Theme_valvg")
 
-[node name="Mecanico" type="TextureButton" parent="Legenda" unique_id=380425368]
+[node name="Mecanico" type="Button" parent="Legenda" unique_id=870821805]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 56.0
-offset_right = 105.0
-offset_bottom = 63.0
+offset_left = 40.0
+offset_top = 54.0
+offset_right = 107.0
+offset_bottom = 65.0
+theme = SubResource("Theme_lqxdc")
+toggle_mode = true
+button_group = ExtResource("8_8504l")
 
-[node name="Fisico" type="TextureButton" parent="Legenda" unique_id=834393175]
+[node name="Fisico" type="Button" parent="Legenda" unique_id=1717113186]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 71.0
+offset_left = 40.0
+offset_top = 69.0
 offset_right = 94.0
-offset_bottom = 78.0
+offset_bottom = 80.0
+theme = SubResource("Theme_k5f81")
+toggle_mode = true
+button_group = ExtResource("8_8504l")
 
-[node name="Quimico" type="TextureButton" parent="Legenda" unique_id=1778732759]
+[node name="Quimico" type="Button" parent="Legenda" unique_id=1395621366]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 86.0
-offset_right = 98.0
-offset_bottom = 93.0
+offset_left = 40.0
+offset_top = 84.0
+offset_right = 100.0
+offset_bottom = 95.0
+theme = SubResource("Theme_k5f81")
+toggle_mode = true
+button_group = ExtResource("8_8504l")
 
-[node name="Biologico" type="TextureButton" parent="Legenda" unique_id=1742463453]
+[node name="Biologico" type="Button" parent="Legenda" unique_id=1289031037]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 101.0
-offset_right = 104.0
-offset_bottom = 108.0
+offset_left = 40.0
+offset_top = 99.0
+offset_right = 106.0
+offset_bottom = 110.0
+theme = SubResource("Theme_k5f81")
+toggle_mode = true
+button_group = ExtResource("8_8504l")
 
-[node name="Ergonomico" type="TextureButton" parent="Legenda" unique_id=1617921180]
+[node name="Ergonomico" type="Button" parent="Legenda" unique_id=1746543857]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 116.0
-offset_right = 93.0
-offset_bottom = 129.0
+offset_left = 40.0
+offset_top = 114.0
+offset_right = 95.0
+offset_bottom = 131.0
+theme = SubResource("Theme_k5f81")
+toggle_mode = true
+button_group = ExtResource("8_8504l")
+
+[node name="Close" type="Button" parent="." unique_id=1825087298]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 155.0
+offset_top = -96.0
+offset_right = 171.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_4dnr7")
+text = "X"
 
 [connection signal="pressed" from="Legenda/Mecanico" to="." method="_on_mecanico_pressed"]
 [connection signal="pressed" from="Legenda/Fisico" to="." method="_on_fisico_pressed"]
 [connection signal="pressed" from="Legenda/Quimico" to="." method="_on_quimico_pressed"]
 [connection signal="pressed" from="Legenda/Biologico" to="." method="_on_biologico_pressed"]
 [connection signal="pressed" from="Legenda/Ergonomico" to="." method="_on_ergonomico_pressed"]
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

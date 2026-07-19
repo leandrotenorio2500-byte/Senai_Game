@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+@onready var mapa = $"../mapa_risco"
 @onready var progresso = $Painel/Progresso
 
 @onready var labels = {
@@ -17,7 +18,8 @@ func _process(_delta):
 	atualizar()
 	
 func _ready():
-
+	Globals.mapa_aberto.connect(esconder_hud)
+	Globals.mapa_fechado.connect(mostrar_hud)
 	QuestManager.quest_started.connect(_on_quest_started)
 	QuestManager.quest_completed.connect(_on_quest_completed)
 
@@ -26,6 +28,12 @@ func _ready():
 	if QuestManager.quests["identificar_riscos"]["started"] \
 	and !QuestManager.quests["identificar_riscos"]["completed"]:
 		atualizar()
+
+func esconder_hud():
+	visible = false
+
+func mostrar_hud():
+	visible = true
 
 func _on_quest_started(quest_id):
 	if quest_id == "identificar_riscos":
@@ -51,3 +59,8 @@ func atualizar():
 			labels[setor].text = "□ " + setor
 
 	progresso.text = str(visitados) + "/" + str(labels.size()) + " setores visitados"
+
+
+func _on_mapa_pressed() -> void:
+	Globals.abrir_mapa.emit()
+	

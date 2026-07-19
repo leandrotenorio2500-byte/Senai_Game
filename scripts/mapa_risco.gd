@@ -24,6 +24,8 @@ func atualizar_posicao():
 
 func _ready() -> void:
 	visible = false
+	Globals.abrir_mapa.connect(abrir_mapa)
+	Globals.fechar_mapa.connect(fechar_mapa)
 	
 func carregar_respostas():
 
@@ -44,28 +46,45 @@ func carregar_respostas():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("abrir_mapa"):
-		if esta_animando:
-			return
-			
-		if not visible:
-			esta_animando = true
-			visible = true
-			atualizar_posicao()
-			atualizar_setores()
-			carregar_respostas()
-			
-			$AnimationPlayer.play("fade_in")
-			
-			await $AnimationPlayer.animation_finished
-			esta_animando = false
+		if visible:
+			fechar_mapa()
 		else:
-			esta_animando = true
-			$AnimationPlayer.play("fade_out")
-			
-			await $AnimationPlayer.animation_finished
-			
-			visible = false
-			esta_animando = false
+			abrir_mapa()
+
+
+func abrir_mapa() -> void:
+	if esta_animando or visible:
+		return
+
+	esta_animando = true
+	visible = true
+
+	atualizar_posicao()
+	atualizar_setores()
+	carregar_respostas()
+
+	Globals.mapa_aberto.emit()
+
+	$AnimationPlayer.play("fade_in")
+	await $AnimationPlayer.animation_finished
+
+	esta_animando = false
+
+
+func fechar_mapa() -> void:
+	if esta_animando or not visible:
+		return
+
+	esta_animando = true
+
+	$AnimationPlayer.play("fade_out")
+	await $AnimationPlayer.animation_finished
+
+	visible = false
+
+	Globals.mapa_fechado.emit()
+
+	esta_animando = false
 
 var risco_selecionado = TipoRisco.NENHUM
 
@@ -136,3 +155,9 @@ func atualizar_setores():
 		for circulo in pontos.get_children():
 
 			circulo.visible = desbloqueado
+			
+
+
+
+func _on_close_pressed() -> void:
+	fechar_mapa()

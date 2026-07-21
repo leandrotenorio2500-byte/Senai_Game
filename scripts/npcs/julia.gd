@@ -7,17 +7,22 @@ func _ready() -> void:
 	spritesheet = load("res://sprites/npcs/coroa2.png")
 	hframes = 8
 	
-	QuestManager.quest_started.connect(_on_quest_state_changed)
-	QuestManager.quest_updated.connect(_on_quest_state_changed_alt)
-	QuestManager.quest_completed.connect(_on_quest_state_changed)
+	# Se a missão existe no QuestManager, conectamos aos sinais próprios dela
+	var quest_riscos = QuestManager.obter_missao("identificar_riscos")
+	if quest_riscos:
+		quest_riscos.iniciada.connect(_on_quest_state_changed)
+		quest_riscos.em_andamento.connect(_on_quest_state_changed)
+		quest_riscos.finalizada.connect(_on_quest_state_changed)
 	
-	# Define o diálogo inicial com base no estado atual do jogo
+	# Define o diálogo inicial com base no estado atual da missão
 	atualizar_dialogo()
 	
 	super._ready()
-	
+
 func atualizar_dialogo() -> void:
-	if QuestManager.quests["identificar_riscos"]["completed"]:
+	var estado = QuestManager.obter_estado("identificar_riscos")
+	
+	if estado == "finalizada":
 		dialog_data = [
 			{
 				"title": npc_name,
@@ -26,16 +31,16 @@ func atualizar_dialogo() -> void:
 			}
 		]
 	
-	elif QuestManager.quests["identificar_riscos"]["started"]:
+	elif estado == "em_andamento":
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Lembre-se, você precisa identificar os 3 pontos de riscos no ambiente.",
+				"dialog": "Lembre-se, você precisa identificar os 3 pontos de risco no ambiente.",
 				"faceset": npc_faceset_path
 			}
 		]
 	
-	else:
+	else: # "nao_iniciada" ou não registrada ainda
 		dialog_data = [
 			{
 				"title": npc_name,
@@ -49,31 +54,23 @@ func atualizar_dialogo() -> void:
 			},
 			{
 				"title": npc_name,
-				"dialog": "Mas antes, eu vou precisar de um favor: que você identifique 9 pontos de risco no nosso ambiente.",
+				"dialog": "Mas antes, eu vou precisar de um favor: que você identifique os pontos de risco no nosso ambiente.",
 				"faceset": npc_faceset_path
 			}
 		]
 
-# Funções que respondem aos sinais globais do QuestManager
+# Função que reage aos sinais da missão
 func _on_quest_state_changed(quest_id: String) -> void:
 	if quest_id == "identificar_riscos":
 		atualizar_dialogo()
 
-func _on_quest_state_changed_alt(quest_id: String, _step: int) -> void:
-	if quest_id == "identificar_riscos":
-		atualizar_dialogo()
-
 func _on_dialog_completed() -> void:
-	# Chama o comportamento padrão do script pai (emitir o sinal)
 	super._on_dialog_completed()
-			
-	# Executa a sua ação personalizada aqui!
 	_identificar_riscos_marcar_conversado()
 
-var identificar_riscos_ja_conversou = false
-
-func _identificar_riscos_marcar_conversado():
-	if not identificar_riscos_ja_conversou and not QuestManager.quests["identificar_riscos"]["started"]:
-		QuestManager.start_quest("identificar_riscos")
-	else:
-		pass
+func _identificar_riscos_marcar_conversado() -> void:
+	var estado = QuestManager.obter_estado("identificar_riscos")
+	
+	# Se a missão ainda não começou, inicia ela ao terminar a conversa
+	if estado == "nao_iniciada":
+		QuestManager.iniciar_missao("identificar_riscos")

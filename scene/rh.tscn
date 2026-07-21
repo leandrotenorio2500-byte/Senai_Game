@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="11_742wn"]
 [ext_resource type="Texture2D" uid="uid://cy6ic0m5ddvwn" path="res://sprites/npcs/NPCs.png" id="14_qxqpa"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="14_xlwon"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="16_xlwon"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnx74"]
 texture = ExtResource("4_2clqo")
@@ -328,3 +329,5 @@ next_player_position = Vector2(55, 147)
 [node name="LevelChanger2" parent="." unique_id=477304737 instance=ExtResource("14_xlwon")]
 position = Vector2(163, 142)
 next_level = "uid://dei5o2ar8cxul"
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("16_xlwon")]

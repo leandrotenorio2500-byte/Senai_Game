@@ -125,3 +125,5 @@ next_level = "uid://djhs23rtt4sye"
 next_player_position = Vector2(394, 147)
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("14_fu5uv")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=89163627]

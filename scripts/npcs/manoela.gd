@@ -60,16 +60,7 @@ func atualizar_dialogo() -> void:
 				"faceset": npc_faceset_path
 			}
 		]
-		
-	# SE O JOGADOR VEIO FALAR COM ELA ANTES DA HORA (Ainda na missão de riscos da Julia)
-	else:
-		dialog_data = [
-			{
-				"title": npc_name,
-				"dialog": "Olá! Fale com a Julia primeiro, ela está precisando de ajuda na recepção.",
-				"faceset": npc_faceset_path
-			}
-		]
+	
 
 func _on_quest_state_changed(_quest_id: String) -> void:
 	atualizar_dialogo()

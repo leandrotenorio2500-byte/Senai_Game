@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b58r8fa2etkek" path="res://sprites/BACKGROUND/estacao1.png" id="2_4ja5m"]
 [ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="3_5dd7l"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_mi6ut"]
-[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_pj5mu"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons_Skin_Changer/button1normal.png" id="5_pj5mu"]
 [ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons_Skin_Changer/button3normal.png" id="6_d3y42"]
 [ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons_Skin_Changer/button3pressed.png" id="7_l1eck"]
 [ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons_Skin_Changer/button3hoverl.png" id="8_n4hh5"]

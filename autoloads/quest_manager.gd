@@ -4,153 +4,75 @@ const _QUEST_SCREEN: PackedScene = preload("res://entities/mission_screen.tscn")
 
 var _hud: CanvasLayer = null
 
+# Dicionário que armazena as instâncias das missões (String id -> Quest objeto)
+var missoes: Dictionary = {}
+
+func _ready() -> void:
+	_registrar_missao(QuestIdentificarRiscos.new())
+
 func register_hud(hud: CanvasLayer) -> void:
 	_hud = hud
 
-# ---------------- SINAIS ----------------
-signal quest_started(quest_id)
-signal quest_updated(quest_id, step_index)
-signal quest_completed(quest_id)
+func _registrar_missao(quest: Quest) -> void:
+	missoes[quest.id] = quest
+	quest.finalizada.connect(func(_id): _on_missao_finalizada(_id))
 
-# ---------------- MISSÕES ----------------
-var quests = {
-	"identificar_riscos": {
-		"title": "Identificando riscos do mapa",
-		"started": false,
-		"current_step": 0,
-		"completed": false,
+# ---------------- CONTROLE DE ESTADOS ----------------
 
-		"steps": [
-			{
-				"description": "Converse com os responsáveis pelos setores",
-				"target_count": 8,
-				"current_count": 0
-			},
-			{
-				"description": "Preencha corretamente o mapa de risco",
-				"target_count": 1,
-				"current_count": 0
-			}
-		]
-	}
-}
+func iniciar_missao(quest_id: String) -> void:
+	if not missoes.has(quest_id): return
+	var quest: Quest = missoes[quest_id]
+	if quest.estado_atual == "nao_iniciada":
+		quest.iniciar()
 
-# ---------------- INICIAR MISSÃO ----------------
-func start_quest(quest_id: String):
+func progredir_missao(quest_id: String, dados: Dictionary = {}) -> void:
+	if not missoes.has(quest_id): return
+	var quest: Quest = missoes[quest_id]
+	
+	# Garante que vai progredir se a missão estiver "em_andamento"
+	if quest.estado_atual == "em_andamento":
+		quest.progredir(dados)
 
-	if !quests.has(quest_id):
-		return
+func obter_estado(quest_id: String) -> String:
+	if missoes.has(quest_id):
+		return missoes[quest_id].estado_atual
+	return "nao_encontrada"
 
-	var quest = quests[quest_id]
+func obter_missao(quest_id: String) -> Quest:
+	return missoes.get(quest_id, null)
 
-	if quest["started"]:
-		return
+# ---------------- GESTÃO DE HUD / UI ----------------
 
-	quest["started"] = true
-
-	print("Missão iniciada: ", quest_id)
-
-	quest_started.emit(quest_id)
-
-	show_quest_ui(quest_id)
-
-# ---------------- PROGREDIR MISSÃO ----------------
-func progress_quest(quest_id: String, amount: int = 1):
-
-	if !quests.has(quest_id):
-		return
-
-	var quest = quests[quest_id]
-
-	if !quest["started"] or quest["completed"]:
-		return
-
-	var step_index = quest["current_step"]
-	var step = quest["steps"][step_index]
-
-	step["current_count"] = min(
-		step["current_count"] + amount,
-		step["target_count"]
-	)
-
-	print("Progresso: ", step["current_count"], "/", step["target_count"])
-
-	if step["current_count"] >= step["target_count"]:
-		advance_step(quest_id)
-	else:
-		quest_updated.emit(quest_id, step_index)
-		show_quest_ui(quest_id)
-
-# ---------------- AVANÇAR ETAPA ----------------
-func advance_step(quest_id: String):
-
-	var quest = quests[quest_id]
-
-	if quest["current_step"] + 1 >= quest["steps"].size():
-
-		quest["completed"] = true
-
-		print("Missão concluída: ", quest_id)
-
-		quest_completed.emit(quest_id)
-
-		show_quest_ui(quest_id)
-
-		await get_tree().create_timer(2.5).timeout
-
-		_limpar_hud()
-
-	else:
-
-		quest["current_step"] += 1
-
-		print("Nova etapa liberada")
-
-		quest_updated.emit(quest_id, quest["current_step"])
-
-		show_quest_ui(quest_id)
-
-# ---------------- HUD ----------------
-func show_quest_ui(quest_id: String):
-
+func _on_missao_finalizada(quest_id: String) -> void:
+	print("Missão concluída: ", quest_id)
+	
 	if _hud == null:
+		push_error("QuestManager: O HUD é NULL! Certifique-se de chamar QuestManager.register_hud(hud) no _ready() do seu HUD ou Level principal.")
 		return
 
-	for child in _hud.get_children():
+	# Instancia o MissionScreen na HUD
+	var quest_ui: Node = _hud.get_node_or_null(quest_id)
+	if quest_ui == null:
+		quest_ui = _QUEST_SCREEN.instantiate()
+		quest_ui.name = quest_id
+		_hud.add_child(quest_ui)
 
-		if child.has_method("update_display"):
+	# Chama o método de vitória diretamente na cena do card
+	if quest_ui.has_method("show_completed"):
+		quest_ui.show_completed()
 
-			child.update_display(quest_id)
+	# Mantém na tela por 3.5s antes de remover
+	await get_tree().create_timer(3.5).timeout
+	_remover_hud_missao(quest_id)
+	
+func _remover_hud_missao(quest_id: String) -> void:
+	if _hud == null: return
+	var quest_ui = _hud.get_node_or_null(quest_id)
+	if quest_ui:
+		quest_ui.queue_free()
 
-			if quests[quest_id]["completed"]:
-				_customizar_textos_finais(child)
-
-			return
-
-	var new_quest_screen = _QUEST_SCREEN.instantiate()
-
-	_hud.add_child(new_quest_screen)
-
-	new_quest_screen.update_display(quest_id)
-
-	if quests[quest_id]["completed"]:
-		_customizar_textos_finais(new_quest_screen)
-
-func _limpar_hud():
-
-	if _hud == null:
-		return
-
-	for child in _hud.get_children():
-
-		if child.has_method("update_display"):
-			child.queue_free()
-
-# ---------------- TEXTO FINAL ----------------
-func _customizar_textos_finais(root_node: Node):
-
+func _customizar_textos_finais(root_node: Node) -> void:
 	var labels: Array[Node] = []
-
 	_buscar_labels(root_node, labels)
 
 	if labels.size() > 0:
@@ -159,8 +81,7 @@ func _customizar_textos_finais(root_node: Node):
 	if labels.size() > 1:
 		labels[1].text = "Parabéns pelo seu esforço!"
 
-func _buscar_labels(node: Node, lista: Array[Node]):
-
+func _buscar_labels(node: Node, lista: Array[Node]) -> void:
 	if node is Label or node is RichTextLabel:
 		lista.append(node)
 

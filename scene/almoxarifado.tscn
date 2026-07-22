@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_gucgu"]
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_4c0h4"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_yctf2"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="18_2e7bl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_2e7bl")
@@ -198,3 +199,5 @@ visible = false
 position = Vector2(454, 132)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(55, 147)
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("18_2e7bl")]

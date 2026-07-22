@@ -98,3 +98,5 @@ visible = false
 visible = false
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("13_wm1ee")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1884998688]

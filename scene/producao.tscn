@@ -142,3 +142,5 @@ position = Vector2(112, 145)
 script = ExtResource("15_d0l18")
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("16_fxift")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=2070373038]

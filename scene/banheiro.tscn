@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_gljmo"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="11_2ahal"]
 [ext_resource type="Script" uid="uid://ij1u8roxuj2g" path="res://scripts/npcs/Joao-banheiro.gd" id="12_2ahal"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="12_6j4dr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
@@ -80,3 +81,5 @@ next_player_position = Vector2(329, 147)
 [node name="João" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("11_2ahal")]
 position = Vector2(112, 145)
 script = ExtResource("12_2ahal")
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("12_6j4dr")]

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
 [ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
+[ext_resource type="Script" uid="uid://b8bsy443wvr1a" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="11_gnfdo"]
 [ext_resource type="Script" uid="uid://dxwtiudpqhv0f" path="res://scripts/npcs/Ana-recepcao.gd" id="11_wm1ee"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="13_wm1ee"]
 
@@ -88,6 +89,12 @@ script = ExtResource("11_dhp2d")
 [node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]
 position = Vector2(300, 142)
 script = ExtResource("11_wm1ee")
+
+[node name="Jacson" parent="NpcsInteractive" unique_id=1331321415 instance=ExtResource("10_dt7ot")]
+position = Vector2(227, 147)
+script = ExtResource("11_gnfdo")
+follow_speed = 100.0
+stopping_distance = 32.0
 
 [node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
 

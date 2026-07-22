@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="17_nmh0s"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="18_vafrk"]
 [ext_resource type="Script" uid="uid://cc501u5xk1kgo" path="res://scripts/npcs/Pedro-vestiario.gd" id="19_umk8x"]
+[ext_resource type="Script" uid="uid://b8bsy443wvr1a" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="20_aasin"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="20_umk8x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j01h7"]
@@ -181,5 +182,11 @@ position = Vector2(128, 0)
 [node name="Pedro" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("18_vafrk")]
 position = Vector2(112, 145)
 script = ExtResource("19_umk8x")
+
+[node name="Jacson" parent="NpcsInteractive" unique_id=1465688434 instance=ExtResource("18_vafrk")]
+position = Vector2(99, 147)
+script = ExtResource("20_aasin")
+follow_speed = 100.0
+stopping_distance = 32.0
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("20_umk8x")]

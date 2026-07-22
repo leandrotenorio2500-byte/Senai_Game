@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="14_42s4n"]
 [ext_resource type="Script" uid="uid://bkio044oeq8yn" path="res://scripts/npcs/Carlos.gd" id="15_d0l18"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="16_fxift"]
+[ext_resource type="Script" uid="uid://b8bsy443wvr1a" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="16_rlckr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yk34j"]
 texture = ExtResource("7_42s4n")
@@ -140,6 +141,12 @@ next_player_position = Vector2(425, 147)
 [node name="Carlos" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("14_42s4n")]
 position = Vector2(112, 145)
 script = ExtResource("15_d0l18")
+
+[node name="Jacson" parent="NpcsInteractive" unique_id=1263421621 instance=ExtResource("14_42s4n")]
+position = Vector2(227, 147)
+script = ExtResource("16_rlckr")
+follow_speed = 100.0
+stopping_distance = 32.0
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("16_fxift")]
 

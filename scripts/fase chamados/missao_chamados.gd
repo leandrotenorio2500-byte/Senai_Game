@@ -13,7 +13,7 @@ func _init() -> void:
 	description = "Auxilie os funcionários estão tendo com os computadores"
 	
 	# Estado inicial já como em andamento
-	#estado_atual = "em_andamento"
+	estado_atual = "em_andamento"
 	
 	# Preenche previamente com os 2 atende já conhecidos/marcados
 	#itens_coletados = [

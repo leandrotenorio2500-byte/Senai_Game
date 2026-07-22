@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="13_fjrru"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="14_5ws52"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="15_0xh6x"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="16_44apb"]
+[ext_resource type="Script" uid="uid://b8bsy443wvr1a" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="17_81w2e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnx74"]
 texture = ExtResource("6_pdk62")
@@ -167,3 +169,11 @@ next_player_position = Vector2(342, 147)
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("15_0xh6x")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2068987736]
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=58403783]
+
+[node name="Jacson" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("16_44apb")]
+position = Vector2(227, 147)
+script = ExtResource("17_81w2e")
+follow_speed = 100.0
+stopping_distance = 32.0

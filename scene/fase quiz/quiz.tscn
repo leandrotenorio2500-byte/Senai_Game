@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b58r8fa2etkek" path="res://sprites/BACKGROUND/estacao1.png" id="2_4ja5m"]
 [ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="3_5dd7l"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_mi6ut"]
-[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons_Skin_Changer/button1normal.png" id="5_pj5mu"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_wjyy6"]
 [ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons_Skin_Changer/button3normal.png" id="6_d3y42"]
 [ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons_Skin_Changer/button3pressed.png" id="7_l1eck"]
 [ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons_Skin_Changer/button3hoverl.png" id="8_n4hh5"]
-[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons_Skin_Changer/button4normal.png" id="9_6n011"]
+[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="9_4ja5m"]
 [ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons_Skin_Changer/button4pressed.png" id="10_1a3nw"]
 [ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons_Skin_Changer/button4hover.png" id="11_6xq7p"]
 [ext_resource type="Texture2D" uid="uid://cft4lyi4pyalt" path="res://Buttons/Incorreto_icon.png" id="12_pfrh0"]
@@ -95,6 +95,12 @@ Button/styles/hover = SubResource("StyleBoxFlat_agckt")
 Button/styles/normal = SubResource("StyleBoxFlat_aedtt")
 Button/styles/pressed = SubResource("StyleBoxFlat_nvgea")
 
+[sub_resource type="LabelSettings" id="LabelSettings_wjyy6"]
+font = ExtResource("4_mi6ut")
+font_size = 6
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="Animation" id="Animation_jfrer"]
 resource_name = "FeedbackEntrando"
 length = 2.0
@@ -105,7 +111,7 @@ tracks/0/path = NodePath("PainelFeedback/icon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.6, 1.05),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(176, -65), Vector2(176, 33)]
@@ -117,7 +123,7 @@ tracks/1/path = NodePath("PainelFeedback/Resposta:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(144, 86)]
@@ -129,7 +135,7 @@ tracks/2/path = NodePath("PainelFeedback/Resposta:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.6, 1.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -141,7 +147,7 @@ tracks/3/path = NodePath("PainelFeedback/NinePatchRect:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.6, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-203, 127), Vector2(102, 127)]
@@ -153,7 +159,7 @@ tracks/4/path = NodePath("PainelFeedback/TextureRect:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.6, 1.1333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-224, 119), Vector2(81, 119)]
@@ -165,7 +171,7 @@ tracks/5/path = NodePath("PainelFeedback/NinePatchRect:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.6, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -177,14 +183,14 @@ tracks/6/path = NodePath("PainelFeedback/TextureRect:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.6, 1.1333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/path = NodePath("Background:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
@@ -201,7 +207,7 @@ tracks/8/path = NodePath("TextureRect:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.6333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -241,7 +247,7 @@ tracks/0/path = NodePath("PainelFeedback/icon:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.45),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(176, 33), Vector2(176, -65)]
@@ -277,7 +283,7 @@ tracks/3/path = NodePath("PainelFeedback/NinePatchRect:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.5, 1.13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(102, 127), Vector2(-203, 127)]
@@ -289,7 +295,7 @@ tracks/4/path = NodePath("PainelFeedback/TextureRect:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.5, 1.13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(81, 119), Vector2(-224, 119)]
@@ -301,7 +307,7 @@ tracks/5/path = NodePath("PainelFeedback/NinePatchRect:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.5, 1.13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -313,7 +319,7 @@ tracks/6/path = NodePath("PainelFeedback/TextureRect:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5, 2),
+"times": PackedFloat32Array(0.5, 1.13),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -690,6 +696,7 @@ tracks/17/keys = {
 
 [sub_resource type="Animation" id="Animation_8t3rq"]
 resource_name = "RespostasAparecendo"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -697,7 +704,7 @@ tracks/0/path = NodePath("PainelRespostas/opocoes:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.20000005, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -709,7 +716,7 @@ tracks/1/path = NodePath("PainelPerguntas/Tempo:label_settings:font_size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.20000005, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [25, 25]
@@ -721,7 +728,7 @@ tracks/2/path = NodePath("PainelPerguntas/Tempo:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.20000005, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-6, 7), Vector2(-6, 7)]
@@ -733,7 +740,7 @@ tracks/3/path = NodePath("PainelPerguntas/Tempo:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.20000005, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -745,10 +752,10 @@ tracks/4/path = NodePath("PainelRespostas/opocoes:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.20000005, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(45.5, 229), Vector2(45.5, 35)]
+"values": [Vector2(45.5, -65), Vector2(45.5, 35)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -757,7 +764,7 @@ tracks/5/path = NodePath("PainelPerguntas/TextoProgresso:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.20000005, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
@@ -765,6 +772,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_06fdd"]
 resource_name = "RespostasSaindo"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -772,10 +780,10 @@ tracks/0/path = NodePath("PainelRespostas/opocoes:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.23333335, 1.2333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(45.5, 35), Vector2(45.5, 229)]
+"values": [Vector2(45.5, 35), Vector2(45.5, -65)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -784,7 +792,7 @@ tracks/1/path = NodePath("PainelPerguntas/Tempo:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.23333335, 1.2333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -796,7 +804,7 @@ tracks/2/path = NodePath("PainelPerguntas/TextoProgresso:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.23333335, 1.2333333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
@@ -822,6 +830,7 @@ texture = ExtResource("2_4ja5m")
 centered = false
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2027255312]
+visible = false
 offset_right = 400.0
 offset_bottom = 220.0
 texture = ExtResource("3_5dd7l")
@@ -894,14 +903,14 @@ anchor_right = 0.5
 offset_left = -154.5
 offset_top = 229.0
 offset_right = 154.5
-offset_bottom = 285.0
+offset_bottom = 285.0002
 grow_horizontal = 2
 theme_override_constants/separation = 23
 alignment = 1
 
 [node name="A" type="TextureButton" parent="PainelRespostas/opocoes" unique_id=108279147]
 layout_mode = 2
-texture_normal = ExtResource("5_pj5mu")
+texture_normal = ExtResource("5_wjyy6")
 
 [node name="B" type="TextureButton" parent="PainelRespostas/opocoes" unique_id=522383586]
 layout_mode = 2
@@ -917,11 +926,12 @@ texture_hover = ExtResource("8_n4hh5")
 
 [node name="D" type="TextureButton" parent="PainelRespostas/opocoes" unique_id=167238756]
 layout_mode = 2
-texture_normal = ExtResource("9_6n011")
+texture_normal = ExtResource("9_4ja5m")
 texture_pressed = ExtResource("10_1a3nw")
 texture_hover = ExtResource("11_6xq7p")
 
 [node name="PainelFeedback" type="Control" parent="." unique_id=1199286379]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -959,7 +969,7 @@ anchor_bottom = 0.5
 offset_left = -24.0
 offset_top = -175.0
 offset_right = 24.0
-offset_bottom = -127.00017
+offset_bottom = -127.00035
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_pfrh0")
@@ -975,7 +985,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -424.0
 offset_top = -94.0
-offset_right = -348.00006
+offset_right = -348.00012
 offset_bottom = -34.997894
 grow_horizontal = 2
 grow_vertical = 0
@@ -992,7 +1002,7 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -403.0
 offset_top = -86.0
-offset_right = -201.00034
+offset_right = -200.99991
 offset_bottom = -34.99997
 grow_horizontal = 2
 grow_vertical = 0
@@ -1032,33 +1042,40 @@ theme = SubResource("Theme_06fdd")
 text = "Proximo"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1358542997]
-visible = false
 
 [node name="PainelDescricao" type="Control" parent="CanvasLayer" unique_id=981713766]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 400.0
-offset_bottom = 220.0
+offset_left = 51.0
+offset_top = 87.0
+offset_right = 100.0
+offset_bottom = 137.0
 mouse_filter = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/PainelDescricao" unique_id=697709673]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -142.0
-offset_top = -125.0
-offset_right = -102.0
-offset_bottom = -85.0
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -25.0
+offset_right = 27.5
+offset_bottom = 15.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PainelDescricao/NinePatchRect" unique_id=995998479]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 8.0
+offset_right = 67.0
+offset_bottom = 50.0
+text = "aahh
+aaah"
+label_settings = SubResource("LabelSettings_wjyy6")
+autowrap_mode = 2
 
 [node name="TimerPergunta" type="Timer" parent="." unique_id=1640064793]
 wait_time = 10.0

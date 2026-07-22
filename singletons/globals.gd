@@ -57,26 +57,26 @@ var respostas_mapa = {
 	"rh": []
 }
 
-#var setores_desbloqueados = {
-	#"Recepcao": false,
-	#"RH": false,
-	#"Producao": false,
-	#"Deposito": false,
-	#"Almoxarifado": false,
-	#"Banheiro": false,
-	#"Refeitorio": false,
-	#"Vestiario": false,
-	#"Diretoria": false
-#}
-
 var setores_desbloqueados = {
 	"Recepcao": false,
-	"RH": true,
+	"RH": false,
 	"Producao": false,
-	"Deposito": true,
-	"Almoxarifado": true,
-	"Banheiro": true,
-	"Refeitorio": true,
-	"Vestiario": true,
-	"Diretoria": false 
+	"Deposito": false,
+	"Almoxarifado": false,
+	"Banheiro": false,
+	"Refeitorio": false,
+	"Vestiario": false,
+	"Diretoria": false
 }
+
+#var setores_desbloqueados = {
+	#"Recepcao": false,
+	#"RH": true,
+	#"Producao": false,
+	#"Deposito": true,
+	#"Almoxarifado": true,
+	#"Banheiro": true,
+	#"Refeitorio": true,
+	#"Vestiario": true,
+	#"Diretoria": false 
+#}

@@ -2,10 +2,12 @@ extends Node2D
 
 var acertos := 0
 var indice_pergunta := 0
-var tempo_leitura := 5
+var tempo_leitura := 1
 var tempo_resposta := 20
 var tempo_restante := 5.0
 var cronometro_ativo := false
+var tween_descricao: Tween
+
 
 enum EstadoQuiz {
 	LEITURA,
@@ -40,10 +42,12 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button2pressed.png"),
 				"nome": "Kit Quimico",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Capuz químico",
+					"Óculos vedados",
+					"Respirador",
+					"Avental impermeável",
+					"Luvas nitrílicas",
+				    "Botas de PVC"
 				]				
 			},
 			{
@@ -52,10 +56,11 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button3pressed.png"),
 				"nome": "Kit Eletrico",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Capacete classe B",
+					"Viseira facial",
+					"Luvas isolantes",
+					"Vestimenta antichama",
+				    "Botina dielétrica"
 				]
 			},
 			{
@@ -64,10 +69,12 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button4pressed.png"),
 				"nome": "Kit Soldagem",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Máscara de solda",
+					"Avental de raspa",
+					"Mangotes",
+					"Luvas de raspa",
+					"Botina de segurança",
+				    "Perneiras"
 				]
 			}
 		],
@@ -102,10 +109,12 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button2pressed.png"),
 				"nome": "Kit Quimico",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Capuz químico",
+					"Óculos vedados",
+					"Respirador",
+					"Avental impermeável",
+					"Luvas nitrílicas",
+				    "Botas de PVC"
 				]				
 			},
 			{
@@ -114,10 +123,11 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button3pressed.png"),
 				"nome": "Kit Eletrico",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Capacete classe B",
+					"Viseira facial",
+					"Luvas isolantes",
+					"Vestimenta antichama",
+				    "Botina dielétrica"
 				]
 			},
 			{
@@ -126,10 +136,12 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button4pressed.png"),
 				"nome": "Kit Soldagem",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Máscara de solda",
+					"Avental de raspa",
+					"Mangotes",
+					"Luvas de raspa",
+					"Botina de segurança",
+				    "Perneiras"
 				]
 			}
 		],
@@ -164,10 +176,12 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button2pressed.png"),
 				"nome": "Kit Quimico",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Capuz químico",
+					"Óculos vedados",
+					"Respirador",
+					"Avental impermeável",
+					"Luvas nitrílicas",
+				    "Botas de PVC"
 				]				
 			},
 			{
@@ -176,10 +190,11 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button3pressed.png"),
 				"nome": "Kit Eletrico",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Capacete classe B",
+					"Viseira facial",
+					"Luvas isolantes",
+					"Vestimenta antichama",
+				    "Botina dielétrica"
 				]
 			},
 			{
@@ -188,19 +203,71 @@ var perguntas = [
 				"pressed": preload("res://Buttons/button4pressed.png"),
 				"nome": "Kit Soldagem",
 				"descricao": [
-					"Capacete",
-					"Colete refletivo",
-					"Botina",
-			        "Óculos de proteção"
+					"Máscara de solda",
+					"Avental de raspa",
+					"Mangotes",
+					"Luvas de raspa",
+					"Botina de segurança",
+				    "Perneiras"
 				]
 			}
 		],
-		"correta": 3,
+		"correta": 2,
 		"feedback_correto":
 		"Muito bem! O kit de construção protege contra impactos e quedas de objetos.",
 
 		"feedback_errado":
 	    "O kit correto era o de Construção. Cada atividade exige EPIs específicos."
+	},
+		{
+		"background": preload("res://sprites/BACKGROUND/estacao4.png"),
+
+		"pergunta": "Um jovem aprendiz acompanha a equipe durante uma manutenção em uma plataforma elevada. Qual EPI o profissional responsável deve utilizar para prevenção de quedas?",
+
+		"alternativas": [
+			{
+				"normal": preload("res://Buttons/button5normal.png"),
+				"hover": preload("res://Buttons/button5hover.png"),
+				"pressed": preload("res://Buttons/button5pressed.png"),
+				"nome": "Óculos de proteção",
+				"descricao": [
+					"Óculos de proteção",
+				]
+			},
+			{
+				"normal": preload("res://Buttons/button6normal.png"),
+				"hover": preload("res://Buttons/button6hover.png"),
+				"pressed": preload("res://Buttons/button6pressed.png"),
+				"nome": "Cinto de segurança tipo paraquedista",
+				"descricao": [
+					"Cinto de segurança tipo paraquedista",
+				]				
+			},
+			{
+				"normal": preload("res://Buttons/button8normal.png"),
+				"hover": preload("res://Buttons/button8hover.png"),
+				"pressed": preload("res://Buttons/button8pressed.png"),
+				"nome": "Colete refletivo",
+				"descricao": [
+					"Colete refletivo",
+				]
+			},
+			{
+				"normal": preload("res://Buttons/button7normal.png"),
+				"hover": preload("res://Buttons/button7hover.png"),
+				"pressed": preload("res://Buttons/button7pressed.png"),
+				"nome": "Capacete",
+				"descricao": [
+					"Capacete",
+				]
+			}
+		],
+		"correta": 1,
+		"feedback_correto":
+		"Muito bem! Trabalhos em altura exigem sistemas de proteção contra quedas.",
+
+		"feedback_errado":
+	    "O epi correto era o Cinto de segurança tipo paraquedista. Cada atividade exige EPIs específicos."
 	},
 ]
 
@@ -376,12 +443,10 @@ func finalizar_quiz():
 
 	Globals.resultado_quiz["acertos"] = acertos
 	Globals.resultado_quiz["total"] = perguntas.size()
-
-	get_tree().change_scene_to_file(
-		"res://scene/fase quiz/resultatdo_quiz.tscn"
-		
-	)
 	
+	Transicao.mudar_cena("res://scene/fase quiz/resultatdo_quiz.tscn")
+
+
 func mostrar_feedback(acertou: bool):
 
 	estado = EstadoQuiz.FEEDBACK
@@ -441,14 +506,65 @@ func _on_botao_hover(indice):
 	if estado != EstadoQuiz.RESPOSTA:
 		return
 
-	var alt = perguntas[indice_pergunta]["alternativas"][indice]
+	var botao = botoes[indice]
+	var painel = $CanvasLayer/PainelDescricao
 
-	$CanvasLayer/PainelDescricao/NinePatchRect/Label.text = ""
+	# Cancela qualquer animação anterior
+	if tween_descricao:
+		tween_descricao.kill()
+
+	painel.visible = true
+
+	# Atualiza o texto
+	var alt = perguntas[indice_pergunta]["alternativas"][indice]
+	painel.get_node("NinePatchRect/Label").text = ""
 
 	for epi in alt["descricao"]:
-		$CanvasLayer/PainelDescricao/NinePatchRect/Label.text += "• " + epi + "\n"
+		painel.get_node("NinePatchRect/Label").text += "• " + epi + "\n"
 
-	$CanvasLayer/PainelDescricao.visible = true
+	# Posição final
+	var destino = botao.global_position + Vector2(0, botao.size.y + 1)
+
+	# Começa um pouco acima para dar efeito de deslize
+	painel.global_position = destino - Vector2(0, 15)
+	painel.modulate.a = 0
+
+	tween_descricao = create_tween()
+	tween_descricao.set_parallel()
+
+	tween_descricao.tween_property(painel, "global_position", destino, 0.15)
+	tween_descricao.tween_property(painel, "modulate:a", 1.0, 0.15)
 	
 func _on_botao_sai():
-	$CanvasLayer/PainelDescricao.visible = false
+
+	await get_tree().process_frame
+
+	# Se o mouse já entrou em outro botão, não esconde
+	for botao in botoes:
+		if botao.is_hovered():
+			return
+
+	if tween_descricao:
+		tween_descricao.kill()
+
+	var painel = $CanvasLayer/PainelDescricao
+
+	tween_descricao = create_tween()
+	tween_descricao.set_parallel()
+
+	tween_descricao.tween_property(
+		painel,
+		"global_position",
+		painel.global_position + Vector2(0, 15),
+		0.15
+	)
+
+	tween_descricao.tween_property(
+		painel,
+		"modulate:a",
+		0.0,
+		0.15
+	)
+
+	await tween_descricao.finished
+	painel.visible = false

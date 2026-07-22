@@ -1,14 +1,14 @@
 extends "res://scripts/npc.gd"
 
 var npc_faceset_path = "res://sprites/npcs/julia_dialog.png"
-var npc_name = "Julia"
+var npc_name = "Jacson"
 
 func _ready() -> void:
-	spritesheet = load("res://sprites/npcs/coroa2.png")
+	spritesheet = load("res://sprites/npcs/npc7.png")
 	hframes = 8
 	
 	# Se a missão existe no QuestManager, conectamos aos sinais próprios dela
-	var quest_riscos = QuestManager.obter_missao("identificar_riscos")
+	var quest_riscos = QuestManager.obter_missao("atender_chamados")
 	if quest_riscos:
 		quest_riscos.iniciada.connect(_on_quest_state_changed)
 		quest_riscos.em_andamento.connect(_on_quest_state_changed)
@@ -22,15 +22,15 @@ func _ready() -> void:
 # Função auxiliar para verificar se o jogador está ocupado com outra missão
 func _tem_outra_missao_ativa() -> bool:
 	for quest_id in QuestManager.missoes.keys():
-		if quest_id != "identificar_riscos":
+		if quest_id != "atender_chamados":
 			if QuestManager.obter_estado(quest_id) == "em_andamento":
 				return true
 	return false
 
 func atualizar_dialogo() -> void:
-	var estado = QuestManager.obter_estado("identificar_riscos")
+	var estado = QuestManager.obter_estado("atender_chamados")
 	
-	# 1. Se o jogador já tem outra missão em andamento
+		# 1. Se o jogador já tem outra missão em andamento
 	if _tem_outra_missao_ativa() and estado == "nao_iniciada":
 		dialog_data = [
 			{
@@ -40,12 +40,12 @@ func atualizar_dialogo() -> void:
 			},
 			{
 				"title": npc_name,
-				"dialog": "Termine o que está fazendo primeiro e depois volte aqui para falarmos sobre os riscos!",
+				"dialog": "Termine o que está fazendo primeiro e depois volte aqui para falarmos sobre os chamados!",
 				"faceset": npc_faceset_path
 			}
 		]
 	
-	# 2. Se esta missão já foi finalizada
+	
 	elif estado == "finalizada":
 		dialog_data = [
 			{
@@ -55,18 +55,16 @@ func atualizar_dialogo() -> void:
 			}
 		]
 	
-	# 3. Se esta missão está em andamento
 	elif estado == "em_andamento":
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Lembre-se, você precisa identificar os pontos de risco no ambiente.",
+				"dialog": "Lembre-se, você precisa identificar os 3 pontos de risco no ambiente.",
 				"faceset": npc_faceset_path
 			}
 		]
 	
-	# 4. Se a missão ainda não foi iniciada (e não há outra ativa)
-	else:
+	else: # "nao_iniciada" ou não registrada ainda
 		dialog_data = [
 			{
 				"title": npc_name,
@@ -75,28 +73,28 @@ func atualizar_dialogo() -> void:
 			},
 			{
 				"title": npc_name,
-				"dialog": "Você está dando os seus primeiros passos na empresa e nós iremos te apresentar como tudo funciona por aqui.",
+				"dialog": "Como seu primeiro momento aqui no T.I iremos atender à alguns chamados.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Mas antes, eu vou precisar de um favor: que você identifique os pontos de risco no nosso ambiente.",
+				"dialog": "Vamos nessa!",
 				"faceset": npc_faceset_path
 			}
 		]
 
 # Função que reage aos sinais da missão
 func _on_quest_state_changed(quest_id: String) -> void:
-	if quest_id == "identificar_riscos":
+	if quest_id == "atender_chamados":
 		atualizar_dialogo()
 
 func _on_dialog_completed() -> void:
 	super._on_dialog_completed()
-	_identificar_riscos_marcar_conversado()
+	_atender_chamados_marcar_conversado()
 
-func _identificar_riscos_marcar_conversado() -> void:
-	var estado = QuestManager.obter_estado("identificar_riscos")
+func _atender_chamados_marcar_conversado() -> void:
+	var estado = QuestManager.obter_estado("atender_chamados")
 	
-	# SÓ INICIA a missão se ela não foi iniciada E se o jogador NÃO tiver outra tarefa em andamento
-	if estado == "nao_iniciada" and not _tem_outra_missao_ativa():
-		QuestManager.iniciar_missao("identificar_riscos")
+	# Se a missão ainda não começou, inicia ela ao terminar a conversa
+	if estado == "nao_iniciada":
+		QuestManager.iniciar_missao("atender_chamados")

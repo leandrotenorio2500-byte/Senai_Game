@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_4c0h4"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_yctf2"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="18_2e7bl"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_sfps4"]
+[ext_resource type="Script" uid="uid://b8bsy443wvr1a" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="20_wuasn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_2e7bl")
@@ -201,3 +203,9 @@ next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(55, 147)
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("18_2e7bl")]
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=881704541]
+
+[node name="Jacson" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_sfps4")]
+position = Vector2(227, 147)
+script = ExtResource("20_wuasn")

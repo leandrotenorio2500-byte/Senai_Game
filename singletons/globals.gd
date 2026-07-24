@@ -49,7 +49,7 @@ func desbloquear_setor(nome:String):
 var respostas_mapa = {
 	"producao": [],
 	"deposito": [],
-	"almoxarifado": [],
+	"tecnico": [],
 	"refeitorio": [],
 	"banheiro": [],
 	"vestiario": [],
@@ -62,7 +62,7 @@ var setores_desbloqueados = {
 	"RH": false,
 	"Producao": false,
 	"Deposito": false,
-	"Almoxarifado": false,
+	"Tecnico": false,
 	"Banheiro": false,
 	"Refeitorio": false,
 	"Vestiario": false,

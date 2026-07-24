@@ -2,25 +2,25 @@ extends "res://scripts/npc.gd"
 
 func _ready() -> void:
 	atualizar_dialogo()
-	spritesheet = load("res://sprites/npcs/operario3.png")
+	spritesheet = load("res://sprites/npcs/npc_ti.png")
 	hframes = 8
 	super._ready()
 var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
-var npc_name = "João"
+var npc_name = "Daniel"
 
 func _on_dialog_completed() -> void:
 
 	super._on_dialog_completed()
 
-	if !Globals.setores_desbloqueados["Banheiro"]:
-		Globals.desbloquear_setor("Banheiro")
+	if !Globals.setores_desbloqueados["Tecnico"]:
+		Globals.desbloquear_setor("Tecnico")
 		QuestManager.progress_quest("identificar_riscos")
 
 		atualizar_dialogo()
 
 func atualizar_dialogo():
 
-	if Globals.setores_desbloqueados["Banheiro"]:
+	if Globals.setores_desbloqueados["Tecnico"]:
 
 		dialog_data = [
 			{
@@ -35,22 +35,22 @@ func atualizar_dialogo():
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Pode parecer estranho, mas até um banheiro exige cuidados com a segurança.",
+				"dialog": "Oi! Eu sou responsável pelo setor de TI. Sempre que algum computador ou equipamento apresenta problemas, é aqui que ele vem parar.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Como muitas pessoas utilizam este ambiente ao longo do dia, manter a higiene é essencial para evitar problemas relacionados à saúde.",
+				"dialog": "Além de trabalhar com computadores ligados à energia elétrica, às vezes precisamos abrir equipamentos, trocar componentes e organizar muitos cabos.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Além disso, utilizamos produtos químicos na limpeza dos equipamentos e há empilhadeiras circulando constantemente pelo setor.",
+				"dialog": "Cabos espalhados pelo chão podem provocar tropeços, então manter tudo organizado é uma questão de segurança.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Essas informações devem ajudar você a preencher o Mapa de Risco.",
+				"dialog": "Quem trabalha com manutenção também precisa ter bastante atenção antes de mexer em qualquer equipamento energizado.",
 				"faceset": npc_faceset_path
 			}
 		]

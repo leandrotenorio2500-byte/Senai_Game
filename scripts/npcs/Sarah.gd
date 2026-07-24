@@ -36,22 +36,22 @@ func atualizar_dialogo():
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Opa, tudo bem? Você é o novo Jovem Aprendiz?",
+				"dialog": "Olá! Este é o depósito da empresa. É aqui que recebemos, armazenamos e distribuímos diversos materiais utilizados pelos outros setores.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Aqui na Produção trabalhamos com diversas máquinas que fazem bastante barulho durante todo o expediente.",
+				"dialog": "Durante o dia movimentamos caixas, carrinhos e mercadorias o tempo todo. Por isso, manter os corredores livres e prestar atenção ao redor faz toda a diferença para evitar acidentes.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Além disso, utilizamos produtos químicos na limpeza dos equipamentos e há empilhadeiras circulando constantemente pelo setor.",
+				"dialog": "Algumas cargas são bem pesadas. Quando alguém tenta levantá-las sem a técnica correta, o esforço pode causar dores e até lesões com o passar do tempo.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Essas informações devem ajudar você a preencher o Mapa de Risco.",
+				"dialog": "Além disso, quase sempre trabalhamos com empilhadeiras e outros equipamentos em funcionamento. Dependendo do movimento e do barulho das operações, é preciso ficar atento ao ambiente e utilizar os equipamentos de proteção quando necessário.",
 				"faceset": npc_faceset_path
 			}
 		]

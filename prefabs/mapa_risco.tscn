@@ -134,7 +134,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(-0.03333333, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 154), Vector2(0, 0)]
+"values": [Vector2(0, 154), Vector2(0, -10)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -170,7 +170,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 132), Vector2(0, 0)]
+"values": [Vector2(0, 132), Vector2(0, -10)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -367,16 +367,18 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 154.0
-offset_bottom = 154.00012
+offset_bottom = 174.00009
 texture = ExtResource("1_5yql7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=347853723]
 modulate = Color(1, 1, 1, 0)
-offset_left = 288.0
-offset_top = 118.0
-offset_right = 306.0
-offset_bottom = 136.0
+offset_left = 192.0
+offset_top = 78.0
+offset_right = 204.0
+offset_bottom = 90.0
 texture = ExtResource("3_wnorl")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247484681]
 libraries/ = SubResource("AnimationLibrary_4s135")
@@ -386,19 +388,20 @@ modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = 154.0
+offset_top = 132.0
 offset_right = 401.0
-offset_bottom = 373.99994
+offset_bottom = 352.00006
 theme = SubResource("Theme_j8ck1")
 
 [node name="Producao" type="Control" parent="Areas" unique_id=1208924594]
 anchors_preset = 0
 offset_left = 268.0
-offset_top = 137.0
-offset_right = 346.0
-offset_bottom = 169.0
+offset_top = 152.0
+offset_right = 345.0
+offset_bottom = 182.0
 
 [node name="Bloqueio" type="Control" parent="Areas/Producao" unique_id=1981595709]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -424,9 +427,18 @@ text = "Investigue este setor"
 label_settings = SubResource("LabelSettings_lqxdc")
 
 [node name="Pontos" type="Control" parent="Areas/Producao" unique_id=662449481]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -15.0
+offset_right = 38.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Prod2" type="Button" parent="Areas/Producao/Pontos" unique_id=813738481 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
@@ -474,12 +486,13 @@ mapa = NodePath("../../../..")
 
 [node name="Deposito" type="Control" parent="Areas" unique_id=2129988467]
 anchors_preset = 0
-offset_left = 191.0
-offset_top = 137.0
+offset_left = 192.0
+offset_top = 152.0
 offset_right = 266.0
-offset_bottom = 169.0
+offset_bottom = 182.0
 
 [node name="Bloqueio" type="Control" parent="Areas/Deposito" unique_id=1678460628]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -506,15 +519,24 @@ label_settings = SubResource("LabelSettings_lqxdc")
 
 [node name="Pontos" type="Control" parent="Areas/Deposito" unique_id=232544716]
 z_index = 10
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -15.0
+offset_right = 37.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Dep1" type="Button" parent="Areas/Deposito/Pontos" unique_id=268654958 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
-offset_left = 22.0
+offset_left = 23.0
 offset_top = 13.0
-offset_right = 37.0
+offset_right = 38.0
 offset_bottom = 28.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
@@ -523,9 +545,9 @@ mapa = NodePath("../../../..")
 
 [node name="Dep2" type="Button" parent="Areas/Deposito/Pontos" unique_id=435598488 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
-offset_left = 39.0
+offset_left = 40.0
 offset_top = 13.0
-offset_right = 54.0
+offset_right = 55.0
 offset_bottom = 28.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
@@ -545,12 +567,13 @@ mapa = NodePath("../../../..")
 
 [node name="RH" type="Control" parent="Areas" unique_id=1414883405]
 anchors_preset = 0
-offset_left = 129.0
-offset_top = 73.0
-offset_right = 175.0
-offset_bottom = 105.0
+offset_left = 130.0
+offset_top = 61.0
+offset_right = 174.0
+offset_bottom = 90.0
 
 [node name="Bloqueio" type="Control" parent="Areas/RH" unique_id=939318945]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -589,16 +612,25 @@ label_settings = SubResource("LabelSettings_lqxdc")
 autowrap_mode = 2
 
 [node name="Pontos" type="Control" parent="Areas/RH" unique_id=873306159]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -14.5
+offset_right = 22.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="RH_button" type="Button" parent="Areas/RH/Pontos" unique_id=1988024544 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
 offset_left = 27.0
-offset_top = 13.0
+offset_top = 12.0
 offset_right = 42.0
-offset_bottom = 28.0
+offset_bottom = 27.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
 setor = "RH"
@@ -606,12 +638,13 @@ mapa = NodePath("../../../..")
 
 [node name="Diretoria" type="Control" parent="Areas" unique_id=1757457139]
 anchors_preset = 0
-offset_left = 205.0
-offset_top = 73.0
-offset_right = 251.0
-offset_bottom = 105.0
+offset_left = 192.0
+offset_top = 61.0
+offset_right = 256.0
+offset_bottom = 90.0
 
 [node name="Bloqueio" type="Control" parent="Areas/Diretoria" unique_id=650211675]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -641,16 +674,25 @@ label_settings = SubResource("LabelSettings_lqxdc")
 autowrap_mode = 2
 
 [node name="Pontos" type="Control" parent="Areas/Diretoria" unique_id=45925844]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -14.5
+offset_right = 32.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Diretoria" type="Button" parent="Areas/Diretoria/Pontos" unique_id=1383768640 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 13.0
-offset_right = 46.0
-offset_bottom = 28.0
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 62.0
+offset_bottom = 27.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
 setor = "RH"
@@ -658,12 +700,13 @@ mapa = NodePath("../../../..")
 
 [node name="Recepcao" type="Control" parent="Areas" unique_id=1218222354]
 anchors_preset = 0
-offset_left = 129.0
-offset_top = 137.0
+offset_left = 130.0
+offset_top = 152.0
 offset_right = 174.0
-offset_bottom = 169.0
+offset_bottom = 182.0
 
 [node name="Bloqueio" type="Control" parent="Areas/Recepcao" unique_id=1019262474]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -693,9 +736,18 @@ label_settings = SubResource("LabelSettings_lqxdc")
 autowrap_mode = 2
 
 [node name="Pontos" type="Control" parent="Areas/Recepcao" unique_id=498635533]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -15.0
+offset_right = 22.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Recep" type="Button" parent="Areas/Recepcao/Pontos" unique_id=1462177094 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
@@ -711,11 +763,12 @@ mapa = NodePath("../../../..")
 [node name="Banheiro" type="Control" parent="Areas" unique_id=636068005]
 anchors_preset = 0
 offset_left = 192.0
-offset_top = 105.0
+offset_top = 106.0
 offset_right = 238.0
-offset_bottom = 137.0
+offset_bottom = 136.0
 
 [node name="Bloqueio" type="Control" parent="Areas/Banheiro" unique_id=264536775]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -746,14 +799,89 @@ autowrap_mode = 2
 
 [node name="Pontos" type="Control" parent="Areas/Banheiro" unique_id=914311914]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 46.0
+offset_bottom = 30.0
 
 [node name="banheiro" type="Button" parent="Areas/Banheiro/Pontos" unique_id=219951476 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
-offset_left = 27.0
+offset_left = 29.0
 offset_top = 13.0
-offset_right = 42.0
+offset_right = 44.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Banheiro"
+mapa = NodePath("../../../..")
+
+[node name="banheiro2" type="Button" parent="Areas/Banheiro/Pontos" unique_id=496248140 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Banheiro"
+mapa = NodePath("../../../..")
+
+[node name="Tecnico" type="Control" parent="Areas" unique_id=1526221313]
+anchors_preset = 0
+offset_left = 121.0
+offset_top = 106.0
+offset_right = 174.0
+offset_bottom = 136.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Tecnico" unique_id=856259747]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Tecnico/Bloqueio" unique_id=548156040]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Tecnico/Bloqueio" unique_id=1080111370]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/Tecnico" unique_id=1126907998]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="tecnico" type="Button" parent="Areas/Tecnico/Pontos" unique_id=60262606 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 13.0
+offset_right = 51.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Banheiro"
+mapa = NodePath("../../../..")
+
+[node name="tecnico2" type="Button" parent="Areas/Tecnico/Pontos" unique_id=1622556773 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 35.0
 offset_bottom = 28.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
@@ -762,12 +890,13 @@ mapa = NodePath("../../../..")
 
 [node name="Vestiario" type="Control" parent="Areas" unique_id=1564249533]
 anchors_preset = 0
-offset_left = 239.0
+offset_left = 240.0
 offset_top = 106.0
-offset_right = 287.0
-offset_bottom = 137.0
+offset_right = 286.0
+offset_bottom = 136.0
 
 [node name="Bloqueio" type="Control" parent="Areas/Vestiario" unique_id=33117151]
+visible = false
 anchors_preset = 0
 offset_top = -1.0
 offset_right = 40.0
@@ -799,14 +928,25 @@ autowrap_mode = 2
 
 [node name="Pontos" type="Control" parent="Areas/Vestiario" unique_id=308293559]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 46.0
+offset_bottom = 30.0
 
 [node name="vestiario" type="Button" parent="Areas/Vestiario/Pontos" unique_id=106420991 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 13.0
 offset_right = 42.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Vestiario"
+mapa = NodePath("../../../..")
+
+[node name="vestiario2" type="Button" parent="Areas/Vestiario/Pontos" unique_id=1690830976 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 26.0
 offset_bottom = 28.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
@@ -878,10 +1018,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 155.0
-offset_top = -96.0
-offset_right = 171.0
-offset_bottom = -80.0
+offset_left = 153.0
+offset_top = -94.0
+offset_right = 169.0
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

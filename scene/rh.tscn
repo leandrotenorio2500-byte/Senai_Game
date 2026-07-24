@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cjegie06e0nd3"]
 
 [ext_resource type="Texture2D" uid="uid://dgviq1kce7d7r" path="res://sprites/BACKGROUND/vestiario.png" id="1_p7yi5"]
+[ext_resource type="Script" uid="uid://cu1mjxybasbi7" path="res://scripts/levels/rh.gd" id="1_xlwon"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="2_2clqo"]
 [ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="2_md2p5"]
 [ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="3_qxqpa"]
@@ -15,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="11_742wn"]
 [ext_resource type="Texture2D" uid="uid://cy6ic0m5ddvwn" path="res://sprites/npcs/NPCs.png" id="14_qxqpa"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="14_xlwon"]
+[ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="17_31a03"]
+[ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="18_7dw6d"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_g8c4p"]
+[ext_resource type="Script" uid="uid://ce7yypr5g4yhk" path="res://scripts/npcs/Vitória-rh.gd" id="20_742wn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnx74"]
 texture = ExtResource("4_2clqo")
@@ -276,6 +281,7 @@ sources/8 = SubResource("TileSetAtlasSource_xlwon")
 size = Vector2(20, 209)
 
 [node name="RH" type="Node2D" unique_id=1414757530]
+script = ExtResource("1_xlwon")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1388496289]
 z_index = -5
@@ -283,7 +289,7 @@ texture = ExtResource("1_p7yi5")
 centered = false
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("2_2clqo")]
-position = Vector2(322, 148)
+position = Vector2(229, 148)
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("3_qxqpa")]
 position = Vector2(202, 233)
@@ -326,5 +332,20 @@ next_level = "uid://bxkccy4g7ui4i"
 next_player_position = Vector2(55, 147)
 
 [node name="LevelChanger2" parent="." unique_id=477304737 instance=ExtResource("14_xlwon")]
+visible = false
 position = Vector2(163, 142)
 next_level = "uid://dei5o2ar8cxul"
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=1032829984]
+
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("17_31a03")]
+visible = false
+
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("18_7dw6d")]
+visible = false
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=438335449]
+
+[node name="Vitória" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_g8c4p")]
+position = Vector2(291, 145)
+script = ExtResource("20_742wn")

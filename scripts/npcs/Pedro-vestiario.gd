@@ -25,7 +25,7 @@ func atualizar_dialogo() -> void:
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Espero que minhas informações tenham ajudado. Se precisar revisar o mapa, fique à vontade.",
+				"dialog": "Antes de iniciar o trabalho, muitos funcionários passam por aqui para trocar de roupa e colocar os equipamentos de proteção.",
 				"faceset": npc_faceset_path
 			}
 		]
@@ -38,17 +38,17 @@ func atualizar_dialogo() -> void:
 			},
 			{
 				"title": npc_name,
-				"dialog": "Aqui na Produção trabalhamos com diversas máquinas que fazem bastante barulho durante todo o expediente.",
+				"dialog": "Nos horários de entrada e saída o movimento é grande. Se alguém deixar mochila, botas ou outros objetos espalhados pelo chão, fica muito fácil alguém tropeçar ou escorregar.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Além disso, utilizamos produtos químicos na limpeza dos equipamentos e há empilhadeiras circulando constantemente pelo setor.",
+				"dialog": "Outra coisa importante é manter os armários e o ambiente sempre limpos. Como várias pessoas utilizam este espaço diariamente, a falta de higiene pode favorecer a contaminação por fungos e outros microrganismos.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Essas informações devem ajudar você a preencher o Mapa de Risco.",
+				"dialog": "Pode parecer um ambiente simples, mas um vestiário organizado e limpo ajuda a evitar muitos problemas antes mesmo do trabalho começar.",
 				"faceset": npc_faceset_path
 			}
 		]

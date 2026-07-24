@@ -124,7 +124,7 @@ text = "depos"
 layout_mode = 2
 text = "prod"
 
-[node name="Almoxarife" type="Label" parent="Painel/VBoxContainer" unique_id=1076683953]
+[node name="Tecnico" type="Label" parent="Painel/VBoxContainer" unique_id=1076683953]
 layout_mode = 2
 text = "almo"
 

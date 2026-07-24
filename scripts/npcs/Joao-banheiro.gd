@@ -33,12 +33,12 @@ func atualizar_dialogo() -> void:
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Opa, tudo bem? Você é o novo Jovem Aprendiz?",
+				"dialog": "Pode parecer estranho, mas até um banheiro exige cuidados com a segurança.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Aqui na Produção trabalhamos com diversas máquinas que fazem bastante barulho durante todo o expediente.",
+				"dialog": "Como muitas pessoas utilizam este ambiente ao longo do dia, manter a higiene é essencial para evitar problemas relacionados à saúde.",
 				"faceset": npc_faceset_path
 			},
 			{

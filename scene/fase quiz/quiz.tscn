@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://b58r8fa2etkek" path="res://sprites/BACKGROUND/estacao1.png" id="2_4ja5m"]
 [ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="3_5dd7l"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_mi6ut"]
-[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons/button1normal.png" id="5_wjyy6"]
+[ext_resource type="Texture2D" uid="uid://bixdio6xf8fh2" path="res://Buttons_Skin_Changer/button1normal.png" id="5_wjyy6"]
 [ext_resource type="Texture2D" uid="uid://c72rcv4vjdlp0" path="res://Buttons_Skin_Changer/button3normal.png" id="6_d3y42"]
 [ext_resource type="Texture2D" uid="uid://cpmql7p85kum" path="res://Buttons_Skin_Changer/button3pressed.png" id="7_l1eck"]
 [ext_resource type="Texture2D" uid="uid://dyfrf7my2bhn3" path="res://Buttons_Skin_Changer/button3hoverl.png" id="8_n4hh5"]
-[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons/button4normal.png" id="9_4ja5m"]
+[ext_resource type="Texture2D" uid="uid://cpdwjeiqjhbss" path="res://Buttons_Skin_Changer/button4normal.png" id="9_4ja5m"]
 [ext_resource type="Texture2D" uid="uid://dcsqnc80foor5" path="res://Buttons_Skin_Changer/button4pressed.png" id="10_1a3nw"]
 [ext_resource type="Texture2D" uid="uid://cie288ydt82f8" path="res://Buttons_Skin_Changer/button4hover.png" id="11_6xq7p"]
 [ext_resource type="Texture2D" uid="uid://cft4lyi4pyalt" path="res://Buttons/Incorreto_icon.png" id="12_pfrh0"]
@@ -830,7 +830,6 @@ texture = ExtResource("2_4ja5m")
 centered = false
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2027255312]
-visible = false
 offset_right = 400.0
 offset_bottom = 220.0
 texture = ExtResource("3_5dd7l")
@@ -931,7 +930,6 @@ texture_pressed = ExtResource("10_1a3nw")
 texture_hover = ExtResource("11_6xq7p")
 
 [node name="PainelFeedback" type="Control" parent="." unique_id=1199286379]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

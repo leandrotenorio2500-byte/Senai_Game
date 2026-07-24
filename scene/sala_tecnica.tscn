@@ -1,26 +1,27 @@
 [gd_scene format=4 uid="uid://w3gpkqkiuft"]
 
-[ext_resource type="Script" uid="uid://bp3gnhc4cxo6r" path="res://scripts/levels/almoxarifado.gd" id="1_smml3"]
-[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_wd2cn"]
-[ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_sl2rw"]
-[ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_smml3"]
-[ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_q3m8q"]
-[ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_8ow8r"]
-[ext_resource type="Texture2D" uid="uid://cdxo0rdrrcgt6" path="res://sprites/npcs/coroa2.png" id="7_2e7bl"]
-[ext_resource type="Texture2D" uid="uid://ch4ouypohfw4r" path="res://sprites/npcs/coroa.png" id="8_kedey"]
-[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="8_wd2cn"]
-[ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_ycbo4"]
-[ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_sfps4"]
-[ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_sl2rw"]
-[ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_wuasn"]
-[ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="11_jeksh"]
-[ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_gucgu"]
-[ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_4c0h4"]
-[ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_yctf2"]
-[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="18_2e7bl"]
+[ext_resource type="Script" uid="uid://bp3gnhc4cxo6r" path="res://scripts/levels/almoxarifado.gd" id="1_vok6q"]
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="2_vui3i"]
+[ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="3_vrh26"]
+[ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="4_bowb7"]
+[ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="5_cpjyn"]
+[ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="6_x67mu"]
+[ext_resource type="Texture2D" uid="uid://cdxo0rdrrcgt6" path="res://sprites/npcs/coroa2.png" id="7_md420"]
+[ext_resource type="Texture2D" uid="uid://ch4ouypohfw4r" path="res://sprites/npcs/coroa.png" id="8_1apmy"]
+[ext_resource type="Texture2D" uid="uid://cx4cbssim6cf4" path="res://sprites/npcs/npc7.png" id="9_e0v4d"]
+[ext_resource type="Texture2D" uid="uid://boem8n5wwxm4m" path="res://sprites/npcs/npc8.png" id="10_1wib3"]
+[ext_resource type="Texture2D" uid="uid://5ire8rs0ms06" path="res://sprites/npcs/operaria4.png" id="11_h4tub"]
+[ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_pu55h"]
+[ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_0kvyp"]
+[ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_c043v"]
+[ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="15_hflcs"]
+[ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="16_ebpcf"]
+[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="17_irflo"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="18_vrh26"]
+[ext_resource type="Script" uid="uid://dbscs6ak27tse" path="res://scripts/npcs/Daniel-ti.gd" id="19_bowb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
-texture = ExtResource("7_2e7bl")
+texture = ExtResource("7_md420")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
 0:0/animation_frame_0/duration = 1.0
@@ -35,7 +36,7 @@ texture = ExtResource("7_2e7bl")
 0:0/0/texture_origin = Vector2i(0, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bln1"]
-texture = ExtResource("8_kedey")
+texture = ExtResource("8_1apmy")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
 0:0/animation_frame_0/duration = 1.0
@@ -50,11 +51,11 @@ texture = ExtResource("8_kedey")
 0:0/0/texture_origin = Vector2i(0, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2trmm"]
-texture = ExtResource("9_sfps4")
+texture = ExtResource("9_e0v4d")
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fruwx"]
-texture = ExtResource("10_wuasn")
+texture = ExtResource("10_1wib3")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 4.0
 0:0/animation_frame_0/duration = 1.0
@@ -69,7 +70,7 @@ texture = ExtResource("10_wuasn")
 0:0/0/texture_origin = Vector2i(0, 6)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4u2wj"]
-texture = ExtResource("11_jeksh")
+texture = ExtResource("11_h4tub")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
 0:0/animation_frame_0/duration = 1.0
@@ -84,7 +85,7 @@ texture = ExtResource("11_jeksh")
 0:0/0/texture_origin = Vector2i(0, 7)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g5ngk"]
-texture = ExtResource("12_gucgu")
+texture = ExtResource("12_pu55h")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
 0:0/animation_frame_0/duration = 1.0
@@ -99,7 +100,7 @@ texture = ExtResource("12_gucgu")
 0:0/0/texture_origin = Vector2i(-11, 7)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a5tq"]
-texture = ExtResource("13_4c0h4")
+texture = ExtResource("13_0kvyp")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 3.0
 0:0/animation_frame_0/duration = 1.0
@@ -114,7 +115,7 @@ texture = ExtResource("13_4c0h4")
 0:0/0/texture_origin = Vector2i(0, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rshrm"]
-texture = ExtResource("14_yctf2")
+texture = ExtResource("14_c043v")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/animation_speed = 4.0
 0:0/animation_frame_0/duration = 1.0
@@ -141,36 +142,38 @@ sources/7 = SubResource("TileSetAtlasSource_rshrm")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 209)
 
-[node name="almoxarife" type="Node2D" unique_id=1111527481]
+[node name="tecnico" type="Node2D" unique_id=1111527481]
 position = Vector2(0, -6)
-script = ExtResource("1_smml3")
+script = ExtResource("1_vok6q")
 
-[node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_wd2cn")]
-position = Vector2(502, 145)
+[node name="Player" parent="." unique_id=1967718643 instance=ExtResource("2_vui3i")]
+position = Vector2(369, 146)
 acceleration = 200
 
-[node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_sl2rw")]
+[node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("3_vrh26")]
 position = Vector2(551, 145)
 limit_top = 0
-limit_right = 582
+limit_right = 420
 position_smoothing_enabled = true
 position_smoothing_speed = 5.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
-position = Vector2(1, 0)
+z_index = -5
+position = Vector2(-8, 0)
 scale = Vector2(1.31, 1)
-texture = ExtResource("3_smml3")
+texture = ExtResource("4_bowb7")
 centered = false
 
 [node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
 
 [node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
 tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAYAAAAAAA0ABAANAAgAAAACAAsABAAPAAYAAAACAA0ABAAPAAgAAAAEAAsABAANAAYAAAAEAA0ABAANAAgAAAAGAAsABAANAAYAAAAGAA0ABAANAAgAAAAIAAsABAANAAYAAAAIAA0ABAANAAgAAAAMAAsABAANAAYAAAAMAA0ABAANAAgAAAAOAAsABAAPAAYAAAAOAA0ABAAPAAgAAAAKAAsABAAPAAYAAAAKAA0ABAAPAAgAAAAQAAsABAANAAYAAAAQAA0ABAANAAgAAAASAAsABAAPAAYAAAASAA0ABAAPAAgAAAAUAAsABAANAAYAAAAUAA0ABAANAAgAAAAWAAsABAAPAAYAAAAWAA0ABAAPAAgAAAAYAAsABAANAAYAAAAYAA0ABAANAAgAAAAaAAsABAAPAAYAAAAaAA0ABAAPAAgAAAAZAAsABAANAAYAAAAZAA0ABAANAAgAAAAbAAsABAAPAAYAAAAbAA0ABAAPAAgAAAAcAAsABAANAAYAAAAcAA0ABAANAAgAAAAeAAsABAANAAYAAAAeAA0ABAANAAgAAAAdAAsABAANAAYAAAAdAA0ABAANAAgAAAAfAAsABAAPAAYAAAAfAA0ABAAPAAgAAAAgAAsABAAPAAYAAAAgAA0ABAAPAAgAAAAiAAsABAANAAYAAAAiAA0ABAANAAgAAAAkAAsABAAPAAYAAAAkAA0ABAAPAAgAAAA=")
-tile_set = ExtResource("4_q3m8q")
+tile_set = ExtResource("5_cpjyn")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAGAAgABgAWAAsAAAAcAAkABgAeAAsAAAAPAAQABgASAAIAAAAaAAkABgAQAAEAAAAeAAkABgAMAAEAAAAWAAkABgAhABEAAAATAAkABgAhABEAAAAQAAkABgAhABEAAAA=")
-tile_set = ExtResource("5_8ow8r")
+position = Vector2(-82, 0)
+tile_map_data = PackedByteArray("AAAWAAkABgAMAAEAAAAIAAkACAABAAEAAAAMAAkACAALAAYAAAAOAAcACAAHAAMAAAAQAAQABgASAAIAAAAQAAkACAAIAAYAAAATAAcACAAIAAUAAAAUAAkACAAOAAYAAAAYAAkABgAeAAsAAAAdAAkACAACAAkAAAA=")
+tile_set = ExtResource("6_x67mu")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1123380789]
 tile_set = SubResource("TileSet_sxnay")
@@ -184,20 +187,24 @@ position = Vector2(0, 88)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
-position = Vector2(600, 104)
+position = Vector2(438, 97)
 shape = SubResource("RectangleShape2D_kmspj")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=627340578]
 
-[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_sl2rw")]
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("15_hflcs")]
 visible = false
 
-[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_ycbo4")]
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("16_ebpcf")]
 visible = false
 
-[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("8_wd2cn")]
-position = Vector2(454, 132)
+[node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("17_irflo")]
+position = Vector2(308, 131)
 next_level = "uid://d2a75r2ne3nbm"
 next_player_position = Vector2(55, 147)
 
-[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("18_2e7bl")]
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=283536970]
+
+[node name="Daniel" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("18_vrh26")]
+position = Vector2(82, 145)
+script = ExtResource("19_bowb7")

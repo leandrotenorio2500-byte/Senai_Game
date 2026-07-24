@@ -33,22 +33,17 @@ func atualizar_dialogo() -> void:
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Opa, tudo bem? Você é o novo Jovem Aprendiz?",
+				"dialog": "Olá! Seja bem-vindo à nossa empresa. Antes de começar suas atividades, é importante conhecer bem cada setor e os riscos que existem neles.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Aqui na Produção trabalhamos com diversas máquinas que fazem bastante barulho durante todo o expediente.",
+				"dialog": "Muita gente acha que a recepção é um lugar completamente seguro, mas não é bem assim. Aqui também precisamos ficar atentos.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Além disso, utilizamos produtos químicos na limpeza dos equipamentos e há empilhadeiras circulando constantemente pelo setor.",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Essas informações devem ajudar você a preencher o Mapa de Risco.",
+				"dialog": "Passamos muitas horas sentados atendendo o público e usando o computador. Se a cadeira ou a postura não forem adequadas, isso pode causar dores e lesões com o tempo.",
 				"faceset": npc_faceset_path
 			}
 		]

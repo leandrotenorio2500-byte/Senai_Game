@@ -30,7 +30,7 @@ SkinManager="*uid://cuxi5fdaj6xis"
 [display]
 
 window/size/viewport_width=400
-window/size/viewport_height=220
+window/size/viewport_height=200
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/layer_11="door"

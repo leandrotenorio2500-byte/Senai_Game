@@ -6,16 +6,18 @@ extends CanvasLayer
 var esta_animando: bool = false
 
 var positions = {
-	"recep": Vector2(130, 150),
-	"corredor": Vector2(174, 150),
-	"1andar": Vector2(174, 118),
-	"almoxarifado": Vector2(130, 118),
-	"banheiro": Vector2(192, 118),
-	"refeitorio": Vector2(288, 118),
-	"deposito": Vector2(192, 150),
-	"producao": Vector2(268, 150),
-	"vestiario": Vector2(240, 118),
-	"andar_3": Vector2(174, 86)
+	"recep": Vector2(130, 160),
+	"corredor": Vector2(225, 174),
+	"1andar": Vector2(224, 128),
+	"tecnico": Vector2(121, 114),
+	"banheiro": Vector2(192, 114),
+	"refeitorio": Vector2(288, 114),
+	"deposito": Vector2(192, 160),
+	"producao": Vector2(268, 160),
+	"vestiario": Vector2(240, 114),
+	"andar_3": Vector2(177, 82),
+	"rh": Vector2(130, 68),
+	"diretoria": Vector2(192, 68)
 }
 
 func atualizar_posicao():
@@ -148,13 +150,7 @@ func atualizar_setores():
 
 		var desbloqueado = Globals.setores_desbloqueados[setor.name]
 
-		setor.get_node("Bloqueio").visible = !desbloqueado
-
-		var pontos = setor.get_node("Pontos")
-
-		for circulo in pontos.get_children():
-
-			circulo.visible = desbloqueado
+		setor.get_node("Pontos").visible = desbloqueado
 			
 
 

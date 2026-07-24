@@ -7,7 +7,7 @@ extends CanvasLayer
 	"Recepcao": $Painel/VBoxContainer/Recepcao,
 	"Deposito": $Painel/VBoxContainer/Deposito,
 	"Producao": $Painel/VBoxContainer/Producao,
-	"Almoxarifado": $Painel/VBoxContainer/Almoxarife,
+	"Tecnico": $Painel/VBoxContainer/Tecnico,
 	"Refeitorio": $Painel/VBoxContainer/Refeitorio,
 	"Vestiario": $Painel/VBoxContainer/Vestiario,
 	"Banheiro": $Painel/VBoxContainer/Banheiro,

@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="15_lfuly"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_d5jcm"]
 [ext_resource type="Script" uid="uid://burneumq4qkct" path="res://scripts/npcs/Guliherme.gd" id="20_chod4"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="21_chod4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_majwv"]
 texture = ExtResource("7_ncpg8")
@@ -176,3 +177,5 @@ position = Vector2(128, 0)
 [node name="Guilherme" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_d5jcm")]
 position = Vector2(118, 163)
 script = ExtResource("20_chod4")
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("21_chod4")]

@@ -1,27 +1,27 @@
 extends "res://scripts/npc.gd"
 
+var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
+var npc_name = "Carlos"
+
 func _ready() -> void:
 	atualizar_dialogo()
 	spritesheet = load("res://sprites/npcs/operario3.png")
 	hframes = 8
 	super._ready()
-var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
-var npc_name = "Carlos"
 
 func _on_dialog_completed() -> void:
-
 	super._on_dialog_completed()
 
-	if !Globals.setores_desbloqueados["Producao"]:
+	if not Globals.setores_desbloqueados.get("Producao", false):
 		Globals.desbloquear_setor("Producao")
-		QuestManager.progress_quest("identificar_riscos")
+		
+		# Chamada do novo método de progressão de missão
+		QuestManager.progredir_missao("identificar_riscos", {"setor": "Producao"})
 
 		atualizar_dialogo()
 
-func atualizar_dialogo():
-
-	if Globals.setores_desbloqueados["Producao"]:
-
+func atualizar_dialogo() -> void:
+	if Globals.setores_desbloqueados.get("Producao", false):
 		dialog_data = [
 			{
 				"title": npc_name,
@@ -29,9 +29,7 @@ func atualizar_dialogo():
 				"faceset": npc_faceset_path
 			}
 		]
-
 	else:
-
 		dialog_data = [
 			{
 				"title": npc_name,

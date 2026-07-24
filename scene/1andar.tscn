@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dnd2ogmjw3gwx" path="res://sprites/npcs/operario3.png" id="12_c7te7"]
 [ext_resource type="Texture2D" uid="uid://bdopxjeygndph" path="res://sprites/npcs/Guilherme.png" id="13_r8le0"]
 [ext_resource type="Texture2D" uid="uid://bhuir5ppuldde" path="res://sprites/npcs/julia.png" id="14_lpnjl"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="18_tmvpu"]
 [ext_resource type="PackedScene" uid="uid://q456oehenf8o" path="res://entities/elevador.tscn" id="19_74gwh"]
 
 [sub_resource type="GDScript" id="GDScript_4hrr3"]
@@ -221,3 +222,5 @@ next_player_position = Vector2(310, 147)
 position = Vector2(568, 132)
 next_level = "uid://dsbagef874bed"
 next_player_position = Vector2(30, 147)
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("18_tmvpu")]

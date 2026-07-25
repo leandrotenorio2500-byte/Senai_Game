@@ -17,6 +17,7 @@ func _on_dialog_completed() -> void:
 		
 		# Chamada do novo método de progressão de missão
 		QuestManager.progredir_missao("identificar_riscos", {"setor": "Banheiro"})
+		Globals.abrir_mapa.emit()
 
 		atualizar_dialogo()
 

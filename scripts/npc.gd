@@ -45,7 +45,6 @@ func _process(_delta: float) -> void:
 		return
 	if Input.is_action_just_pressed("interect"):
 		_interact_label.visible = false
-		print("Chamando DialogManager")
 		DialogManager.start_dialog(dialog_data)
 		
 		if DialogManager.has_signal("dialog_ended"):

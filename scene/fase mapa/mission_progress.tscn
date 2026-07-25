@@ -62,6 +62,7 @@ grow_vertical = 2
 texture = ExtResource("3_degtf")
 
 [node name="Titulo" type="Label" parent="Painel" unique_id=151612232]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -80,9 +81,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -11.5
-offset_top = -3.0
+offset_top = -9.0
 offset_right = 11.5
-offset_bottom = 1.0
+offset_bottom = -5.0
 grow_horizontal = 2
 theme = SubResource("Theme_hcg1j")
 text = "progresso"
@@ -90,9 +91,9 @@ text = "progresso"
 [node name="HSeparator" type="HSeparator" parent="Painel" unique_id=1204547424]
 layout_mode = 0
 offset_left = -5.0
-offset_top = 3.5
+offset_top = -2.5
 offset_right = 45.0
-offset_bottom = 5.5
+offset_bottom = -0.5
 theme = SubResource("Theme_degtf")
 theme_override_constants/separation = 2
 
@@ -104,9 +105,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.0
-offset_top = -10.0
+offset_top = -14.0
 offset_right = 22.0
-offset_bottom = 29.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_6x35i")
@@ -143,6 +144,10 @@ text = "vest"
 [node name="RH" type="Label" parent="Painel/VBoxContainer" unique_id=269893029]
 layout_mode = 2
 text = "rh"
+
+[node name="Diretoria" type="Label" parent="Painel/VBoxContainer" unique_id=1857658813]
+layout_mode = 2
+text = "diret"
 
 [node name="mapa" type="TextureButton" parent="." unique_id=67863765]
 offset_left = 298.0

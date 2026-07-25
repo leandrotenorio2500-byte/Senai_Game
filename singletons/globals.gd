@@ -2,81 +2,122 @@ extends Node
 
 @warning_ignore("unused_signal")
 signal abrir_mapa
+
 @warning_ignore("unused_signal")
 signal fechar_mapa
 
 @warning_ignore("unused_signal")
 signal mapa_aberto
+
 @warning_ignore("unused_signal")
 signal mapa_fechado
 
-var coins := 0000
+@warning_ignore("unused_signal")
+signal setor_desbloqueado(nome: String)
+
+enum TipoRisco {
+	NENHUM,
+	QUIMICO,
+	FISICO,
+	BIOLOGICO,
+	ERGONOMICO,
+	ACIDENTE
+}
+
+# -----------------------------
+# Dados gerais do jogo
+# -----------------------------
+
+var coins := 0
 var player_life := 3
 
-var acertos_rh = 0
-var total_curriculos = 0
-var pularintro_quiz = false
+var acertos_rh := 0
+var total_curriculos := 0
+var pularintro_quiz := false
 
-var resultado_quiz = {
+var resultado_quiz := {
 	"acertos": 0,
 	"total": 0
 }
 
 var next_player_position: Vector2 = Vector2.ZERO
-var should_position: bool = false
+var should_position := false
 
-var area_atual = ""
+var area_atual := ""
 
-var som_ding = preload("res://sounds/SOM DE ELEVADOR.mp3")
+# -----------------------------
+# Áudio
+# -----------------------------
 
+var som_ding := preload("res://sounds/SOM DE ELEVADOR.mp3")
 var audio_player: AudioStreamPlayer
 
 func _ready() -> void:
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
+
 	audio_player.stream = som_ding
-	
 	audio_player.volume_db = -15.0
 
 func tocar_ding() -> void:
 	if audio_player:
 		audio_player.play()
-		
-func desbloquear_setor(nome:String):
+
+# -----------------------------
+# Mapa de risco
+# -----------------------------
+
+var respostas_mapa := {
+	"Recepcao": [],
+	"Deposito": [],
+	"Producao": [],
+	"Tecnico": [],
+	"Refeitorio": [],
+	"Banheiro": [],
+	"Vestiario": [],
+	"RH": [],
+	"Diretoria": []
+}
+
+var setores_desbloqueados := {
+	"Recepcao": false,
+	"Deposito": false,
+	"Producao": false,
+	"Tecnico": false,
+	"Refeitorio": false,
+	"Banheiro": false,
+	"Vestiario": false,
+	"RH": false,
+	"Diretoria": false
+}
+
+func desbloquear_setor(nome: String) -> void:
+	if not setores_desbloqueados.has(nome):
+		push_warning("Setor '%s' não encontrado." % nome)
+		return
+
+	if setores_desbloqueados[nome]:
+		return
+
+	setores_desbloqueados[nome] = true
+	setor_desbloqueado.emit(nome)
 
 	setores_desbloqueados[nome] = true
 
-var respostas_mapa = {
-	"producao": [],
-	"deposito": [],
-	"tecnico": [],
-	"refeitorio": [],
-	"banheiro": [],
-	"vestiario": [],
-	"recepcao": [],
-	"rh": []
-}
+func bloquear_setor(nome: String) -> void:
+	if not setores_desbloqueados.has(nome):
+		push_warning("Setor '%s' não encontrado." % nome)
+		return
 
-#var setores_desbloqueados = {
-	#"Recepcao": false,
-	#"RH": false,
-	#"Producao": false,
-	#"Deposito": false,
-	#"Almoxarifado": false,
-	#"Banheiro": false,
-	#"Refeitorio": false,
-	#"Vestiario": false,
-	#"Diretoria": false
-#}
+	setores_desbloqueados[nome] = false
 
-var setores_desbloqueados = {
-	"Recepcao": false,
-	"RH": true,
-	"Producao": false,
-	"Deposito": true,
-	"Almoxarifado": true,
-	"Banheiro": true,
-	"Refeitorio": true,
-	"Vestiario": true,
-	"Diretoria": false 
-}
+#func setor_desbloqueado(nome: String) -> bool:
+	#return setores_desbloqueados.get(nome, false)
+
+func limpar_respostas_mapa() -> void:
+	for setor in respostas_mapa.keys():
+		respostas_mapa[setor].clear()
+
+func limpar_setores_desbloqueados() -> void:
+	for setor in setores_desbloqueados.keys():
+		setores_desbloqueados[setor] = false

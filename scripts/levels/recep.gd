@@ -12,4 +12,3 @@ func _ready() -> void:
 	
 	Globals.area_atual = scene_file_path.get_file().get_basename()
 	
-	Globals.area_atual = scene_file_path.get_file().get_basename()

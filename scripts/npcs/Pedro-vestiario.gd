@@ -17,6 +17,7 @@ func _on_dialog_completed() -> void:
 		
 		# Chamada do novo método de progressão de missão
 		QuestManager.progredir_missao("identificar_riscos", {"setor": "Vestiario"})
+		Globals.abrir_mapa.emit()
 
 		atualizar_dialogo()
 
@@ -25,7 +26,7 @@ func atualizar_dialogo() -> void:
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Antes de iniciar o trabalho, muitos funcionários passam por aqui para trocar de roupa e colocar os equipamentos de proteção.",
+				"dialog": "Espero que minhas informações tenham ajudado. Se precisar revisar o mapa, fique à vontade.",
 				"faceset": npc_faceset_path
 			}
 		]

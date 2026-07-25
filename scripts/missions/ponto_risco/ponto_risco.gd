@@ -1,55 +1,199 @@
 class_name QuestIdentificarRiscos
 extends Quest
 
-var target_count: int = 8
-var current_count: int = 0
+signal setor_visitado
+signal setor_analisado
+signal mapa_pronto
 
-# Guarda as chaves únicas de cada setor/risco registrado
-var itens_coletados: Array[String] = []
+# Quantidade total de setores da missão
+var total_setores: int = 9
+
+# Setores onde o jogador conversou com o responsável
+var setores_visitados: Array[String] = []
+
+# Setores onde o jogador terminou de marcar os riscos corretamente
+var setores_analisados: Array[String] = []
+
+var gabarito_riscos := {
+	"Recepcao": [
+		Globals.TipoRisco.ERGONOMICO
+	],
+	"Deposito": [
+		Globals.TipoRisco.ACIDENTE,
+		Globals.TipoRisco.FISICO,
+		Globals.TipoRisco.ERGONOMICO
+	],
+	"Producao": [
+		Globals.TipoRisco.ACIDENTE,
+		Globals.TipoRisco.FISICO,
+		Globals.TipoRisco.ERGONOMICO,
+		Globals.TipoRisco.QUIMICO
+	],
+	"Tecnico": [
+		Globals.TipoRisco.ACIDENTE,
+		Globals.TipoRisco.ERGONOMICO
+	],
+	"Refeitorio": [
+		Globals.TipoRisco.BIOLOGICO,
+		Globals.TipoRisco.ACIDENTE
+	],
+	"Banheiro": [
+		Globals.TipoRisco.BIOLOGICO,
+		Globals.TipoRisco.ACIDENTE
+	],
+	"Vestiario": [
+		Globals.TipoRisco.BIOLOGICO,
+		Globals.TipoRisco.ACIDENTE
+	],
+	"RH": [
+		Globals.TipoRisco.ERGONOMICO
+	],
+	"Diretoria": [
+		Globals.TipoRisco.ERGONOMICO
+	]
+}
+
+# Estado da missão
+enum Etapa {
+	IDENTIFICANDO_RISCOS,
+	AGUARDANDO_ENTREGA
+}
+
+var etapa_atual: Etapa = Etapa.IDENTIFICANDO_RISCOS
 
 func _init() -> void:
 	id = "identificar_riscos"
 	title = "Identificando riscos do mapa"
-	description = "Encontre os pontos de risco no mapa"
-	
-	# Estado inicial já como em andamento
-	estado_atual = "em_andamento"
-	
-	# Preenche previamente com os 6 setores já conhecidos/marcados
-	itens_coletados = [
-		"RH",
-		"Deposito",
-		"Almoxarifado",
-		"Banheiro",
-		"Refeitorio",
-		"Vestiario"
-	]
-	
-	current_count = itens_coletados.size()
+	description = "Converse com os responsáveis pelos setores e registre os riscos encontrados no mapa."
 
+# Chamado pelos NPCs
 func progredir(dados: Dictionary = {}) -> void:
-	if estado_atual == "finalizada": 
+
+	if estado_atual != "em_andamento":
 		return
-		
-	# Identifica qual chave veio (pode ser 'item_id' do ponto ou 'setor' do NPC)
-	var id_registrar: String = dados.get("item_id", dados.get("setor", ""))
+
+	var setor: String = dados.get("setor", "")
+
+	if setor.is_empty():
+		return
+
+	# Evita contar duas vezes o mesmo setor
+	if setores_visitados.has(setor):
+		return
+
+	setores_visitados.append(setor)
+
+	setor_visitado.emit(setor)
+
+	print(
+		"Setores visitados: ",
+		setores_visitados.size(),
+		"/",
+		total_setores
+	)
+
+	em_andamento.emit(id)
+
+# Chamado quando o jogador termina de preencher um setor no mapa
+func registrar_setor_analisado(setor: String) -> void:
+
+	if setores_analisados.has(setor):
+		return
+
+	setores_analisados.append(setor)
+
+	setor_analisado.emit(setor)
+
+	print(
+		"Setores analisados: ",
+		setores_analisados.size(),
+		"/",
+		total_setores
+	)
+	print("SETOR ANALISADO: ", setor)
+	verificar_conclusao_mapa()
+
+func verificar_conclusao_mapa() -> void:
+
+	print("Visitados:", setores_visitados.size())
+	print("Analisados:", setores_analisados.size())
+
+	if setores_visitados.size() < total_setores:
+		print("Ainda faltam setores visitados.")
+		return
+
+	if setores_analisados.size() < total_setores:
+		print("Ainda faltam setores analisados.")
+		return
+
+	print("Mudando para AGUARDANDO_ENTREGA")
+
+	etapa_atual = Etapa.AGUARDANDO_ENTREGA
+
+	description = "Mapa concluído. Retorne ao responsável para avaliação."
+
+	mapa_pronto.emit()
+	em_andamento.emit(id)
 	
-	# Só incrementa se for um setor/item novo
-	if id_registrar != "" and not itens_coletados.has(id_registrar):
-		itens_coletados.append(id_registrar)
-		current_count = clampi(itens_coletados.size(), 0, target_count)
-		
+func entregar_mapa() -> void:
+
+	if etapa_atual != Etapa.AGUARDANDO_ENTREGA:
+		return
+
+	print("Julia está avaliando o mapa...")
+
+	if avaliar_mapa():
+
+		print("Mapa aprovado!")
+
+		finalizar()
+
+	else:
+
+		print("Mapa reprovado.")
+		description = "Existem riscos marcados incorretamente. Revise o mapa e volte para a avaliação."
+
 		em_andamento.emit(id)
-		print("Progresso da Missão: ", current_count, "/", target_count)
-		
-		# Chegou ao objetivo final (8/8)
-		if current_count >= target_count:
-			finalizar()
 
-# Função que conclui a missão e emite o sinal para o QuestManager
-func finalizar() -> void:
-	estado_atual = "finalizada"
-	finalizada.emit(id)
+func avaliar_mapa() -> bool:
 
-func verificar_item_coletado(id_do_item: String) -> bool:
-	return itens_coletados.has(id_do_item)
+	for setor in gabarito_riscos.keys():
+
+		if not Globals.respostas_mapa.has(setor):
+			print("Setor não encontrado:", setor)
+			return false
+
+		var resposta = Globals.respostas_mapa[setor]
+		var correta = gabarito_riscos[setor]
+
+		var resposta_contada = contar_riscos(resposta)
+		var correta_contada = contar_riscos(correta)
+
+		if resposta_contada != correta_contada:
+
+			print("Erro encontrado no setor:", setor)
+			print("Resposta:", resposta_contada)
+			print("Gabarito:", correta_contada)
+
+			return false
+
+	return true
+
+func verificar_setor_visitado(setor: String) -> bool:
+	return setores_visitados.has(setor)
+
+func verificar_setor_analisado(setor: String) -> bool:
+	return setores_analisados.has(setor)
+	
+func contar_riscos(lista: Array) -> Dictionary:
+
+	var contagem := {}
+
+	for risco in lista:
+
+		if not contagem.has(risco):
+			contagem[risco] = 0
+
+		contagem[risco] += 1
+
+	return contagem

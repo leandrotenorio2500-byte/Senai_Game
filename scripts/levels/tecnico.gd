@@ -1,6 +1,8 @@
 extends Node2D
 class_name Tecnico
 
+#@onready var _dialog_hud: CanvasLayer = $DialogHUD
+#@onready var _mission_hud: CanvasLayer = $MissionHUD
 @onready var _hud: CanvasLayer = $HUD
 
 func _ready() -> void:

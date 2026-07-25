@@ -33,17 +33,17 @@ func carregar_respostas():
 
 	for setor in $Areas.get_children():
 
-		if Globals.respostas_mapa.has(setor.name):
+		if not Globals.respostas_mapa.has(setor.name):
+			continue
 
-			var respostas = Globals.respostas_mapa[setor.name]
-			var pontos = setor.get_node("Pontos")
+		var respostas = Globals.respostas_mapa[setor.name]
+		var pontos = setor.get_node("Pontos")
 
-			for i in range(pontos.get_child_count()):
+		for i in range(min(respostas.size(), pontos.get_child_count())):
 
-				var circulo = pontos.get_child(i)
-
-				circulo.tipo_risco = respostas[i]
-				circulo.atualizar_cor()
+			var circulo = pontos.get_child(i)
+			circulo.tipo_risco = respostas[i]
+			circulo.atualizar_cor()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -131,18 +131,41 @@ func _on_ergonomico_pressed() -> void:
 	
 func salvar_respostas():
 
-	Globals.respostas_mapa.clear()
-
 	for setor in $Areas.get_children():
 
 		var respostas = []
 		var pontos = setor.get_node("Pontos")
 
 		for circulo in pontos.get_children():
-
 			respostas.append(circulo.tipo_risco)
 
 		Globals.respostas_mapa[setor.name] = respostas
+		
+func setor_completo(setor: Node) -> bool:
+
+	var pontos = setor.get_node("Pontos")
+
+	for circulo in pontos.get_children():
+
+		if circulo.tipo_risco == TipoRisco.NENHUM:
+			return false
+
+	return true
+	
+func verificar_setores_completos():
+
+	for setor in $Areas.get_children():
+
+		if not Globals.setores_desbloqueados.get(setor.name, false):
+			continue
+
+
+		if setor_completo(setor):
+
+			var quest = QuestManager.obter_missao("identificar_riscos")
+
+			if quest and not quest.verificar_setor_analisado(setor.name):
+				quest.registrar_setor_analisado(setor.name)
 
 func atualizar_setores():
 

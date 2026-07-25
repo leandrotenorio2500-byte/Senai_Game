@@ -20,27 +20,45 @@ func _ready() -> void:
 	super._ready()
 
 func atualizar_dialogo() -> void:
+
 	var estado = QuestManager.obter_estado("identificar_riscos")
-	
+	var quest = QuestManager.obter_missao("identificar_riscos")
+
+
 	if estado == "finalizada":
+
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Parabéns, você completou a primeira missão!!!",
+				"dialog": "Excelente trabalho! O mapa de riscos ficou muito bem elaborado. Agora podemos seguir para a próxima etapa do seu treinamento.",
 				"faceset": npc_faceset_path
 			}
 		]
-	
+
 	elif estado == "em_andamento":
-		dialog_data = [
-			{
-				"title": npc_name,
-				"dialog": "Lembre-se, você precisa identificar os 3 pontos de risco no ambiente.",
-				"faceset": npc_faceset_path
-			}
-		]
-	
-	else: # "nao_iniciada" ou não registrada ainda
+
+		if quest.etapa_atual == QuestIdentificarRiscos.Etapa.AGUARDANDO_ENTREGA:
+
+			dialog_data = [
+				{
+					"title": npc_name,
+					"dialog": "Vejo que você concluiu o mapa de riscos. Vamos analisar o resultado.",
+					"faceset": npc_faceset_path
+				}
+			]
+
+		else:
+
+			dialog_data = [
+				{
+					"title": npc_name,
+					"dialog": "Converse com todos os responsáveis pelos setores e registre os riscos encontrados no mapa. Quando terminar, volte para falar comigo.",
+					"faceset": npc_faceset_path
+				}
+			]
+
+	else:
+
 		dialog_data = [
 			{
 				"title": npc_name,
@@ -54,11 +72,11 @@ func atualizar_dialogo() -> void:
 			},
 			{
 				"title": npc_name,
-				"dialog": "Mas antes, eu vou precisar de um favor: que você identifique os pontos de risco no nosso ambiente.",
+				"dialog": "Mas antes, preciso que você faça um levantamento dos riscos nos setores da empresa. Converse com os responsáveis e preencha o mapa de risco.",
 				"faceset": npc_faceset_path
 			}
 		]
-
+		
 # Função que reage aos sinais da missão
 func _on_quest_state_changed(quest_id: String) -> void:
 	if quest_id == "identificar_riscos":
@@ -66,7 +84,20 @@ func _on_quest_state_changed(quest_id: String) -> void:
 
 func _on_dialog_completed() -> void:
 	super._on_dialog_completed()
-	_identificar_riscos_marcar_conversado()
+
+	var quest = QuestManager.obter_missao("identificar_riscos")
+
+	if quest == null:
+		return
+
+	# Primeira conversa
+	if QuestManager.obter_estado("identificar_riscos") == "nao_iniciada":
+		_identificar_riscos_marcar_conversado()
+		return
+
+	# Entrega do mapa
+	if quest.etapa_atual == QuestIdentificarRiscos.Etapa.AGUARDANDO_ENTREGA:
+		quest.entregar_mapa()
 
 func _identificar_riscos_marcar_conversado() -> void:
 	var estado = QuestManager.obter_estado("identificar_riscos")

@@ -34,8 +34,12 @@ func _pressed():
 	if !Globals.setores_desbloqueados[setor]:
 		return
 	tipo_risco = mapa.risco_selecionado
-	mapa.salvar_respostas()
+
 	atualizar_cor()
+
+	mapa.salvar_respostas()
+
+	mapa.verificar_setores_completos()
 	
 func atualizar_estado():
 

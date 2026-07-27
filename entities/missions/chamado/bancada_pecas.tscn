@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://pueg664tg3hq"]
+
+[ext_resource type="Script" uid="uid://x7ib0qw1xdws" path="res://scripts/fase chamados/entites/bancada_pecas.gd" id="1_s4vvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgbsq"]
+
+[node name="BancadaPecas" type="Area2D" unique_id=1652627992]
+collision_layer = 8192
+collision_mask = 2
+script = ExtResource("1_s4vvb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1398594543]
+shape = SubResource("RectangleShape2D_dgbsq")

@@ -12,20 +12,20 @@ func _init() -> void:
 	title = "Identificando riscos do mapa"
 	description = "Encontre os pontos de risco no mapa"
 	
-	# Estado inicial já como em andamento
-	estado_atual = "em_andamento"
-	
-	# Preenche previamente com os 6 setores já conhecidos/marcados
-	itens_coletados = [
-		"RH",
-		"Deposito",
-		"Almoxarifado",
-		"Banheiro",
-		"Refeitorio",
-		"Vestiario"
-	]
-	
-	current_count = itens_coletados.size()
+	## Estado inicial já como em andamento
+	#estado_atual = "em_andamento"
+	#
+	## Preenche previamente com os 6 setores já conhecidos/marcados
+	#itens_coletados = [
+		#"RH",
+		#"Deposito",
+		#"Almoxarifado",
+		#"Banheiro",
+		#"Refeitorio",
+		#"Vestiario"
+	#]
+	#
+	#current_count = itens_coletados.size()
 
 func progredir(dados: Dictionary = {}) -> void:
 	if estado_atual == "finalizada": 

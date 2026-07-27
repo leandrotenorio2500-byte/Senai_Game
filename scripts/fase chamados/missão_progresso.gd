@@ -5,12 +5,7 @@ extends CanvasLayer
 
 @onready var labels = {
 	"Recepcao": $Painel/VBoxContainer/Recepcao,
-	"Deposito": $Painel/VBoxContainer/Deposito,
-	"Producao": $Painel/VBoxContainer/Producao,
-	"Tecnico": $Painel/VBoxContainer/Tecnico,
-	"Refeitorio": $Painel/VBoxContainer/Refeitorio,
-	"Vestiario": $Painel/VBoxContainer/Vestiario,
-	"Banheiro": $Painel/VBoxContainer/Banheiro,
+	"Almoxarifado": $Painel/VBoxContainer/Almoxarife,
 	"RH": $Painel/VBoxContainer/RH,
 }
 
@@ -18,7 +13,7 @@ func _ready() -> void:
 	Globals.mapa_aberto.connect(esconder_hud)
 	Globals.mapa_fechado.connect(mostrar_hud)
 
-	 #Tenta obter a instância da missão no QuestManager
+	# Tenta obter a instância da missão no QuestManager
 	var quest_riscos = QuestManager.obter_missao("identificar_riscos")
 	if quest_riscos:
 		quest_riscos.iniciada.connect(_on_quest_started)

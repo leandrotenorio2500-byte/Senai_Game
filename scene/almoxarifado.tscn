@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="18_2e7bl"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_sfps4"]
 [ext_resource type="Script" uid="uid://b8bsy443wvr1a" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="20_wuasn"]
+[ext_resource type="PackedScene" uid="uid://pueg664tg3hq" path="res://entities/missions/chamado/bancada_pecas.tscn" id="21_wuasn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_2e7bl")
@@ -211,3 +212,6 @@ position = Vector2(227, 147)
 script = ExtResource("20_wuasn")
 follow_speed = 100.0
 stopping_distance = 32.0
+
+[node name="BancadaPecas" parent="." unique_id=1652627992 instance=ExtResource("21_wuasn")]
+position = Vector2(282, 149)

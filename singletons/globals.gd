@@ -31,6 +31,25 @@ var som_ding = preload("res://sounds/SOM DE ELEVADOR.mp3")
 
 var audio_player: AudioStreamPlayer
 
+# ----------------------------------------------------
+# SISTEMA DE INVENTÁRIO (Adicionado para resolver o erro)
+# ----------------------------------------------------
+var inventario: Array[String] = []
+
+func adicionar_item(item_id: String) -> void:
+	if not inventario.has(item_id):
+		inventario.append(item_id)
+		print("Item adicionado ao inventário: ", item_id)
+
+func remover_item(item_id: String) -> void:
+	if inventario.has(item_id):
+		inventario.erase(item_id)
+		print("Item removido do inventário: ", item_id)
+
+func possui_item(item_id: String) -> bool:
+	return inventario.has(item_id)
+# ----------------------------------------------------
+
 func _ready() -> void:
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
@@ -43,7 +62,6 @@ func tocar_ding() -> void:
 		audio_player.play()
 		
 func desbloquear_setor(nome:String):
-
 	setores_desbloqueados[nome] = true
 
 var respostas_mapa = {
@@ -69,14 +87,14 @@ var setores_desbloqueados = {
 	"Diretoria": false
 }
 
-#var setores_desbloqueados = {
-	#"Recepcao": false,
-	#"RH": true,
-	#"Producao": false,
-	#"Deposito": true,
-	#"Almoxarifado": true,
-	#"Banheiro": true,
-	#"Refeitorio": true,
-	#"Vestiario": true,
-	#"Diretoria": false 
-#}
+func coletar_peca_pendente() -> String:
+	var quest_estado = QuestManager.obter_estado("atender_chamados")
+	
+	if quest_estado == "em_andamento":
+		var quest = QuestManager.obter_missao("atender_chamados") as QuestChamados
+		if quest:
+			var item_faltando = quest.obter_proximo_item_pendente()
+			if item_faltando != "":
+				adicionar_item(item_faltando)
+				return item_faltando
+	return ""

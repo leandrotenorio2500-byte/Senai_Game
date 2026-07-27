@@ -4,49 +4,56 @@ extends Quest
 var target_count: int = 3
 var current_count: int = 0
 
-# Guarda as chaves únicas de cada setor/risco registrado
-var itens_coletados: Array[String] = []
+var npcs_resolvidos: Array[String] = []
+
+# Mapeamento dos setores e o item que cada um exige
+var problemas_npcs: Dictionary = {
+	"Recepcao": {"item_necessario": "mouse_novo", "chamado_aberto": false},
+	"RH": {"item_necessario": "memoria_ram", "chamado_aberto": false},
+	"Almoxarifado": {"item_necessario": "cabo_rede", "chamado_aberto": false}
+}
 
 func _init() -> void:
 	id = "atender_chamados"
 	title = "Atenda os chamados dos funcionários"
-	description = "Auxilie os funcionários estão tendo com os computadores"
-	
-	# Estado inicial já como em andamento
+	description = "Converse com os funcionários, pegue as peças necessárias na bancada e resolva os problemas."
 	estado_atual = "em_andamento"
-	
-	# Preenche previamente com os 2 atende já conhecidos/marcados
-	#itens_coletados = [
-		#"RH",
-		#"Almoxarifado",
+
+func abrir_chamado(setor: String) -> void:
+	if problemas_npcs.has(setor):
+		problemas_npcs[setor]["chamado_aberto"] = true
+		print("[QUEST] Chamado ABERTO para o setor: ", setor, " | Item pendente: ", problemas_npcs[setor]["item_necessario"])
+
+# Retorna qual item está faltando coletar com base nos chamados abertos
+func obter_proximo_item_pendente() -> String:
+	for setor in problemas_npcs.keys():
+		var dados = problemas_npcs[setor]
+		var item = dados["item_necessario"]
 		
-	#]
-	#
-	#current_count = itens_coletados.size()
+		# Se o chamado foi aberto, o setor ainda não foi resolvido E o jogador não tem o item no inventário
+		if dados["chamado_aberto"] and not esta_resolvido(setor) and not Globals.possui_item(item):
+			return item
+	return ""
 
 func progredir(dados: Dictionary = {}) -> void:
-	if estado_atual == "finalizada": 
+	if estado_atual == "finalizada":
 		return
 		
-	# Identifica qual chave veio (pode ser 'item_id' do ponto ou 'setor' do NPC)
-	var id_registrar: String = dados.get("item_id", dados.get("setor", ""))
+	var setor: String = dados.get("setor", "")
 	
-	# Só incrementa se for um setor/item novo
-	if id_registrar != "" and not itens_coletados.has(id_registrar):
-		itens_coletados.append(id_registrar)
-		current_count = clampi(itens_coletados.size(), 0, target_count)
+	if setor != "" and not npcs_resolvidos.has(setor):
+		npcs_resolvidos.append(setor)
+		current_count = clampi(npcs_resolvidos.size(), 0, target_count)
 		
 		em_andamento.emit(id)
-		print("Progresso da Missão: ", current_count, "/", target_count)
+		print("Chamados resolvidos: ", current_count, "/", target_count)
 		
-		# Chegou ao objetivo final (8/8)
 		if current_count >= target_count:
 			finalizar()
 
-# Função que conclui a missão e emite o sinal para o QuestManager
 func finalizar() -> void:
 	estado_atual = "finalizada"
 	finalizada.emit(id)
 
-func verificar_item_coletado(id_do_item: String) -> bool:
-	return itens_coletados.has(id_do_item)
+func esta_resolvido(setor: String) -> bool:
+	return npcs_resolvidos.has(setor)

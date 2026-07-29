@@ -1,16 +1,16 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
-var npc_name = "Gabriel"
-var setor_npc: String = "RH"
-var item_necessario: String = "memoria_ram"
+var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"# Ajuste o caminho do sprite de diálogo
+var npc_name = "Roberto"
+var setor_npc: String = "Diretoria"
+var item_necessario: String = "cabo_rede"
 
 const QUEST_ID = "atender_chamados"
 
 var cena_monitor: PackedScene = preload("res://scene/fase chamados/bancada_funcionario.tscn")
 
 func _ready() -> void:
-	var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
+	spritesheet = load("res://sprites/npcs/npc_ti.png")
 	hframes = 8
 	
 	# Conecta com os sinais do QuestManager
@@ -31,41 +31,41 @@ func atualizar_dialogo() -> void:
 	if estado == "em_andamento":
 		if quest and quest.esta_resolvido(setor_npc):
 			dialog_data = [
-				{"title": npc_name, "dialog": "O computador do RH está voando agora! Muito obrigado pela ajuda.", "faceset": npc_faceset_path}
+				{"title": npc_name, "dialog": "A rede da Diretoria voltou a funcionar perfeitamente! Excelente trabalho.", "faceset": npc_faceset_path}
 			]
 		elif Globals.possui_item(item_necessario):
 			dialog_data = [
-				{"title": npc_name, "dialog": "Você trouxe o pente de memória RAM! Dê uma olhada na máquina para instalar no slot correto.", "faceset": npc_faceset_path}
+				{"title": npc_name, "dialog": "Ótimo, trouxe o cabo de rede novo! Pode dar uma olhada na máquina para conectar no local correto.", "faceset": npc_faceset_path}
 			]
 		elif quest and quest.problemas_npcs.get(setor_npc, {}).get("chamado_aberto", false):
 			dialog_data = [
-				{"title": npc_name, "dialog": "Meu sistema continua travando bastante. Conseguiu a memória RAM na bancada de TI?", "faceset": npc_faceset_path}
+				{"title": npc_name, "dialog": "Continuo sem conexão na Diretoria. Conseguiu pegar o cabo de rede na bancada de TI?", "faceset": npc_faceset_path}
 			]
 		else:
 			# Primeiro diálogo dentro da missão de chamados antes do diagnóstico
 			dialog_data = [
-				{"title": npc_name, "dialog": "Olá! Que bom que você veio. Meu computador está travando direto para abrir as planilhas do RH.", "faceset": npc_faceset_path},
-				{"title": npc_name, "dialog": "Pode dar uma conferida no gabinete para ver o que está causando a lentidão?", "faceset": npc_faceset_path}
+				{"title": npc_name, "dialog": "Olá! Preciso de ajuda urgente aqui na Diretoria. Meu computador perdeu completamente o acesso à rede.", "faceset": npc_faceset_path},
+				{"title": npc_name, "dialog": "Tenho reuniões importantes e não consigo acessar os arquivos da rede. Pode verificar o computador?", "faceset": npc_faceset_path}
 			]
 
 	# 2. SE A MISSÃO JÁ FOI FINALIZADA:
 	elif estado == "finalizada":
 		dialog_data = [
-			{"title": npc_name, "dialog": "A nova memória RAM resolveu todos os travamentos. O RH agradece!", "faceset": npc_faceset_path}
+			{"title": npc_name, "dialog": "O cabo de rede novo resolveu o problema. A Diretoria está 100% operacional!", "faceset": npc_faceset_path}
 		]
 
 	# 3. CASO PADRÃO (Sem missão ou antes de iniciar a missão de chamados):
 	else:
 		dialog_data = [
-			{"title": npc_name, "dialog": "Bom dia! Tudo tranquilo na gestão de pessoas por aqui.", "faceset": npc_faceset_path},
-			{"title": npc_name, "dialog": "Se precisar de algo do RH, é só chamar.", "faceset": npc_faceset_path}
+			{"title": npc_name, "dialog": "Bom dia! Tudo certo por aqui na Diretoria.", "faceset": npc_faceset_path},
+			{"title": npc_name, "dialog": "Se precisar de algo com a gestão, é só falar.", "faceset": npc_faceset_path}
 		]
 
 func _on_quest_state_changed(quest_id_sinal: String) -> void:
 	if quest_id_sinal == QUEST_ID:
 		atualizar_dialogo()
 
-# Esta função é chamada pela classe pai (npc.gd) quando a caixa de diálogo é fechada
+# Chamado quando o diálogo com o NPC encerra no jogo
 func _on_dialog_completed() -> void:
 	super._on_dialog_completed()
 
@@ -73,7 +73,6 @@ func _on_dialog_completed() -> void:
 	var quest = QuestManager.obter_missao(QUEST_ID) as QuestChamados
 	
 	# Só abre a bancada do monitor se a missão de chamados estiver EM ANDAMENTO
-	# e este setor ainda não tiver sido resolvido
 	if estado == "em_andamento" and quest and not quest.esta_resolvido(setor_npc):
 		_abrir_tela_monitor()
 

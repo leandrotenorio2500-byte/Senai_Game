@@ -10,7 +10,7 @@ var npcs_resolvidos: Array[String] = []
 var problemas_npcs: Dictionary = {
 	"Recepcao": {"item_necessario": "mouse_novo", "chamado_aberto": false},
 	"RH": {"item_necessario": "memoria_ram", "chamado_aberto": false},
-	"Almoxarifado": {"item_necessario": "cabo_rede", "chamado_aberto": false}
+	"Diretoria": {"item_necessario": "cabo_rede", "chamado_aberto": false}
 }
 
 func _init() -> void:

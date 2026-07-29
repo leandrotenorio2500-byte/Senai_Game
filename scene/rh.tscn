@@ -370,4 +370,6 @@ script = ExtResource("22_cnx74")
 follow_speed = 100.0
 stopping_distance = 32.0
 
+[node name="HUD" type="CanvasLayer" parent="." unique_id=519490904]
+
 [editable path="NpcsInteractive/Gabriel"]

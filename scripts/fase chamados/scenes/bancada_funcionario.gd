@@ -23,9 +23,11 @@ func _ready() -> void:
 			btn.focus_mode = Control.FOCUS_NONE
 
 	btn_fechar.pressed.connect(_on_btn_fechar_pressed)
+	
+	# Mapeia cada botão ao ID do item que ele representa
 	btn_mouse.pressed.connect(func(): _verificar_clique("mouse_novo", "Mouse"))
 	btn_teclado.pressed.connect(func(): _verificar_clique("teclado_novo", "Teclado"))
-	btn_monitor.pressed.connect(func(): _verificar_clique("monitor_novo", "Monitor"))
+	btn_monitor.pressed.connect(func(): _verificar_clique("cabo_rede", "Monitor")) # Rede/Conexão associada à porta de rede/monitor
 	btn_gabinete.pressed.connect(func(): _verificar_clique("memoria_ram", "Gabinete"))
 
 func _verificar_clique(item_clicado: String, nome_componente: String) -> void:
@@ -85,11 +87,15 @@ func _verificar_clique(item_clicado: String, nome_componente: String) -> void:
 func _obter_fala_erro_diagnostico(componente: String) -> String:
 	match componente:
 		"Teclado":
-			return "Hum... O teclado está digitando normalmente, todas as teclas respondem. O problema não é aqui."
+			return "O teclado está digitando perfeitamente. O problema não é aqui."
 		"Monitor":
-			return "A imagem do monitor está perfeita, sem falhas nem piscando. Não é no monitor o defeito."
+			if item_correto == "cabo_rede":
+				return "A imagem está acesa, mas a luz do cabo de rede atrás está completamente apagada..."
+			return "A imagem do monitor está perfeita, sem falhas nem piscando."
 		"Gabinete":
-			return "O gabinete está silencioso e funcionando bem. O problema não parece ser nas peças internas."
+			if item_correto == "memoria_ram":
+				return "O computador liga, mas o sistema operacional fica extremamente lento e travando..."
+			return "O gabinete está funcionando bem e sem ruídos estranhos."
 		"Mouse":
 			return "O ponteiro do mouse se move sem problemas. O defeito não está no mouse."
 		_:

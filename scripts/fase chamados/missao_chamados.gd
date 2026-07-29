@@ -17,7 +17,7 @@ func _init() -> void:
 	id = "atender_chamados"
 	title = "Atenda os chamados dos funcionários"
 	description = "Converse com os funcionários e resolva os problemas."
-	#estado_atual = "em_andamento"
+	estado_atual = "em_andamento"
 
 func abrir_chamado(setor: String) -> void:
 	if problemas_npcs.has(setor):

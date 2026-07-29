@@ -99,14 +99,61 @@ func remover_item(item_id: String) -> void:
 func possui_item(item_id: String) -> bool:
 	return inventario.has(item_id)
 	
-func coletar_peca_pendente() -> String:
-	var quest_estado = QuestManager.obter_estado("atender_chamados")
+var itens_dos_setores: Dictionary = {
+	"Recepcao": "mouse_novo",
+	"RH": "memoria_ram",
+	"Diretoria": "cabo_rede"
+}
 	
-	if quest_estado == "em_andamento":
-		var quest = QuestManager.obter_missao("atender_chamados") as QuestChamados
-		if quest:
-			var item_faltando = quest.obter_proximo_item_pendente()
-			if item_faltando != "":
-				adicionar_item(item_faltando)
-				return item_faltando
+func coletar_peca_pendente() -> String:
+	# 1. Pega a missão de chamados no QuestManager
+	var quest = QuestManager.obter_missao("atender_chamados") as QuestChamados
+	if not quest:
+		return ""
+
+	# 2. Varre os setores para encontrar qual chamado está ABERTO e AINDA NÃO FOI RESOLVIDO
+	for setor in quest.problemas_npcs.keys():
+		var dados = quest.problemas_npcs[setor]
+		
+		# Se o chamado do setor está aberto E ainda não foi resolvido
+		if dados.get("chamado_aberto", false) and not dados.get("resolvido", false):
+			var item_necessario = itens_dos_setores.get(setor, "")
+			
+			# Se o jogador já não estiver carregando a peça
+			if item_necessario != "" and not possui_item(item_necessario):
+				adicionar_item(item_necessario)
+				return item_necessario
+
 	return ""
+	
+func coletar_item() -> void:
+	var item_coletado = Globals.coletar_peca_pendente()
+	
+	if item_coletado != "":
+		# Formata nomes como "memoria_ram" para "Memória RAM", "cabo_rede" para "Cabo De Rede", etc.
+		var nome_formatado = _formatar_nome_item(item_coletado)
+		
+		var dialog_sucesso: Array[Dictionary] = [
+			{
+				"title": "Bancada de TI",
+				"dialog": "Você pegou a peça necessária: " + nome_formatado + ".",
+				"faceset": "res://sprites/npcs/npc3_dialog.png"
+			}
+		]
+		DialogManager.start_dialog(dialog_sucesso)
+	else:
+		var dialog_vazio: Array[Dictionary] = [
+			{
+				"title": "Bancada de TI",
+				"dialog": "Você não precisa de nenhuma peça no momento (ou já está carregando a peça necessária).",
+				"faceset": "res://sprites/npcs/npc3_dialog.png"
+			}
+		]
+		DialogManager.start_dialog(dialog_vazio)
+
+func _formatar_nome_item(id_item: String) -> String:
+	match id_item:
+		"mouse_novo": return "Mouse Novo"
+		"memoria_ram": return "Pente de Memória RAM"
+		"cabo_rede": return "Cabo de Rede"
+		_: return id_item.replace("_", " ").capitalize()

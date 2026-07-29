@@ -156,7 +156,7 @@ func _verificar_posicionamento_inicial() -> void:
 
 func _seguir_jogador(delta: float) -> void:
 	if _player_ref.is_on_floor() and not _player_esta_agachado_ou_deslizando():
-		global_position.y = _player_ref.global_position.y + offset_y
+		global_position.y = _player_ref.global_position.y + offset_y - 1
 
 	var dist_x = _player_ref.global_position.x - global_position.x
 	

@@ -8,8 +8,28 @@ var _hud: CanvasLayer = null
 var missoes: Dictionary = {}
 
 func _ready() -> void:
+	# 1. Registra as missões do jogo
 	_registrar_missao(QuestIdentificarRiscos.new())
 	_registrar_missao(QuestChamados.new())
+	
+	# 2. Executa a checagem inicial assim que o jogo carrega
+	_verificar_missoes_iniciais()
+
+func _verificar_missoes_iniciais() -> void:
+	print("--- CHECAGEM INICIAL DE MISSÕES ---")
+	var ativas: Array[String] = []
+	
+	for id in missoes.keys():
+		var estado = missoes[id].estado_atual
+		print("Missão: ", id, " | Estado: ", estado)
+		if estado == "em_andamento":
+			ativas.append(id)
+			
+	if ativas.size() > 0:
+		print("Missões ativas ao iniciar: ", ativas)
+	else:
+		print("Nenhuma missão ativa no momento.")
+	print("-----------------------------------")
 
 func register_hud(hud: CanvasLayer) -> void:
 	_hud = hud
@@ -44,9 +64,17 @@ func obter_estado(quest_id: String) -> String:
 func obter_missao(quest_id: String) -> Quest:
 	return missoes.get(quest_id, null)
 
+# ---------------- CONSULTA DE MISSÕES ATIVAS ----------------
+
+func obter_missoes_ativas() -> Array[String]:
+	var ativas: Array[String] = []
+	for quest_id in missoes.keys():
+		if missoes[quest_id].estado_atual == "em_andamento":
+			ativas.append(quest_id)
+	return ativas
+
 # ---------------- GESTÃO DE HUD / UI ----------------
 
-# Chamado quando a missão COMEÇA
 func _on_missao_iniciada(quest_id: String) -> void:
 	print("Missão iniciada: ", quest_id)
 	
@@ -63,11 +91,9 @@ func _on_missao_iniciada(quest_id: String) -> void:
 	if quest_ui.has_method("show_started"):
 		quest_ui.show_started(quest_id)
 
-	# Exibe por 3.5s e remove o card da tela
 	await get_tree().create_timer(3.5).timeout
 	_remover_hud_missao(quest_id)
 
-# Chamado quando a missão TERMINA
 func _on_missao_finalizada(quest_id: String) -> void:
 	print("Missão concluída: ", quest_id)
 	
@@ -84,7 +110,6 @@ func _on_missao_finalizada(quest_id: String) -> void:
 	if quest_ui.has_method("show_completed"):
 		quest_ui.show_completed()
 
-	# Exibe por 3.5s e remove o card da tela
 	await get_tree().create_timer(3.5).timeout
 	_remover_hud_missao(quest_id)
 

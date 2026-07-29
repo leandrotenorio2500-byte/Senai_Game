@@ -16,8 +16,8 @@ var problemas_npcs: Dictionary = {
 func _init() -> void:
 	id = "atender_chamados"
 	title = "Atenda os chamados dos funcionários"
-	description = "Converse com os funcionários, pegue as peças necessárias na bancada e resolva os problemas."
-	estado_atual = "em_andamento"
+	description = "Converse com os funcionários e resolva os problemas."
+	#estado_atual = "em_andamento"
 
 func abrir_chamado(setor: String) -> void:
 	if problemas_npcs.has(setor):

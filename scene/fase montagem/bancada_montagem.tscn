@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4t0f32eevtjc" path="res://sprites/missions/conserto computadores/ram.png" id="5_6pooj"]
 [ext_resource type="Texture2D" uid="uid://cv7i2kpr3hbt" path="res://sprites/missions/conserto computadores/fonte.png" id="6_jp8o2"]
 [ext_resource type="Texture2D" uid="uid://bej1pkwsnfm53" path="res://sprites/missions/conserto computadores/hdd.png" id="7_ggp60"]
+[ext_resource type="Texture2D" uid="uid://r8ow77u35sf0" path="res://sprites/missions/conserto computadores/bandeja.png" id="10_c13ne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhjfg"]
 size = Vector2(132, 148)
@@ -42,6 +43,9 @@ size = Vector2(28.580627, 19.530418)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hqr1"]
 size = Vector2(21.586487, 29.68712)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybjdn"]
+size = Vector2(107.85516, 165.35153)
 
 [node name="bancada_montagem" type="CanvasLayer" unique_id=1120222981]
 script = ExtResource("1_ggp60")
@@ -184,3 +188,15 @@ texture = ExtResource("7_ggp60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/HDD" unique_id=1316010898]
 position = Vector2(-0.010925293, 0.011314392)
 shape = SubResource("RectangleShape2D_2hqr1")
+
+[node name="Bandeja" type="Area2D" parent="." unique_id=1199162539]
+position = Vector2(317.35535, 103.42383)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bandeja" unique_id=754564302]
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("10_c13ne")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bandeja" unique_id=376095330]
+position = Vector2(0.07144165, 0.05180359)
+shape = SubResource("RectangleShape2D_ybjdn")
+debug_color = Color(0.1867038, 0.6096003, 0.57360125, 0.41960785)

@@ -3,6 +3,15 @@ extends "res://scripts/npc.gd"
 var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
 var npc_name = "Daniel"
 
+func _on_dialog_completed() -> void:
+	super._on_dialog_completed()
+
+	if not Globals.setores_desbloqueados.get("Tecnico", false):
+		Globals.desbloquear_setor("Tecnico")
+		
+		# Chamada do novo método de progressão de missão
+		QuestManager.progredir_missao("identificar_riscos", {"setor": "Tecnico"})
+		Globals.abrir_mapa.emit()
 # --- Configurações do Comportamento de Seguir ---
 @export var follow_speed: float = 100.0   # Velocidade de movimento do NPC
 @export var stopping_distance: float = 32.0 # Distância mínima do jogador (para não encavalar)

@@ -9,12 +9,14 @@ var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
 var npc_name = "Vitória"
 
 func _on_dialog_completed() -> void:
-
 	super._on_dialog_completed()
 
-	if !Globals.setores_desbloqueados["RH"]:
+	if not Globals.setores_desbloqueados.get("RH", false):
 		Globals.desbloquear_setor("RH")
-		QuestManager.progress_quest("identificar_riscos")
+		
+		# Chamada do novo método de progressão de missão
+		QuestManager.progredir_missao("identificar_riscos", {"setor": "RH"})
+		Globals.abrir_mapa.emit()
 
 		atualizar_dialogo()
 

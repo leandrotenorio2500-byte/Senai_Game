@@ -9,20 +9,20 @@
 Label/colors/font_color = Color(0.017020682, 0.017020678, 0.017020678, 1)
 Label/font_sizes/font_size = 5
 Label/fonts/font = ExtResource("2_hcg1j")
+RichTextLabel/colors/default_color = Color(1, 1, 1, 1)
+RichTextLabel/constants/outline_size = 1
+RichTextLabel/font_sizes/normal_font_size = 5
+RichTextLabel/fonts/normal_font = ExtResource("2_hcg1j")
 
 [sub_resource type="Theme" id="Theme_hcg1j"]
 Label/colors/font_color = Color(0.017020682, 0.017020678, 0.017020678, 1)
 Label/font_sizes/font_size = 4
 Label/fonts/font = ExtResource("2_hcg1j")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcg1j"]
-bg_color = Color(0, 0, 0, 1)
-border_width_top = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_degtf"]
-HSeparator/constants/separation = 3
-HSeparator/styles/separator = SubResource("StyleBoxFlat_hcg1j")
+[sub_resource type="LabelSettings" id="LabelSettings_degtf"]
+font_size = 9
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_6x35i"]
 Label/colors/font_color = Color(0, 0, 0, 1)
@@ -38,14 +38,15 @@ script = ExtResource("1_obgkk")
 [node name="Painel" type="Control" parent="." unique_id=265635691]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 346.0
-offset_top = 22.0
-offset_right = 386.0
-offset_bottom = 62.0
+offset_left = 282.0
+offset_top = 6.0
+offset_right = 397.0
+offset_bottom = 46.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="Painel" unique_id=1927215584]
+visible = false
 z_index = -1
 layout_mode = 1
 anchors_preset = 8
@@ -61,42 +62,41 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_degtf")
 
-[node name="Titulo" type="Label" parent="Painel" unique_id=151612232]
+[node name="Titulo" type="RichTextLabel" parent="Painel" unique_id=2034032907]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -18.0
-offset_top = -11.0
-offset_right = 18.0
-offset_bottom = -4.0
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -9.0
+offset_right = 45.75
+offset_bottom = 9.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_yink4")
-text = "Mapa de Risco"
+text = "- Visite as áreas da empresa e registre seus respectivos tipos riscos no mapa."
 
 [node name="Progresso" type="Label" parent="Painel" unique_id=1258934150]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -11.5
-offset_top = -3.0
-offset_right = 11.5
-offset_bottom = 1.0
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -22.0
+offset_right = 12.5
+offset_bottom = -12.0
 grow_horizontal = 2
+grow_vertical = 2
 theme = SubResource("Theme_hcg1j")
 text = "progresso"
-
-[node name="HSeparator" type="HSeparator" parent="Painel" unique_id=1204547424]
-layout_mode = 0
-offset_left = -5.0
-offset_top = 3.5
-offset_right = 45.0
-offset_bottom = 5.5
-theme = SubResource("Theme_degtf")
-theme_override_constants/separation = 2
+label_settings = SubResource("LabelSettings_degtf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Painel" unique_id=1932111547]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,9 +104,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -24.0
-offset_top = -10.0
+offset_top = -14.0
 offset_right = 22.0
-offset_bottom = 29.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_6x35i")
@@ -144,11 +144,15 @@ text = "vest"
 layout_mode = 2
 text = "rh"
 
+[node name="Diretoria" type="Label" parent="Painel/VBoxContainer" unique_id=1857658813]
+layout_mode = 2
+text = "diret"
+
 [node name="mapa" type="TextureButton" parent="." unique_id=67863765]
-offset_left = 298.0
-offset_top = 4.0
-offset_right = 330.0
-offset_bottom = 26.0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 38.0
+offset_bottom = 25.0
 texture_normal = ExtResource("4_degtf")
 
 [connection signal="pressed" from="mapa" to="." method="_on_mapa_pressed"]

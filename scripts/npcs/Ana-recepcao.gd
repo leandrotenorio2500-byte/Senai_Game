@@ -22,12 +22,16 @@ func _ready() -> void:
 	atualizar_dialogo()
 	super._ready()
 
-func _tem_outra_missao_ativa() -> bool:
-	for q_id in QuestManager.missoes.keys():
-		if q_id != QUEST_ID:
-			if QuestManager.obter_estado(q_id) == "em_andamento":
-				return true
-	return false
+func _on_dialog_completed() -> void:
+	super._on_dialog_completed()
+
+	if not Globals.setores_desbloqueados.get("Recepcao", false):
+		Globals.desbloquear_setor("Recepcao")
+		
+		# Chamada do novo método de progressão de missão
+		QuestManager.progredir_missao("identificar_riscos", {"setor": "Recepcao"})
+		Globals.abrir_mapa.emit()
+		atualizar_dialogo()
 
 func atualizar_dialogo() -> void:
 	# 1. Checagem inicial de desbloqueio da Recepção (Lógica trazida pelo seu amigo)

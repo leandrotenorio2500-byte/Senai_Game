@@ -366,16 +366,15 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 154.0
-offset_bottom = 174.00009
+offset_bottom = 20.000122
 texture = ExtResource("1_5yql7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=347853723]
 modulate = Color(1, 1, 1, 0)
-offset_left = 192.0
-offset_top = 78.0
-offset_right = 204.0
-offset_bottom = 90.0
+offset_left = 121.0
+offset_top = 114.0
+offset_right = 133.0
+offset_bottom = 126.0
 texture = ExtResource("3_wnorl")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
@@ -388,9 +387,8 @@ modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_top = 132.0
 offset_right = 401.0
-offset_bottom = 352.00006
+offset_bottom = 220.00009
 theme = SubResource("Theme_j8ck1")
 
 [node name="Producao" type="Control" parent="Areas" unique_id=1208924594]
@@ -863,29 +861,29 @@ autowrap_mode = 2
 
 [node name="Pontos" type="Control" parent="Areas/Tecnico" unique_id=1126907998]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 53.0
+offset_bottom = 30.0
 
-[node name="tecnico" type="Button" parent="Areas/Tecnico/Pontos" unique_id=60262606 node_paths=PackedStringArray("mapa")]
+[node name="tecnico" type="Button" parent="Areas/Tecnico/Pontos" unique_id=2000186020 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
 offset_left = 36.0
-offset_top = 13.0
+offset_top = 14.0
 offset_right = 51.0
-offset_bottom = 28.0
+offset_bottom = 29.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
-setor = "Banheiro"
+setor = "Tecnico"
 mapa = NodePath("../../../..")
 
-[node name="tecnico2" type="Button" parent="Areas/Tecnico/Pontos" unique_id=1622556773 node_paths=PackedStringArray("mapa")]
+[node name="tecnico2" type="Button" parent="Areas/Tecnico/Pontos" unique_id=281827469 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 13.0
+offset_top = 14.0
 offset_right = 35.0
-offset_bottom = 28.0
+offset_bottom = 29.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
-setor = "Banheiro"
+setor = "Tecnico"
 mapa = NodePath("../../../..")
 
 [node name="Vestiario" type="Control" parent="Areas" unique_id=1564249533]
@@ -933,9 +931,9 @@ offset_bottom = 30.0
 
 [node name="vestiario" type="Button" parent="Areas/Vestiario/Pontos" unique_id=106420991 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
-offset_left = 27.0
+offset_left = 29.0
 offset_top = 13.0
-offset_right = 42.0
+offset_right = 44.0
 offset_bottom = 28.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
@@ -944,9 +942,83 @@ mapa = NodePath("../../../..")
 
 [node name="vestiario2" type="Button" parent="Areas/Vestiario/Pontos" unique_id=1690830976 node_paths=PackedStringArray("mapa")]
 layout_mode = 0
-offset_left = 11.0
+offset_left = 13.0
 offset_top = 13.0
-offset_right = 26.0
+offset_right = 28.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Vestiario"
+mapa = NodePath("../../../..")
+
+[node name="Refeitorio" type="Control" parent="Areas" unique_id=1224135396]
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 106.0
+offset_right = 345.0
+offset_bottom = 136.0
+
+[node name="Bloqueio" type="Control" parent="Areas/Refeitorio" unique_id=266961952]
+visible = false
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+
+[node name="cadeado" type="TextureRect" parent="Areas/Refeitorio/Bloqueio" unique_id=415842650]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.087000005
+anchor_bottom = 0.112
+offset_left = 4.0
+offset_top = 14.999998
+offset_right = 7.519999
+offset_bottom = 20.415998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j8ck1")
+
+[node name="Label" type="Label" parent="Areas/Refeitorio/Bloqueio" unique_id=1751877582]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 44.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = 3
+text = "Investigue este setor"
+label_settings = SubResource("LabelSettings_lqxdc")
+autowrap_mode = 2
+
+[node name="Pontos" type="Control" parent="Areas/Refeitorio" unique_id=1775213886]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -15.0
+offset_right = 28.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Refeitorio" type="Button" parent="Areas/Refeitorio/Pontos" unique_id=169810088 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 13.0
+offset_right = 55.0
+offset_bottom = 28.0
+theme = ExtResource("4_valvg")
+script = ExtResource("4_4s135")
+setor = "Vestiario"
+mapa = NodePath("../../../..")
+
+[node name="Refeitorio2" type="Button" parent="Areas/Refeitorio/Pontos" unique_id=911280114 node_paths=PackedStringArray("mapa")]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 13.0
+offset_right = 39.0
 offset_bottom = 28.0
 theme = ExtResource("4_valvg")
 script = ExtResource("4_4s135")
@@ -957,8 +1029,9 @@ mapa = NodePath("../../../..")
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
+offset_top = -10.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 30.0
 theme = SubResource("Theme_valvg")
 
 [node name="Mecanico" type="Button" parent="Legenda" unique_id=870821805]

@@ -11,9 +11,9 @@ var _current_text := ""
 var _visible_chars := 0
 var _timer := 0.0
 
-@onready var _name: Label = $Background/HBoxContainer/VBoxContainer/Label
-@onready var _dialog: RichTextLabel = $Background/HBoxContainer/VBoxContainer/Dialog
-@onready var _faceset: TextureRect = $Background/HBoxContainer/Border/TextureRect
+@onready var _name: Label = $Label
+@onready var _dialog: RichTextLabel = $Dialog
+@onready var _faceset: TextureRect = $TextureRect
 
 
 func start_dialog() -> void:

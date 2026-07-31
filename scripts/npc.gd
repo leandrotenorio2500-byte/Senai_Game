@@ -68,6 +68,12 @@ func _on_dialog_completed() -> void:
 	emit_signal("dialog_finished")
 	#print("Conversa concluída com sucesso com o NPC base!")
 
+func missao_mapa_risco_ativa() -> bool:
+	return QuestManager.obter_estado("identificar_riscos") == "em_andamento"
+	
+func missao_mapa_risco_finalizada() -> bool:
+	return QuestManager.obter_estado("identificar_riscos") == "finalizada"
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		_player_nearby = true

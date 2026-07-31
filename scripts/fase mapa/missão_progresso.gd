@@ -74,12 +74,12 @@ func atualizar() -> void:
 		analisados = quest_riscos.setores_analisados.size()
 
 	progresso.text = (
-		"Setores visitados: "
-		+ str(visitados)
-		+ "/"
-		+ str(labels.size())
-		+ "\n"
-		+ "Setores analisados: "
+		#"Setores visitados: "
+		#+ str(visitados)
+		#+ "/"
+		#+ str(labels.size())
+		#+ "\n"
+		"Setores registrados: "
 		+ str(analisados)
 		+ "/"
 		+ str(labels.size())

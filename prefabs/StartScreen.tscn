@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bdmogh2wt3gno"]
+
+[ext_resource type="Script" uid="uid://dol48v68nboap" path="res://scripts/StartScreen.gd" id="1_ige4q"]
+[ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="2_81wet"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=866779670]
+script = ExtResource("1_ige4q")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=794292907]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_81wet")
+
+[node name="Panel" type="Control" parent="." unique_id=1548020833]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Titulo" type="Label" parent="Panel" unique_id=329011562]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 31.0
+offset_right = 219.0
+offset_bottom = 54.0
+text = "Titulo"
+
+[node name="Descripton" type="RichTextLabel" parent="Panel" unique_id=2018277467]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 68.0
+offset_right = 294.0
+offset_bottom = 108.0
+text = "descricao"
+
+[node name="Objectives" type="RichTextLabel" parent="Panel" unique_id=534100366]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 116.0
+offset_right = 285.0
+offset_bottom = 156.0
+text = "objetivp"
+
+[node name="StartButton" type="Button" parent="Panel" unique_id=662073103]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 189.0
+offset_right = 201.0
+offset_bottom = 197.0
+
+[connection signal="pressed" from="Panel/StartButton" to="." method="_on_start_button_pressed"]

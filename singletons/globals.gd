@@ -46,6 +46,12 @@ var should_position := false
 var area_atual := ""
 
 # -----------------------------
+# Controle de missões
+# -----------------------------
+
+var missao_mapa_risco_ativa := false
+
+# -----------------------------
 # Áudio
 # -----------------------------
 

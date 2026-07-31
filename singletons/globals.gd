@@ -97,6 +97,9 @@ var setores_desbloqueados := {
 	"Diretoria": false
 }
 
+var daniel_seguindo := false
+var npc_base_scene = preload("res://entities/npc.tscn")
+
 func desbloquear_setor(nome: String) -> void:
 	if not setores_desbloqueados.has(nome):
 		push_warning("Setor '%s' não encontrado." % nome)
@@ -127,29 +130,8 @@ func limpar_respostas_mapa() -> void:
 func limpar_setores_desbloqueados() -> void:
 	for setor in setores_desbloqueados.keys():
 		setores_desbloqueados[setor] = false
-var setores_desbloqueados = {
-	"Recepcao": false,
-	"RH": false,
-	"Producao": false,
-	"Deposito": false,
-	"Almoxarifado": false,
-	"Banheiro": false,
-	"Refeitorio": false,
-	"Vestiario": false,
-	"Diretoria": false
-}
-#
-#var setores_desbloqueados = {
-	#"Recepcao": false,
-	#"RH": true,
-	#"Producao": false,
-	#"Deposito": true,
-	#"Almoxarifado": true,
-	#"Banheiro": true,
-	#"Refeitorio": true,
-	#"Vestiario": true,
-	#"Diretoria": false 
-#}
+		
+
 
 # ----------------------------------------------------
 # SISTEMA DE INVENTÁRIO (Adicionado para resolver o erro)
@@ -180,3 +162,22 @@ func coletar_peca_pendente() -> String:
 				adicionar_item(item_faltando)
 				return item_faltando
 	return ""
+	
+func spawn_daniel():
+
+	if not daniel_seguindo:
+		return
+
+	var player = get_tree().get_first_node_in_group("Player")
+
+	if player == null:
+		return
+
+	var daniel = npc_base_scene.instantiate()
+
+	daniel.set_script(load("res://scripts/npcs/Daniel-ti.gd"))
+
+	get_tree().current_scene.add_child(daniel)
+
+	daniel.global_position = player.global_position + Vector2(-32, -2)
+	daniel.iniciar_daniel()

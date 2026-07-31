@@ -84,20 +84,20 @@ tile_set = ExtResource("4_dt7ot")
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
 
 [node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
-position = Vector2(227, 146)
+position = Vector2(227, 147)
 script = ExtResource("11_dhp2d")
 idle_spritesheet = ExtResource("10_6c8f1")
 run_spritesheet = null
-hframes = 8
-vframes = 1
+hframes = null
+vframes = null
 
 [node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]
 position = Vector2(300, 142)
 script = ExtResource("11_wm1ee")
 idle_spritesheet = ExtResource("11_gnfdo")
 run_spritesheet = null
-hframes = 8
-vframes = 1
+hframes = null
+vframes = null
 
 [node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
 

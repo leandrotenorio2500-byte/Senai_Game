@@ -79,3 +79,4 @@ func load_next_scene() -> void:
 		Transicao.mudar_cena(next_level)
 	else:
 		push_warning("Aviso: 'next_level' não foi definido nesta Area2D!")
+	

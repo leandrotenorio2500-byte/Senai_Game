@@ -46,7 +46,7 @@ texture = ExtResource("7_tmvpu")
 0:0/animation_frame_6/duration = 1.0
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 5)
+0:0/0/texture_origin = Vector2i(0, 7)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74gwh"]
 texture = ExtResource("8_74gwh")
@@ -113,7 +113,7 @@ texture = ExtResource("13_r8le0")
 0:0/animation_frame_6/duration = 1.0
 0:0/animation_frame_7/duration = 1.0
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 5)
+0:0/0/texture_origin = Vector2i(0, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lpnjl"]
 texture = ExtResource("14_lpnjl")
@@ -179,7 +179,7 @@ tile_map_data = PackedByteArray("AAADAAkABgAeAAsAAAAIAAcABgABAAwAAAANAAkABgASAAo
 tile_set = ExtResource("5_d8y6d")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1858587757]
-tile_map_data = PackedByteArray("AAAQAAkABgAAAAAAABAKAAkAAQAAAAAAAAAJAAkABQAAAAAAABAhAAkAAAAAAAAAAAAfAAkABAAAAAAAABA=")
+tile_map_data = PackedByteArray("AAAQAAkABgAAAAAAABAKAAkAAQAAAAAAAAAJAAkABQAAAAAAABAfAAkABAAAAAAAABAhAAkAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_70mu7")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]

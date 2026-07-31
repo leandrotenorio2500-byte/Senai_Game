@@ -2,20 +2,60 @@ extends Node2D
 
 signal dialog_finished
 
-var spritesheet: Texture2D:
+@export var idle_spritesheet: Texture2D:
 	set(value):
-		spritesheet = value
-		_apply_texture()
+		idle_spritesheet = value
+		if is_node_ready():
+			_apply_animations()
 
-var hframes: int = 8:
+@export var run_spritesheet: Texture2D:
+	set(value):
+		run_spritesheet = value
+		if is_node_ready():
+			_apply_animations()
+
+@export var hframes := 8:
 	set(value):
 		hframes = value
-		_apply_frames()
+		if is_node_ready():
+			_apply_animations()
 
-var vframes: int = 1:
+@export var vframes := 1:
 	set(value):
 		vframes = value
-		_apply_frames()
+		if is_node_ready():
+			_apply_animations()
+
+func _add_animation(
+	frames: SpriteFrames,
+	anim_name: String,
+	texture: Texture2D,
+	speed: float = 6.0
+) -> void:
+
+	if texture == null:
+		return
+
+	if not frames.has_animation(anim_name):
+		frames.add_animation(anim_name)
+
+	var frame_w = texture.get_width() / hframes
+	var frame_h = texture.get_height() / vframes
+
+	for row in vframes:
+		for col in hframes:
+			var atlas := AtlasTexture.new()
+			atlas.atlas = texture
+			atlas.region = Rect2(
+				col * frame_w,
+				row * frame_h,
+				frame_w,
+				frame_h
+			)
+			frames.add_frame(anim_name, atlas)
+
+	frames.set_animation_speed(anim_name, speed)
+	frames.set_animation_loop(anim_name, true)
 
 var dialog_data: Array[Dictionary] = []
 
@@ -28,7 +68,7 @@ var _player_nearby: bool = false
 
 func _ready() -> void:
 	_sprite = $AnimatedSprite2D
-	_apply_texture()
+	_apply_animations()
 
 	_interact_label.visible = true
 	_interact_text.text = "...."
@@ -87,29 +127,47 @@ func _on_body_exited(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	pass
 
-func _apply_texture() -> void:
-	if not is_node_ready():
+func _apply_animations() -> void:
+	if _sprite == null or idle_spritesheet == null:
 		return
-	if _sprite == null:
-		_sprite = $AnimatedSprite2D
-	if spritesheet == null:
-		return
+
 	var frames := SpriteFrames.new()
-	frames.add_animation("idle")
-	for col in hframes:
-		var atlas := AtlasTexture.new()
-		atlas.atlas = spritesheet
-		atlas.region = Rect2(
-			col * (float(spritesheet.get_width()) / hframes),
-			0,
-			float(spritesheet.get_width()) / hframes,
-			float(spritesheet.get_height()) / vframes
-		)
-		frames.add_frame("idle", atlas)
-	frames.set_animation_loop("idle", true)
-	frames.set_animation_speed("idle", 4.0)
+
+	_add_animation(frames, "idle", idle_spritesheet, 5)
+
+	if run_spritesheet != null:
+		_add_animation(frames, "run", run_spritesheet, 10)
+
 	_sprite.sprite_frames = frames
 	_sprite.play("idle")
+		
+func play_idle() -> void:
+	if _sprite == null:
+		return
+
+	if _sprite.sprite_frames.has_animation("idle"):
+		if _sprite.animation != "idle":
+			_sprite.play("idle")
+
+
+func play_run() -> void:
+	if _sprite == null:
+		return
+
+	if _sprite.sprite_frames.has_animation("run"):
+		if _sprite.animation != "run":
+			_sprite.play("run")
+	else:
+		play_idle()
+
+func look_left():
+	if _sprite:
+		_sprite.flip_h = true
+
+
+func look_right():
+	if _sprite:
+		_sprite.flip_h = false
 
 func _apply_frames() -> void:
-	_apply_texture()
+	_apply_animations()

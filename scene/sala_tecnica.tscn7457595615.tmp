@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="18_vrh26"]
 [ext_resource type="Script" uid="uid://dbscs6ak27tse" path="res://scripts/npcs/Daniel-ti.gd" id="19_bowb7"]
 [ext_resource type="PackedScene" uid="uid://pueg664tg3hq" path="res://entities/missions/chamado/bancada_pecas.tscn" id="20_bowb7"]
+[ext_resource type="Texture2D" uid="uid://cqh8rcfy5gxqy" path="res://sprites/npcs/daniel-run.png" id="21_x67mu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_md420")
@@ -149,7 +150,7 @@ position = Vector2(0, -6)
 script = ExtResource("1_vok6q")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("2_vui3i")]
-position = Vector2(154, 148)
+position = Vector2(158, 127)
 acceleration = 200
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("3_vrh26")]
@@ -210,12 +211,12 @@ next_player_position = Vector2(55, 147)
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=283536970]
 
 [node name="Daniel" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("18_vrh26")]
-position = Vector2(96, 145)
+position = Vector2(81, 145)
 script = ExtResource("19_bowb7")
 follow_speed = 100.0
 stopping_distance = 32.0
-idle_spritesheet = null
-run_spritesheet = null
+idle_spritesheet = ExtResource("21_x67mu")
+run_spritesheet = ExtResource("21_x67mu")
 hframes = 8
 vframes = 1
 

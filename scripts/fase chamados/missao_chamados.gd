@@ -17,7 +17,7 @@ func _init() -> void:
 	id = "atender_chamados"
 	title = "Atenda os chamados dos funcionários"
 	description = "Converse com os funcionários, pegue as peças necessárias na bancada e resolva os problemas."
-	estado_atual = "em_andamento"
+	estado_atual = "nao_iniciada"
 
 func abrir_chamado(setor: String) -> void:
 	if problemas_npcs.has(setor):
@@ -52,7 +52,10 @@ func progredir(dados: Dictionary = {}) -> void:
 			finalizar()
 
 func finalizar() -> void:
+	if estado_atual == "finalizada":
+		return
 	estado_atual = "finalizada"
+	Globals.daniel_seguindo = false
 	finalizada.emit(id)
 
 func esta_resolvido(setor: String) -> bool:

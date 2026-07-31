@@ -4,7 +4,7 @@ var npc_faceset_path = "res://sprites/npcs/julia_dialog.png"
 var npc_name = "Julia"
 
 func _ready() -> void:
-	spritesheet = load("res://sprites/npcs/coroa2.png")
+	idle_spritesheet = load("res://sprites/npcs/coroa2.png")
 	hframes = 8
 	
 	# Se a missão existe no QuestManager, conectamos aos sinais próprios dela

@@ -5,7 +5,7 @@ var npc_name = "Pedro"
 
 func _ready() -> void:
 	atualizar_dialogo()
-	spritesheet = load("res://sprites/npcs/npc7.png")
+	idle_spritesheet = load("res://sprites/npcs/npc7.png")
 	hframes = 8
 	super._ready()
 

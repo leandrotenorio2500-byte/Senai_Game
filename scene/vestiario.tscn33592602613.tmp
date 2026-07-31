@@ -143,8 +143,6 @@ tile_set = SubResource("TileSet_gj0k5")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("12_j0ybp")]
 position = Vector2(43, 148)
-acceleration = 1800
-decceleration = 2000
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("13_a3tc8")]
 position = Vector2(-5, 114)
@@ -181,7 +179,7 @@ visible = false
 position = Vector2(128, 0)
 
 [node name="Pedro" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("18_vafrk")]
-position = Vector2(111, 146)
+position = Vector2(112, 145)
 script = ExtResource("19_umk8x")
 idle_spritesheet = null
 run_spritesheet = null

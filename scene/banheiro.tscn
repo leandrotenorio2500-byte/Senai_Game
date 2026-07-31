@@ -79,7 +79,11 @@ next_player_position = Vector2(329, 147)
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=1754066709]
 
 [node name="João" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("11_2ahal")]
-position = Vector2(112, 145)
+position = Vector2(112, 146)
 script = ExtResource("12_2ahal")
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("12_6j4dr")]

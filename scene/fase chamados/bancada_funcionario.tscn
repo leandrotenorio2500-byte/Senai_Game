@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dacmqchwtrc87"]
+
+[ext_resource type="Script" uid="uid://bnhqk8o6c5p2x" path="res://scripts/fase chamados/scenes/bancada_funcionario.gd" id="1_hhxae"]
+[ext_resource type="Texture2D" uid="uid://xkmvv84qu1yi" path="res://sprites/missions/chamados/computador.png" id="2_khskd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khskd"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ppa0"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vrjd"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m48o0"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="BancadaFuncionario" type="CanvasLayer" unique_id=1764510967]
+script = ExtResource("1_hhxae")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1061840007]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1272.0
+offset_bottom = 721.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_khskd")
+
+[node name="BtnFechar" type="Button" parent="." unique_id=888667336]
+offset_left = 354.0
+offset_top = 9.0
+offset_right = 388.0
+offset_bottom = 40.0
+text = "X"
+
+[node name="BtnMouse" type="Button" parent="." unique_id=932305972]
+offset_left = 283.0
+offset_top = 177.0
+offset_right = 291.0
+offset_bottom = 185.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_khskd")
+
+[node name="BtnTeclado" type="Button" parent="." unique_id=1435733250]
+offset_left = 199.0
+offset_top = 174.0
+offset_right = 207.0
+offset_bottom = 182.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5ppa0")
+
+[node name="BtnMonitor" type="Button" parent="." unique_id=379500138]
+offset_left = 178.0
+offset_top = 99.0
+offset_right = 186.0
+offset_bottom = 107.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_3vrjd")
+
+[node name="BtnGabinete" type="Button" parent="." unique_id=277889975]
+offset_left = 310.0
+offset_top = 104.0
+offset_right = 318.0
+offset_bottom = 112.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_m48o0")

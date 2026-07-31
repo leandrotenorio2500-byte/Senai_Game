@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="17_irflo"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="18_vrh26"]
 [ext_resource type="Script" uid="uid://dbscs6ak27tse" path="res://scripts/npcs/Daniel-ti.gd" id="19_bowb7"]
+[ext_resource type="PackedScene" uid="uid://pueg664tg3hq" path="res://entities/missions/chamado/bancada_pecas.tscn" id="20_bowb7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_md420")
@@ -211,3 +212,8 @@ next_player_position = Vector2(55, 147)
 [node name="Daniel" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("18_vrh26")]
 position = Vector2(81, 145)
 script = ExtResource("19_bowb7")
+follow_speed = 100.0
+stopping_distance = 32.0
+
+[node name="BancadaPecas" parent="." unique_id=1652627992 instance=ExtResource("20_bowb7")]
+position = Vector2(208, 148)

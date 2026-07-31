@@ -1,0 +1,109 @@
+[gd_scene format=4 uid="uid://cg7deh3vprap7"]
+
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="1_h127m"]
+[ext_resource type="Script" uid="uid://ggdw56ujguy5" path="res://scripts/levels/recep.gd" id="1_ok7cm"]
+[ext_resource type="PackedScene" uid="uid://te3as7vh0df8" path="res://entities/camera.tscn" id="2_ok7cm"]
+[ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="3_n14ru"]
+[ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="4_dt7ot"]
+[ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="5_dhp2d"]
+[ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="6_h127m"]
+[ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_6c8f1"]
+[ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
+[ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
+[ext_resource type="Script" path="res://scripts/npcs/Jacson - Almoxarifado.gd" id="11_gnfdo"]
+[ext_resource type="Script" uid="uid://dxwtiudpqhv0f" path="res://scripts/npcs/Ana-recepcao.gd" id="11_wm1ee"]
+[ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="13_wm1ee"]
+
+[sub_resource type="TileSet" id="TileSet_ok7cm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
+size = Vector2(20, 202.5)
+
+[node name="recepcao" type="Node2D" unique_id=1111527481]
+position = Vector2(0, -6)
+script = ExtResource("1_ok7cm")
+
+[node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_h127m")]
+position = Vector2(42, 147)
+
+[node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_ok7cm")]
+position = Vector2(-49, 150)
+limit_top = 0
+limit_right = 400
+position_smoothing_enabled = true
+position_smoothing_speed = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
+z_index = -3
+texture = ExtResource("3_n14ru")
+centered = false
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
+
+[node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
+tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAYAAAAAAA0ABAANAAgAAAACAAsABAAPAAYAAAACAA0ABAAPAAgAAAADAAsABAANAAYAAAADAA0ABAANAAgAAAAFAAsABAAPAAYAAAAFAA0ABAAPAAgAAAAGAAsABAANAAYAAAAGAA0ABAANAAgAAAAIAAsABAANAAYAAAAIAA0ABAANAAgAAAAKAAsABAAPAAYAAAAKAA0ABAAPAAgAAAAMAAsABAANAAYAAAAMAA0ABAANAAgAAAAOAAsABAANAAYAAAAOAA0ABAANAAgAAAAQAAsABAANAAYAAAAQAA0ABAANAAgAAAASAAsABAAPAAYAAAASAA0ABAAPAAgAAAAUAAsABAANAAYAAAAUAA0ABAANAAgAAAAWAAsABAANAAYAAAAWAA0ABAANAAgAAAAYAAsABAAPAAYAAAAYAA0ABAAPAAgAAAAaAAsABAANAAYAAAAaAA0ABAANAAgAAAAcAAsABAAPAAYAAAAcAA0ABAAPAAgAAAA=")
+tile_set = ExtResource("4_dt7ot")
+
+[node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAAEAAQABgASAAIAAAAPAAkABgAMAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAAEAAkABgAQAAEAAAATAAcABgALAAUAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAANAAkABgAFAAIAAAA=")
+tile_set = ExtResource("5_dhp2d")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1618311414]
+tile_set = SubResource("TileSet_ok7cm")
+
+[node name="LevelChangerRight" parent="." unique_id=1670860483 instance=ExtResource("6_h127m")]
+position = Vector2(410, 61)
+scale = Vector2(0.971244, 12.039999)
+next_level = "uid://d370titfa8sud"
+next_player_position = Vector2(15, 155)
+need_interaction = false
+
+[node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
+position = Vector2(-9, 10)
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelLimit" unique_id=2018999782]
+position = Vector2(1, 95)
+shape = SubResource("RectangleShape2D_kmspj")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelLimit" unique_id=469442997]
+position = Vector2(433, 55)
+shape = SubResource("RectangleShape2D_kmspj")
+
+[node name="LevelChanger" parent="." unique_id=1028902330 instance=ExtResource("6_h127m")]
+position = Vector2(22, 132)
+next_level = "uid://cc7gs4taylqkd"
+next_player_position = Vector2(1355, 160)
+
+[node name="Terrain" type="TileMapLayer" parent="." unique_id=1327342054]
+tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAUAAAACAAsABAANAAUAAAAEAAsABAANAAUAAAAGAAsABAANAAUAAAAIAAsABAANAAUAAAAKAAsABAANAAUAAAAMAAsABAANAAUAAAAOAAsABAANAAUAAAAQAAsABAANAAUAAAASAAsABAANAAUAAAAUAAsABAANAAUAAAAWAAsABAANAAUAAAAYAAsABAANAAUAAAAAAA0ABAANAAcAAAACAA0ABAAPAAcAAAAEAA0ABAAPAAcAAAAGAA0ABAAPAAcAAAAIAA0ABAAPAAcAAAAKAA0ABAANAAcAAAAMAA0ABAAPAAcAAAAOAA0ABAAPAAcAAAAQAA0ABAAPAAcAAAASAA0ABAAPAAcAAAARAA0ABAANAAcAAAATAA0ABAAPAAcAAAAVAA0ABAAPAAcAAAAXAA0ABAAPAAcAAAAZAA0ABAAPAAcAAAA=")
+tile_set = ExtResource("4_dt7ot")
+
+[node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
+
+[node name="Julia" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
+position = Vector2(227, 147)
+script = ExtResource("11_dhp2d")
+
+[node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]
+position = Vector2(300, 142)
+script = ExtResource("11_wm1ee")
+
+[node name="Jacson" parent="NpcsInteractive" unique_id=1331321415 instance=ExtResource("10_dt7ot")]
+position = Vector2(227, 147)
+script = ExtResource("11_gnfdo")
+follow_speed = 100.0
+stopping_distance = 32.0
+
+[node name="DialogHUD" type="CanvasLayer" parent="." unique_id=349909117]
+
+[node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("8_6c8f1")]
+visible = false
+
+[node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("9_ok7cm")]
+visible = false
+
+[node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("13_wm1ee")]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1884998688]

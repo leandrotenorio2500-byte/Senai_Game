@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://bcjem26gmt681"]
+
+[ext_resource type="Texture2D" uid="uid://bhivsjtfustpp" path="res://sprites/missions/conserto computadores/bancada.png" id="1_te04b"]
+[ext_resource type="Texture2D" uid="uid://b18ascui7nfak" path="res://sprites/missions/conserto computadores/gabinete.png" id="2_ylopc"]
+[ext_resource type="Texture2D" uid="uid://cvnlqwf0874bu" path="res://sprites/missions/conserto computadores/placa-mae.png" id="3_xhjfg"]
+[ext_resource type="Texture2D" uid="uid://koa5vgc0plfh" path="res://sprites/missions/conserto computadores/cpu.png" id="4_j1iqj"]
+[ext_resource type="Texture2D" uid="uid://c4t0f32eevtjc" path="res://sprites/missions/conserto computadores/ram.png" id="5_6pooj"]
+[ext_resource type="Texture2D" uid="uid://cv7i2kpr3hbt" path="res://sprites/missions/conserto computadores/fonte.png" id="6_jp8o2"]
+[ext_resource type="Texture2D" uid="uid://bej1pkwsnfm53" path="res://sprites/missions/conserto computadores/hdd.png" id="7_ggp60"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhjfg"]
+size = Vector2(132, 148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ofhn"]
+size = Vector2(79.36118, 79.36955)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1iqj"]
+size = Vector2(36.492287, 24.586243)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pooj"]
+size = Vector2(26.890625, 36.453133)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jp8o2"]
+size = Vector2(68.64816, 68.634476)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggp60"]
+size = Vector2(12.86985, 12.889748)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq7t0"]
+size = Vector2(4.296875, 20.584267)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c13ne"]
+size = Vector2(18.695908, 18.679024)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iedy5"]
+size = Vector2(8.891113, 41.35413)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idwpi"]
+size = Vector2(28.580627, 19.530418)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hqr1"]
+size = Vector2(21.586487, 29.68712)
+
+[node name="bancada_montagem" type="CanvasLayer" unique_id=1120222981]
+
+[node name="Bancada" type="TextureRect" parent="." unique_id=1561462811]
+z_index = -10
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = 1266.6666
+offset_bottom = 640.6666
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("1_te04b")
+expand_mode = 1
+
+[node name="Gabinete" type="Area2D" parent="." unique_id=158390506]
+position = Vector2(106.07295, 107.66868)
+
+[node name="Sprite2D" type="Sprite2D" parent="Gabinete" unique_id=482520659]
+scale = Vector2(0.165, 0.16499999)
+texture = ExtResource("2_ylopc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gabinete" unique_id=1628645041]
+shape = SubResource("RectangleShape2D_xhjfg")
+
+[node name="Slots_Gabinete" type="Node2D" parent="Gabinete" unique_id=222702402]
+
+[node name="Slot_PlacaMae" type="Area2D" parent="Gabinete/Slots_Gabinete" unique_id=997557795]
+position = Vector2(-17.746979, -12.441765)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gabinete/Slots_Gabinete/Slot_PlacaMae" unique_id=1206738570]
+shape = SubResource("RectangleShape2D_4ofhn")
+debug_color = Color(0, 0.64650464, 0.24285614, 0.41960785)
+
+[node name="Slot_Fonte" type="Area2D" parent="Gabinete/Slots_Gabinete" unique_id=1582320718]
+position = Vector2(-38.491653, 50.89788)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gabinete/Slots_Gabinete/Slot_Fonte" unique_id=1812490155]
+shape = SubResource("RectangleShape2D_j1iqj")
+debug_color = Color(6.256998e-07, 0.62896496, 0.49036807, 0.41960785)
+
+[node name="Slot_HDD" type="Area2D" parent="Gabinete/Slots_Gabinete" unique_id=2053491127]
+position = Vector2(9.141808, 49.90325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gabinete/Slots_Gabinete/Slot_HDD" unique_id=1418716935]
+shape = SubResource("RectangleShape2D_6pooj")
+debug_color = Color(0.86460453, 0.35770705, 0, 0.41960785)
+
+[node name="Pecas_Disponiveis" type="Node2D" parent="." unique_id=205309229]
+z_index = 10
+position = Vector2(252.12952, 60.10518)
+
+[node name="PlacaMae" type="Area2D" parent="Pecas_Disponiveis" unique_id=1297930411]
+z_index = 10
+
+[node name="Sprite2D" type="Sprite2D" parent="Pecas_Disponiveis/PlacaMae" unique_id=510764968]
+scale = Vector2(0.14293249, 0.14293249)
+texture = ExtResource("3_xhjfg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/PlacaMae" unique_id=1022308137]
+shape = SubResource("RectangleShape2D_jp8o2")
+
+[node name="Slots_PlacaMae" type="Node2D" parent="Pecas_Disponiveis/PlacaMae" unique_id=498000881]
+z_index = 10
+
+[node name="Slot_CPU" type="Area2D" parent="Pecas_Disponiveis/PlacaMae/Slots_PlacaMae" unique_id=511550313]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/PlacaMae/Slots_PlacaMae/Slot_CPU" unique_id=775573755]
+position = Vector2(-16.726929, -13.123676)
+shape = SubResource("RectangleShape2D_ggp60")
+debug_color = Color(0.37732723, 0.6142633, 5.7756904e-07, 0.41960785)
+
+[node name="Slot_RAM_1" type="Area2D" parent="Pecas_Disponiveis/PlacaMae/Slots_PlacaMae" unique_id=2129228037]
+position = Vector2(7.1246643, -15.992283)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/PlacaMae/Slots_PlacaMae/Slot_RAM_1" unique_id=796183111]
+shape = SubResource("RectangleShape2D_tq7t0")
+debug_color = Color(0.3764706, 0.6156863, 0, 0.41960785)
+
+[node name="Slot_RAM_2" type="Area2D" parent="Pecas_Disponiveis/PlacaMae/Slots_PlacaMae" unique_id=2091210417]
+position = Vector2(14.019257, -16.022026)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/PlacaMae/Slots_PlacaMae/Slot_RAM_2" unique_id=1522297816]
+shape = SubResource("RectangleShape2D_tq7t0")
+debug_color = Color(0.3764706, 0.6156863, 0, 0.41960785)
+
+[node name="CPU" type="Area2D" parent="Pecas_Disponiveis" unique_id=1522912406]
+z_index = 20
+position = Vector2(-24.215942, 50.252625)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pecas_Disponiveis/CPU" unique_id=1811610174]
+scale = Vector2(0.20747952, 0.20747952)
+texture = ExtResource("4_j1iqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/CPU" unique_id=6966537]
+shape = SubResource("RectangleShape2D_c13ne")
+debug_color = Color(0.3764706, 0.6156863, 0, 0.41960785)
+
+[node name="RAM_1" type="Area2D" parent="Pecas_Disponiveis" unique_id=1650109999]
+z_index = 20
+position = Vector2(-1.2745056, 60.812965)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pecas_Disponiveis/RAM_1" unique_id=440417057]
+scale = Vector2(0.2952968, 0.29529676)
+texture = ExtResource("5_6pooj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/RAM_1" unique_id=1448017459]
+position = Vector2(-0.02355957, 0.008056641)
+shape = SubResource("RectangleShape2D_iedy5")
+debug_color = Color(0.3764706, 0.6156863, 0, 0.41960785)
+
+[node name="Fonte" type="Area2D" parent="Pecas_Disponiveis" unique_id=13260179]
+z_index = 10
+position = Vector2(23.545166, 50.827614)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pecas_Disponiveis/Fonte" unique_id=2052641003]
+scale = Vector2(0.13, 0.13)
+texture = ExtResource("6_jp8o2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/Fonte" unique_id=1453045767]
+position = Vector2(-0.012908936, 0.003780365)
+shape = SubResource("RectangleShape2D_idwpi")
+
+[node name="HDD" type="Area2D" parent="Pecas_Disponiveis" unique_id=947022154]
+z_index = 10
+position = Vector2(-24.53273, 86.599396)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pecas_Disponiveis/HDD" unique_id=584581933]
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("7_ggp60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/HDD" unique_id=1316010898]
+position = Vector2(-0.010925293, 0.011314392)
+shape = SubResource("RectangleShape2D_2hqr1")

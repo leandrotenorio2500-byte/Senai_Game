@@ -195,8 +195,10 @@ shape = SubResource("RectangleShape2D_kmspj")
 [node name="HUD" type="CanvasLayer" parent="." unique_id=627340578]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("15_hflcs")]
+visible = false
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("16_ebpcf")]
+visible = false
 
 [node name="DialogHUD" type="CanvasLayer" parent="." unique_id=103465102]
 

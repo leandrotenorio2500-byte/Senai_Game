@@ -1,6 +1,6 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
+var npc_faceset_path = "res://sprites/Mini UI/heads/Daniel.png"
 var npc_name = "Daniel"
 
 func _on_dialog_completed() -> void:

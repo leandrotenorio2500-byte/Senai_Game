@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://o67fep1acosr" path="res://scripts/npcs/canvas_layer.gd" id="1_2qwj2"]
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="2_4dek3"]
-[ext_resource type="Texture2D" uid="uid://btf7ol6ks1t5r" path="res://sprites/npcs/npc3_dialog.png" id="3_04yyc"]
+[ext_resource type="Texture2D" uid="uid://7gj065l8ut2v" path="res://sprites/Mini UI/heads/Sarah.png" id="3_ps1ng"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_rniv8"]
 [ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="5_48a5i"]
 
@@ -2405,30 +2405,30 @@ patch_margin_bottom = 4
 [node name="TextureRect" type="TextureRect" parent="Panel/Background" unique_id=63508031]
 z_index = 2
 layout_mode = 0
-offset_left = 10.0
-offset_top = 2.8900146
-offset_right = 43.0
-offset_bottom = 35.890015
-texture = ExtResource("3_04yyc")
+offset_left = 8.0
+offset_top = 9.890015
+offset_right = 46.589745
+offset_bottom = 44.890015
+texture = ExtResource("3_ps1ng")
 expand_mode = 1
 
 [node name="Border" type="ColorRect" parent="Panel/Background" unique_id=798470359]
 z_index = 5
 custom_minimum_size = Vector2(42, 0)
 layout_mode = 0
-offset_left = 3.0
-offset_top = 2.8900146
-offset_right = 48.0
-offset_bottom = 44.890015
+offset_left = -69.0
+offset_top = -12.109985
+offset_right = -24.0
+offset_bottom = 29.890015
 color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="Panel/Background" unique_id=292487394]
 z_index = 1
 layout_mode = 0
 offset_left = 6.0
-offset_top = 37.890015
-offset_right = 48.0
-offset_bottom = 47.890015
+offset_top = 1.8900146
+offset_right = 52.0
+offset_bottom = 11.890015
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_rniv8")
 text = "Nome"

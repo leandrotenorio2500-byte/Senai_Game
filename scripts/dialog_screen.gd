@@ -11,10 +11,16 @@ var _current_text := ""
 var _visible_chars := 0
 var _timer := 0.0
 
-@onready var _name: Label = $Label
+@onready var _panel: NinePatchRect = $NinePatchRect
+@onready var _name: Label = $NinePatchRect/MarginContainer/Label
 @onready var _dialog: RichTextLabel = $Dialog
 @onready var _faceset: TextureRect = $TextureRect
+@onready var _margin: MarginContainer = $NinePatchRect/MarginContainer
 
+
+func _ajustar_nome() -> void:
+	await get_tree().process_frame
+	_panel.size = _margin.get_combined_minimum_size()
 
 func start_dialog() -> void:
 	_show_dialog()
@@ -51,6 +57,8 @@ func _show_dialog() -> void:
 		return
 
 	_name.text = data[_id]["title"]
+	await _ajustar_nome()
+
 	_dialog.text = data[_id]["dialog"]
 	_faceset.texture = load(data[_id]["faceset"])
 

@@ -183,5 +183,9 @@ visible = false
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=646980349]
 
 [node name="Michele" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_xynv0")]
-position = Vector2(139, 147)
+position = Vector2(130, 145)
 script = ExtResource("20_db81h")
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1

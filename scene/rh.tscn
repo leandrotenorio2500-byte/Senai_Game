@@ -351,9 +351,17 @@ visible = false
 [node name="Vitória" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("19_g8c4p")]
 position = Vector2(291, 145)
 script = ExtResource("20_742wn")
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1
 
 [node name="Roberta" parent="NpcsInteractive" unique_id=1024854852 instance=ExtResource("19_g8c4p")]
-position = Vector2(168, 136)
+position = Vector2(168, 137)
 script = ExtResource("21_cnx74")
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1
 
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("16_xlwon")]

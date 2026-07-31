@@ -1,7 +1,7 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/npcs/julia_dialog.png"
-var npc_name = "Julia"
+var npc_faceset_path = "res://sprites/Mini UI/heads/Michele.png"
+var npc_name = "Michele"
 
 func _ready() -> void:
 	idle_spritesheet = load("res://sprites/npcs/coroa2.png")

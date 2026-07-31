@@ -61,17 +61,29 @@ var dialog_data: Array[Dictionary] = []
 
 @onready var _area: Area2D = $Area2D
 @onready var _interact_label: Control = $InteractiveLabel
-@onready var _interact_text: Label = $InteractiveLabel/Label
+@onready var _interact_text: Label = $InteractiveLabel/Background/MarginContainer/Label
+@onready var _margin: MarginContainer = $InteractiveLabel/Background/MarginContainer
+@onready var _panel: NinePatchRect = $InteractiveLabel/Background
 
 var _sprite: AnimatedSprite2D
 var _player_nearby: bool = false
+
+func _ajustar_nome() -> void:
+	await get_tree().process_frame
+
+	var tamanho_antigo = _panel.size
+	var novo_tamanho = _margin.get_combined_minimum_size()
+
+	_panel.position.x -= (novo_tamanho.x - tamanho_antigo.x) / 2.0
+	_panel.size.x = novo_tamanho.x
 
 func _ready() -> void:
 	_sprite = $AnimatedSprite2D
 	_apply_animations()
 
 	_interact_label.visible = true
-	_interact_text.text = "...."
+	_interact_text.text = "..."
+	await _ajustar_nome()
 
 	_area.body_entered.connect(_on_body_entered)
 	_area.body_exited.connect(_on_body_exited)
@@ -88,12 +100,14 @@ func _animate_label() -> void:
 func _process(_delta: float) -> void:
 	if not _player_nearby:
 		return
+
 	if Input.is_action_just_pressed("interect"):
 		_interact_text.text = "..."
+		await _ajustar_nome()
+
 		DialogManager.start_dialog(dialog_data)
-		
+
 		if DialogManager.has_signal("dialog_ended"):
-			# Conecta uma única vez para saber quando fechar
 			if not DialogManager.dialog_ended.is_connected(_on_dialog_manager_finished):
 				DialogManager.dialog_ended.connect(_on_dialog_manager_finished)
 
@@ -117,12 +131,14 @@ func missao_mapa_risco_finalizada() -> bool:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		_player_nearby = true
-		_interact_text.text = "Enter"
+		_interact_text.text = "Falar"
+		await _ajustar_nome()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		_player_nearby = false
 		_interact_text.text = "..."
+		await _ajustar_nome()
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	pass

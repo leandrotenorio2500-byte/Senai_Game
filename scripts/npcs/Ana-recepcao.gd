@@ -1,6 +1,6 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
+var npc_faceset_path = "res://sprites/Mini UI/heads/Ana.png"
 var npc_name = "Ana"
 var setor_npc: String = "Recepcao"
 var item_necessario: String = "mouse_novo"
@@ -40,31 +40,22 @@ func _tem_outra_missao_ativa() -> bool:
 	return false
 
 func atualizar_dialogo() -> void:
-	# 1. Checagem inicial de desbloqueio da Recepção (Lógica trazida pelo seu amigo)
-	if not Globals.setores_desbloqueados.get("Recepcao", false):
-		dialog_data = [
-			{
-				"title": npc_name,
-				"dialog": "Olá! Seja bem-vindo à nossa empresa. Antes de começar suas atividades, é importante conhecer bem cada setor e os riscos que existem neles.",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Muita gente acha que a recepção é um lugar completamente seguro, mas não é bem assim. Aqui também precisamos ficar atentos.",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Passamos muitas horas sentados atendendo o público e usando o computador. Se a cadeira ou a postura não forem adequadas, isso pode causar dores e lesões com o tempo.",
-				"faceset": npc_faceset_path
-			}
-		]
+	var estado_mapa = QuestManager.obter_estado("identificar_riscos")
+
+	# Diálogos da missão Mapa de Risco
+	if estado_mapa == "em_andamento":
+
+		if Globals.setores_desbloqueados.get("Recepcao", false):
+			dialogo_mapa_concluido()
+		else:
+			dialogo_mapa_risco()
+
 		return
 
-	# 2. Lógica de Missões de Chamados (Após o setor estar liberado)
+	# A partir daqui permanece toda a lógica da missão Atender Chamados
 	var estado = QuestManager.obter_estado(QUEST_ID)
 	var quest = QuestManager.obter_missao(QUEST_ID) as QuestChamados
-	
+
 	if _tem_outra_missao_ativa() and estado == "nao_iniciada":
 		dialog_data = [
 			{"title": npc_name, "dialog": "Vejo que você já tem uma tarefa em andamento.", "faceset": npc_faceset_path},
@@ -91,11 +82,7 @@ func atualizar_dialogo() -> void:
 			]
 
 	else:
-		dialog_data = [
-			{"title": npc_name, "dialog": "Opa, tudo bem? Meu computador está péssimo para trabalhar hoje.", "faceset": npc_faceset_path},
-			{"title": npc_name, "dialog": "Você pode dar uma olhada na minha máquina e descobrir qual peça está com defeito?", "faceset": npc_faceset_path}
-		]
-
+		dialogo_normal()
 func _on_quest_state_changed(quest_id_sinal: String) -> void:
 	if quest_id_sinal == QUEST_ID:
 		atualizar_dialogo()
@@ -149,3 +136,60 @@ func _on_monitor_fechado(acertou: bool) -> void:
 			quest.abrir_chamado(setor_npc)
 
 	atualizar_dialogo()
+
+func dialogo_mapa_concluido():
+	dialog_data = [
+		{
+			"title": npc_name,
+			"dialog": "Espero que minhas informações tenham ajudado. Se precisar revisar o mapa, fique à vontade.",
+			"faceset": npc_faceset_path
+		}
+	]
+
+func dialogo_mapa_risco():
+	dialog_data = [
+		{
+			"title": npc_name,
+			"dialog": "Olá! Seja bem-vindo à empresa. A recepção é o primeiro lugar por onde passam funcionários, visitantes e fornecedores.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Passamos boa parte do dia atendendo pessoas, utilizando o computador e organizando documentos. Mesmo sendo um ambiente administrativo, alguns riscos precisam de atenção.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Ficar muitas horas sentado, trabalhar com postura inadequada ou deixar cabos e objetos espalhados pelo chão pode causar acidentes e problemas de saúde ao longo do tempo.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Essas informações devem ajudar você a preencher o Mapa de Risco.",
+			"faceset": npc_faceset_path
+		}
+	]
+
+func dialogo_normal():
+	dialog_data = [
+		{
+			"title": npc_name,
+			"dialog": "Olá! Seja bem-vindo à recepção. Meu trabalho é receber os visitantes, orientar os funcionários e encaminhar cada pessoa ao setor correto.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Também realizo atendimentos, organizo documentos e acompanho diversas solicitações ao longo do dia para que tudo funcione da melhor forma possível.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "A recepção é a porta de entrada da empresa, então procuramos oferecer um ambiente organizado e acolhedor para todos que chegam.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Aliás... estou com um probleminha no meu computador. Se tiver um tempinho depois, talvez você possa me dar uma ajuda.",
+			"faceset": npc_faceset_path
+		}
+	]

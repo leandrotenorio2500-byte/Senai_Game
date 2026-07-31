@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cexihxmbyf6ev" path="res://scripts/dialog_screen.gd" id="1_0q05r"]
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="1_ai7ay"]
-[ext_resource type="Texture2D" uid="uid://btf7ol6ks1t5r" path="res://sprites/npcs/npc3_dialog.png" id="2_ydwb0"]
+[ext_resource type="Texture2D" uid="uid://7gj065l8ut2v" path="res://sprites/Mini UI/heads/Sarah.png" id="2_4ri1o"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_0q05r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3vr2"]
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0.235, 0.375)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ri1o"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -15,12 +21,6 @@ border_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_5iiig"]
 AcceptDialog/styles/panel = SubResource("StyleBoxFlat_4ri1o")
-
-[sub_resource type="LabelSettings" id="LabelSettings_x3vr2"]
-font_size = 9
-font_color = Color(0, 0, 0, 1)
-shadow_size = 0
-shadow_offset = Vector2(0.235, 0.375)
 
 [node name="DialogScreen" type="Control" unique_id=1501295445]
 layout_mode = 3
@@ -37,14 +37,60 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_0q05r")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1136340279]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = -0.125
+anchor_right = 0.030000001
+anchor_bottom = -0.017
+offset_left = 7.2
+offset_top = 0.0012664795
+offset_right = 42.0
+offset_bottom = 9.721145
+texture = ExtResource("1_ai7ay")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1497431010]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer" unique_id=292487394]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_0q05r")
+text = "Nome"
+label_settings = SubResource("LabelSettings_x3vr2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="TextureRect" type="TextureRect" parent="." unique_id=63508031]
 z_index = 2
 layout_mode = 0
-offset_left = 10.0
-offset_top = 2.8900146
-offset_right = 43.0
-offset_bottom = 35.890015
-texture = ExtResource("2_ydwb0")
+offset_left = 8.0
+offset_top = 9.890015
+offset_right = 45.67568
+offset_bottom = 43.890015
+texture = ExtResource("2_4ri1o")
 expand_mode = 1
 
 [node name="Border" type="ColorRect" parent="." unique_id=798470359]
@@ -53,37 +99,24 @@ custom_minimum_size = Vector2(42, 0)
 layout_mode = 0
 offset_left = 3.0
 offset_top = 2.8900146
-offset_right = 48.0
+offset_right = 50.0
 offset_bottom = 44.890015
 theme = SubResource("Theme_5iiig")
 color = Color(0.20392157, 1, 1, 0)
-
-[node name="Label" type="Label" parent="." unique_id=292487394]
-z_index = 1
-layout_mode = 0
-offset_left = 6.0
-offset_top = 37.890015
-offset_right = 48.0
-offset_bottom = 47.890015
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_0q05r")
-text = "Nome"
-label_settings = SubResource("LabelSettings_x3vr2")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Dialog" type="RichTextLabel" parent="." unique_id=1044823037]
 z_index = 2
 layout_mode = 0
 offset_left = 61.0
-offset_top = 6.8900146
+offset_top = 5.8900146
 offset_right = 189.0
-offset_bottom = 42.890015
+offset_bottom = 41.890015
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_0q05r")
 theme_override_font_sizes/normal_font_size = 6
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+vertical_alignment = 1
 
 [node name="Background" type="NinePatchRect" parent="." unique_id=1001229223]
 layout_mode = 1

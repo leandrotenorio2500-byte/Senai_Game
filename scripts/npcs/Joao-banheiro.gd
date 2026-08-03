@@ -1,13 +1,13 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/Mini UI/heads/Antonio.png"
-var npc_name = "Antonio"
-
 func _ready() -> void:
-	atualizar_dialogo()
+	npc_faceset_path = "res://sprites/Mini UI/heads/Antonio.png"
+	npc_name = "Antonio"
+	
 	idle_spritesheet = load("res://sprites/npcs/zelador.png")
 	hframes = 8
 	super._ready()
+	atualizar_dialogo()
 
 func _on_dialog_completed() -> void:
 	super._on_dialog_completed()

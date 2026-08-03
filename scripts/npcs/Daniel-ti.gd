@@ -1,38 +1,59 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/Mini UI/heads/Daniel.png"
-var npc_name = "Daniel"
+func get_dialogo_setor() -> Array[Dictionary]:
+	return [
+		{
+			"title": npc_name,
+			"dialog": "O setor de TI é responsável por manter computadores, impressoras, rede e demais equipamentos funcionando corretamente.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Quando algum equipamento apresenta defeito, somos nós que fazemos o diagnóstico e realizamos a manutenção.",
+			"faceset": npc_faceset_path
+		}
+	]
 
-func _on_dialog_completed() -> void:
+func get_dialogo_funcionarios() -> Array[Dictionary]:
+	return [
+		{
+			"title": npc_name,
+			"dialog": "Aqui trabalham técnicos responsáveis por manutenção, instalação de equipamentos e suporte aos demais setores.",
+			"faceset": npc_faceset_path
+		}
+	]
+
+func _on_dialog_completed():
 
 	super._on_dialog_completed()
 
 	var estado_mapa = QuestManager.obter_estado("identificar_riscos")
-	var estado_chamados = QuestManager.obter_estado("atender_chamados")
-	# ==================================
-	# MISSÃO MAPA DE RISCO
-	# ==================================
+
 	if estado_mapa == "em_andamento":
-		
+
 		if not Globals.setores_desbloqueados.get("Tecnico", false):
 			Globals.desbloquear_setor("Tecnico")
+
 			QuestManager.progredir_missao(
 				"identificar_riscos",
-				{"setor": "Tecnico"}
+				{"setor":"Tecnico"}
 			)
-			Globals.abrir_mapa.emit()
-		return
-	# ==================================
-	# MISSÃO DO DANIEL
-	# ==================================
-	if estado_chamados == "nao_iniciada":
 
-		if not _tem_outra_missao_ativa():
-			Globals.daniel_seguindo = true
-			QuestManager.iniciar_missao("atender_chamados")
-			_interact_label.hide()
-			_aparecer_perto_do_player()
+			Globals.abrir_mapa.emit()
 			
+func iniciar_missao_chamados():
+
+	if _tem_outra_missao_ativa():
+		return
+
+	Globals.daniel_seguindo = true
+
+	QuestManager.iniciar_missao("atender_chamados")
+
+	_interact_label.hide()
+
+	_aparecer_perto_do_player()
+
 # --- Configurações do Comportamento de Seguir ---
 @export var follow_speed: float = 100.0   # Velocidade de movimento do NPC
 @export var stopping_distance: float = 32.0 # Distância mínima do jogador (para não encavalar)
@@ -42,6 +63,8 @@ var _player_ref: Node2D = null
 const QUEST_ID = "atender_chamados"
 
 func _ready() -> void:
+	npc_faceset_path = "res://sprites/Mini UI/heads/Daniel.png"
+	npc_name = "Daniel"
 	idle_spritesheet = load("res://sprites/npcs/npc_ti.png")
 	run_spritesheet = load("res://sprites/npcs/daniel-run.png")
 	
@@ -225,7 +248,7 @@ func dialogo_inicio_chamados():
 	dialog_data = [
 		{
 			"title": npc_name,
-			"dialog": "Como seu primeiro momento aqui no T.I iremos atender a alguns chamados nos setores.",
+			"dialog": "Meu nome é Daniel e eu dou a bunda.",
 			"faceset": npc_faceset_path
 		},
 		{
@@ -252,3 +275,39 @@ func dialogo_chamados_finalizada():
 			"faceset": npc_faceset_path
 		}
 	]
+
+func get_dialog_options() -> Array:
+	return [
+		{
+			"text": "Sobre o setor",
+			"id": "setor"
+		},
+		{
+			"text": "Funcionários",
+			"id": "funcionarios"
+		},
+		{
+			"text":"Iniciar missão",
+			"id":"missao"
+		},
+		{
+			"text": "Encerrar",
+			"id": "exit"
+		}
+	]
+	
+func on_dialog_option_selected(option: Dictionary) -> void:
+
+	match option.id:
+
+		"setor":
+			DialogManager.show_dialog(get_dialogo_setor())
+
+		"funcionarios":
+			DialogManager.show_dialog(get_dialogo_funcionarios())
+
+		"exit":
+			DialogManager.end_conversation()
+		"missao":
+			iniciar_missao_chamados()
+			DialogManager.end_conversation()

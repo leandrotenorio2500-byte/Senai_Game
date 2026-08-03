@@ -1,14 +1,49 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/Mini UI/heads/Jobson.png"
-var npc_name = "Jobson"
+func get_dialogo_setor() -> Array[Dictionary]:
+	return [
+		{
+			"title": npc_name,
+			"dialog": "O depósito é responsável por receber, armazenar e distribuir materiais para todos os setores da empresa.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Aqui organizamos o estoque, conferimos mercadorias e garantimos que cada setor receba os materiais necessários para o trabalho.",
+			"faceset": npc_faceset_path
+		}
+	]
 
 func _ready() -> void:
-	atualizar_dialogo()
+	npc_faceset_path = "res://sprites/Mini UI/heads/Jobson.png"
+	npc_name = "Jobson"
 	idle_spritesheet = load("res://sprites/npcs/operario3.png")
 	hframes = 8
 	super._ready()
+	atualizar_dialogo()
+	
+func get_dialog_options() -> Array:
+	return [
+		{
+			"text":"Setor de Produção",
+			"id":"setor"
+		},
+		{
+			"text":"Encerrar",
+			"id":"exit"
+		}
+	]
+	
+func on_dialog_option_selected(option: Dictionary) -> void:
 
+	match option.id:
+
+		"setor":
+			DialogManager.show_dialog(get_dialogo_setor())
+
+		"exit":
+			DialogManager.end_conversation()
+	
 func _on_dialog_completed() -> void:
 	super._on_dialog_completed()
 

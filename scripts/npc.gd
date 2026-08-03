@@ -26,6 +26,15 @@ signal dialog_finished
 		if is_node_ready():
 			_apply_animations()
 
+var npc_name: String = "NPC"
+var npc_faceset_path: String = ""
+
+func get_npc_info() -> Dictionary:
+	return {
+		"title": npc_name,
+		"faceset": npc_faceset_path
+	}
+
 func _add_animation(
 	frames: SpriteFrames,
 	anim_name: String,
@@ -97,26 +106,23 @@ func _animate_label() -> void:
 	tween.tween_property(_interact_label, "position:y", _interact_label.position.y, 0.3)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-func _process(_delta: float) -> void:
-	if not _player_nearby:
+func _unhandled_input(event):
+
+	if !_player_nearby:
 		return
 
-	if Input.is_action_just_pressed("interect"):
+	if DialogManager.is_conversation_active():
+		return
+
+	if event.is_action_pressed("interect"):
+
 		_interact_text.text = "..."
-		await _ajustar_nome()
 
-		DialogManager.start_dialog(dialog_data)
+		_ajustar_nome()
 
-		if DialogManager.has_signal("dialog_ended"):
-			if not DialogManager.dialog_ended.is_connected(_on_dialog_manager_finished):
-				DialogManager.dialog_ended.connect(_on_dialog_manager_finished)
+		DialogManager.start_dialog(dialog_data, self)
 
-func _on_dialog_manager_finished() -> void:
-	if DialogManager.dialog_ended.is_connected(_on_dialog_manager_finished):
-		DialogManager.dialog_ended.disconnect(_on_dialog_manager_finished)
-	
-	# Executa a lógica de sucesso do diálogo
-	_on_dialog_completed()
+		get_viewport().set_input_as_handled()
 
 func _on_dialog_completed() -> void:
 	emit_signal("dialog_finished")
@@ -165,7 +171,6 @@ func play_idle() -> void:
 		if _sprite.animation != "idle":
 			_sprite.play("idle")
 
-
 func play_run() -> void:
 	if _sprite == null:
 		return
@@ -180,10 +185,16 @@ func look_left():
 	if _sprite:
 		_sprite.flip_h = true
 
-
 func look_right():
 	if _sprite:
 		_sprite.flip_h = false
 
 func _apply_frames() -> void:
 	_apply_animations()
+
+#sistema de dialogo
+func has_dialog_options() -> bool:
+	return get_dialog_options().size() > 0
+
+func get_dialog_options() -> Array:
+	return []

@@ -4,7 +4,7 @@ func _ready() -> void:
 	var npc_faceset_path = "res://sprites/npcs/npc6_dialog.png"
 	var npc_name = "Serana"
 	var player_faceset_path = "res://sprites/npcs/main_character_dialog.png"
-	spritesheet = load("res://sprites/npcs/npc6.png")
+	idle_spritesheet = load("res://sprites/npcs/npc6.png")
 	hframes = 8
 	dialog_data = [
 		{

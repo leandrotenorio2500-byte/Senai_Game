@@ -9,6 +9,7 @@ func _ready() -> void:
 	DialogManager.register_player($Player)
 	DialogManager.register_hud(_hud)
 	QuestManager.register_hud(_hud)
+	ActivityManager.register_hud(_hud)
 	
 	Globals.area_atual = scene_file_path.get_file().get_basename()
 	

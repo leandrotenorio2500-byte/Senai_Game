@@ -14,7 +14,6 @@ var indice = 0
 var pontos = 0
 
 func mostrar_curriculo():
-	print(["nome"])
 	var c = curriculos[indice]
 
 	$PainelCurriculos/HBoxContainer/Nome.text = "Nome: " + c["nome"]
@@ -396,7 +395,6 @@ var vagas = [
 	"experiencia":"Desejável"
 }
 ]
-
 
 func _on_aprovado_pressed() -> void:
 	verificar(true)

@@ -1,29 +1,41 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/Mini UI/heads/Michele.png"
-var npc_name = "Michele"
+
+var dialogo_empresa: Array[Dictionary]
+
+
+var dialogo_mapa_risco_explicacao: Array[Dictionary]
+
 
 func _ready() -> void:
+
+	npc_name = "Michele"
+	npc_faceset_path = "res://sprites/Mini UI/heads/Michele.png"
+
 	idle_spritesheet = load("res://sprites/npcs/coroa2.png")
 	hframes = 8
-	
-	# Se a missão existe no QuestManager, conectamos aos sinais próprios dela
+
 	var quest_riscos = QuestManager.obter_missao("identificar_riscos")
+
 	if quest_riscos:
-		quest_riscos.iniciada.connect(_on_quest_state_changed)
-		quest_riscos.em_andamento.connect(_on_quest_state_changed)
-		quest_riscos.finalizada.connect(_on_quest_state_changed)
-	
-	# Define o diálogo inicial com base no estado atual da missão
+		if not quest_riscos.iniciada.is_connected(_on_quest_state_changed):
+			quest_riscos.iniciada.connect(_on_quest_state_changed)
+
+		if not quest_riscos.em_andamento.is_connected(_on_quest_state_changed):
+			quest_riscos.em_andamento.connect(_on_quest_state_changed)
+
+		if not quest_riscos.finalizada.is_connected(_on_quest_state_changed):
+			quest_riscos.finalizada.connect(_on_quest_state_changed)
+
+
 	atualizar_dialogo()
-	
+
 	super._ready()
 
-func atualizar_dialogo() -> void:
+
+func atualizar_dialogo():
 
 	var estado = QuestManager.obter_estado("identificar_riscos")
-	var quest = QuestManager.obter_missao("identificar_riscos")
-
 
 	if estado == "finalizada":
 
@@ -37,71 +49,125 @@ func atualizar_dialogo() -> void:
 
 	elif estado == "em_andamento":
 
-		if quest.etapa_atual == QuestIdentificarRiscos.Etapa.AGUARDANDO_ENTREGA:
-
-			dialog_data = [
-				{
-					"title": npc_name,
-					"dialog": "Vejo que você concluiu o mapa de riscos. Vamos analisar o resultado.",
-					"faceset": npc_faceset_path
-				}
-			]
-
-		else:
-
-			dialog_data = [
-				{
-					"title": npc_name,
-					"dialog": "Converse com todos os responsáveis pelos setores e registre os riscos encontrados no mapa. Quando terminar, volte para falar comigo.",
-					"faceset": npc_faceset_path
-				}
-			]
+		dialog_data = [
+			{
+				"title": npc_name,
+				"dialog": "Continue analisando os setores e preenchendo o mapa de risco. Quando terminar, volte para conversarmos.",
+				"faceset": npc_faceset_path
+			}
+		]
 
 	else:
 
 		dialog_data = [
 			{
 				"title": npc_name,
-				"dialog": "Olá, tudo bem? Seja muito bem-vindo!",
+				"dialog": "Olá! Seja muito bem-vindo à empresa.",
 				"faceset": npc_faceset_path
 			},
 			{
 				"title": npc_name,
-				"dialog": "Você está dando os seus primeiros passos na empresa e nós iremos te apresentar como tudo funciona por aqui.",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Mas antes, preciso que você faça um levantamento dos riscos nos setores da empresa. Converse com os responsáveis e preencha o mapa de risco.",
+				"dialog": "Antes de começar suas atividades, você precisa conhecer melhor os riscos presentes nos setores.",
 				"faceset": npc_faceset_path
 			}
 		]
-		
-# Função que reage aos sinais da missão
-func _on_quest_state_changed(quest_id: String) -> void:
-	if quest_id == "identificar_riscos":
-		atualizar_dialogo()
+
+
+func get_dialog_options() -> Array:
+
+	return [
+
+		{
+			"text": "Sobre o mapa de risco",
+			"id": "mapa"
+		},
+
+		{
+			"text": "Sobre a empresa",
+			"id": "empresa"
+		},
+
+		{
+			"text": "Iniciar missão",
+			"id": "missao"
+		},
+
+		{
+			"text": "Encerrar",
+			"id": "exit"
+		}
+	]
+
+
+func on_dialog_option_selected(option: Dictionary) -> void:
+
+
+	match option.id:
+
+		"mapa":
+			DialogManager.show_dialog(get_dialogo_mapa())
+
+
+		"empresa":
+			DialogManager.show_dialog(get_dialogo_empresa())
+
+
+		"missao":
+
+			if QuestManager.obter_estado("identificar_riscos") == "nao_iniciada":
+				QuestManager.iniciar_missao("identificar_riscos")
+
+			DialogManager.end_conversation()
+
+
+		"exit":
+			DialogManager.end_conversation()
+
+
+
+func get_dialogo_mapa() -> Array[Dictionary]:
+
+	return [
+
+		{
+			"title": npc_name,
+			"dialog": "O mapa de risco é uma ferramenta utilizada para identificar perigos presentes nos ambientes de trabalho.",
+			"faceset": npc_faceset_path
+		},
+
+		{
+			"title": npc_name,
+			"dialog": "Ele ajuda os funcionários a entenderem os riscos e adotarem medidas para evitar acidentes.",
+			"faceset": npc_faceset_path
+		}
+	]
+
+
+func get_dialogo_empresa() -> Array[Dictionary]:
+
+	return [
+
+		{
+			"title": npc_name,
+			"dialog": "Nossa empresa possui diversos setores, cada um com suas próprias atividades e responsabilidades.",
+			"faceset": npc_faceset_path
+		},
+
+		{
+			"title": npc_name,
+			"dialog": "Durante seu treinamento, você conhecerá cada área e aprenderá como trabalhar com segurança.",
+			"faceset": npc_faceset_path
+		}
+	]
+
+
 
 func _on_dialog_completed() -> void:
+
 	super._on_dialog_completed()
 
-	var quest = QuestManager.obter_missao("identificar_riscos")
 
-	if quest == null:
-		return
+func _on_quest_state_changed(quest_id: String) -> void:
 
-	# Primeira conversa
-	if QuestManager.obter_estado("identificar_riscos") == "nao_iniciada":
-		_identificar_riscos_marcar_conversado()
-		return
-
-	# Entrega do mapa
-	if quest.etapa_atual == QuestIdentificarRiscos.Etapa.AGUARDANDO_ENTREGA:
-		quest.entregar_mapa()
-
-func _identificar_riscos_marcar_conversado() -> void:
-	var estado = QuestManager.obter_estado("identificar_riscos")
-	
-	# Se a missão ainda não começou, inicia ela ao terminar a conversa
-	if estado == "nao_iniciada":
-		QuestManager.iniciar_missao("identificar_riscos")
+	if quest_id == "identificar_riscos":
+		atualizar_dialogo()

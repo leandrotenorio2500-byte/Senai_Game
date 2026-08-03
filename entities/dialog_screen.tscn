@@ -11,17 +11,6 @@ font_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_offset = Vector2(0.235, 0.375)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ri1o"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_5iiig"]
-AcceptDialog/styles/panel = SubResource("StyleBoxFlat_4ri1o")
-
 [node name="DialogScreen" type="Control" unique_id=1501295445]
 layout_mode = 3
 anchors_preset = 7
@@ -37,7 +26,21 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_0q05r")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1136340279]
+[node name="Background" type="NinePatchRect" parent="." unique_id=1001229223]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ai7ay")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background" unique_id=1136340279]
 z_index = 2
 layout_mode = 1
 anchors_preset = -1
@@ -55,7 +58,7 @@ patch_margin_top = 4
 patch_margin_right = 4
 patch_margin_bottom = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect" unique_id=1497431010]
+[node name="MarginContainer" type="MarginContainer" parent="Background/NinePatchRect" unique_id=1497431010]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -73,7 +76,7 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 1
 
-[node name="Label" type="Label" parent="NinePatchRect/MarginContainer" unique_id=292487394]
+[node name="Label" type="Label" parent="Background/NinePatchRect/MarginContainer" unique_id=292487394]
 z_index = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -83,28 +86,17 @@ label_settings = SubResource("LabelSettings_x3vr2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=63508031]
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=63508031]
 z_index = 2
 layout_mode = 0
 offset_left = 8.0
 offset_top = 9.890015
-offset_right = 45.67568
-offset_bottom = 43.890015
+offset_right = 47.0
+offset_bottom = 44.890015
 texture = ExtResource("2_4ri1o")
 expand_mode = 1
 
-[node name="Border" type="ColorRect" parent="." unique_id=798470359]
-z_index = 2
-custom_minimum_size = Vector2(42, 0)
-layout_mode = 0
-offset_left = 3.0
-offset_top = 2.8900146
-offset_right = 50.0
-offset_bottom = 44.890015
-theme = SubResource("Theme_5iiig")
-color = Color(0.20392157, 1, 1, 0)
-
-[node name="Dialog" type="RichTextLabel" parent="." unique_id=1044823037]
+[node name="Dialog" type="RichTextLabel" parent="Background" unique_id=1044823037]
 z_index = 2
 layout_mode = 0
 offset_left = 61.0
@@ -117,35 +109,3 @@ theme_override_fonts/normal_font = ExtResource("3_0q05r")
 theme_override_font_sizes/normal_font_size = 6
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
 vertical_alignment = 1
-
-[node name="Background" type="NinePatchRect" parent="." unique_id=1001229223]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_ai7ay")
-region_rect = Rect2(0, 0, 16, 16)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Background" unique_id=852940515]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -97.5
-offset_top = -21.554993
-offset_right = 97.5
-offset_bottom = 20.445007
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Background/HBoxContainer" unique_id=1713599610]
-layout_mode = 2
-size_flags_horizontal = 3

@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://c3pn1updy1s4l"]
+
+[ext_resource type="Script" uid="uid://slpmcy4k6nf5" path="res://scripts/dialog_option_menu.gd" id="1_r1j3p"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="2_773pr"]
+[ext_resource type="Texture2D" uid="uid://7gj065l8ut2v" path="res://sprites/Mini UI/heads/Sarah.png" id="3_eekdg"]
+[ext_resource type="Theme" uid="uid://c468tt7n3qfjy" path="res://menudialogo.tres" id="4_773pr"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_l4eqe"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1j3p"]
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0.235, 0.375)
+
+[node name="DialogOptionMenu" type="Control" unique_id=1501295445]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -58.890015
+offset_right = 100.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_r1j3p")
+
+[node name="Background" type="NinePatchRect" parent="." unique_id=1001229223]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_773pr")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=63508031]
+z_index = 2
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.890015
+offset_right = 47.0
+offset_bottom = 44.890015
+texture = ExtResource("3_eekdg")
+expand_mode = 1
+
+[node name="Panel" type="Control" parent="Background" unique_id=1697495459]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -19.554993
+offset_right = 83.0
+offset_bottom = 17.445007
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Panel" unique_id=2038171544]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.5
+offset_top = -18.5
+offset_right = 75.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Background/Panel/MarginContainer" unique_id=322024095]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 7
+columns = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Background" unique_id=447987402]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_top = -0.125
+anchor_right = 0.030000001
+anchor_bottom = -0.017
+offset_left = 7.2
+offset_top = 0.0012664795
+offset_right = 42.0
+offset_bottom = 9.721145
+texture = ExtResource("2_773pr")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/NinePatchRect" unique_id=731865458]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -6.0
+offset_right = 13.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 1
+
+[node name="Label" type="Label" parent="Background/NinePatchRect/MarginContainer" unique_id=540214874]
+z_index = 2
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_l4eqe")
+text = "Nome"
+label_settings = SubResource("LabelSettings_r1j3p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Opcao1" type="Label" parent="." unique_id=861702598]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 8.890015
+offset_right = 120.0
+offset_bottom = 22.890015
+theme = ExtResource("4_773pr")
+theme_override_constants/line_spacing = -1
+text = "Sobre Empresa aa"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Opcao2" type="Label" parent="." unique_id=819208250]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 8.890015
+offset_right = 188.0
+offset_bottom = 22.890015
+theme = ExtResource("4_773pr")
+theme_override_constants/line_spacing = -1
+text = "Sobre Empresa aa"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Opcao3" type="Label" parent="." unique_id=471837944]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 27.890015
+offset_right = 120.0
+offset_bottom = 41.890015
+theme = ExtResource("4_773pr")
+theme_override_constants/line_spacing = -1
+text = "Sobre Empresa aa"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Exit" type="Label" parent="." unique_id=1751518989]
+layout_mode = 0
+offset_left = 123.0
+offset_top = 27.890015
+offset_right = 188.0
+offset_bottom = 41.890015
+theme = ExtResource("4_773pr")
+theme_override_constants/line_spacing = -1
+text = "Sobre Empresa aa"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="ready" from="." to="." method="_on_ready"]

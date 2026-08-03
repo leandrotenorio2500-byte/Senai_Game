@@ -2,7 +2,7 @@ extends Control
 class_name DialogScreen
 
 const TEXT_SPEED := 0.03
-
+signal dialog_finished(dialog: DialogScreen)
 var _id := 0
 var data: Dictionary = {}
 
@@ -11,12 +11,11 @@ var _current_text := ""
 var _visible_chars := 0
 var _timer := 0.0
 
-@onready var _panel: NinePatchRect = $NinePatchRect
-@onready var _name: Label = $NinePatchRect/MarginContainer/Label
-@onready var _dialog: RichTextLabel = $Dialog
-@onready var _faceset: TextureRect = $TextureRect
-@onready var _margin: MarginContainer = $NinePatchRect/MarginContainer
-
+@onready var _panel: NinePatchRect = $Background/NinePatchRect
+@onready var _name: Label = $Background/NinePatchRect/MarginContainer/Label
+@onready var _dialog: RichTextLabel = $Background/Dialog
+@onready var _faceset: TextureRect = $Background/TextureRect
+@onready var _margin: MarginContainer = $Background/NinePatchRect/MarginContainer
 
 func _ajustar_nome() -> void:
 	await get_tree().process_frame
@@ -24,7 +23,6 @@ func _ajustar_nome() -> void:
 
 func start_dialog() -> void:
 	_show_dialog()
-
 
 func _process(delta: float) -> void:
 
@@ -49,11 +47,10 @@ func _process(delta: float) -> void:
 		else:
 			_next_dialog()
 
-
 func _show_dialog() -> void:
 
 	if !data.has(_id):
-		queue_free()
+		dialog_finished.emit(self)
 		return
 
 	_name.text = data[_id]["title"]
@@ -70,20 +67,17 @@ func _show_dialog() -> void:
 	_timer = 0
 	_typing = true
 
-
 func _finish_typing() -> void:
 
 	_typing = false
 	_visible_chars = _dialog.get_total_character_count()
 	_dialog.visible_characters = _visible_chars
 
-
 func _next_dialog() -> void:
-
 	_id += 1
 
 	if _id >= data.size():
-		queue_free()
+		dialog_finished.emit(self)
 		return
 
 	_show_dialog()

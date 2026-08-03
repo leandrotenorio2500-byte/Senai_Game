@@ -29,7 +29,7 @@ enum PlayerState {
 }
 
 @export var max_speed = 120.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -250.0
 
 @export var acceleration = 350
 @export var decceleration = 350

@@ -1,16 +1,18 @@
 extends "res://scripts/npc.gd"
 
-var npc_faceset_path = "res://sprites/Mini UI/heads/Ana.png"
-var npc_name = "Ana"
 var setor_npc: String = "Recepcao"
 var item_necessario: String = "mouse_novo"
 
 const QUEST_ID = "atender_chamados"
-var cena_monitor: PackedScene = preload("res://scene/fase chamados/bancada_funcionario.tscn") # Ajuste o caminho se necessário
+var atividade_bancada: PackedScene = preload("res://scene/fase chamados/bancada_funcionario.tscn")
 
 func _ready() -> void:
+	npc_faceset_path = "res://sprites/Mini UI/heads/Ana.png"
+	npc_name = "Ana"
 	idle_spritesheet = load("res://sprites/npcs/ana-recep.png")
 	hframes = 2
+
+	ActivityManager.activity_finished.connect(_on_activity_finished)
 	
 	# Conecta com os sinais do QuestManager
 	var quest = QuestManager.obter_missao(QUEST_ID)
@@ -83,43 +85,78 @@ func atualizar_dialogo() -> void:
 
 	else:
 		dialogo_normal()
-func _on_quest_state_changed(quest_id_sinal: String) -> void:
-	if quest_id_sinal == QUEST_ID:
-		atualizar_dialogo()
-
+		
 func _on_dialog_completed() -> void:
 	super._on_dialog_completed()
 
-	# PASSO 1: Desbloqueia a Recepção no primeiro diálogo (caso ainda não esteja)
+
+	# PASSO 1: Desbloqueia a Recepção no primeiro diálogo
 	if not Globals.setores_desbloqueados.get("Recepcao", false):
 		Globals.desbloquear_setor("Recepcao")
 		QuestManager.progredir_missao("identificar_riscos", {"setor": "Recepcao"})
 		atualizar_dialogo()
 		return
 
-	# PASSO 2: Inicia a quest de chamados se estiver liberada
+
+	# PASSO 2: Inicia a missão de chamados
 	var estado = QuestManager.obter_estado(QUEST_ID)
+
 	if estado == "nao_iniciada" and not _tem_outra_missao_ativa():
 		QuestManager.iniciar_missao(QUEST_ID)
 		estado = QuestManager.obter_estado(QUEST_ID)
 
-	# PASSO 3: Abre a tela de monitor interativa (Diagnóstico ou Instalação)
-	var quest = QuestManager.obter_missao(QUEST_ID) as QuestChamados
-	if estado == "em_andamento" and quest and not quest.esta_resolvido(setor_npc):
-		_abrir_tela_monitor()
 
-func _abrir_tela_monitor() -> void:
-	if cena_monitor:
-		var tela = cena_monitor.instantiate()
-		tela.item_correto = item_necessario
-		tela.nome_npc = npc_name
-		tela.faceset_npc = npc_faceset_path
+	# PASSO 3: Abre a bancada TI
+
+	var quest = QuestManager.obter_missao(QUEST_ID) as QuestChamados
+
+	if estado == "em_andamento" and quest and not quest.esta_resolvido(setor_npc):
+		_abrir_bancada_ti()
 		
-		# Define se é modo de instalação (se já tem o item) ou diagnóstico (se não tem)
-		tela.modo_instalacao = Globals.possui_item(item_necessario)
-		
-		get_tree().root.add_child(tela)
-		tela.monitor_fechado.connect(_on_monitor_fechado)
+func _on_quest_state_changed(quest_id_sinal: String) -> void:
+	if quest_id_sinal == QUEST_ID:
+		atualizar_dialogo()
+
+func _abrir_bancada_ti() -> void:
+
+	ActivityManager.iniciar_atividade(
+		atividade_bancada,
+		"bancada_ti",
+		{
+			"npc": self,
+			"setor": setor_npc,
+			"item_necessario": item_necessario
+		}
+	)
+	
+func _on_activity_finished(activity_id: String, resultado: Dictionary) -> void:
+
+	if activity_id != "bancada_ti":
+		return
+
+
+	print("Resultado recebido pela Ana:")
+	print(resultado)
+
+
+	if resultado.get("cancelado", false):
+		print("Jogador fechou a bancada.")
+		return
+
+
+	var equipamento = resultado.get("equipamento", "")
+
+
+	if equipamento == item_necessario:
+		print("Equipamento correto encontrado!")
+
+		var quest = QuestManager.obter_missao(QUEST_ID) as QuestChamados
+
+		if quest:
+			quest.abrir_chamado(setor_npc)
+
+	else:
+		print("Equipamento errado.")
 
 func _on_monitor_fechado(acertou: bool) -> void:
 	var quest = QuestManager.obter_missao(QUEST_ID) as QuestChamados
@@ -136,6 +173,73 @@ func _on_monitor_fechado(acertou: bool) -> void:
 			quest.abrir_chamado(setor_npc)
 
 	atualizar_dialogo()
+
+func _on_equipamento_selecionado(item:String):
+
+	if item == item_necessario:
+
+		DialogManager.start_dialog([
+			{
+				"title": npc_name,
+				"dialog": "Isso mesmo! O defeito está no mouse. Vou precisar de uma peça nova.",
+				"faceset": npc_faceset_path
+			}
+		])
+
+	else:
+
+		DialogManager.start_dialog([
+			{
+				"title": npc_name,
+				"dialog": "Esse componente parece estar funcionando normalmente.",
+				"faceset": npc_faceset_path
+			}
+		])
+
+func avaliar_equipamento(item: String) -> void:
+
+	if item == item_necessario:
+
+		DialogManager.start_dialog(
+			[
+				{
+					"title": npc_name,
+					"dialog": "Isso mesmo! O defeito está nesse componente. Vou precisar de uma peça nova para substituir.",
+					"faceset": npc_faceset_path
+				}
+			],
+			self
+		)
+
+	else:
+
+		var resposta := ""
+
+		match item:
+
+			"monitor_novo":
+				resposta = "O monitor está funcionando normalmente. A imagem está perfeita."
+
+			"teclado_novo":
+				resposta = "O teclado responde bem. Não parece ser esse o problema."
+
+			"memoria_ram":
+				resposta = "As peças internas parecem estar funcionando corretamente."
+
+			_:
+				resposta = "Não encontrei nenhum problema nesse componente."
+
+
+		DialogManager.start_dialog(
+			[
+				{
+					"title": npc_name,
+					"dialog": resposta,
+					"faceset": npc_faceset_path
+				}
+			],
+			self
+		)
 
 func dialogo_mapa_concluido():
 	dialog_data = [

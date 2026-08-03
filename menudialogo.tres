@@ -1,0 +1,13 @@
+[gd_resource type="Theme" format=3 uid="uid://c468tt7n3qfjy"]
+
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="1_20nhc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1j3p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+expand_margin_left = 10.0
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 7
+Label/fonts/font = ExtResource("1_20nhc")
+Label/styles/normal = SubResource("StyleBoxFlat_r1j3p")

@@ -1,65 +1,98 @@
 [gd_scene format=3 uid="uid://dacmqchwtrc87"]
 
 [ext_resource type="Script" uid="uid://bnhqk8o6c5p2x" path="res://scripts/fase chamados/scenes/bancada_funcionario.gd" id="1_hhxae"]
-[ext_resource type="Texture2D" uid="uid://xkmvv84qu1yi" path="res://sprites/missions/chamados/computador.png" id="2_khskd"]
+[ext_resource type="Texture2D" uid="uid://ulnacwol4tnq" path="res://sprites/missions/chamados/MesaRecepcao.png" id="2_3vrjd"]
+[ext_resource type="Texture2D" uid="uid://6yqbx2ut3iqi" path="res://sprites/missions/chamados/monitor.png" id="3_m48o0"]
+[ext_resource type="Texture2D" uid="uid://cnkggqlbg0hjm" path="res://sprites/missions/chamados/monitor-hover.png" id="4_w1nmn"]
+[ext_resource type="Texture2D" uid="uid://csm5b1wey54ta" path="res://sprites/missions/chamados/Mouse.png" id="5_8jn2a"]
+[ext_resource type="Texture2D" uid="uid://bbtxpd46pijjg" path="res://sprites/missions/chamados/MouseHover.png" id="6_78xm2"]
+[ext_resource type="Texture2D" uid="uid://cgc5pyaxes1ng" path="res://sprites/missions/chamados/Teclado.png" id="7_6q5ci"]
+[ext_resource type="Texture2D" uid="uid://dcn35f86l4tgj" path="res://sprites/missions/chamados/TecladoHover.png" id="8_4o10s"]
+[ext_resource type="Texture2D" uid="uid://ck2nutxw21rak" path="res://sprites/missions/chamados/Gabinete.png" id="9_o7m0u"]
+[ext_resource type="Texture2D" uid="uid://es4menwsq544" path="res://sprites/missions/chamados/GabineteHover.png" id="10_tqpkx"]
+[ext_resource type="Theme" uid="uid://btj22rnkf1acj" path="res://close.tres" id="11_78xm2"]
+[ext_resource type="Texture2D" uid="uid://cx4o5l3ljep2d" path="res://sprites/decoração/recepcao.png" id="12_6q5ci"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_khskd"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o10s"]
+texture = ExtResource("12_6q5ci")
+40:1/size_in_atlas = Vector2i(2, 3)
+40:1/0 = 0
+43:1/size_in_atlas = Vector2i(2, 3)
+43:1/0 = 0
+40:4/size_in_atlas = Vector2i(4, 3)
+40:4/0 = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ppa0"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vrjd"]
-bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m48o0"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="TileSet" id="TileSet_o7m0u"]
+sources/0 = SubResource("TileSetAtlasSource_4o10s")
 
 [node name="BancadaFuncionario" type="CanvasLayer" unique_id=1764510967]
 script = ExtResource("1_hhxae")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1061840007]
+[node name="BackGround" type="TextureRect" parent="." unique_id=1061840007]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -18.999998
 offset_right = 1272.0
-offset_bottom = 721.0
+offset_bottom = 702.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.24, 0.24)
-texture = ExtResource("2_khskd")
+texture = ExtResource("2_3vrjd")
 
-[node name="BtnFechar" type="Button" parent="." unique_id=888667336]
-offset_left = 354.0
-offset_top = 9.0
-offset_right = 388.0
+[node name="Equipamentos" type="Control" parent="." unique_id=509967996]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
 offset_bottom = 40.0
-text = "X"
 
-[node name="BtnMouse" type="Button" parent="." unique_id=932305972]
-offset_left = 283.0
-offset_top = 177.0
-offset_right = 291.0
-offset_bottom = 185.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_khskd")
+[node name="BtnMonitor" type="TextureButton" parent="Equipamentos" unique_id=1323696519]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 28.0
+offset_right = 269.0
+offset_bottom = 139.0
+texture_normal = ExtResource("3_m48o0")
+texture_hover = ExtResource("4_w1nmn")
 
-[node name="BtnTeclado" type="Button" parent="." unique_id=1435733250]
-offset_left = 199.0
-offset_top = 174.0
-offset_right = 207.0
-offset_bottom = 182.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_5ppa0")
+[node name="BtnMouse" type="TextureButton" parent="Equipamentos" unique_id=382164714]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 146.0
+offset_right = 287.0
+offset_bottom = 167.0
+texture_normal = ExtResource("5_8jn2a")
+texture_hover = ExtResource("6_78xm2")
 
-[node name="BtnMonitor" type="Button" parent="." unique_id=379500138]
-offset_left = 178.0
-offset_top = 99.0
-offset_right = 186.0
-offset_bottom = 107.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_3vrjd")
+[node name="BtnTeclado" type="TextureButton" parent="Equipamentos" unique_id=1862971367]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 142.0
+offset_right = 253.0
+offset_bottom = 172.0
+texture_normal = ExtResource("7_6q5ci")
+texture_hover = ExtResource("8_4o10s")
 
-[node name="BtnGabinete" type="Button" parent="." unique_id=277889975]
-offset_left = 310.0
-offset_top = 104.0
-offset_right = 318.0
-offset_bottom = 112.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_m48o0")
+[node name="BtnGabinete" type="TextureButton" parent="Equipamentos" unique_id=611146994]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 46.0
+offset_right = 102.0
+offset_bottom = 154.0
+texture_normal = ExtResource("9_o7m0u")
+texture_hover = ExtResource("10_tqpkx")
+
+[node name="BtnFechar" type="Button" parent="." unique_id=1978270738]
+offset_left = 380.0
+offset_top = 4.0
+offset_right = 396.0
+offset_bottom = 20.0
+theme = ExtResource("11_78xm2")
+text = "x"
+icon_alignment = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1126194223]
+tile_map_data = PackedByteArray(0, 0, 20, 0, 9, 0, 0, 0, 40, 0, 4, 0, 0, 0, 18, 0, 6, 0, 0, 0, 43, 0, 1, 0, 0, 0, 4, 0, 9, 0, 0, 0, 40, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_o7m0u")
+
+[connection signal="pressed" from="BtnFechar" to="." method="_on_btn_fechar_pressed"]

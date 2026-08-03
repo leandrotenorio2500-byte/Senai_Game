@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://otxo4w55qddg" path="res://Buttons_map.tres" id="4_valvg"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="5_j8ck1"]
 [ext_resource type="ButtonGroup" uid="uid://0jnruypxt8t7" path="res://button_group.tres" id="8_8504l"]
-[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="8_lqxdc"]
+[ext_resource type="Theme" uid="uid://btj22rnkf1acj" path="res://close.tres" id="9_8504l"]
 
 [sub_resource type="Animation" id="Animation_wnorl"]
 length = 0.001
@@ -328,30 +328,6 @@ Button/styles/hover = SubResource("StyleBoxFlat_lqxdc")
 Button/styles/normal = SubResource("StyleBoxFlat_4dnr7")
 Button/styles/pressed = SubResource("StyleBoxFlat_io3d6")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5f81"]
-bg_color = Color(0.8235294, 0, 0.11764706, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8504l"]
-bg_color = Color(0.8247356, 0, 0.11601872, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.11415807, 0.11415809, 0.11415807, 1)
-
-[sub_resource type="Theme" id="Theme_4dnr7"]
-Button/colors/font_color = Color(0.8329024, 0.832902, 0.83290213, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 15
-Button/fonts/font = ExtResource("8_lqxdc")
-Button/styles/hover = SubResource("StyleBoxFlat_k5f81")
-Button/styles/normal = SubResource("StyleBoxFlat_8504l")
-
 [node name="mapa_risco" type="CanvasLayer" unique_id=1704704291]
 process_mode = 3
 script = ExtResource("1_b7qg2")
@@ -366,7 +342,8 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 20.000122
+offset_top = 154.0
+offset_bottom = 174.00012
 texture = ExtResource("1_5yql7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=347853723]
@@ -387,8 +364,9 @@ modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
+offset_top = 132.0
 offset_right = 401.0
-offset_bottom = 220.00009
+offset_bottom = 352.0001
 theme = SubResource("Theme_j8ck1")
 
 [node name="Producao" type="Control" parent="Areas" unique_id=1208924594]
@@ -1099,7 +1077,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = SubResource("Theme_4dnr7")
+theme = ExtResource("9_8504l")
 text = "X"
 
 [connection signal="pressed" from="Legenda/Mecanico" to="." method="_on_mecanico_pressed"]

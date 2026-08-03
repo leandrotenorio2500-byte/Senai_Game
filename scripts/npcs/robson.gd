@@ -1,9 +1,9 @@
 extends "res://scripts/npc.gd"
 
 func _ready() -> void:
-	var npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
-	var npc_name = "Robson"
-	spritesheet = load("res://sprites/npcs/npc3.png")
+	npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
+	npc_name = "Robson"
+	idle_spritesheet = load("res://sprites/npcs/npc3.png")
 	hframes = 8
 	dialog_data = [
 		{

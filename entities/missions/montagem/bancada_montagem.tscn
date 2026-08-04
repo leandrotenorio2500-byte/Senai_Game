@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://0ysdpw238e1j"]
+
+[ext_resource type="Script" uid="uid://bi3ia64v25qxl" path="res://scripts/fase montagem/entities/bancada_montagem.gd" id="1_yrtk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgbsq"]
+
+[node name="BancadaMontagem" type="Area2D" unique_id=1652627992]
+collision_layer = 8192
+collision_mask = 2
+script = ExtResource("1_yrtk3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1398594543]
+shape = SubResource("RectangleShape2D_dgbsq")

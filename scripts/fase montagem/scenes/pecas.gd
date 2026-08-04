@@ -1,20 +1,25 @@
 extends Area2D
 
-# Z-Index padrão para quando a peça não estiver sendo arrastada
+@export var id_peca: String = ""
 @export var z_index_padrao: int = 10
 
-# Controle de Drag
 var arrastando: bool = false
 var offset_mouse: Vector2 = Vector2.ZERO
+var escala_original: Vector2 = Vector2.ONE
 
-# Gerenciamento de Alvos (Slot ou Bandeja)
 var slot_atual: Node2D = null
 var slot_detectado: Area2D = null
 var bandeja_detectada: Area2D = null
 
+@onready var btn_inspecionar: Button = $BtnInspecionar if has_node("BtnInspecionar") else null
+
 
 func _ready() -> void:
-	# Conecta os sinais nativos da Area2D
+	if id_peca == "":
+		id_peca = name
+		
+	escala_original = scale
+	
 	input_event.connect(_on_input_event)
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
@@ -22,20 +27,21 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if arrastando:
-		# Faz a peça seguir o movimento do cursor
-		global_position = get_global_mouse_position() - offset_mouse
+		# Usa a posição do mouse na TELA (Viewport) para evitar bugs com a Câmera do Player
+		global_position = get_viewport().get_mouse_position() - offset_mouse
 
 
-# 1. EVENTOS DE ENTRADA E CLIQUE DO MOUSE
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if _clicou_no_botao_inspecionar():
+			return
+
 		if event.pressed:
 			iniciar_arraste()
 			get_viewport().set_input_as_handled()
-		else:
-			if arrastando:
-				finalizar_arraste()
-				get_viewport().set_input_as_handled()
+		elif arrastando:
+			finalizar_arraste()
+			get_viewport().set_input_as_handled()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -44,55 +50,63 @@ func _unhandled_input(event: InputEvent) -> void:
 			finalizar_arraste()
 
 
-# 2. LÓGICA DE ARRASTAR E SOLTAR
+func _clicou_no_botao_inspecionar() -> bool:
+	if is_instance_valid(btn_inspecionar) and btn_inspecionar.visible:
+		return btn_inspecionar.get_global_rect().has_point(get_viewport().get_mouse_position())
+	return false
+
+
 func iniciar_arraste() -> void:
 	arrastando = true
-	offset_mouse = get_global_mouse_position() - global_position
-	z_index = 100 # Fica por cima de tudo na tela enquanto arrasta
+	offset_mouse = get_viewport().get_mouse_position() - global_position
 	
-	slot_atual = null
-	
-	# Muda para a raiz da cena para mover livremente
-	var cena_raiz = get_tree().current_scene
-	reparent(cena_raiz)
+	z_as_relative = false
+	z_index = 100
 
 
 func finalizar_arraste() -> void:
 	arrastando = false
+	z_as_relative = true
 	z_index = z_index_padrao
 	
-	# PRIO 1: Se soltou em cima de um Slot correto do computador
-	if slot_detectado != null:
+	if is_instance_valid(slot_detectado):
 		encaixar_no_slot(slot_detectado)
-	# PRIO 2: Se soltou em cima da Bandeja
-	elif bandeja_detectada != null:
+	elif is_instance_valid(bandeja_detectada):
 		guardar_na_bandeja(bandeja_detectada)
-	# PRIO 3: Se soltou na mesa/vazio
-	else:
-		slot_atual = null
 
 
-# 3. ENCAIXE E ACOPLAMENTO
 func encaixar_no_slot(novo_slot: Node2D) -> void:
+	if not is_instance_valid(novo_slot):
+		return
+
 	slot_atual = novo_slot
-	reparent(novo_slot)
-	global_position = novo_slot.global_position
+	reparent(novo_slot, false)
+	
+	position = Vector2.ZERO
 	rotation = 0
+	scale = escala_original
+	
+	var cena_principal = get_tree().root.get_node_or_null("BancadaMontagem")
+	if not cena_principal:
+		cena_principal = get_tree().current_scene
+		
+	if is_instance_valid(cena_principal) and cena_principal.has_method("verificar_conclusao_reparo"):
+		cena_principal.verificar_conclusao_reparo(id_peca)
 
 
 func guardar_na_bandeja(bandeja: Node2D) -> void:
+	if not is_instance_valid(bandeja):
+		return
+
 	slot_atual = null
-	# Virar filho da bandeja faz a peça andar junto quando a bandeja for movida
-	reparent(bandeja)
+	reparent(bandeja, false)
+	scale = escala_original
 
 
-# 4. DETECÇÃO DE COLISÃO COM SLOTS E BANDEJA
 func _on_area_entered(area: Area2D) -> void:
-	# Identifica se é o Slot correto para esta peça
-	if area.name == "Slot_" + self.name:
+	if area.name == "Slot_" + self.name or area.name == "Slot_" + id_peca:
 		slot_detectado = area
-	# Identifica se a área é a Bandeja
-	elif area.name == "Bandeja" or area.name.begins_with("Bandeja"):
+	elif area.name.begins_with("Bandeja"):
 		bandeja_detectada = area
 
 

@@ -26,6 +26,14 @@ size = Vector2(26.890625, 36.453133)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp8o2"]
 size = Vector2(68.64816, 68.634476)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c13ne"]
+bg_color = Color(0.39006102, 0.6261775, 0.020084, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.7566868, 0.8636596, 1.1551381e-06, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggp60"]
 size = Vector2(12.86985, 12.889748)
 
@@ -48,6 +56,7 @@ size = Vector2(21.586487, 29.68712)
 size = Vector2(107.85516, 165.35153)
 
 [node name="bancada_montagem" type="CanvasLayer" unique_id=1120222981]
+layer = 10
 script = ExtResource("1_ggp60")
 
 [node name="Bancada" type="TextureRect" parent="." unique_id=1561462811]
@@ -112,6 +121,13 @@ texture = ExtResource("3_xhjfg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/PlacaMae" unique_id=1022308137]
 shape = SubResource("RectangleShape2D_jp8o2")
 
+[node name="BtnInspecionar" type="Button" parent="Pecas_Disponiveis/PlacaMae" unique_id=2009134125]
+offset_left = 23.142593
+offset_top = 23.234344
+offset_right = 27.449127
+offset_bottom = 27.677658
+theme_override_styles/normal = SubResource("StyleBoxFlat_c13ne")
+
 [node name="Slots_PlacaMae" type="Node2D" parent="Pecas_Disponiveis/PlacaMae" unique_id=498000881]
 z_index = 10
 
@@ -149,6 +165,13 @@ texture = ExtResource("4_j1iqj")
 shape = SubResource("RectangleShape2D_c13ne")
 debug_color = Color(0.3764706, 0.6156863, 0, 0.41960785)
 
+[node name="BtnInspecionar" type="Button" parent="Pecas_Disponiveis/CPU" unique_id=1477865346]
+offset_left = -2.73909
+offset_top = -2.045456
+offset_right = 1.5674438
+offset_bottom = 2.3978577
+theme_override_styles/normal = SubResource("StyleBoxFlat_c13ne")
+
 [node name="RAM_1" type="Area2D" parent="Pecas_Disponiveis" unique_id=1650109999]
 z_index = 20
 position = Vector2(-1.2745056, 60.812965)
@@ -163,6 +186,21 @@ position = Vector2(-0.02355957, 0.008056641)
 shape = SubResource("RectangleShape2D_iedy5")
 debug_color = Color(0.3764706, 0.6156863, 0, 0.41960785)
 
+[node name="BtnInspecionar" type="Button" parent="Pecas_Disponiveis/RAM_1" unique_id=318601624]
+offset_left = -2.574936
+offset_top = -2.7567902
+offset_right = 1.7315979
+offset_bottom = 1.6865234
+theme_override_styles/normal = SubResource("StyleBoxFlat_c13ne")
+
+[node name="BtnInspecionar" type="Button" parent="Pecas_Disponiveis/RAM_1/BtnInspecionar" unique_id=629700530]
+layout_mode = 0
+offset_left = 23.142593
+offset_top = 23.234344
+offset_right = 27.449127
+offset_bottom = 27.677658
+theme_override_styles/normal = SubResource("StyleBoxFlat_c13ne")
+
 [node name="Fonte" type="Area2D" parent="Pecas_Disponiveis" unique_id=13260179]
 z_index = 10
 position = Vector2(23.545166, 50.827614)
@@ -176,6 +214,13 @@ texture = ExtResource("6_jp8o2")
 position = Vector2(-0.012908936, 0.003780365)
 shape = SubResource("RectangleShape2D_idwpi")
 
+[node name="BtnInspecionar" type="Button" parent="Pecas_Disponiveis/Fonte" unique_id=1580260479]
+offset_left = 5.6874847
+offset_top = -0.23973846
+offset_right = 9.994019
+offset_bottom = 4.203575
+theme_override_styles/normal = SubResource("StyleBoxFlat_c13ne")
+
 [node name="HDD" type="Area2D" parent="Pecas_Disponiveis" unique_id=947022154]
 z_index = 10
 position = Vector2(-24.53273, 86.599396)
@@ -188,6 +233,13 @@ texture = ExtResource("7_ggp60")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pecas_Disponiveis/HDD" unique_id=1316010898]
 position = Vector2(-0.010925293, 0.011314392)
 shape = SubResource("RectangleShape2D_2hqr1")
+
+[node name="BtnInspecionar" type="Button" parent="Pecas_Disponiveis/HDD" unique_id=499938142]
+offset_left = -3.7924194
+offset_top = 5.779251
+offset_right = 0.5141144
+offset_bottom = 10.222565
+theme_override_styles/normal = SubResource("StyleBoxFlat_c13ne")
 
 [node name="Bandeja" type="Area2D" parent="." unique_id=1199162539]
 position = Vector2(317.35535, 103.42383)

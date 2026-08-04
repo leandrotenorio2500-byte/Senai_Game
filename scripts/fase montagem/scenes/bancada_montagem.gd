@@ -18,21 +18,27 @@ extends CanvasLayer
 
 # 4. Referência ao Gabinete e Bandeja
 @onready var gabinete = $Gabinete
-@onready var bandeja = $Bandeja # Certifique-se de que o nó se chama Bandeja na cena
+@onready var bandeja = $Bandeja
 
-# Controle de Arraste do Gabinete
+# Configurações do Diálogo
+var nome_npc: String = "Diagnóstico de Hardware"
+var faceset_npc: String = "res://sprites/npcs/npc3_dialog.png"
+var _processando_clique: bool = false
+
+# Controle de Arraste
 var arrastando_gabinete: bool = false
 var offset_mouse_gabinete: Vector2 = Vector2.ZERO
-
-# Controle de Arraste da Bandeja
 var arrastando_bandeja: bool = false
 var offset_mouse_bandeja: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
-	montar_computador_inicial()
+	# Define a camada deste CanvasLayer para 1 (garante que a UI do DialogManager em camada superior apareça na frente)
+	self.layer = 1
 	
-	# Conecta os eventos de clique do Gabinete e da Bandeja
+	montar_computador_inicial()
+	conectar_botoes_inspecao()
+	
 	if gabinete is Area2D:
 		gabinete.input_event.connect(_on_gabinete_input_event)
 	
@@ -41,11 +47,9 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	# Movimentação do Gabinete
 	if arrastando_gabinete:
 		gabinete.global_position = gabinete.get_global_mouse_position() - offset_mouse_gabinete
 	
-	# Movimentação da Bandeja (tudo que estiver solto dentro dela vai se mover junto)
 	if arrastando_bandeja:
 		bandeja.global_position = bandeja.get_global_mouse_position() - offset_mouse_bandeja
 
@@ -62,7 +66,11 @@ func montar_computador_inicial() -> void:
 
 
 func encaixar_peca_no_slot(peca: Node2D, slot: Node2D) -> void:
-	peca.reparent(slot)
+	if not is_instance_valid(peca) or not is_instance_valid(slot):
+		push_error("[ERRO MONTAGEM] Peça ou Slot inválido!")
+		return
+		
+	peca.reparent(slot, false)
 	peca.position = Vector2.ZERO
 	peca.rotation = 0
 	
@@ -74,9 +82,80 @@ func encaixar_peca_no_slot(peca: Node2D, slot: Node2D) -> void:
 			var escala_x = shape_slot.size.x / shape_peca.size.x
 			var escala_y = shape_slot.size.y / shape_peca.size.y
 			peca.scale = Vector2(escala_x, escala_y)
+			
+			if "escala_original" in peca:
+				peca.escala_original = peca.scale
 
 
-# --- ARRASTE DO GABINETE ---
+# --- SISTEMA DE INSPEÇÃO POR BOTÃO ---
+
+func conectar_botoes_inspecao() -> void:
+	var pecas = [placa_mae, fonte, hdd, cpu, ram_1]
+	for peca in pecas:
+		if is_instance_valid(peca):
+			var btn = peca.get_node_or_null("BtnInspecionar") as Button
+			if btn:
+				btn.focus_mode = Control.FOCUS_NONE
+				btn.mouse_filter = Control.MOUSE_FILTER_STOP
+				
+				# Desconecta para evitar conexões duplicadas
+				if btn.pressed.is_connected(_on_botao_inspecionar_pressed):
+					btn.pressed.disconnect(_on_botao_inspecionar_pressed)
+					
+				btn.pressed.connect(_on_botao_inspecionar_pressed.bind(peca))
+				print("[OK] Botão de inspeção conectado na peça: ", peca.name)
+			else:
+				print("[AVISO] 'BtnInspecionar' não encontrado em: ", peca.name)
+
+
+func _on_botao_inspecionar_pressed(peca_alvo: Node2D) -> void:
+	print("[INSPEÇÃO] Botão pressionado para a peça: ", peca_alvo.name)
+	
+	if _processando_clique:
+		return
+	_processando_clique = true
+
+	var texto_fala: String = ""
+	var quest = QuestManager.obter_missao("manutencao_bancada") as QuestManutencao
+
+	if not quest:
+		print("[ALERTA] Nenhuma QuestManutencao 'manutencao_bancada' ativa!")
+		texto_fala = "Você inspecionou " + peca_alvo.name + ". Tudo parece em ordem."
+	else:
+		var id_peca_clicada = peca_alvo.name.to_lower()
+		var peca_defeito = quest.obter_peca_necessaria().to_lower()
+		
+		var eh_peca_com_defeito = false
+		if ("fonte" in id_peca_clicada and "fonte" in peca_defeito) \
+		or (("ram" in id_peca_clicada or "memoria" in id_peca_clicada) and "ram" in peca_defeito) \
+		or (("sata" in id_peca_clicada or "hdd" in id_peca_clicada or "cabo" in id_peca_clicada) and ("hdd" in peca_defeito or "cabo" in peca_defeito)) \
+		or ("cpu" in id_peca_clicada and "cpu" in peca_defeito) \
+		or ("placa" in id_peca_clicada and "placa" in peca_defeito):
+			eh_peca_com_defeito = true
+
+		if eh_peca_com_defeito:
+			quest.identificar_defeito()
+			texto_fala = "Você inspecionou " + peca_alvo.name + " e confirmou: ESTÁ COM DEFEITO! Vá ao estoque buscar a peça nova."
+		else:
+			texto_fala = "Você inspecionou " + peca_alvo.name + ": Esta peça está funcionando perfeitamente."
+
+	var dialog_data: Array[Dictionary] = [
+		{
+			"title": nome_npc,
+			"dialog": texto_fala,
+			"faceset": faceset_npc
+		}
+	]
+	
+	DialogManager.start_dialog(dialog_data)
+	
+	if DialogManager.has_signal("dialog_ended"):
+		await DialogManager.dialog_ended
+		
+	_processando_clique = false
+
+
+# --- ARRASTE DO GABINETE E BANDEJA ---
 
 func _on_gabinete_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -90,8 +169,6 @@ func _on_gabinete_input_event(_viewport: Node, event: InputEvent, _shape_idx: in
 				get_viewport().set_input_as_handled()
 
 
-# --- ARRASTE DA BANDEJA ---
-
 func _on_bandeja_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -104,7 +181,6 @@ func _on_bandeja_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 				get_viewport().set_input_as_handled()
 
 
-# Soltar o clique fora da colisão cancela os arrastes
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if not event.pressed:

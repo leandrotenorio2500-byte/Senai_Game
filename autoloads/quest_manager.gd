@@ -11,6 +11,7 @@ func _ready() -> void:
 	# 1. Registra as missões do jogo
 	_registrar_missao(QuestIdentificarRiscos.new())
 	_registrar_missao(QuestChamados.new())
+	_registrar_missao(QuestManutencao.new())
 	
 	# 2. Executa a checagem inicial assim que o jogo carrega
 	_verificar_missoes_iniciais()

@@ -12,6 +12,7 @@ shadow_size = 0
 shadow_offset = Vector2(0.235, 0.375)
 
 [node name="DialogScreen" type="Control" unique_id=1501295445]
+z_index = 4096
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5

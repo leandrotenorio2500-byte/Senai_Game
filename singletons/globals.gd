@@ -157,3 +157,16 @@ func _formatar_nome_item(id_item: String) -> String:
 		"memoria_ram": return "Pente de Memória RAM"
 		"cabo_rede": return "Cabo de Rede"
 		_: return id_item.replace("_", " ").capitalize()
+		
+# ----------------------------------------------------
+# SISTEMA PRÓPRIO DA MISSÃO DE MANUTENÇÃO
+# ----------------------------------------------------
+func manutencao_formatar_nome_peca(id_peca: String) -> String:
+	match id_peca:
+		"fonte_queimada": return "Fonte ATX Queimada"
+		"ram_defeituosa": return "Memória RAM Defeituosa"
+		"cabo_desconectado": return "Cabo SATA Desconectado"
+		"fonte_nova": return "Fonte ATX Nova"
+		"memoria_ram_nova": return "Pente de Memória RAM Novo"
+		"cabo_sata_novo": return "Cabo SATA Novo"
+		_: return id_peca.replace("_", " ").capitalize()

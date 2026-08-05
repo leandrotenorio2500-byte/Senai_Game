@@ -120,8 +120,9 @@ offset_left = -21.0
 offset_top = -2.0
 offset_right = 17.0
 offset_bottom = 4.0
-text = "Aperte (Enter)"
+text = "Entrar"
 label_settings = SubResource("LabelSettings_w7sw2")
+horizontal_alignment = 1
 
 [node name="Ding" type="AudioStreamPlayer" parent="." unique_id=1210146170]
 stream = ExtResource("4_kccnt")

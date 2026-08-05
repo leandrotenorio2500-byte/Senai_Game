@@ -1,11 +1,8 @@
 extends "res://scripts/npc.gd"
 
-
 var dialogo_empresa: Array[Dictionary]
 
-
 var dialogo_mapa_risco_explicacao: Array[Dictionary]
-
 
 func _ready() -> void:
 
@@ -27,11 +24,9 @@ func _ready() -> void:
 		if not quest_riscos.finalizada.is_connected(_on_quest_state_changed):
 			quest_riscos.finalizada.connect(_on_quest_state_changed)
 
-
 	atualizar_dialogo()
 
 	super._ready()
-
 
 func atualizar_dialogo():
 
@@ -72,7 +67,6 @@ func atualizar_dialogo():
 			}
 		]
 
-
 func get_dialog_options() -> Array:
 
 	return [
@@ -98,7 +92,6 @@ func get_dialog_options() -> Array:
 		}
 	]
 
-
 func on_dialog_option_selected(option: Dictionary) -> void:
 
 
@@ -107,10 +100,8 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 		"mapa":
 			DialogManager.show_dialog(get_dialogo_mapa())
 
-
 		"empresa":
 			DialogManager.show_dialog(get_dialogo_empresa())
-
 
 		"missao":
 
@@ -119,10 +110,8 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 
 			DialogManager.end_conversation()
 
-
 		"exit":
 			DialogManager.end_conversation()
-
 
 
 func get_dialogo_mapa() -> Array[Dictionary]:
@@ -142,7 +131,6 @@ func get_dialogo_mapa() -> Array[Dictionary]:
 		}
 	]
 
-
 func get_dialogo_empresa() -> Array[Dictionary]:
 
 	return [
@@ -160,12 +148,9 @@ func get_dialogo_empresa() -> Array[Dictionary]:
 		}
 	]
 
-
-
 func _on_dialog_completed() -> void:
 
 	super._on_dialog_completed()
-
 
 func _on_quest_state_changed(quest_id: String) -> void:
 

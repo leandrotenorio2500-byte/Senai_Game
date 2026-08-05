@@ -198,3 +198,12 @@ func has_dialog_options() -> bool:
 
 func get_dialog_options() -> Array:
 	return []
+	
+func tem_outra_missao_ativa(quest_id: String) -> bool:
+
+	for q_id in QuestManager.missoes.keys():
+
+		if q_id != quest_id and QuestManager.obter_estado(q_id) == "em_andamento":
+			return true
+
+	return false

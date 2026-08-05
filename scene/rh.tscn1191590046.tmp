@@ -333,6 +333,11 @@ position = Vector2(230, 131)
 next_level = "uid://bxkccy4g7ui4i"
 next_player_position = Vector2(55, 147)
 
+[node name="LevelChanger2" parent="." unique_id=477304737 instance=ExtResource("14_xlwon")]
+visible = false
+position = Vector2(163, 142)
+next_level = "uid://dei5o2ar8cxul"
+
 [node name="DialogHUD" type="CanvasLayer" parent="." unique_id=1032829984]
 
 [node name="mapa_risco" parent="." unique_id=1704704291 instance=ExtResource("17_31a03")]

@@ -29,8 +29,9 @@ offset_left = -18.0
 offset_top = -15.0
 offset_right = 20.0
 offset_bottom = -3.0
-text = "Aperte (Enter)"
+text = "Entrar"
 label_settings = SubResource("LabelSettings_07uvj")
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

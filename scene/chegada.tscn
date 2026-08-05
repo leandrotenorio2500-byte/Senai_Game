@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="21_e3qm6"]
 [ext_resource type="Script" uid="uid://pn7h8p2hoykj" path="res://scripts/npcs/robson.gd" id="22_j77hi"]
 [ext_resource type="Script" uid="uid://dggt2erjb4lfo" path="res://scripts/npcs/serana.gd" id="23_uskk0"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="24_3cq5m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mfesy"]
 texture = ExtResource("5_h5ou5")
@@ -153,6 +154,11 @@ sources/7 = SubResource("TileSetAtlasSource_3kkbq")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xctcq"]
 size = Vector2(20, 209)
 
+[sub_resource type="Theme" id="Theme_sn77u"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 3
+Label/fonts/font = ExtResource("24_3cq5m")
+
 [node name="Chegada" type="Node2D" unique_id=1695094910]
 script = ExtResource("1_h5ou5")
 
@@ -178,7 +184,7 @@ tile_map_data = PackedByteArray("AAA/AAwABAADAAMAAABAAAwABAACAAMAAABBAAwABAADAAM
 tile_set = ExtResource("3_c5an2")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1687906122]
-tile_map_data = PackedByteArray("AABNAAsAAQAAAAAAAAAoAAsAAAAZAAcAAAAaAAsAAAANAAYAAAACAAsAAAAKAAAAAAAzAAsAAAAEAAQAAAAUAAoAAAAGAAYAAAAYAAkAAAAGAAYAAAAZAAoAAAAGAAYAAAAEAAoAAAAGAAYAAAAAAAkAAAAGAAYAAAAjAAoAAAAGAAYAAAAsAAoAAAAGAAYAAAA4AAoAAAAGAAYAAAA1AAoAAAABAAYAAAAuAAoAAAABAAYAAAAIAAoAAAAcAAAAAAAVAAoAAAAcAAAAAAAiAAoAAAAcAAAAAAAxAAoAAAAcAAAAAABHAAoAAAAcAAAAAAAHAAsAAAAEAAEAAAANAAsAAAABAAEAAAAVAAsAAAABAAEAAAAdAAsAAAAHAAEAAAAgAAsAAAABAAEAAAAiAAsAAAABAAEAAAAvAAsAAAAHAAEAAAAuAAsAAAAEAAEAAAA0AAsAAAABAAEAAAA2AAsAAAAHAAEAAAAyAAsAAAAEAAEAAABKAAsAAAAEAAEAAABJAAsAAAAHAAEAAABIAAsAAAAHAAEAAABMAAsAAAAHAAEAAABbAAsAAAAHAAEAAABaAAsAAAAHAAEAAABeAAsAAAAHAAEAAABEAAsAAAAEAAQAAABBAAoAAAABAAYAAAAfAAoAAAABAAYAAAAQAAsAAAABAAEAAAARAAoAAAAfAAMAAAALAAsAAAATAAAAAAAUAAsAAAAEAAEAAAA=")
+tile_map_data = PackedByteArray("AABNAAsAAQAAAAAAAAAoAAsAAAAZAAcAAAAaAAsAAAANAAYAAAACAAsAAAAKAAAAAAAzAAsAAAAEAAQAAAAUAAoAAAAGAAYAAAAYAAkAAAAGAAYAAAAZAAoAAAAGAAYAAAAEAAoAAAAGAAYAAAAAAAkAAAAGAAYAAAAjAAoAAAAGAAYAAAAsAAoAAAAGAAYAAAA4AAoAAAAGAAYAAAA1AAoAAAABAAYAAAAuAAoAAAABAAYAAAAIAAoAAAAcAAAAAAAVAAoAAAAcAAAAAAAiAAoAAAAcAAAAAAAxAAoAAAAcAAAAAABHAAoAAAAcAAAAAAAHAAsAAAAEAAEAAAANAAsAAAABAAEAAAAVAAsAAAABAAEAAAAdAAsAAAAHAAEAAAAgAAsAAAABAAwAAAAiAAsAAAABAAEAAAAvAAsAAAAHAAEAAAAuAAsAAAAEAAEAAAA0AAsAAAABAAEAAAA2AAsAAAAHAAEAAAAyAAsAAAAEAAEAAABKAAsAAAAEAAEAAABJAAsAAAAHAAEAAABIAAsAAAAHAAEAAABMAAsAAAAHAAEAAABbAAsAAAAHAAEAAABaAAsAAAAHAAEAAABeAAsAAAAHAAEAAABEAAsAAAAEAAQAAABBAAoAAAABAAYAAAAfAAoAAAABAAYAAAAQAAsAAAABAAEAAAARAAoAAAAfAAMAAAALAAsAAAATAAAAAAAUAAsAAAAEAAEAAAA=")
 tile_set = ExtResource("4_070le")
 
 [node name="npc" type="TileMapLayer" parent="Tiles" unique_id=787642309]
@@ -278,13 +284,75 @@ offset_right = 27.0
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=733607041]
 
 [node name="Robson" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("21_e3qm6")]
-position = Vector2(425, 177)
+position = Vector2(425, 179)
 script = ExtResource("22_j77hi")
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1
 
 [node name="Serana" parent="NpcsInteractive" unique_id=1627819014 instance=ExtResource("21_e3qm6")]
-position = Vector2(582, 177)
+position = Vector2(582, 179)
 script = ExtResource("23_uskk0")
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1
 
 [node name="PauseMenu" parent="." unique_id=1287701451 instance=ExtResource("7_74gyu")]
+
+[node name="Control" type="Control" parent="." unique_id=994749461]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 9.0
+offset_right = 41.0
+offset_bottom = 49.0
+theme = SubResource("Theme_sn77u")
+
+[node name="Interagir" type="Label" parent="Control" unique_id=286643621]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 145.0
+offset_right = 589.0
+offset_bottom = 168.0
+text = "Interagir"
+
+[node name="Pular" type="Label" parent="Control" unique_id=1806380509]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 144.0
+offset_right = 517.0
+offset_bottom = 148.0
+text = "Pular"
+
+[node name="Direita" type="Label" parent="Control" unique_id=1991980499]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 151.0
+offset_right = 503.0
+offset_bottom = 158.0
+theme_override_constants/line_spacing = -1
+text = "Ir para
+direira"
+
+[node name="Esquerda" type="Label" parent="Control" unique_id=1728949136]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 162.0
+offset_right = 540.0
+offset_bottom = 169.0
+theme_override_constants/line_spacing = -1
+text = "Ir para
+esquerda"
+
+[node name="Baixo" type="Label" parent="Control" unique_id=664467859]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 171.0
+offset_right = 523.0
+offset_bottom = 175.0
+text = "Agachar"
 
 [editable path="LevelChanger"]

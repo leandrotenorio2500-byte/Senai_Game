@@ -1,4 +1,5 @@
 extends Control
+class_name QuestAnaliseCurriculos
 
 @onready var reaction = $Feedback/Reaction
 

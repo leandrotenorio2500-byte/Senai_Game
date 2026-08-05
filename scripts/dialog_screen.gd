@@ -24,28 +24,31 @@ func _ajustar_nome() -> void:
 func start_dialog() -> void:
 	_show_dialog()
 
-func _process(delta: float) -> void:
+func _unhandled_input(event):
 
-	# Digitação
-	if _typing:
-		_timer += delta
-
-		if _timer >= TEXT_SPEED:
-			_timer = 0
-
-			_visible_chars += 1
-			_dialog.visible_characters = _visible_chars
-
-			if _visible_chars >= _dialog.get_total_character_count():
-				_typing = false
-
-	# Entrada do jogador
-	if Input.is_action_just_pressed("interect"):
+	if event.is_action_pressed("interect"):
 
 		if _typing:
 			_finish_typing()
 		else:
 			_next_dialog()
+
+		get_viewport().set_input_as_handled()
+
+func _process(delta):
+
+	if !_typing:
+		return
+
+	_timer += delta
+
+	if _timer >= TEXT_SPEED:
+		_timer = 0.0
+		_visible_chars += 1
+		_dialog.visible_characters = _visible_chars
+
+		if _visible_chars >= _dialog.get_total_character_count():
+			_typing = false
 
 func _show_dialog() -> void:
 

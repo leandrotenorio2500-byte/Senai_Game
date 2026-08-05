@@ -2,7 +2,7 @@ extends Node2D
 
 var acertos := 0
 var indice_pergunta := 0
-var tempo_leitura := 1
+var tempo_leitura := 5
 var tempo_resposta := 20
 var tempo_restante := 5.0
 var cronometro_ativo := false
@@ -19,9 +19,59 @@ var estado = EstadoQuiz.LEITURA
 
 var perguntas = [
 	{
-		"background": preload("res://sprites/BACKGROUND/estacao1.png"),
+		"background": preload("res://sprites/BACKGROUND/estacao4.png"),
 
-		"pergunta": "Você foi designado para atuar em uma área de construção civil. Qual conjunto de EPIs é mais adequado para essa atividade?",
+		"pergunta": "Um jovem aprendiz acompanha a equipe durante uma manutenção em uma plataforma elevada. Qual EPI o profissional responsável deve utilizar para prevenção de quedas?",
+
+		"alternativas": [
+			{
+				"normal": preload("res://Buttons/button5normal.png"),
+				"hover": preload("res://Buttons/button5hover.png"),
+				"pressed": preload("res://Buttons/button5pressed.png"),
+				"nome": "Óculos de proteção",
+				"descricao": [
+					"Óculos de proteção",
+				]
+			},
+			{
+				"normal": preload("res://Buttons/button6normal.png"),
+				"hover": preload("res://Buttons/button6hover.png"),
+				"pressed": preload("res://Buttons/button6pressed.png"),
+				"nome": "Cinto de segurança tipo paraquedista",
+				"descricao": [
+					"Cinto de segurança tipo paraquedista",
+				]				
+			},
+			{
+				"normal": preload("res://Buttons/button8normal.png"),
+				"hover": preload("res://Buttons/button8hover.png"),
+				"pressed": preload("res://Buttons/button8pressed.png"),
+				"nome": "Colete refletivo",
+				"descricao": [
+					"Colete refletivo",
+				]
+			},
+			{
+				"normal": preload("res://Buttons/button7normal.png"),
+				"hover": preload("res://Buttons/button7hover.png"),
+				"pressed": preload("res://Buttons/button7pressed.png"),
+				"nome": "Capacete",
+				"descricao": [
+					"Capacete",
+				]
+			}
+		],
+		"correta": 1,
+		"feedback_correto":
+		"Muito bem! Trabalhos em altura exigem sistemas de proteção contra quedas.",
+
+		"feedback_errado":
+	    "O epi correto era o Cinto de segurança tipo paraquedista. Cada atividade exige EPIs específicos."
+	},
+	{
+		"background": preload("res://sprites/BACKGROUND/estacao2.png"),
+
+		"pergunta": "Antes de separar os materiais para um setor químico, o aprendiz precisa identificar qual luva é adequada para contato com produtos corrosivos.",
 
 		"alternativas": [
 			{
@@ -86,9 +136,9 @@ var perguntas = [
 	    "O kit correto era o de Construção. Cada atividade exige EPIs específicos."
 	},
 	{
-		"background": preload("res://sprites/BACKGROUND/estacao2.png"),
+		"background": preload("res://sprites/BACKGROUND/estacao5.png"),
 
-		"pergunta": "Você foi encaminhado para um setor onde são manipulados produtos químicos corrosivos. Qual conjunto de EPIs é mais adequado?",
+		"pergunta": "No primeiro dia de integração, o jovem aprendiz é levado para conhecer o setor de produção. Embora ele não vá operar nenhuma máquina, precisará caminhar por áreas onde há movimentação de equipamentos, ferramentas e materiais. Qual EPI continua sendo obrigatório durante essa visita?",
 
 		"alternativas": [
 			{
@@ -219,56 +269,7 @@ var perguntas = [
 		"feedback_errado":
 	    "O kit correto era o de Construção. Cada atividade exige EPIs específicos."
 	},
-		{
-		"background": preload("res://sprites/BACKGROUND/estacao4.png"),
-
-		"pergunta": "Um jovem aprendiz acompanha a equipe durante uma manutenção em uma plataforma elevada. Qual EPI o profissional responsável deve utilizar para prevenção de quedas?",
-
-		"alternativas": [
-			{
-				"normal": preload("res://Buttons/button5normal.png"),
-				"hover": preload("res://Buttons/button5hover.png"),
-				"pressed": preload("res://Buttons/button5pressed.png"),
-				"nome": "Óculos de proteção",
-				"descricao": [
-					"Óculos de proteção",
-				]
-			},
-			{
-				"normal": preload("res://Buttons/button6normal.png"),
-				"hover": preload("res://Buttons/button6hover.png"),
-				"pressed": preload("res://Buttons/button6pressed.png"),
-				"nome": "Cinto de segurança tipo paraquedista",
-				"descricao": [
-					"Cinto de segurança tipo paraquedista",
-				]				
-			},
-			{
-				"normal": preload("res://Buttons/button8normal.png"),
-				"hover": preload("res://Buttons/button8hover.png"),
-				"pressed": preload("res://Buttons/button8pressed.png"),
-				"nome": "Colete refletivo",
-				"descricao": [
-					"Colete refletivo",
-				]
-			},
-			{
-				"normal": preload("res://Buttons/button7normal.png"),
-				"hover": preload("res://Buttons/button7hover.png"),
-				"pressed": preload("res://Buttons/button7pressed.png"),
-				"nome": "Capacete",
-				"descricao": [
-					"Capacete",
-				]
-			}
-		],
-		"correta": 1,
-		"feedback_correto":
-		"Muito bem! Trabalhos em altura exigem sistemas de proteção contra quedas.",
-
-		"feedback_errado":
-	    "O epi correto era o Cinto de segurança tipo paraquedista. Cada atividade exige EPIs específicos."
-	},
+		
 ]
 
 @onready var botoes = [

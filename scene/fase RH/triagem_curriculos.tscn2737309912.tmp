@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_m5cup"]
 [ext_resource type="Script" uid="uid://dmy0hqjpeduhg" path="res://scripts/fase RH/painel_curriculos.gd" id="4_lcu7l"]
 [ext_resource type="Texture2D" uid="uid://vsfx1kfyliuu" path="res://scene/fase RH/folha.png" id="5_gr7qo"]
+[ext_resource type="Shader" uid="uid://djb7yyriwvgpl" path="res://scripts/Shaders/triagem_curriculos.gdshader" id="5_mpe81"]
 
 [sub_resource type="Theme" id="Theme_m5cup"]
 Label/colors/font_color = Color(6.180691e-05, 6.180692e-05, 6.180691e-05, 1)
@@ -25,90 +26,11 @@ Label/font_sizes/font_size = 5
 Label/fonts/font = ExtResource("3_m5cup")
 Label/styles/normal = null
 
-[sub_resource type="Theme" id="Theme_l64el"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m5cup"]
-bg_color = Color(0.13725491, 0.8745098, 0, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.019607844, 0.7372549, 0.019607844, 1)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-corner_detail = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kht8c"]
-bg_color = Color(0.105882354, 0.9372549, 0.09019608, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.019607844, 0.7372549, 0.019607844, 1)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-corner_detail = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqntl"]
-bg_color = Color(0.13725491, 0.8745098, 0, 1)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-
-[sub_resource type="Theme" id="Theme_cgwve"]
-Button/colors/font_color = Color(0.9471994, 0.9471994, 0.9471994, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 8
-Button/fonts/font = ExtResource("3_m5cup")
-Button/styles/hover = SubResource("StyleBoxFlat_m5cup")
-Button/styles/normal = SubResource("StyleBoxFlat_kht8c")
-Button/styles/pressed = SubResource("StyleBoxFlat_eqntl")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gr7qo"]
-bg_color = Color(0.8745098, 0.33333334, 0.10980392, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.6745098, 0.17254902, 0.10980392, 1)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mpe81"]
-bg_color = Color(0.8745098, 0.33333334, 0.10980392, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.827451, 0.08627451, 0.08627451, 1)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goqej"]
-bg_color = Color(0.84279007, 0.36271837, 0.23152265, 1)
-corner_radius_top_left = 22
-corner_radius_top_right = 22
-corner_radius_bottom_right = 22
-corner_radius_bottom_left = 22
-corner_detail = 12
-
-[sub_resource type="Theme" id="Theme_goqej"]
-Button/colors/font_color = Color(0.856927, 0.85692734, 0.85692716, 1)
-Button/colors/font_hover_color = Color(1, 1, 1, 1)
-Button/font_sizes/font_size = 8
-Button/fonts/font = ExtResource("3_m5cup")
-Button/styles/hover = SubResource("StyleBoxFlat_gr7qo")
-Button/styles/normal = SubResource("StyleBoxFlat_mpe81")
-Button/styles/pressed = SubResource("StyleBoxFlat_goqej")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_goqej"]
+shader = ExtResource("5_mpe81")
+shader_parameter/glow_color = Color(0, 0, 0, 1)
+shader_parameter/strength = 0.0
+shader_parameter/glow_size = 12.0
 
 [node name="TriagemCurriculos" type="Control" unique_id=711394065]
 layout_mode = 3
@@ -173,30 +95,25 @@ vertical_alignment = 1
 
 [node name="escolaridade" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=1842155710]
 layout_mode = 2
-theme_override_constants/line_spacing = 0
 text = "escolaridade"
 autowrap_mode = 2
 
 [node name="curso" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=570779403]
 layout_mode = 2
-theme_override_constants/line_spacing = 0
 text = "curso"
 autowrap_mode = 2
 
 [node name="habilidades" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=1982446256]
 layout_mode = 2
-theme_override_constants/line_spacing = 0
 text = "habilidades"
 autowrap_mode = 2
 
 [node name="horario" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=239642691]
 layout_mode = 2
-theme_override_constants/line_spacing = 0
 text = "horario"
 
 [node name="experiencia" type="Label" parent="PainelRequisitos/VBoxContainer" unique_id=563623349]
 layout_mode = 2
-theme_override_constants/line_spacing = 0
 text = "experi
 "
 autowrap_mode = 2
@@ -210,13 +127,14 @@ offset_bottom = 173.0
 theme = SubResource("Theme_4mrg3")
 script = ExtResource("4_lcu7l")
 
-[node name="border" type="ColorRect" parent="PainelCurriculos" unique_id=131427634]
+[node name="glow" type="ColorRect" parent="PainelCurriculos" unique_id=1294092378]
+material = SubResource("ShaderMaterial_goqej")
 layout_mode = 0
 offset_left = -5.0
 offset_top = -26.0
 offset_right = 103.0
-offset_bottom = 111.0
-theme = SubResource("Theme_l64el")
+offset_bottom = 110.0
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="PainelCurriculos" unique_id=1013585829]
 layout_mode = 0
@@ -271,16 +189,6 @@ autowrap_mode = 2
 layout_mode = 2
 text = "HORARIO"
 
-[node name="aprovado" type="Button" parent="." unique_id=962169720]
-visible = false
-layout_mode = 0
-offset_left = 295.0
-offset_top = 157.0
-offset_right = 340.0
-offset_bottom = 202.0
-theme = SubResource("Theme_cgwve")
-text = "Aprovar"
-
 [node name="Feedback" type="Control" parent="." unique_id=1379456592]
 visible = false
 anchors_preset = 0
@@ -294,17 +202,3 @@ offset_left = 344.0
 offset_top = 5.0
 offset_right = 384.0
 offset_bottom = 45.0
-
-[node name="reprovado" type="Button" parent="." unique_id=932844313]
-visible = false
-layout_mode = 0
-offset_left = 131.0
-offset_top = 159.99998
-offset_right = 176.0
-offset_bottom = 204.99998
-rotation = -0.0025035837
-theme = SubResource("Theme_goqej")
-text = "Reprovar"
-
-[connection signal="pressed" from="aprovado" to="." method="_on_aprovado_pressed"]
-[connection signal="pressed" from="reprovado" to="." method="_on_reprovado_pressed"]

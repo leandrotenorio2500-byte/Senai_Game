@@ -1,0 +1,262 @@
+[gd_scene format=3 uid="uid://bdmftb3l5ukk3"]
+
+[ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="1_0i6jd"]
+[ext_resource type="Script" uid="uid://dyxrpm2smwd7x" path="res://scripts/creditos.gd" id="1_1nh6l"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="2_fpssn"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="4_wnb2h"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="5_wnb2h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tn4p5"]
+font = ExtResource("2_fpssn")
+font_size = 24
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_1nh6l"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 2
+Label/font_sizes/font_size = 13
+Label/fonts/font = ExtResource("2_fpssn")
+
+[sub_resource type="Theme" id="Theme_wnb2h"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 1
+Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("2_fpssn")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6xng"]
+bg_color = Color(0.8235294, 0.7294118, 1, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agckt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aedtt"]
+bg_color = Color(0.8235294, 0.7294118, 1, 0)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvgea"]
+bg_color = Color(1, 1, 1, 0)
+border_color = Color(1, 1, 1, 0)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_ug1lg"]
+default_font = ExtResource("4_wnb2h")
+default_font_size = 8
+Button/colors/font_color = Color(0.82947975, 0.8294798, 0.82947975, 1)
+Button/font_sizes/font_size = 17
+Button/fonts/font = ExtResource("4_wnb2h")
+Button/styles/focus = SubResource("StyleBoxFlat_u6xng")
+Button/styles/hover = SubResource("StyleBoxFlat_agckt")
+Button/styles/normal = SubResource("StyleBoxFlat_aedtt")
+Button/styles/pressed = SubResource("StyleBoxFlat_nvgea")
+
+[node name="Control" type="Control" unique_id=1413702566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1nh6l")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1563800299]
+modulate = Color(0.5096075, 0.40741596, 0.70086193, 1)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0i6jd")
+
+[node name="Créditos" type="Label" parent="." unique_id=1559963911]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 14.0
+offset_right = 275.0
+offset_bottom = 46.0
+text = "-CREDITOS-"
+label_settings = SubResource("LabelSettings_tn4p5")
+
+[node name="Marketing" type="VBoxContainer" parent="." unique_id=1703101429]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 49.0
+offset_right = 123.0
+offset_bottom = 111.0
+
+[node name="Grupo" type="Label" parent="Marketing" unique_id=797545205]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_1nh6l")
+text = "Marketing"
+
+[node name="Integrantes" type="VBoxContainer" parent="Marketing" unique_id=336822134]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Marketing/Integrantes" unique_id=818395437]
+layout_mode = 2
+theme = SubResource("Theme_wnb2h")
+text = "Allessandra Evely Alves da Silva
+Hosanna Maria Rogério da Silva
+Lavinya Gabrieli dos Santos Ataíde
+Vitória Hillary Morais Barbosa"
+
+[node name="Art e design" type="VBoxContainer" parent="." unique_id=2100523204]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 42.0
+offset_right = 390.0
+offset_bottom = 147.0
+
+[node name="Grupo" type="Label" parent="Art e design" unique_id=929551039]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_1nh6l")
+text = "Arte e Design"
+
+[node name="Integrantes" type="VBoxContainer" parent="Art e design" unique_id=2601465]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Art e design/Integrantes" unique_id=1449224138]
+layout_mode = 2
+theme = SubResource("Theme_wnb2h")
+text = "Anthony Albuquerque Gomes Santos
+Eduardo Mário Umbelino dos Santos
+Hugo Gabriel Penhafiel Pinheiro
+Júlia Kamily de Oliveira Silva
+Leandro Tenório da Silva
+Ranny Ketilyn da Silva Moreira
+Wanda Nathaly Fidelix Silva"
+
+[node name="Programacao" type="VBoxContainer" parent="." unique_id=116872765]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 151.0
+offset_right = 388.0
+offset_bottom = 196.0
+
+[node name="Grupo" type="Label" parent="Programacao" unique_id=1563444875]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_1nh6l")
+text = "Programação"
+
+[node name="Integrantes" type="VBoxContainer" parent="Programacao" unique_id=1943043375]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Programacao/Integrantes" unique_id=1352648881]
+layout_mode = 2
+theme = SubResource("Theme_wnb2h")
+text = "Daniel Filipe Duarte Araújo de Morais 
+Anthony Albuquerque Gomes Santos
+Hugo Gabriel Penhafiel Pinheiro"
+
+[node name="Roteiro" type="VBoxContainer" parent="." unique_id=1280539467]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 120.0
+offset_right = 123.0
+offset_bottom = 185.0
+
+[node name="Grupo" type="Label" parent="Roteiro" unique_id=184279695]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_1nh6l")
+text = "Roteiro"
+
+[node name="Integrantes" type="VBoxContainer" parent="Roteiro" unique_id=876464039]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Roteiro/Integrantes" unique_id=1570587242]
+layout_mode = 2
+theme = SubResource("Theme_wnb2h")
+text = "David Gabryel Teixeira dos Santos
+Guilherme Souza Pires
+Lavinya Gabrieli dos Santos Ataíde
+Livia Beatriz da Silva Costa
+Merielly Raiany Cardoso da Silva"
+
+[node name="Audio" type="VBoxContainer" parent="." unique_id=2090877530]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 52.0
+offset_right = 250.0
+offset_bottom = 127.0
+
+[node name="Grupo" type="Label" parent="Audio" unique_id=882899110]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_1nh6l")
+text = "Áudio"
+
+[node name="Integrantes" type="VBoxContainer" parent="Audio" unique_id=650322612]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Audio/Integrantes" unique_id=2086534748]
+layout_mode = 2
+theme = SubResource("Theme_wnb2h")
+text = "Júlio Cesar Serafim dos Santos
+Merielly Raiany Cardoso da Silva
+Lyvia Emanuelly Pereira dos Santos
+Daniele Karine Otavio da Silva
+Thiago Nunes de Lira
+Yasmin dos Santos Silva"
+
+[node name="Gestao" type="VBoxContainer" parent="." unique_id=874398683]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 139.0
+offset_right = 263.0
+offset_bottom = 204.0
+
+[node name="Grupo" type="Label" parent="Gestao" unique_id=1525969351]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = SubResource("Theme_1nh6l")
+text = "Gestão do Projeto"
+
+[node name="Integrantes" type="VBoxContainer" parent="Gestao" unique_id=141387693]
+layout_mode = 2
+
+[node name="Nome" type="Label" parent="Gestao/Integrantes" unique_id=169755345]
+layout_mode = 2
+theme = SubResource("Theme_wnb2h")
+text = "João Felipe Oliveira Leandro
+Daniel Filipe Duarte Araújo de Morais
+Jefferson Laertes Bastos da Silva
+Livia Beatriz da Silva Costa
+Gabriel Azevedo Costa"
+
+[node name="voltar" type="Button" parent="." unique_id=28672637]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 73.0
+offset_bottom = 27.0
+theme = SubResource("Theme_ug1lg")
+text = "Voltar"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("5_wnb2h")]
+
+[connection signal="pressed" from="voltar" to="." method="_on_voltar_pressed"]

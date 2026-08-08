@@ -31,7 +31,7 @@ ActivityManager="*uid://dnuoswjnn41ol"
 [display]
 
 window/size/viewport_width=400
-window/size/viewport_height=200
+window/size/viewport_height=220
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/layer_11="door"

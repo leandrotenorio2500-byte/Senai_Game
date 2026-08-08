@@ -127,6 +127,15 @@ func _unhandled_input(event):
 func _on_dialog_completed() -> void:
 	emit_signal("dialog_finished")
 	#print("Conversa concluída com sucesso com o NPC base!")
+	
+func pode_mostrar_opcoes_dialogo() -> bool:
+
+	# Durante a missão do mapa de risco,
+	# os diálogos dos setores são guiados pela missão
+	if QuestManager.obter_estado("identificar_riscos") == "em_andamento":
+		return false
+
+	return has_dialog_options()
 
 func missao_mapa_risco_ativa() -> bool:
 	return QuestManager.obter_estado("identificar_riscos") == "em_andamento"

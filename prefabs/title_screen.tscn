@@ -34,6 +34,7 @@ mouse_filter = 2
 script = ExtResource("1_agckt")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=2001037373]
+modulate = Color(0.38039216, 0.60784316, 1, 1)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
@@ -91,6 +92,7 @@ theme = ExtResource("4_u6xng")
 text = "iniciar jogo"
 
 [node name="skin_changer" type="Button" parent="Buttons_manager/VBoxContainer" unique_id=946387971]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0

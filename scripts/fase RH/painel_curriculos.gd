@@ -1,67 +1,197 @@
 extends Control
+class_name PainelCurriculo
 
-var arrastando = false
-var offset_mouse = Vector2.ZERO
-var posicao_inicial = Vector2.ZERO
+signal decisao_finalizada(aprovado: bool)
 
-const LIMITE = 150
+@export var limite_decisao := 150
+@export var velocidade_teclado := 900.0
 
-func _ready() -> void:
-	posicao_inicial = position
+@onready var border: ColorRect = $border
 
-func _process(delta: float) -> void:
+var arrastando := false
+var usando_teclado := false
+var bloqueado := false
+
+var offset_mouse := Vector2.ZERO
+var posicao_inicial := Vector2.ZERO
+
+func _ready():
+	posicao_inicial = global_position
+
+func _process(delta):
+
+	if bloqueado:
+		return
+
 	if arrastando:
 		global_position = get_global_mouse_position() - offset_mouse
-		var deslocamento = position.x - posicao_inicial.x
-		rotation_degrees = deslocamento * 0.05
-	
+
+	else:
+		movimento_teclado(delta)
+
+	atualizar_visual()
+	verificar_limite()
+
+func verificar_limite():
+
+	var deslocamento = global_position.x - posicao_inicial.x
+
+	if deslocamento >= limite_decisao:
+		aprovar()
+
+	elif deslocamento <= -limite_decisao:
+		reprovar()
+
+func movimento_teclado(delta):
+
+	var eixo = Input.get_axis("ui_left","ui_right")
+
+	if eixo != 0:
+		usando_teclado = true
+		position.x += eixo * velocidade_teclado * delta
+
+	elif usando_teclado:
+		usando_teclado = false
+		voltar_ao_inicio()
+
+func atualizar_visual():
+
+	var deslocamento = global_position.x - posicao_inicial.x
+
+
+	rotation_degrees = deslocamento * 0.05
+
+
+	var intensidade = clamp(
+		abs(deslocamento) / limite_decisao,
+		0.0,
+		1.0
+	)
+
+
+	if deslocamento > 0:
+
+		border.color = Color.WHITE.lerp(
+			Color.GREEN,
+			intensidade
+		)
+
+
+	elif deslocamento < 0:
+
+		border.color = Color(1, 1, 1, 0).lerp(
+			Color.RED,
+			intensidade
+		)
+
+
+	else:
+
+		border.color = Color(1, 1, 1, 0)
+
 func _gui_input(event):
+
+	if usando_teclado:
+		return
 
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
-
 			if event.pressed:
 				arrastando = true
-				offset_mouse = get_global_mouse_position() - global_position
+				offset_mouse = (
+					get_global_mouse_position()
+					- global_position
+				)
 
 			else:
 				arrastando = false
-				verificar_destino()
+				avaliar()
 
-func verificar_destino():
+func avaliar():
 
-	var deslocamento = position.x - posicao_inicial.x
+	var distancia = global_position.x - posicao_inicial.x
 
-	if deslocamento > LIMITE:
-		animar_aprovado()
+	if distancia >= limite_decisao:
+		aprovar()
 
-	elif deslocamento < -LIMITE:
-		animar_reprovado()
+	elif distancia <= -limite_decisao:
+		reprovar()
 
 	else:
-		var tween = create_tween()
+		voltar_ao_inicio()
 
-		tween.parallel().tween_property(self, "position", posicao_inicial, 0.25)
-		tween.parallel().tween_property(self, "rotation_degrees", 0, 0.25)
-		
-func animar_aprovado():
+func aprovar():
 
-	var tween = create_tween()
-
-	tween.parallel().tween_property(self, "position:x", 500, 0.3)
-	tween.parallel().tween_property(self, "rotation_degrees", 20, 0.3)
-
-	await tween.finished
-
-	get_parent().verificar(true)
-	
-func animar_reprovado():
+	bloqueado = true
 
 	var tween = create_tween()
 
-	tween.parallel().tween_property(self, "position:x", -500, 0.3)
-	tween.parallel().tween_property(self, "rotation_degrees", -20, 0.3)
+	tween.parallel().tween_property(
+		self,
+		"position:x",
+		500,
+		0.2
+	)
+
+	tween.parallel().tween_property(
+		self,
+		"rotation_degrees",
+		20,
+		0.2
+	)
 
 	await tween.finished
 
-	get_parent().verificar(false)
+	decisao_finalizada.emit(true)
+
+func reprovar():
+
+	bloqueado = true
+
+	var tween = create_tween()
+
+	tween.parallel().tween_property(
+		self,
+		"position:x",
+		-500,
+		0.2
+	)
+
+	tween.parallel().tween_property(
+		self,
+		"rotation_degrees",
+		-20,
+		0.2
+	)
+
+	await tween.finished
+
+	decisao_finalizada.emit(false)
+
+func voltar_ao_inicio():
+
+	var tween = create_tween()
+
+	tween.parallel().tween_property(
+		self,
+		"global_position",
+		posicao_inicial,
+		0.25
+	)
+
+	tween.parallel().tween_property(
+		self,
+		"rotation_degrees",
+		0,
+		0.25
+	)
+
+func resetar():
+
+	bloqueado = false
+
+	global_position = posicao_inicial
+
+	rotation_degrees = 0
+
+	border.modulate = Color.WHITE

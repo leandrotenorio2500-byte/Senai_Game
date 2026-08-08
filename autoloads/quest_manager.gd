@@ -10,6 +10,7 @@ var missoes: Dictionary = {}
 func _ready() -> void:
 	_registrar_missao(QuestIdentificarRiscos.new())
 	_registrar_missao(QuestChamados.new())
+	_registrar_missao(QuestChamados.new())
 	
 
 func register_hud(hud: CanvasLayer) -> void:
@@ -25,10 +26,19 @@ func _registrar_missao(quest: Quest) -> void:
 # ---------------- CONTROLE DE ESTADOS ----------------
 
 func iniciar_missao(quest_id: String) -> void:
-	if not missoes.has(quest_id): return
+
+	if not missoes.has(quest_id):
+		return
+
 	var quest: Quest = missoes[quest_id]
+
 	if quest.estado_atual == "nao_iniciada":
+
 		quest.iniciar()
+
+		if quest_id == "identificar_riscos":
+
+			Globals.preparar_apresentacao_mapa_risco()
 
 func progredir_missao(quest_id: String, dados: Dictionary = {}) -> void:
 	if not missoes.has(quest_id): return

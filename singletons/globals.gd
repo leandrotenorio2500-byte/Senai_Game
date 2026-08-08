@@ -181,3 +181,69 @@ func spawn_daniel():
 
 	daniel.global_position = player.global_position + Vector2(-32, -2)
 	daniel.iniciar_daniel()
+
+func preparar_apresentacao_mapa_risco() -> void:
+
+	# Setores que já aparecem liberados na demonstração
+	var setores_iniciais = [
+		"Recepcao",
+		"Vestiario",
+		"Diretoria",
+		"Refeitorio",
+		"Banheiro",
+		"Tecnico",
+		"RH"
+	]
+
+	for setor in setores_iniciais:
+		if setores_desbloqueados.has(setor):
+			setores_desbloqueados[setor] = true
+
+
+	# Criar registros vazios para esses setores
+	for setor in setores_iniciais:
+		if respostas_mapa.has(setor):
+			if respostas_mapa[setor].is_empty():
+
+				var pontos = []
+
+				# Quantidade de pontos de risco que aquele setor possui
+				match setor:
+					"Recepcao":
+						pontos = [
+							TipoRisco.NENHUM
+						]
+
+					"Diretoria":
+						pontos = [
+							TipoRisco.NENHUM,
+						]
+
+					"Refeitorio":
+						pontos = [
+							TipoRisco.NENHUM,
+							TipoRisco.NENHUM,
+						]
+						
+					"Vestiario":
+						pontos = [
+							TipoRisco.NENHUM,
+							TipoRisco.NENHUM,
+						]
+					"RH":
+						pontos = [
+							TipoRisco.NENHUM,
+						]
+					"Banheiro":
+						pontos = [
+							TipoRisco.NENHUM,
+							TipoRisco.NENHUM,
+						]
+					"Tecnico":
+						pontos = [
+							TipoRisco.NENHUM,
+							TipoRisco.NENHUM,
+						]
+
+
+				respostas_mapa[setor] = pontos

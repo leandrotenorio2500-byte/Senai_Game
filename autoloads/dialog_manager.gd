@@ -77,7 +77,7 @@ func _on_dialog_finished(dialog: DialogScreen) -> void:
 	if _current_npc:
 		_current_npc._on_dialog_completed()
 
-	if _current_npc != null and _current_npc.has_dialog_options():
+	if _current_npc != null and _current_npc.pode_mostrar_opcoes_dialogo():
 
 		_current_option_menu = _OPTION_MENU.instantiate()
 

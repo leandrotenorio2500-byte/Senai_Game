@@ -22,7 +22,7 @@ func _on_skin_changer_pressed() -> void:
 
 func _on_credits_pressed() -> void:
 	toque.play()
-	pass # Replace with function body.
+	Transicao.mudar_cena("res://prefabs/creditos.tscn")
 
 func _on_quit_button_pressed() -> void:
 	toque.play()

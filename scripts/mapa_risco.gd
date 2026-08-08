@@ -55,6 +55,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func abrir_mapa() -> void:
+
 	if esta_animando or visible:
 		return
 
@@ -62,8 +63,9 @@ func abrir_mapa() -> void:
 	visible = true
 
 	atualizar_posicao()
-	atualizar_setores()
+
 	carregar_respostas()
+	atualizar_setores()
 
 	Globals.mapa_aberto.emit()
 
@@ -71,7 +73,6 @@ func abrir_mapa() -> void:
 	await $AnimationPlayer.animation_finished
 
 	esta_animando = false
-
 
 func fechar_mapa() -> void:
 	if esta_animando or not visible:

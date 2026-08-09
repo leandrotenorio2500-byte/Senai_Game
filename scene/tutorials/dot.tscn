@@ -10,7 +10,7 @@ offset_right = 12.0
 offset_bottom = 12.0
 script = ExtResource("1_vtm7u")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1930937493]
+[node name="Bg" type="ColorRect" parent="." unique_id=1930937493]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

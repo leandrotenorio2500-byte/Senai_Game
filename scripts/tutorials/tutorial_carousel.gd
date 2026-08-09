@@ -3,7 +3,7 @@ extends Control
 signal tutorial_finished
 
 @export var steps: Array[PackedScene] = []
-@export var dot_scene: PackedScene
+var dot_scene: PackedScene = preload("res://scene/tutorials/dot.tscn")
 
 var current_step: int = 0
 var current_content: Node = null
@@ -12,7 +12,7 @@ var dots: Array = []
 @onready var content_host: Control = $RootVBox/MainRow/ContentHost
 @onready var btn_prev: Button = $RootVBox/MainRow/BtnPrev
 @onready var btn_next: Button = $RootVBox/MainRow/BtnNext
-@onready var dots_container: VBoxContainer = $RootVBox/DotsContainer
+@onready var dots_container: HBoxContainer = $RootVBox/DotsContainer
 
 func _ready() -> void:
 	btn_prev.pressed.connect(_on_btn_prev_pressed)

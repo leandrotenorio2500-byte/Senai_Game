@@ -8,8 +8,13 @@
 [node name="TutorialCarousel" unique_id=1745781544 instance=ExtResource("1_mb1ci")]
 script = ExtResource("2_6yha0")
 
+[node name="RootVBox" parent="." index="0" unique_id=172050970]
+offset_bottom = 19.0
+
 [node name="ContentHost" parent="RootVBox/MainRow" parent_id_path=PackedInt32Array(1138296807) index="1" unique_id=1745068752]
 theme = SubResource("Theme_6yha0")
 
-[node name="DotsContainer" parent="RootVBox" parent_id_path=PackedInt32Array(172050970) index="1" unique_id=795375904]
-size_flags_vertical = 0
+[node name="DotsContainer" parent="RootVBox" index="1" unique_id=390427251]
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 1

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://4ddctuc6dijq"]
+
+[ext_resource type="PackedScene" uid="uid://cmbueh3dx2ucu" path="res://scene/tutorials/tutorial_carousel.tscn" id="1_mb1ci"]
+[ext_resource type="Script" uid="uid://c2egaxkn1204k" path="res://scripts/fase RH/tutorial_rh.gd" id="2_6yha0"]
+
+[node name="TutorialCarousel" unique_id=1745781544 instance=ExtResource("1_mb1ci")]
+script = ExtResource("2_6yha0")

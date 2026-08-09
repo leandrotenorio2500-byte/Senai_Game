@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://k75i08npw1kb"]
+
+[node name="Etapa3" type="Node2D" unique_id=283848949]
+
+[node name="Label" type="Label" parent="." unique_id=1204190995]
+offset_right = 96.0
+offset_bottom = 60.0
+text = "PASSO 3"

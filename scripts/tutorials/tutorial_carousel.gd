@@ -45,9 +45,16 @@ func show_step(index: int) -> void:
 	current_content = steps[current_step].instantiate()
 	content_host.add_child(current_content)
 
+	# Se a cena filha for do tipo Control, ajusta para preencher o ContentHost
+	if current_content is Control:
+		var control_content = current_content as Control
+		control_content.set_anchors_preset(Control.PRESET_FULL_RECT)
+		control_content.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		control_content.size_flags_vertical = Control.SIZE_EXPAND_FILL
+
 	update_dots()
 	update_buttons()
-
+	
 func update_dots() -> void:
 	for i in range(dots.size()):
 		var dot = dots[i] as Node
@@ -56,9 +63,11 @@ func update_dots() -> void:
 
 func update_buttons() -> void:
 	btn_prev.disabled = (current_step == 0)
+	btn_prev.text = "<"
 	
 	if current_step == steps.size() - 1:
-		btn_next.text = "Concluir"
+		pass
+		#btn_next.text = "Concluir"
 	else:
 		btn_next.text = ">"
 

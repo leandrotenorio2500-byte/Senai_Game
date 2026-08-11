@@ -43,7 +43,7 @@ func dialogo_inicio():
 			},
 			{
 				"title": npc_name,
-				"dialog": "Quando terminar sua missão atual, volte para conversarmos sobre o treinamento de EPI.",
+				"dialog": "Quando terminar sua missão atual, volte aqui. Ainda precisamos conversar sobre o treinamento de segurança.",
 				"faceset": npc_faceset_path
 			}
 		]
@@ -52,17 +52,22 @@ func dialogo_inicio():
 	dialog_data = [
 		{
 			"title": npc_name,
-			"dialog": "Olá! Eu sou o Júlio, responsável pelo treinamento de segurança aqui no setor de Recursos Humanos.",
+			"dialog": "Olá! Eu sou o Júlio. Faço parte do setor de Saúde e Segurança no Trabalho, o SST.",
 			"faceset": npc_faceset_path
 		},
 		{
 			"title": npc_name,
-			"dialog": "Estou preparando um treinamento sobre o uso correto dos Equipamentos de Proteção Individual, os EPIs.",
+			"dialog": "Nosso trabalho é ajudar a prevenir acidentes e orientar os colaboradores sobre os riscos presentes nas atividades do dia a dia.",
 			"faceset": npc_faceset_path
 		},
 		{
 			"title": npc_name,
-			"dialog": "É importante saber não apenas qual equipamento utilizar, mas também quando e como utilizá-lo corretamente.",
+			"dialog": "Uma parte importante disso é garantir que todos saibam utilizar corretamente os Equipamentos de Proteção Individual.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Por isso, preparei um treinamento para você. Vamos ver se está realmente preparado para trabalhar com segurança.",
 			"faceset": npc_faceset_path
 		}
 	]
@@ -70,11 +75,15 @@ func dialogo_inicio():
 
 func dialogo_em_andamento():
 
-
 	dialog_data = [
 		{
 			"title": npc_name,
-			"dialog": "Continue o treinamento sobre o uso correto dos EPIs. Quando terminar, volte para conversarmos.",
+			"dialog": "Ainda não terminou o treinamento de segurança?",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Continue prestando atenção. Saber identificar os riscos é tão importante quanto saber utilizar o EPI correto.",
 			"faceset": npc_faceset_path
 		}
 	]
@@ -82,16 +91,15 @@ func dialogo_em_andamento():
 
 func dialogo_finalizada():
 
-
 	dialog_data = [
 		{
 			"title": npc_name,
-			"dialog": "Excelente trabalho! Agora você já conhece melhor os cuidados necessários para utilizar os EPIs corretamente.",
+			"dialog": "Muito bem! Você concluiu o treinamento de uso correto dos EPIs.",
 			"faceset": npc_faceset_path
 		},
 		{
 			"title": npc_name,
-			"dialog": "Lembre-se: utilizar o equipamento correto é uma parte fundamental da prevenção de acidentes.",
+			"dialog": "Mas lembre-se: o EPI é apenas uma das medidas de proteção. A melhor forma de evitar acidentes é conhecer os riscos e agir de maneira segura.",
 			"faceset": npc_faceset_path
 		}
 	]
@@ -99,16 +107,15 @@ func dialogo_finalizada():
 
 func get_dialogo_setor() -> Array[Dictionary]:
 
-
 	return [
 		{
 			"title": npc_name,
-			"dialog": "O Recursos Humanos também participa das ações de treinamento e orientação dos colaboradores.",
+			"dialog": "O SST trabalha na prevenção de acidentes e doenças relacionadas ao trabalho, orientando os colaboradores e acompanhando as condições de segurança dos ambientes.",
 			"faceset": npc_faceset_path
 		},
 		{
 			"title": npc_name,
-			"dialog": "Entre essas ações estão os treinamentos relacionados à segurança, prevenção de acidentes e uso adequado dos equipamentos de proteção.",
+			"dialog": "Também participamos de treinamentos e ações de conscientização para que cada pessoa saiba reconhecer os riscos e trabalhar de forma mais segura.",
 			"faceset": npc_faceset_path
 		}
 	]
@@ -116,11 +123,15 @@ func get_dialogo_setor() -> Array[Dictionary]:
 
 func get_dialogo_funcionarios() -> Array[Dictionary]:
 
-
 	return [
 		{
 			"title": npc_name,
-			"dialog": "Todos os colaboradores precisam conhecer os riscos relacionados às suas atividades e saber quais medidas de proteção devem ser adotadas.",
+			"dialog": "Todos os colaboradores têm um papel importante na segurança. Não basta a empresa oferecer os equipamentos: é preciso utilizá-los corretamente e seguir os procedimentos.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Se alguém perceber uma situação de risco, também deve comunicar o responsável. Prevenção é uma responsabilidade de todos.",
 			"faceset": npc_faceset_path
 		}
 	]
@@ -128,14 +139,13 @@ func get_dialogo_funcionarios() -> Array[Dictionary]:
 
 func get_dialog_options() -> Array:
 
-
 	return [
 		{
-			"text": "Sobre o RH",
+			"text": "Sobre o SST",
 			"id": "setor"
 		},
 		{
-			"text": "Funcionários",
+			"text": "Segurança dos funcionários",
 			"id": "funcionarios"
 		},
 		{
@@ -147,7 +157,6 @@ func get_dialog_options() -> Array:
 			"id": "exit"
 		}
 	]
-
 
 func on_dialog_option_selected(option: Dictionary) -> void:
 
@@ -172,7 +181,7 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 
 			await get_tree().create_timer(0.5).timeout
 
-			Transicao.mudar_cena("res://scene/fase quiz/quiz.tscn")
+			Transicao.mudar_cena("res://scene/fase quiz/TreinamentoSST.tscn")
 
 		"exit":
 			DialogManager.end_conversation()

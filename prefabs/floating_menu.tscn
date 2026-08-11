@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhmf7sgu28o4q"]
+
+[ext_resource type="Script" uid="uid://h4dir8w4icn" path="res://scripts/floating_menu.gd" id="1_ocw36"]
+
+[node name="FloatingMenu" type="CanvasLayer" unique_id=1378485004]
+script = ExtResource("1_ocw36")
+
+[node name="Control" type="Control" parent="." unique_id=1838738159]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control" unique_id=149162398]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Control" type="Control" parent="Control" unique_id=1176813745]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

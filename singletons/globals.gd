@@ -98,6 +98,7 @@ var setores_desbloqueados := {
 }
 
 var daniel_seguindo := false
+var michele_seguindo := false
 var npc_base_scene = preload("res://entities/npc.tscn")
 
 func desbloquear_setor(nome: String) -> void:
@@ -181,6 +182,25 @@ func spawn_daniel():
 
 	daniel.global_position = player.global_position + Vector2(-32, -2)
 	daniel.iniciar_daniel()
+	
+func spawn_michele():
+
+	if not michele_seguindo:
+		return
+
+	var player = get_tree().get_first_node_in_group("Player")
+
+	if player == null:
+		return
+
+	var michele = npc_base_scene.instantiate()
+
+	michele.set_script(load("res://scripts/npcs/julia.gd"))
+
+	get_tree().current_scene.add_child(michele)
+
+	michele.global_position = player.global_position + Vector2(-32, -2)
+	michele.iniciar_michele()
 
 func preparar_apresentacao_mapa_risco() -> void:
 

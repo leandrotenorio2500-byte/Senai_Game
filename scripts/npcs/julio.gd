@@ -8,8 +8,8 @@ func _ready() -> void:
 	npc_name = "Júlio"
 	npc_faceset_path = "res://sprites/Mini UI/heads/Daniel.png"
 
-	idle_spritesheet = load("res://sprites/npcs/Julio.png")
-	hframes = 2
+	idle_spritesheet = load("res://sprites/npcs/operario3.png")
+	hframes = 8
 
 	var quest = QuestManager.obter_missao(QUEST_ID)
 

@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://hsi0kfbxvd07"]
 
 [ext_resource type="Script" uid="uid://b0y53wy5m1ktj" path="res://scripts/quest_screen.gd" id="1_4md87"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="2_sy63v"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_k54ji"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x3vr2"]
 font_size = 9
+font_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_offset = Vector2(0.235, 0.375)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4md87"]
 font = ExtResource("4_k54ji")
 font_size = 8
-font_color = Color(0.9612289, 0.961229, 0.9612289, 1)
+font_color = Color(0, 0, 0, 1)
 
 [node name="MissionScreen" type="Control" unique_id=1501295445]
 layout_mode = 3
@@ -20,28 +22,34 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -105.0
+offset_left = -146.0
 offset_top = -212.0
-offset_right = 95.0
-offset_bottom = -195.11
+offset_right = 136.0
+offset_bottom = -161.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_4md87")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1348502541]
+[node name="Background" type="NinePatchRect" parent="." unique_id=1122885977]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 22.0
+anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sy63v")
+region_rect = Rect2(0, 0, 16, 16)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1682489509]
-layout_mode = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=292487394]
-layout_mode = 2
+[node name="Title" type="Label" parent="Background" unique_id=292487394]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 193.0
+offset_bottom = 19.0
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_k54ji")
@@ -49,8 +57,13 @@ text = "Titulo da missão"
 label_settings = SubResource("LabelSettings_x3vr2")
 horizontal_alignment = 1
 
-[node name="Subtitle" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1551707607]
-layout_mode = 2
+[node name="Subtitle" type="Label" parent="Background" unique_id=1551707607]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 21.0
+offset_right = 192.0
+offset_bottom = 44.0
 size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Descrição da missão"
 label_settings = SubResource("LabelSettings_4md87")

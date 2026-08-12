@@ -82,10 +82,10 @@ func _toggle_menu() -> void:
 # --- CONEXÃO E LÓGICA DOS BOTÕES DE CADA MISSÃO ---
 
 func _conectar_botoes_das_missoes() -> void:
-	_conectar_coluna("Quiz", [_teleportar_quiz, _iniciar_quiz, _objetivo_quiz, _finalizar_quiz])
-	_conectar_coluna("Chamados", [_teleportar_chamados, _iniciar_chamados, _objetivo_chamados, _finalizar_chamados])
-	_conectar_coluna("Curriculos", [_teleportar_curriculos, _iniciar_curriculos, _objetivo_curriculos, _finalizar_curriculos])
-	_conectar_coluna("Riscos", [_teleportar_riscos, _iniciar_riscos, _objetivo_riscos, _finalizar_riscos])
+	_conectar_coluna("Quiz", [_teleportar_quiz])
+	_conectar_coluna("Chamados", [_teleportar_chamados, _iniciar_chamados, _finalizar_chamados])
+	_conectar_coluna("Curriculos", [_teleportar_curriculos])
+	_conectar_coluna("Riscos", [_teleportar_riscos, _iniciar_riscos, _finalizar_riscos])
 
 func _conectar_coluna(nome_coluna: String, funcoes: Array) -> void:
 	if not menu_popup:
@@ -130,12 +130,22 @@ func _teleportar_chamados() -> void:
 
 func _iniciar_chamados() -> void:
 	print("Debug: Iniciando Chamados...")
+	menu_popup.visible = false
+	if QuestManager.obter_estado("atender_chamados") == "nao_iniciada":
+		QuestManager.iniciar_missao("atender_chamados")
 
 func _objetivo_chamados() -> void:
 	print("Debug: Objetivo Chamados...")
 
 func _finalizar_chamados() -> void:
 	print("Debug: Finalizar Chamados...")
+	menu_popup.visible = false
+	
+	# Usa o nome exato do seu QuestManager: obter_missao()
+	var quest_ativa = QuestManager.obter_missao("atender_chamados")
+	
+	if quest_ativa:
+		quest_ativa.force_complete()
 
 # 3. CURRÍCULOS
 func _teleportar_curriculos() -> void:
@@ -160,9 +170,19 @@ func _teleportar_riscos() -> void:
 
 func _iniciar_riscos() -> void:
 	print("Debug: Iniciando Riscos...")
-
+	menu_popup.visible = false
+	if QuestManager.obter_estado("identificar_riscos") == "nao_iniciada":
+		QuestManager.iniciar_missao("identificar_riscos")
+		
 func _objetivo_riscos() -> void:
 	print("Debug: Objetivo Riscos...")
 
 func _finalizar_riscos() -> void:
-	print("Debug: Finalizar Riscos...")
+	print("Debug: Finalizando Identificar Riscos...")
+	menu_popup.visible = false
+	
+	# Usa o nome exato do seu QuestManager: obter_missao()
+	var quest_ativa = QuestManager.obter_missao("identificar_riscos")
+	
+	if quest_ativa:
+		quest_ativa.force_complete()

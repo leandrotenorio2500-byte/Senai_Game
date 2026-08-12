@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://qhsdoggkvi3"]
 
-[ext_resource type="Script" uid="uid://h4dir8w4icn" path="res://scripts/floating_menu.gd" id="1_l8b6o"]
+[ext_resource type="Script" uid="uid://h4dir8w4icn" path="res://scripts/floating_menu.gd" id="1_ocw36"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocw36"]
 border_width_left = 1
@@ -23,7 +23,7 @@ border_width_bottom = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mdgi"]
 
 [node name="FloatingMenu" type="CanvasLayer" unique_id=1378485004]
-script = ExtResource("1_l8b6o")
+script = ExtResource("1_ocw36")
 
 [node name="Control" type="Control" parent="." unique_id=1838738159]
 layout_mode = 3
@@ -112,12 +112,6 @@ theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_usm7q")
 text = "Iniciar"
 
-[node name="1 Objetivo" type="Button" parent="Control/MenuPopup/Debugs/Missoes/Chamados/Buttons" unique_id=1254451338]
-layout_mode = 2
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxFlat_usm7q")
-text = "1 Objetivo"
-
 [node name="Finalizar" type="Button" parent="Control/MenuPopup/Debugs/Missoes/Chamados/Buttons" unique_id=28785766]
 layout_mode = 2
 theme_override_font_sizes/font_size = 5
@@ -171,12 +165,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 5
 theme_override_styles/normal = SubResource("StyleBoxFlat_usm7q")
 text = "Iniciar"
-
-[node name="1 Objetivo" type="Button" parent="Control/MenuPopup/Debugs/Missoes/Riscos/Buttons" unique_id=1021073439]
-layout_mode = 2
-theme_override_font_sizes/font_size = 5
-theme_override_styles/normal = SubResource("StyleBoxFlat_usm7q")
-text = "1 Objetivo"
 
 [node name="Finalizar" type="Button" parent="Control/MenuPopup/Debugs/Missoes/Riscos/Buttons" unique_id=395523848]
 layout_mode = 2

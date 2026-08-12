@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-# Referências aos nós visuais
-@onready var floating_button: Button = $Control/Button
-@onready var menu_popup: Control = $Control/MenuPopup
+# Referências flexíveis para evitar o erro 'null instance'
+@onready var floating_button: Button = find_child("Button", true, false)
+@onready var menu_popup: Control = find_child("MenuPopup", true, false)
 
 # Variáveis para a física da bolinha
 var dragging: bool = false
@@ -11,8 +11,18 @@ var was_dragged: bool = false
 const DRAG_THRESHOLD: float = 10.0
 
 func _ready() -> void:
-	menu_popup.visible = false
-	floating_button.gui_input.connect(_on_button_gui_input)
+	# Ajusta os filtros de mouse para não bloquear cliques do jogo
+	$Control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	if menu_popup:
+		menu_popup.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		menu_popup.visible = false
+	else:
+		print_rich("[color=red]Erro: Nó MenuPopup não foi encontrado![/color]")
+		
+	if floating_button:
+		floating_button.gui_input.connect(_on_button_gui_input)
+		
 	_conectar_botoes_das_missoes()
 
 # --- SISTEMA DA BOLINHA FLUTUANTE ---
@@ -66,106 +76,93 @@ func _snap_to_nearest_edge() -> void:
 	tween.tween_property(floating_button, "global_position", target_pos, 0.3)
 
 func _toggle_menu() -> void:
-	menu_popup.visible = !menu_popup.visible
+	if menu_popup:
+		menu_popup.visible = !menu_popup.visible
 
 # --- CONEXÃO E LÓGICA DOS BOTÕES DE CADA MISSÃO ---
 
 func _conectar_botoes_das_missoes() -> void:
-	# Mapeamento dinâmico buscando os botões dentro dos Containers
 	_conectar_coluna("Quiz", [_teleportar_quiz, _iniciar_quiz, _objetivo_quiz, _finalizar_quiz])
 	_conectar_coluna("Chamados", [_teleportar_chamados, _iniciar_chamados, _objetivo_chamados, _finalizar_chamados])
 	_conectar_coluna("Curriculos", [_teleportar_curriculos, _iniciar_curriculos, _objetivo_curriculos, _finalizar_curriculos])
 	_conectar_coluna("Riscos", [_teleportar_riscos, _iniciar_riscos, _objetivo_riscos, _finalizar_riscos])
 
 func _conectar_coluna(nome_coluna: String, funcoes: Array) -> void:
+	if not menu_popup:
+		return
+		
 	var container = menu_popup.find_child(nome_coluna, true, false)
 	if container:
-		# O "*" e o 'true' fazem ele buscar os Buttons em QUALQUER subnível dentro da coluna
+		# Busca todos os botões filhos, inclusive dentro da pasta 'Buttons'
 		var botoes = container.find_children("*", "Button", true, false)
 		
 		if botoes.is_empty():
-			print_rich("[color=yellow]Aviso: Container '" + nome_coluna + "' encontrado, mas não tem botões dentro![/color]")
+			print_rich("[color=yellow]Aviso: Container '" + nome_coluna + "' encontrado, mas sem botões![/color]")
 		else:
 			for i in range(min(botoes.size(), funcoes.size())):
 				botoes[i].pressed.connect(funcoes[i])
-				print("Sucesso: Botão '", botoes[i].name, "' em '", nome_coluna, "' conectado!")
+				print("Conectado: Botão '", botoes[i].name, "' em '", nome_coluna, "'")
 	else:
-		print_rich("[color=red]Erro: Não foi encontrado o nó container chamado '" + nome_coluna + "'![/color]")
+		print_rich("[color=red]Erro: Container '" + nome_coluna + "' não foi encontrado![/color]")
 
 # --- FUNÇÕES DAS MISSÕES ---
 
 # 1. QUIZ
 func _teleportar_quiz() -> void:
-	print("Debug: Teleportando para a área do Quiz...")
-	
-		# Esconde o menu flutuante antes de mudar de cena
+	print("Debug: Teleportando para o Quiz...")
 	menu_popup.visible = false
-	
-	# Troca para a cena informada
 	get_tree().change_scene_to_file("res://scene/deposito.tscn")
 
 func _iniciar_quiz() -> void:
-	print("Debug: Iniciando missão Quiz...")
+	print("Debug: Iniciando Quiz...")
 
 func _objetivo_quiz() -> void:
-	print("Debug: Completando 1 objetivo do Quiz...")
+	print("Debug: Objetivo Quiz...")
 
 func _finalizar_quiz() -> void:
-	print("Debug: Finalizando missão Quiz...")
+	print("Debug: Finalizar Quiz...")
 
 # 2. CHAMADOS
 func _teleportar_chamados() -> void:
-	print("Debug: Teleportando para a área de Chamados...")
-	
-		# Esconde o menu flutuante antes de mudar de cena
+	print("Debug: Teleportando para Chamados...")
 	menu_popup.visible = false
-	
-	# Troca para a cena informada
 	get_tree().change_scene_to_file("res://scene/sala_tecnica.tscn")
 
 func _iniciar_chamados() -> void:
-	print("Debug: Iniciando missão Chamados...")
+	print("Debug: Iniciando Chamados...")
 
 func _objetivo_chamados() -> void:
-	print("Debug: Completando 1 objetivo dos Chamados...")
+	print("Debug: Objetivo Chamados...")
 
 func _finalizar_chamados() -> void:
-	print("Debug: Finalizando missão Chamados...")
+	print("Debug: Finalizar Chamados...")
 
 # 3. CURRÍCULOS
 func _teleportar_curriculos() -> void:
-	print("Debug: Teleportando para a área de Currículos...")
-	
-		# Esconde o menu flutuante antes de mudar de cena
+	print("Debug: Teleportando para Currículos...")
 	menu_popup.visible = false
-	
-	# Troca para a cena informada
 	get_tree().change_scene_to_file("res://scene/rh.tscn")
 
 func _iniciar_curriculos() -> void:
-	print("Debug: Iniciando missão Currículos...")
+	print("Debug: Iniciando Currículos...")
 
 func _objetivo_curriculos() -> void:
-	print("Debug: Completando 1 objetivo dos Currículos...")
+	print("Debug: Objetivo Currículos...")
 
 func _finalizar_curriculos() -> void:
-	print("Debug: Finalizando missão Currículos...")
+	print("Debug: Finalizar Currículos...")
 
 # 4. RISCOS
 func _teleportar_riscos() -> void:
-	print("Debug: Teleportando para a área de Riscos...")
-	
-	# Esconde o menu flutuante antes de mudar de cena
+	print("Debug: Teleportando para Riscos...")
 	menu_popup.visible = false
-	
-	# Troca para a cena informada
 	get_tree().change_scene_to_file("res://scene/recep.tscn")
 
 func _iniciar_riscos() -> void:
-	print("Debug: Iniciando missão Riscos...")
+	print("Debug: Iniciando Riscos...")
 
 func _objetivo_riscos() -> void:
-	print("Debug: Completando 1 objetivo de Riscos...")
+	print("Debug: Objetivo Riscos...")
 
 func _finalizar_riscos() -> void:
-	print("Debug: Finalizando missão Riscos...")
+	print("Debug: Finalizar Riscos...")

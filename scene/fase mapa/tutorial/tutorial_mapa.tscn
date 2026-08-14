@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://4ddctuc6dijq"]
 
-[ext_resource type="PackedScene" uid="uid://cmbueh3dx2ucu" path="res://scene/tutorials/tutorial_carousel.tscn" id="1_mb1ci"]
-[ext_resource type="Script" uid="uid://c2egaxkn1204k" path="res://scripts/fase RH/tutorial_rh.gd" id="2_6yha0"]
+[ext_resource type="PackedScene" uid="uid://cmbueh3dx2ucu" path="res://scene/tutorials/tutorial_carousel.tscn" id="1_tc03i"]
+[ext_resource type="Script" uid="uid://c2egaxkn1204k" path="res://scripts/fase mapa/tutorial_mapa.gd" id="2_0hc20"]
 
 [sub_resource type="Theme" id="Theme_6yha0"]
 
-[node name="TutorialCarousel" unique_id=1745781544 instance=ExtResource("1_mb1ci")]
-script = ExtResource("2_6yha0")
+[node name="TutorialCarousel" unique_id=1745781544 instance=ExtResource("1_tc03i")]
+script = ExtResource("2_0hc20")
 
 [node name="ContentHost" parent="RootVBox/MainRow" parent_id_path=PackedInt32Array(1138296807) index="1" unique_id=1745068752]
 theme = SubResource("Theme_6yha0")

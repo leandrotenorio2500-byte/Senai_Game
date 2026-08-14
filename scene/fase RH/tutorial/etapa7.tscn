@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://k75i08npw1kb"]
+[gd_scene format=3 uid="uid://bkkee18j3pkvi"]
 
 [node name="Etapa3" type="Control" unique_id=959974667]
 layout_mode = 3
@@ -36,11 +36,11 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -157.25
-offset_right = 157.25
+offset_left = -151.5
+offset_right = 151.5
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "Objetivo: Conversando com lideres"
+text = "Finalizando a missão"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
@@ -52,5 +52,5 @@ offset_top = 31.0
 offset_right = 364.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 14
-text = "Maior parte dos npc são conversaveis, basta conversa com os personagens até identificar um líder"
+text = "Apos finalizar todos os setores que estão destacados no canto superior direito, volte para a personagem Michele para finalizar a missão."
 autowrap_mode = 2

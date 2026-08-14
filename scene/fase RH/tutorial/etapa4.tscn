@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://k75i08npw1kb"]
+[gd_scene format=3 uid="uid://buu4uwqhuciy4"]
 
-[node name="Etapa3" type="Control" unique_id=959974667]
+[node name="Etapa4" type="Control" unique_id=959974667]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Control" parent="." unique_id=2022399104]
+[node name="Control" type="Control" parent="." unique_id=1695018770]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,26 +31,26 @@ offset_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="Control" unique_id=719287898]
+[node name="Label2" type="Label" parent="Control" unique_id=1414148290]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -157.25
-offset_right = 157.25
+offset_left = -151.5
+offset_right = 151.5
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "Objetivo: Conversando com lideres"
+text = "Objetivo: Identificando no mapa"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="Label3" type="Label" parent="Control" unique_id=1117693040]
+[node name="Label3" type="Label" parent="Control" unique_id=675354276]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 31.0
 offset_right = 364.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 14
-text = "Maior parte dos npc são conversaveis, basta conversa com os personagens até identificar um líder"
+text = "Durante o diálogo, os personagens darão dicas sobre o setor para você marcá-lo corretamente no mapa."
 autowrap_mode = 2

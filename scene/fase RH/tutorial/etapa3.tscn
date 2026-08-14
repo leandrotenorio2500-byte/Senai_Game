@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://k75i08npw1kb"]
 
+[ext_resource type="Texture2D" uid="uid://qm8sntkakcdp" path="res://sprites/tutoriais/riscos/lider.png" id="1_mt2oi"]
+
 [node name="Etapa3" type="Control" unique_id=959974667]
 layout_mode = 3
 anchors_preset = 15
@@ -50,7 +52,22 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 31.0
 offset_right = 364.0
-offset_bottom = 85.0
+offset_bottom = 77.0
 theme_override_font_sizes/font_size = 14
-text = "Maior parte dos npc são conversaveis, basta conversa com os personagens até identificar um líder"
+text = "Converse com os personagens para encontrar e identificar o líder."
 autowrap_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=833356208]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -141.875
+offset_top = -113.0
+offset_right = 141.875
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_mt2oi")
+expand_mode = 2

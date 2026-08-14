@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bkkee18j3pkvi"]
+[gd_scene format=3 uid="uid://pipaptpujyhp"]
 
 [node name="Etapa3" type="Control" unique_id=959974667]
 layout_mode = 3
@@ -55,17 +55,17 @@ offset_top = 141.0
 offset_right = 139.0
 offset_bottom = 169.0
 grow_horizontal = 2
-text = "BOA SORTE!"
+text = "BOA SORTE, JOVEM APRENDIZ!"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
 [node name="Label3" type="Label" parent="Control" unique_id=1117693040]
 layout_mode = 0
-offset_left = 8.5
-offset_top = 53.0
-offset_right = 365.5
-offset_bottom = 119.0
+offset_left = 7.5
+offset_top = 56.0
+offset_right = 364.5
+offset_bottom = 110.0
 theme_override_font_sizes/font_size = 14
-text = "Apos finalizar todos os setores que estão destacados no canto superior direito, volte para a personagem Michele para finalizar a missão."
+text = "Ao avaliar todos os curriculos, será apresentado sua pontuação final."
 autowrap_mode = 2

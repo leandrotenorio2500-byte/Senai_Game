@@ -140,9 +140,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.08179452
-anchor_top = 0.12434683
+anchor_top = 0.0027252145
 anchor_right = 1.1092193
-anchor_bottom = 1.4892118
+anchor_bottom = 1.3675902
 offset_left = 0.028999925
 offset_top = -0.5
 offset_right = 0.026992798
@@ -212,11 +212,13 @@ script = ExtResource("4_lcu7l")
 
 [node name="border" type="ColorRect" parent="PainelCurriculos" unique_id=131427634]
 layout_mode = 0
-offset_left = -5.0
-offset_top = -26.0
-offset_right = 103.0
-offset_bottom = 111.0
+offset_left = -6.0
+offset_top = -27.0
+offset_right = 104.0
+offset_bottom = 112.0
+mouse_filter = 2
 theme = SubResource("Theme_l64el")
+color = Color(1, 1, 1, 0.2509804)
 
 [node name="TextureRect" type="TextureRect" parent="PainelCurriculos" unique_id=1013585829]
 layout_mode = 0

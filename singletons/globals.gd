@@ -15,6 +15,7 @@ signal mapa_fechado
 @warning_ignore("unused_signal")
 signal setor_desbloqueado(nome: String)
 
+
 enum TipoRisco {
 	NENHUM,
 	QUIMICO,
@@ -24,15 +25,17 @@ enum TipoRisco {
 	ACIDENTE
 }
 
-# -----------------------------
-# Dados gerais do jogo
-# -----------------------------
+
+# ============================================================
+# DADOS GERAIS DO JOGO
+# ============================================================
 
 var coins := 0
 var player_life := 3
 
 var acertos_rh := 0
 var total_curriculos := 0
+
 var pularintro_quiz := false
 
 var resultado_quiz := {
@@ -45,18 +48,21 @@ var should_position := false
 
 var area_atual := ""
 
-# -----------------------------
-# Controle de missões
-# -----------------------------
+
+# ============================================================
+# CONTROLE DE MISSÕES
+# ============================================================
 
 var missao_mapa_risco_ativa := false
 
-# -----------------------------
-# Áudio
-# -----------------------------
+
+# ============================================================
+# ÁUDIO
+# ============================================================
 
 var som_ding := preload("res://sounds/SOM DE ELEVADOR.mp3")
 var audio_player: AudioStreamPlayer
+
 
 func _ready() -> void:
 	audio_player = AudioStreamPlayer.new()
@@ -65,13 +71,15 @@ func _ready() -> void:
 	audio_player.stream = som_ding
 	audio_player.volume_db = -15.0
 
+
 func tocar_ding() -> void:
 	if audio_player:
 		audio_player.play()
 
-# -----------------------------
-# Mapa de risco
-# -----------------------------
+
+# ============================================================
+# MAPA DE RISCO
+# ============================================================
 
 var respostas_mapa := {
 	"Recepcao": [],
@@ -85,6 +93,7 @@ var respostas_mapa := {
 	"Diretoria": []
 }
 
+
 var setores_desbloqueados := {
 	"Recepcao": false,
 	"Deposito": false,
@@ -97,10 +106,9 @@ var setores_desbloqueados := {
 	"Diretoria": false
 }
 
-var daniel_seguindo := false
-var npc_base_scene = preload("res://entities/npc.tscn")
 
 func desbloquear_setor(nome: String) -> void:
+
 	if not setores_desbloqueados.has(nome):
 		push_warning("Setor '%s' não encontrado." % nome)
 		return
@@ -109,61 +117,66 @@ func desbloquear_setor(nome: String) -> void:
 		return
 
 	setores_desbloqueados[nome] = true
+
 	setor_desbloqueado.emit(nome)
 
-	setores_desbloqueados[nome] = true
 
 func bloquear_setor(nome: String) -> void:
+
 	if not setores_desbloqueados.has(nome):
 		push_warning("Setor '%s' não encontrado." % nome)
 		return
 
 	setores_desbloqueados[nome] = false
 
-#func setor_desbloqueado(nome: String) -> bool:
-	#return setores_desbloqueados.get(nome, false)
 
 func limpar_respostas_mapa() -> void:
+
 	for setor in respostas_mapa.keys():
 		respostas_mapa[setor].clear()
 
+
 func limpar_setores_desbloqueados() -> void:
+
 	for setor in setores_desbloqueados.keys():
 		setores_desbloqueados[setor] = false
-		
 
 
-# ----------------------------------------------------
-# SISTEMA DE INVENTÁRIO (Adicionado para resolver o erro)
-# ----------------------------------------------------
+# ============================================================
+# INVENTÁRIO
+# ============================================================
+
 var inventario: Array[String] = []
 
+
 func adicionar_item(item_id: String) -> void:
+
 	if not inventario.has(item_id):
 		inventario.append(item_id)
 		print("Item adicionado ao inventário: ", item_id)
 
+
 func remover_item(item_id: String) -> void:
+
 	if inventario.has(item_id):
 		inventario.erase(item_id)
 		print("Item removido do inventário: ", item_id)
 
+
 func possui_item(item_id: String) -> bool:
 	return inventario.has(item_id)
-	
-func coletar_peca_pendente() -> String:
-	var quest_estado = QuestManager.obter_estado("atender_chamados")
-	
-	if quest_estado == "em_andamento":
-		var quest = QuestManager.obter_missao("atender_chamados") as QuestChamados
-		if quest:
-			var item_faltando = quest.obter_proximo_item_pendente()
-			if item_faltando != "":
-				adicionar_item(item_faltando)
-				return item_faltando
-	return ""
-	
-func spawn_daniel():
+
+
+# ============================================================
+# DANIEL
+# ============================================================
+
+var daniel_seguindo := false
+
+var npc_base_scene = preload("res://entities/npc.tscn")
+
+
+func spawn_daniel() -> void:
 
 	if not daniel_seguindo:
 		return
@@ -175,12 +188,20 @@ func spawn_daniel():
 
 	var daniel = npc_base_scene.instantiate()
 
-	daniel.set_script(load("res://scripts/npcs/Daniel-ti.gd"))
+	daniel.set_script(
+		load("res://scripts/npcs/Daniel-ti.gd")
+	)
 
 	get_tree().current_scene.add_child(daniel)
 
 	daniel.global_position = player.global_position + Vector2(-32, -2)
+
 	daniel.iniciar_daniel()
+
+
+# ============================================================
+# PREPARAÇÃO DO MAPA DE RISCO
+# ============================================================
 
 func preparar_apresentacao_mapa_risco() -> void:
 
@@ -195,54 +216,70 @@ func preparar_apresentacao_mapa_risco() -> void:
 		"RH"
 	]
 
+
 	for setor in setores_iniciais:
+
 		if setores_desbloqueados.has(setor):
 			setores_desbloqueados[setor] = true
 
 
 	# Criar registros vazios para esses setores
 	for setor in setores_iniciais:
+
 		if respostas_mapa.has(setor):
+
 			if respostas_mapa[setor].is_empty():
 
 				var pontos = []
 
-				# Quantidade de pontos de risco que aquele setor possui
+
+				# Quantidade de pontos de risco
+				# que aquele setor possui
 				match setor:
+
 					"Recepcao":
 						pontos = [
 							TipoRisco.NENHUM
 						]
 
+
 					"Diretoria":
 						pontos = [
-							TipoRisco.NENHUM,
+							TipoRisco.NENHUM
 						]
+
 
 					"Refeitorio":
 						pontos = [
 							TipoRisco.NENHUM,
-							TipoRisco.NENHUM,
+							TipoRisco.NENHUM
 						]
-						
+
+
 					"Vestiario":
 						pontos = [
 							TipoRisco.NENHUM,
-							TipoRisco.NENHUM,
+							TipoRisco.NENHUM
 						]
+
+
 					"RH":
 						pontos = [
-							TipoRisco.NENHUM,
+							TipoRisco.NENHUM
 						]
+
+
 					"Banheiro":
 						pontos = [
 							TipoRisco.NENHUM,
-							TipoRisco.NENHUM,
+							TipoRisco.NENHUM
 						]
+
+
 					"Tecnico":
 						pontos = [
 							TipoRisco.NENHUM,
-							TipoRisco.NENHUM,
+							TipoRisco.NENHUM
 						]
 
 

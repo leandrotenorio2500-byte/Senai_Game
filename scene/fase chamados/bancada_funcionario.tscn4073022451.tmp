@@ -15,8 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://cx4o5l3ljep2d" path="res://sprites/decoração/recepcao.png" id="12_6q5ci"]
 [ext_resource type="Texture2D" uid="uid://cncno1uya3ute" path="res://sprites/missions/chamados/impressora.png" id="12_o7m0u"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="15_tqpkx"]
-[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="16_2ek3t"]
-[ext_resource type="Texture2D" uid="uid://8rqixc8l42ur" path="res://sprites/Mini UI/heads/Player.png" id="17_o8rnq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o10s"]
 texture = ExtResource("12_6q5ci")
@@ -33,24 +31,8 @@ sources/0 = SubResource("TileSetAtlasSource_4o10s")
 [sub_resource type="Theme" id="Theme_gwfta"]
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/constants/line_spacing = 3
-Label/font_sizes/font_size = 8
+Label/font_sizes/font_size = 11
 Label/fonts/font = ExtResource("15_tqpkx")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33eys"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Theme" id="Theme_nhdk4"]
-Button/colors/font_color = Color(0, 0, 0, 1)
-Button/font_sizes/font_size = 6
-Button/fonts/font = ExtResource("15_tqpkx")
-Button/styles/hover = null
-Button/styles/normal = SubResource("StyleBoxFlat_33eys")
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 9
-Label/fonts/font = ExtResource("15_tqpkx")
-
-[sub_resource type="Theme" id="Theme_2ek3t"]
-Label/font_sizes/font_size = 7
 
 [node name="BancadaTI" type="Control" unique_id=1253915407]
 layout_mode = 3
@@ -76,46 +58,46 @@ offset_bottom = 40.0
 
 [node name="BtnMonitor" type="TextureButton" parent="Equipamentos" unique_id=1323696519]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 22.0
-offset_right = 247.0
-offset_bottom = 133.0
+offset_left = 89.0
+offset_top = 35.0
+offset_right = 246.0
+offset_bottom = 146.0
 texture_normal = ExtResource("3_m48o0")
 texture_hover = ExtResource("4_w1nmn")
 
 [node name="BtnMouse" type="TextureButton" parent="Equipamentos" unique_id=382164714]
 layout_mode = 0
 offset_left = 232.0
-offset_top = 132.0
+offset_top = 146.0
 offset_right = 258.0
-offset_bottom = 153.0
+offset_bottom = 167.0
 texture_normal = ExtResource("5_8jn2a")
 texture_hover = ExtResource("6_78xm2")
 
 [node name="BtnTeclado" type="TextureButton" parent="Equipamentos" unique_id=1862971367]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 135.0
-offset_right = 226.0
-offset_bottom = 165.0
+offset_left = 103.0
+offset_top = 146.0
+offset_right = 224.0
+offset_bottom = 176.0
 texture_normal = ExtResource("7_6q5ci")
 texture_hover = ExtResource("8_4o10s")
 
 [node name="BtnGabinete" type="TextureButton" parent="Equipamentos" unique_id=611146994]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 26.0
-offset_right = 76.0
-offset_bottom = 134.0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 73.0
+offset_bottom = 153.0
 texture_normal = ExtResource("9_o7m0u")
 texture_hover = ExtResource("10_tqpkx")
 
 [node name="BtnImpressora" type="TextureButton" parent="Equipamentos" unique_id=1856189677]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 74.0
-offset_right = 414.0
-offset_bottom = 143.0
+offset_left = 271.0
+offset_top = 83.0
+offset_right = 424.0
+offset_bottom = 152.0
 texture_normal = ExtResource("12_o7m0u")
 
 [node name="BtnFechar" type="Button" parent="." unique_id=1978270738]
@@ -137,7 +119,7 @@ layout_mode = 0
 offset_left = 315.0
 offset_top = 2.0
 offset_right = 393.0
-offset_bottom = 70.0
+offset_bottom = 83.0
 theme = SubResource("Theme_gwfta")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PainelChamado" unique_id=1416837605]
@@ -167,110 +149,24 @@ text = "objetivo"
 
 [node name="PainelInteracao" type="Control" parent="." unique_id=599906410]
 anchors_preset = 0
-offset_right = 400.0
-offset_bottom = 220.0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PainelInteracao" unique_id=550538680]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.5
-offset_top = -60.0
-offset_right = 100.5
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_nhdk4")
-texture = ExtResource("16_2ek3t")
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
-
-[node name="TextureRect" type="TextureRect" parent="PainelInteracao/NinePatchRect" unique_id=1654833298]
+[node name="VBoxContainer" type="VBoxContainer" parent="PainelInteracao" unique_id=2054711501]
 layout_mode = 0
-offset_left = 13.0
-offset_top = 3.0
-offset_right = 63.5
-offset_bottom = 50.0
-texture = ExtResource("17_o8rnq")
+offset_left = -94.0
+offset_top = 67.0
+offset_right = -54.0
+offset_bottom = 107.0
 
-[node name="LabelDescricao" type="Label" parent="PainelInteracao/NinePatchRect" unique_id=1699902964]
-layout_mode = 0
-offset_left = 102.0
-offset_top = 4.0
-offset_right = 162.0
-offset_bottom = 14.0
-text = "O que fazer?"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PainelInteracao/NinePatchRect" unique_id=1561434351]
-visible = false
-layout_mode = 0
-offset_left = 81.5
-offset_top = 19.0
-offset_right = 187.5
-offset_bottom = 49.0
-theme_override_constants/separation = 15
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PainelInteracao/NinePatchRect/HBoxContainer" unique_id=2054711501]
+[node name="Button" type="Button" parent="PainelInteracao/VBoxContainer" unique_id=1321929488]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 13
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PainelInteracao/NinePatchRect/HBoxContainer" unique_id=1579450181]
+[node name="Button2" type="Button" parent="PainelInteracao/VBoxContainer" unique_id=1910709317]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/separation = 13
 
-[node name="LabelFeedback" type="Label" parent="PainelInteracao/NinePatchRect" unique_id=317570611]
-visible = false
-layout_mode = 0
-offset_left = 80.5
-offset_top = 15.0
-offset_right = 188.5
-offset_bottom = 47.0
-theme = SubResource("Theme_2ek3t")
-text = "O que aconteceu"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="opcao1" type="Button" parent="PainelInteracao/NinePatchRect" unique_id=1321929488]
-layout_mode = 0
-offset_left = 85.5
-offset_top = 18.0
-offset_right = 125.5
-offset_bottom = 33.0
-text = "Opcao1"
-
-[node name="opcao2" type="Button" parent="PainelInteracao/NinePatchRect" unique_id=1910709317]
-layout_mode = 0
-offset_left = 85.5
-offset_top = 36.0
-offset_right = 125.5
-offset_bottom = 51.0
-text = "Opcao2"
-
-[node name="opcao3" type="Button" parent="PainelInteracao/NinePatchRect" unique_id=1936697462]
-layout_mode = 0
-offset_left = 136.5
-offset_top = 18.0
-offset_right = 176.5
-offset_bottom = 33.0
-text = "Opcao3"
-
-[node name="fechar" type="Button" parent="PainelInteracao/NinePatchRect" unique_id=920420767]
-layout_mode = 0
-offset_left = 136.5
-offset_top = 36.0
-offset_right = 176.5
-offset_bottom = 51.0
-text = "Fechar"
+[node name="Button3" type="Button" parent="PainelInteracao/VBoxContainer" unique_id=1623798118]
+layout_mode = 2
 
 [node name="NomeObjeto" type="Label" parent="." unique_id=848143873]
 layout_mode = 0

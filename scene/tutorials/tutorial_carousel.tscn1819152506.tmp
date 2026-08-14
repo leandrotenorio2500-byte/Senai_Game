@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cmbueh3dx2ucu"]
+
+[ext_resource type="Script" uid="uid://bc2r2sl70i86e" path="res://scripts/tutorials/tutorial_carousel.gd" id="1_vhghl"]
+
+[node name="TutorialCarousel" type="Control" unique_id=1745781544]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+script = ExtResource("1_vhghl")
+
+[node name="RootVBox" type="VBoxContainer" parent="." unique_id=172050970]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainRow" type="HBoxContainer" parent="RootVBox" unique_id=1138296807]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BtnPrev" type="Button" parent="RootVBox/MainRow" unique_id=143428262]
+layout_mode = 2
+
+[node name="ContentHost" type="Control" parent="RootVBox/MainRow" unique_id=1745068752]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BtnNext" type="Button" parent="RootVBox/MainRow" unique_id=1746111545]
+layout_mode = 2
+
+[node name="DotsContainer" type="VBoxContainer" parent="RootVBox" unique_id=795375904]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+alignment = 1

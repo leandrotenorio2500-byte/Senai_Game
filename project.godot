@@ -21,13 +21,13 @@ driver/output_latency=1
 [autoload]
 
 Globals="*uid://dgni40vxmpv1t"
-FloatingMenu="*uid://bhmf7sgu28o4q"
 DialogManager="*uid://f6r3btswee6g"
 QuestManager="*uid://bs7ej8nntf26w"
 Trilha="*uid://bju8t2u71443p"
 Transicao="*uid://h2dh7pqwx0mo"
 SkinManager="*uid://cuxi5fdaj6xis"
 ActivityManager="*uid://dnuoswjnn41ol"
+FloatingMenu="*uid://qhsdoggkvi3"
 
 [display]
 

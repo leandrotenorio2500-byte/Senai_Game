@@ -48,10 +48,6 @@ func update_display(quest_id: String) -> void:
 
 	_centralizar_labels()
 
-# Chamado pelo QuestManager ao iniciar a missão
-func show_started(quest_id: String) -> void:
-	update_display(quest_id)
-
 # Método dedicado para quando a missão for concluída
 func show_completed() -> void:
 	if not is_node_ready():

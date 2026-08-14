@@ -17,6 +17,7 @@ func mudar_cena(caminho_da_nova_cena: String) -> void:
 	await get_tree().process_frame
 
 	Globals.spawn_daniel()
+	Globals.spawn_michele()
 
 	anim.play("transition_in")
 	await anim.animation_finished

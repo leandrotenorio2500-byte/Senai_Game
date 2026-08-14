@@ -16,7 +16,7 @@ var problemas_npcs: Dictionary = {
 func _init() -> void:
 	id = "atender_chamados"
 	title = "Atenda os chamados dos funcionários"
-	description = "Converse com os funcionários, pegue as peças necessárias na bancada e resolva os problemas."
+	description = "Converse com os funcionários, e os ajude com problemas."
 	estado_atual = "nao_iniciada"
 
 func abrir_chamado(setor: String) -> void:
@@ -60,3 +60,22 @@ func finalizar() -> void:
 
 func esta_resolvido(setor: String) -> bool:
 	return npcs_resolvidos.has(setor)
+	
+func force_complete() -> void:
+	if estado_atual == "finalizada":
+		return
+		
+	# Adiciona todos os setores do dicionário à lista de resolvidos
+	for setor in problemas_npcs.keys():
+		if not npcs_resolvidos.has(setor):
+			npcs_resolvidos.append(setor)
+			if problemas_npcs.has(setor):
+				problemas_npcs[setor]["chamado_aberto"] = true
+
+	# Atualiza o contador para o valor máximo
+	current_count = target_count
+	
+	print("[QUEST] Forçando conclusão de todos os chamados (", current_count, "/", target_count, ")")
+	
+	# Executa a finalização padrão
+	finalizar()

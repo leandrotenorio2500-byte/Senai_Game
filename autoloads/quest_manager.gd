@@ -10,7 +10,6 @@ var missoes: Dictionary = {}
 func _ready() -> void:
 	_registrar_missao(QuestIdentificarRiscos.new())
 	_registrar_missao(QuestChamados.new())
-	_registrar_missao(QuestChamados.new())
 	
 
 func register_hud(hud: CanvasLayer) -> void:

@@ -96,7 +96,7 @@ func _init() -> void:
 
 	title = "Identificando riscos do mapa"
 
-	description = "Converse com os responsáveis pelos setores e registre os riscos encontrados no mapa."
+	description = "Converse com os lideres dos setores e registre os riscos no mapa."
 
 
 # --------------------------------------------------
@@ -329,3 +329,33 @@ func contar_riscos(lista: Array) -> Dictionary:
 
 
 	return contagem
+	
+func force_complete() -> void:
+	if estado_atual == "finalizada":
+		return
+
+	# 1. Preenche e emite sinais para todos os setores
+	for setor in gabarito_riscos.keys():
+		if not setores_visitados.has(setor):
+			setores_visitados.append(setor)
+			setor_visitado.emit(setor)
+			
+		if not setores_analisados.has(setor):
+			setores_analisados.append(setor)
+			setor_analisado.emit(setor)
+
+		# Força a resposta correta no dicionário Global do jogo
+		Globals.respostas_mapa[setor] = gabarito_riscos[setor].duplicate()
+
+		# Desbloqueia a visualização caso ainda não esteja liberado
+		if Globals.setores_desbloqueados.has(setor):
+			Globals.desbloquear_setor(setor)
+
+	# 2. Avanca para a última etapa
+	etapa_atual = Etapa.AGUARDANDO_ENTREGA
+	mapa_pronto.emit()
+
+	print("[QUEST] Riscos identificados e mapa preenchido via Force Complete.")
+
+	# 3. Finaliza a missão diretamente
+	finalizar()

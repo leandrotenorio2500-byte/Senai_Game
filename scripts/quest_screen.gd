@@ -24,7 +24,11 @@ func _centralizar_labels() -> void:
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 
-# Exibição normal durante o jogo
+# Exibido quando a missão é iniciada
+func show_started(quest_id: String) -> void:
+	update_display(quest_id)
+
+# Exibição/Atualização dos dados na interface
 func update_display(quest_id: String) -> void:
 	if not is_node_ready():
 		await ready

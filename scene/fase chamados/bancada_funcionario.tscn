@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://csm5b1wey54ta" path="res://sprites/missions/chamados/Mouse.png" id="5_8jn2a"]
 [ext_resource type="Texture2D" uid="uid://bbtxpd46pijjg" path="res://sprites/missions/chamados/MouseHover.png" id="6_78xm2"]
 [ext_resource type="Texture2D" uid="uid://cgc5pyaxes1ng" path="res://sprites/missions/chamados/Teclado.png" id="7_6q5ci"]
-[ext_resource type="Texture2D" uid="uid://dcn35f86l4tgj" path="res://sprites/missions/chamados/TecladoHover.png" id="8_4o10s"]
 [ext_resource type="Texture2D" uid="uid://ck2nutxw21rak" path="res://sprites/missions/chamados/Gabinete.png" id="9_o7m0u"]
 [ext_resource type="Texture2D" uid="uid://es4menwsq544" path="res://sprites/missions/chamados/GabineteHover.png" id="10_tqpkx"]
 [ext_resource type="Theme" uid="uid://btj22rnkf1acj" path="res://close.tres" id="11_78xm2"]
@@ -16,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cncno1uya3ute" path="res://sprites/missions/chamados/impressora.png" id="12_o7m0u"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="15_tqpkx"]
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="16_2ek3t"]
+[ext_resource type="Texture2D" uid="uid://ddw4oew1v431n" path="res://sprites/Mini UI/heads/Ana.png" id="16_o8rnq"]
 [ext_resource type="Texture2D" uid="uid://8rqixc8l42ur" path="res://sprites/Mini UI/heads/Player.png" id="17_o8rnq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o10s"]
@@ -30,13 +30,15 @@ texture = ExtResource("12_6q5ci")
 [sub_resource type="TileSet" id="TileSet_o7m0u"]
 sources/0 = SubResource("TileSetAtlasSource_4o10s")
 
-[sub_resource type="Theme" id="Theme_gwfta"]
-Label/colors/font_color = Color(1, 1, 1, 1)
-Label/colors/font_outline_color = Color(0, 0, 0, 1)
-Label/constants/line_spacing = 1
-Label/constants/outline_size = 1
-Label/constants/paragraph_spacing = 0
+[sub_resource type="Theme" id="Theme_33eys"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = -1
 Label/font_sizes/font_size = 6
+Label/fonts/font = ExtResource("15_tqpkx")
+
+[sub_resource type="Theme" id="Theme_jsk8i"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 5
 Label/fonts/font = ExtResource("15_tqpkx")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ek3t"]
@@ -109,46 +111,47 @@ offset_bottom = 40.0
 
 [node name="BtnMonitor" type="TextureButton" parent="Equipamentos" unique_id=1323696519]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 22.0
-offset_right = 247.0
-offset_bottom = 133.0
+offset_left = 114.0
+offset_top = 23.0
+offset_right = 271.0
+offset_bottom = 134.0
 texture_normal = ExtResource("3_m48o0")
 texture_hover = ExtResource("4_w1nmn")
 
 [node name="BtnMouse" type="TextureButton" parent="Equipamentos" unique_id=382164714]
 layout_mode = 0
-offset_left = 232.0
-offset_top = 132.0
-offset_right = 258.0
-offset_bottom = 153.0
+offset_left = 254.0
+offset_top = 134.0
+offset_right = 280.0
+offset_bottom = 155.0
 texture_normal = ExtResource("5_8jn2a")
 texture_hover = ExtResource("6_78xm2")
 
 [node name="BtnTeclado" type="TextureButton" parent="Equipamentos" unique_id=1862971367]
+texture_filter = 1
 layout_mode = 0
-offset_left = 105.0
-offset_top = 135.0
-offset_right = 226.0
-offset_bottom = 165.0
+offset_left = 128.0
+offset_top = 131.0
+offset_right = 249.0
+offset_bottom = 161.0
 texture_normal = ExtResource("7_6q5ci")
-texture_hover = ExtResource("8_4o10s")
+stretch_mode = 0
 
 [node name="BtnGabinete" type="TextureButton" parent="Equipamentos" unique_id=611146994]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 26.0
-offset_right = 76.0
-offset_bottom = 134.0
+offset_left = 12.0
+offset_top = 163.0
+offset_right = 80.0
+offset_bottom = 271.0
 texture_normal = ExtResource("9_o7m0u")
 texture_hover = ExtResource("10_tqpkx")
 
 [node name="BtnImpressora" type="TextureButton" parent="Equipamentos" unique_id=1856189677]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 74.0
-offset_right = 414.0
-offset_bottom = 143.0
+offset_left = 281.0
+offset_top = 62.0
+offset_right = 434.0
+offset_bottom = 131.0
 texture_normal = ExtResource("12_o7m0u")
 
 [node name="BtnFechar" type="Button" parent="." unique_id=1978270738]
@@ -162,62 +165,117 @@ text = "x"
 icon_alignment = 1
 
 [node name="Dercoracao" type="TileMapLayer" parent="." unique_id=1126194223]
+visible = false
 tile_map_data = PackedByteArray(0, 0, 20, 0, 9, 0, 0, 0, 40, 0, 4, 0, 0, 0, 1, 0, 9, 0, 0, 0, 40, 0, 1, 0, 0, 0, 22, 0, 7, 0, 0, 0, 43, 0, 1, 0, 0, 0)
 tile_set = SubResource("TileSet_o7m0u")
 
-[node name="PainelChamado" type="Panel" parent="." unique_id=1942156966]
+[node name="PainelChamado" type="Control" parent="." unique_id=1490567267]
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+mouse_filter = 2
+
+[node name="Chamado" type="NinePatchRect" parent="PainelChamado" unique_id=360944160]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 2.0
-offset_right = 393.0
-offset_bottom = 75.0
-theme = SubResource("Theme_gwfta")
+offset_left = 270.0
+offset_top = 5.0
+offset_right = 398.0
+offset_bottom = 73.0
+theme = SubResource("Theme_33eys")
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PainelChamado" unique_id=1416837605]
+[node name="LabelTitulo" type="Label" parent="PainelChamado/Chamado" unique_id=1100311153]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.5
-offset_top = -29.5
-offset_right = 48.5
-offset_bottom = 37.5
+offset_left = -19.0
+offset_top = 2.0
+offset_right = 19.0
+offset_bottom = 15.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 2
-
-[node name="LabelTitulo" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1100311153]
-layout_mode = 2
 text = "titulo"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="LabelFuncionario" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1086094973]
-layout_mode = 2
-text = "funiconario"
-autowrap_mode = 2
-
-[node name="LabelSetor" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1629623085]
-layout_mode = 2
-text = "Setor"
-autowrap_mode = 2
-
-[node name="LabelProblema" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1011527748]
-layout_mode = 2
-text = "problema"
-autowrap_mode = 2
-
-[node name="LabelObjetivo" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1845976953]
-layout_mode = 2
+[node name="LabelObjetivo" type="Label" parent="PainelChamado/Chamado" unique_id=1845976953]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 3.0
+offset_top = -17.0
+offset_right = 110.0
+offset_bottom = 1.0
+grow_vertical = 2
 text = "objetivo"
 autowrap_mode = 2
 
+[node name="Queixa" type="NinePatchRect" parent="PainelChamado" unique_id=2063569780]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 114.0
+offset_bottom = 46.0
+theme = SubResource("Theme_jsk8i")
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="PainelChamado/Queixa" unique_id=1089664260]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 48.0
+offset_bottom = 7.0
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NPC" type="TextureRect" parent="PainelChamado/Queixa" unique_id=1693252004]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 33.0
+offset_bottom = 33.0
+texture = ExtResource("16_o8rnq")
+
+[node name="LabelFuncionario" type="Label" parent="PainelChamado/Queixa" unique_id=1086094973]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 62.0
+offset_bottom = 4.0
+text = "Ana -Recepção"
+autowrap_mode = 2
+
+[node name="LabelProblema" type="Label" parent="PainelChamado/Queixa" unique_id=1011527748]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = 19.0
+offset_right = 385.0
+offset_bottom = 38.0
+grow_vertical = 2
+text = "problema"
+autowrap_mode = 2
+
 [node name="PainelInteracao" type="Control" parent="." unique_id=599906410]
+visible = false
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 220.0
+mouse_filter = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PainelInteracao" unique_id=550538680]
 layout_mode = 1
@@ -311,5 +369,7 @@ one_shot = true
 
 [node name="NomeObjeto" type="Label" parent="." unique_id=848143873]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 176.0
+offset_top = 4.0
+offset_right = 216.0
+offset_bottom = 27.0

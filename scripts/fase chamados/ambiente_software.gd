@@ -108,6 +108,9 @@ var processo_selecionado := ""
 
 var indice_processo_selecionado := -1
 
+var tipo_atividade := "verificacao_software"
+
+var janela_fila: Control = null
 
 # ============================================================
 # CONTROLE
@@ -153,13 +156,88 @@ var processos := [
 	}
 ]
 
+func _abrir_fila_impressao() -> void:
+
+	print("========================================")
+	print("[SOFTWARE] ABRINDO FILA DE IMPRESSÃO")
+	print("========================================")
+
+	var cena = preload(
+		"res://scene/fase chamados/ambiente_fila_impressao.tscn"
+		
+	)
+
+	janela_fila = cena.instantiate()
+
+	if janela_fila.has_signal("atividade_finalizada"):
+
+		janela_fila.atividade_finalizada.connect(
+			_fila_impressao_finalizada
+		)
+
+		print(
+			"[SOFTWARE] Sinal da fila de impressão conectado."
+		)
+
+	else:
+
+		push_error(
+			"[SOFTWARE] ERRO: JanelaFila não possui atividade_finalizada."
+		)
+
+	add_child(janela_fila)
+	
+func _fila_impressao_finalizada(resultado: Dictionary) -> void:
+
+	print("========================================")
+	print("[SOFTWARE] RECEBI RESULTADO DA FILA")
+	print("[SOFTWARE] Resultado: ", resultado)
+	print("========================================")
+
+	if resultado.get("resolvido", false):
+
+		print("[SOFTWARE] FILA DE IMPRESSÃO RESOLVIDA!")
+
+		atividade_finalizada.emit({
+			"resolvido": true,
+			"tipo": "verificacao_impressao"
+		})
+
+	else:
+
+		print("[SOFTWARE] FILA DE IMPRESSÃO NÃO RESOLVIDA.")
+
+func _configurar_atividade() -> void:
+
+	match tipo_atividade:
+
+		"verificacao_software":
+
+			print(
+				"[SOFTWARE] Modo: Gerenciador de Tarefas."
+			)
+
+		"verificacao_impressao":
+
+			print(
+				"[SOFTWARE] Modo: Fila de Impressão."
+			)
+
+			call_deferred("_abrir_fila_impressao")
+
+		_:
+
+			push_error(
+				"[SOFTWARE] Tipo de atividade desconhecido: " +
+				tipo_atividade
+			)
 
 # ============================================================
 # INICIALIZAÇÃO
 # ============================================================
 
 func _ready() -> void:
-
+	_configurar_atividade()
 	# --------------------------------------------------------
 	# BOTÕES PRINCIPAIS
 	# --------------------------------------------------------

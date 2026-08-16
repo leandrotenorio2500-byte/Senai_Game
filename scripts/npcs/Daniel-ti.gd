@@ -303,6 +303,10 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 			)
 		"missao":
 			DialogManager.end_conversation()
+			
+			await get_tree().create_timer(0.5).timeout
+
+			Transicao.mudar_cena("res://scene/fase chamados/bancada_funcionario.tscn")
 
 		"exit":
 			DialogManager.end_conversation()

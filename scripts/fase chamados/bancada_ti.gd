@@ -6,13 +6,13 @@ signal atividade_finalizada(resultado: Dictionary)
 # PAINEL DO CHAMADO
 # ============================================================
 
-@onready var painel_chamado: Panel = $PainelChamado
+@onready var painel_chamado: Control = $PainelChamado
 
-@onready var label_titulo: Label = $PainelChamado/VBoxContainer/LabelTitulo
-@onready var label_funcionario: Label = $PainelChamado/VBoxContainer/LabelFuncionario
-@onready var label_setor: Label = $PainelChamado/VBoxContainer/LabelSetor
-@onready var label_problema: Label = $PainelChamado/VBoxContainer/LabelProblema
-@onready var label_objetivo: Label = $PainelChamado/VBoxContainer/LabelObjetivo
+@onready var label_titulo: Label = $PainelChamado/Chamado/LabelTitulo
+@onready var label_funcionario: Label = $PainelChamado/Queixa/LabelFuncionario
+@onready var label_problema: Label = $PainelChamado/Queixa/LabelProblema
+@onready var label_objetivo: Label = $PainelChamado/Chamado/LabelObjetivo
+@onready var npc: TextureRect = $PainelChamado/Queixa/NPC
 
 
 # ============================================================
@@ -93,7 +93,7 @@ var chamados := [
 	{
 		"id": "chamado_01",
 		"setor": "Recepção",
-		"funcionario": "Ana",
+		"funcionario": "Ana - Recepção",
 		"problema": "mouse_com_defeito",
 		"descricao": "O mouse está apresentando falhas durante o uso.",
 		"equipamento": "mouse",
@@ -104,14 +104,15 @@ var chamados := [
 			"monitor": null,
 			"gabinete": null,
 			"teclado": null,
-			"impressora": null
+			"impressora": null,
+			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
 		}
 	},
 
 	{
 		"id": "chamado_02",
 		"setor": "RH",
-		"funcionario": "Vitória",
+		"funcionario": "Vitória - RH",
 		"problema": "sem_imagem",
 		"descricao": "O computador liga, mas o monitor não apresenta imagem.",
 		"equipamento": "monitor",
@@ -122,14 +123,15 @@ var chamados := [
 			"monitor": null,
 			"gabinete": null,
 			"teclado": null,
-			"impressora": null
+			"impressora": null,
+			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
 		}
 	},
 
 	{
 		"id": "chamado_03",
 		"setor": "Produção",
-		"funcionario": "Thiago",
+		"funcionario": "Thiago - Produção",
 		"problema": "computador_lento",
 		"descricao": "O computador está muito lento durante o uso.",
 		"equipamento": "gabinete",
@@ -140,14 +142,15 @@ var chamados := [
 			"monitor": null,
 			"gabinete": null,
 			"teclado": null,
-			"impressora": null
+			"impressora": null,
+			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
 		}
 	},
 
 	{
 		"id": "chamado_04",
 		"setor": "Diretoria",
-		"funcionario": "Michele",
+		"funcionario": "Michele - Diretoria",
 		"problema": "impressora",
 		"descricao": "A impressora não está realizando as impressões.",
 		"equipamento": "impressora",
@@ -158,7 +161,8 @@ var chamados := [
 			"monitor": null,
 			"gabinete": null,
 			"teclado": null,
-			"impressora": null
+			"impressora": null,
+			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
 		}
 	}
 ]
@@ -1013,12 +1017,18 @@ func _acao_impressora(acao: String) -> void:
 
 			if chamado_atual.get("equipamento") == "impressora":
 
-				etapa_atual = Etapa.ACAO
-				atualizar_painel()
+				if etapa_atual == Etapa.INVESTIGACAO:
 
-				_mostrar_feedback(
-					"A impressora não está realizando a impressão."
-				)
+					etapa_atual = Etapa.ACAO
+					atualizar_painel()
+
+					_mostrar_feedback(
+						"A impressora não está realizando a impressão."
+					)
+
+				elif etapa_atual == Etapa.ACAO:
+
+					_abrir_janela_fila()
 
 			else:
 
@@ -1027,19 +1037,70 @@ func _acao_impressora(acao: String) -> void:
 				)
 
 
-		"conexao":
-
-			_mostrar_feedback(
-				"A conexão da impressora parece estar correta."
-			)
-
-
 		"papel":
 
 			_mostrar_feedback(
 				"Há papel disponível na impressora."
 			)
 
+
+func _abrir_janela_fila() -> void:
+
+	if executando_procedimento:
+		return
+
+	executando_procedimento = true
+
+	print("========================================")
+	print("[TI] ABRINDO FILA DE IMPRESSÃO")
+	print("========================================")
+
+	painel_interacao.visible = false
+	nome_objeto.visible = false
+
+	var cena = preload(
+		"res://scene/fase chamados/ambiente_fila_impressao.tscn"
+		
+	)
+
+	var instancia = cena.instantiate()
+
+	if instancia.has_signal("atividade_finalizada"):
+
+		instancia.atividade_finalizada.connect(
+			_janela_fila_finalizada
+		)
+
+		print(
+			"[TI] Sinal atividade_finalizada da fila conectado."
+		)
+
+	else:
+
+		push_error(
+			"[TI] ERRO: JanelaFila não possui o sinal atividade_finalizada."
+		)
+
+	add_child(instancia)
+	
+func _janela_fila_finalizada(resultado: Dictionary) -> void:
+
+	print("========================================")
+	print("[TI] RECEBI RESULTADO DA FILA DE IMPRESSÃO")
+	print("[TI] Resultado: ", resultado)
+	print("========================================")
+
+	executando_procedimento = false
+
+	if resultado.get("resolvido", false):
+
+		print("[TI] FILA DE IMPRESSÃO RESOLVIDA!")
+
+		_finalizar_chamado()
+
+	else:
+
+		print("[TI] A FILA DE IMPRESSÃO NÃO FOI RESOLVIDA.")
 
 # ============================================================
 # DESCONECTAR BOTÕES
@@ -1217,17 +1278,11 @@ func atualizar_painel() -> void:
 	label_titulo.text = "CHAMADO"
 
 	label_funcionario.text = (
-		"Funcionário: " +
 		str(chamado_atual.get("funcionario", ""))
 	)
 
-	label_setor.text = (
-		"Setor: " +
-		str(chamado_atual.get("setor", ""))
-	)
-
 	label_problema.text = (
-		"Problema:\n" +
+		"Problema:" +
 		str(chamado_atual.get("descricao", ""))
 	)
 
@@ -1236,15 +1291,15 @@ func atualizar_painel() -> void:
 		Etapa.INVESTIGACAO:
 
 			label_objetivo.text = (
-				"Objetivo:\n" +
-				"Identifique o equipamento com problema."
+				"Objetivo:" +
+				" Identifique o equipamento com problema."
 			)
 
 
 		Etapa.ACAO:
 
 			label_objetivo.text = (
-				"Problema identificado!\n\n" +
+				"Problema identificado!\n" +
 				"Ação:\n" +
 				_descricao_acao()
 			)
@@ -1281,7 +1336,7 @@ func _finalizar_chamado() -> void:
 	print("[TI] Setor: ", chamado_atual["setor"])
 	print("========================================")
 
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(1.0).timeout
 
 	_proximo_chamado()
 	
@@ -1304,7 +1359,11 @@ func _proximo_chamado() -> void:
 	print("[TI] Chamado ", proximo_indice + 1, " de ", chamados.size())
 	print("========================================")
 
+	await Transicao.transicao()
+
 	carregar_chamado(proximo_indice)
+
+	await Transicao.voltar()
 
 # ============================================================
 # TODOS OS CHAMADOS FINALIZADOS
@@ -1321,7 +1380,9 @@ func _finalizar_todos_chamados() -> void:
 	# Aqui posteriormente vamos conectar
 	# com o QuestManager / ActivityManager.
 
-func _abrir_ambiente_software() -> void:
+func _abrir_ambiente_software(
+	tipo: String = "verificacao_software"
+) -> void:
 
 	if executando_procedimento:
 		return
@@ -1330,6 +1391,7 @@ func _abrir_ambiente_software() -> void:
 
 	print("========================================")
 	print("[TI] ABRINDO AMBIENTE DE SOFTWARE")
+	print("[TI] Tipo: ", tipo)
 	print("========================================")
 
 	painel_interacao.visible = false
@@ -1341,14 +1403,17 @@ func _abrir_ambiente_software() -> void:
 
 	var instancia = cena.instantiate()
 
-	# Conecta ANTES de adicionar à árvore.
+	instancia.tipo_atividade = tipo
+
 	if instancia.has_signal("atividade_finalizada"):
 
 		instancia.atividade_finalizada.connect(
 			_ambiente_software_finalizado
 		)
 
-		print("[TI] Sinal atividade_finalizada conectado.")
+		print(
+			"[TI] Sinal atividade_finalizada conectado."
+		)
 
 	else:
 

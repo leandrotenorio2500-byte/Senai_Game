@@ -95,7 +95,7 @@ var chamados := [
 		"setor": "Recepção",
 		"funcionario": "Ana - Recepção",
 		"problema": "mouse_com_defeito",
-		"descricao": "O mouse está apresentando falhas durante o uso.",
+		"descricao": "Não estou mais conseguindo clicar nas coisas. O cursor não mais do lugar!",
 		"equipamento": "mouse",
 		"acao": "substituir_mouse",
 		"visual": {
@@ -124,7 +124,7 @@ var chamados := [
 			"gabinete": null,
 			"teclado": null,
 			"impressora": null,
-			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
+			"npc": preload("res://sprites/Mini UI/heads/Vitoria.png")
 		}
 	},
 
@@ -143,7 +143,7 @@ var chamados := [
 			"gabinete": null,
 			"teclado": null,
 			"impressora": null,
-			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
+			"npc": preload("res://sprites/Mini UI/heads/Jobson.png")
 		}
 	},
 
@@ -162,7 +162,7 @@ var chamados := [
 			"gabinete": null,
 			"teclado": null,
 			"impressora": null,
-			"npc": preload("res://sprites/Mini UI/heads/Ana.png")
+			"npc": preload("res://sprites/Mini UI/heads/Michele.png")
 		}
 	}
 ]
@@ -214,7 +214,7 @@ func _ready() -> void:
 	# --------------------------------------------------------
 
 	btn_monitor.mouse_entered.connect(
-		func(): _mostrar_nome_objeto("Monitor")
+		func(): _mostrar_nome_objeto("Monitor", btn_monitor)
 	)
 
 	btn_monitor.mouse_exited.connect(
@@ -222,31 +222,35 @@ func _ready() -> void:
 	)
 
 	btn_gabinete.mouse_entered.connect(
-		func(): _mostrar_nome_objeto("Gabinete")
+		func(): _mostrar_nome_objeto("Gabinete", btn_gabinete)
+	)
+
+	btn_teclado.mouse_entered.connect(
+		func(): _mostrar_nome_objeto("Teclado", btn_teclado)
+	)
+
+	btn_mouse.mouse_entered.connect(
+		func(): _mostrar_nome_objeto("Mouse", btn_mouse)
+	)
+
+	btn_impressora.mouse_entered.connect(
+		func(): _mostrar_nome_objeto("Impressora", btn_impressora)
+	)
+
+	btn_monitor.mouse_exited.connect(
+		_esconder_nome_objeto
 	)
 
 	btn_gabinete.mouse_exited.connect(
 		_esconder_nome_objeto
 	)
 
-	btn_teclado.mouse_entered.connect(
-		func(): _mostrar_nome_objeto("Teclado")
-	)
-
 	btn_teclado.mouse_exited.connect(
 		_esconder_nome_objeto
 	)
 
-	btn_mouse.mouse_entered.connect(
-		func(): _mostrar_nome_objeto("Mouse")
-	)
-
 	btn_mouse.mouse_exited.connect(
 		_esconder_nome_objeto
-	)
-
-	btn_impressora.mouse_entered.connect(
-		func(): _mostrar_nome_objeto("Impressora")
 	)
 
 	btn_impressora.mouse_exited.connect(
@@ -457,6 +461,16 @@ func _aplicar_visual_chamado() -> void:
 		btn_impressora.texture_normal = impressora_texture
 		btn_impressora.texture_hover = impressora_texture
 		btn_impressora.texture_pressed = impressora_texture
+		
+	# ========================================================
+	# NPC
+	# ========================================================
+
+	var npc_texture = visual.get("npc")
+
+	if npc_texture != null:
+
+		npc.texture = npc_texture
 
 func _interagir(objeto: String) -> void:
 
@@ -1020,6 +1034,10 @@ func _acao_impressora(acao: String) -> void:
 				if etapa_atual == Etapa.INVESTIGACAO:
 
 					etapa_atual = Etapa.ACAO
+
+					# Muda a função percebida pelo jogador
+					btn_interacao_1.text = "Verificar fila de impressão"
+
 					atualizar_painel()
 
 					_mostrar_feedback(
@@ -1042,7 +1060,6 @@ func _acao_impressora(acao: String) -> void:
 			_mostrar_feedback(
 				"Há papel disponível na impressora."
 			)
-
 
 func _abrir_janela_fila() -> void:
 
@@ -1226,9 +1243,19 @@ func _input(event: InputEvent) -> void:
 # NOME DO OBJETO
 # ============================================================
 
-func _mostrar_nome_objeto(nome: String) -> void:
+func _mostrar_nome_objeto(nome: String, objeto: Control) -> void:
 
 	nome_objeto.text = nome
+
+	# Pega o centro do objeto
+	var centro := objeto.position + (objeto.size / 2.0)
+
+	# Centraliza a Label horizontalmente sobre o objeto
+	nome_objeto.position.x = centro.x - (nome_objeto.size.x / 2.0)
+
+	# Coloca a Label acima do objeto
+	nome_objeto.position.y = objeto.position.y - nome_objeto.size.y - 2
+
 	nome_objeto.visible = true
 
 
@@ -1282,9 +1309,9 @@ func atualizar_painel() -> void:
 	)
 
 	label_problema.text = (
-		"Problema:" +
 		str(chamado_atual.get("descricao", ""))
 	)
+	
 
 	match etapa_atual:
 
@@ -1377,8 +1404,7 @@ func _finalizar_todos_chamados() -> void:
 
 	painel_chamado.visible = false
 
-	# Aqui posteriormente vamos conectar
-	# com o QuestManager / ActivityManager.
+	Transicao.mudar_cena("res://scene/sala_tecnica.tscn")
 
 func _abrir_ambiente_software(
 	tipo: String = "verificacao_software"

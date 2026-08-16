@@ -130,10 +130,10 @@ texture = ExtResource("1_ibixg")
 
 [node name="TextureButton" type="TextureButton" parent="AreaTrabalho/TelaMonitor" unique_id=1718113482]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 41.0
-offset_right = 225.0
-offset_bottom = 58.0
+offset_left = 342.0
+offset_top = 52.0
+offset_right = 359.0
+offset_bottom = 69.0
 
 [node name="JanelaFila" type="Control" parent="AreaTrabalho/TelaMonitor" unique_id=20151969]
 anchors_preset = 0
@@ -352,10 +352,10 @@ offset_bottom = 67.0
 
 [node name="Fechar" type="TextureButton" parent="AreaTrabalho/TelaMonitor/JanelaFila/Fundo" unique_id=694779779]
 layout_mode = 0
-offset_left = 173.0
-offset_top = 2.0
-offset_right = 176.0
-offset_bottom = 5.0
+offset_left = 300.0
+offset_top = 1.0
+offset_right = 303.0
+offset_bottom = 4.0
 texture_normal = ExtResource("5_eo5gs")
 
 [node name="Gerenc_Tarefas" type="Control" parent="AreaTrabalho" unique_id=1224127048]

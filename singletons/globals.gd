@@ -174,10 +174,6 @@ func possui_item(item_id: String) -> bool:
 # DANIEL
 # ============================================================
 
-var daniel_seguindo := false
-
-var npc_base_scene = preload("res://entities/npc.tscn")
-
 
 func spawn_daniel() -> void:
 

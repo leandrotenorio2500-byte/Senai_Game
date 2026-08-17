@@ -37,6 +37,72 @@ func _ready() -> void:
 
 	btn_fechar.pressed.connect(_fechar)
 
+func mostrar_resultado(resultado: Dictionary) -> void:
+
+	print("========================================")
+	print("[ACTIVITY] Resultado da avaliação:")
+	print(resultado)
+	print("========================================")
+
+
+	# --------------------------------------------------------
+	# EQUIPAMENTO CORRETO
+	# --------------------------------------------------------
+
+	if resultado.get("correto", false):
+
+		var precisa_substituicao: bool = resultado.get(
+			"precisa_substituicao",
+			false
+		)
+
+
+		if precisa_substituicao:
+
+			print("[BANCADA] Defeito identificado!")
+
+			print(
+				"[BANCADA] Peça necessária: ",
+				resultado.get("item_necessario", "")
+			)
+
+		else:
+
+			print(
+				"[BANCADA] Problema identificado, ",
+				"mas não é necessária substituição."
+			)
+
+
+		# Bloqueia novas seleções.
+		_bloqueado = true
+
+
+		# Envia o resultado para o ActivityManager
+		# e encerra a atividade.
+		atividade_finalizada.emit({
+			"cancelado": false,
+			"correto": true,
+			"setor": resultado.get("setor", ""),
+			"precisa_substituicao": precisa_substituicao,
+			"item_necessario": resultado.get(
+				"item_necessario",
+				""
+			),
+			"problema": resultado.get(
+				"problema",
+				""
+			)
+		})
+
+		return
+
+
+	# --------------------------------------------------------
+	# EQUIPAMENTO INCORRETO
+	# --------------------------------------------------------
+
+	print("[BANCADA] Equipamento incorreto.")
 
 
 func _selecionar(item: String) -> void:

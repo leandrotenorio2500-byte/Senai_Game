@@ -343,7 +343,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 154.0
-offset_bottom = 174.00012
+offset_bottom = 154.00003
 texture = ExtResource("1_5yql7")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=347853723]
@@ -366,7 +366,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_top = 132.0
 offset_right = 401.0
-offset_bottom = 352.0001
+offset_bottom = 352.00012
 theme = SubResource("Theme_j8ck1")
 
 [node name="Producao" type="Control" parent="Areas" unique_id=1208924594]
@@ -1069,10 +1069,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 153.0
-offset_top = -94.0
-offset_right = 169.0
-offset_bottom = -78.0
+offset_left = 155.0
+offset_top = -107.0
+offset_right = 171.0
+offset_bottom = -91.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

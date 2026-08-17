@@ -50,7 +50,7 @@ tile_map_data = PackedByteArray("AAACAAgABQAOAAwAAAAFAAcABQADAAEAAAAJAAgABQAIAAw
 tile_set = ExtResource("5_hoit2")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=712453566]
-tile_map_data = PackedByteArray("AAAHAAkACAARAAAAABANAAkACAARAAIAAAALAAkACAARAAYAABAqAAkACAARAAgAAAASAAkACAARAAAAAAAjAAkACAARAAAAAAA=")
+tile_map_data = PackedByteArray("AAAjAAkACAASAAAAAAAHAAkACAASAAAAABANAAkACAASAAAAAAALAAkACAASAAQAAAAqAAkACAASAAAAABASAAkACAASAAIAAAA=")
 tile_set = ExtResource("7_ve01p")
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]

@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://dacmqchwtrc87"]
+
+[ext_resource type="Script" uid="uid://clndsvuthk7t2" path="res://scripts/fase chamados/bancada_ti.gd" id="1_6q5ci"]
+[ext_resource type="Texture2D" uid="uid://ulnacwol4tnq" path="res://sprites/missions/chamados/MesaRecepcao.png" id="2_3vrjd"]
+[ext_resource type="Texture2D" uid="uid://crkwughf407hd" path="res://sprites/missions/chamados/Mous_newe.png" id="2_4o10s"]
+[ext_resource type="Texture2D" uid="uid://6yqbx2ut3iqi" path="res://sprites/missions/chamados/monitor.png" id="3_m48o0"]
+[ext_resource type="Texture2D" uid="uid://cnkggqlbg0hjm" path="res://sprites/missions/chamados/monitor-hover.png" id="4_w1nmn"]
+[ext_resource type="Texture2D" uid="uid://csm5b1wey54ta" path="res://sprites/missions/chamados/Mouse.png" id="5_8jn2a"]
+[ext_resource type="Texture2D" uid="uid://bbtxpd46pijjg" path="res://sprites/missions/chamados/MouseHover.png" id="6_78xm2"]
+[ext_resource type="Texture2D" uid="uid://cgc5pyaxes1ng" path="res://sprites/missions/chamados/Teclado.png" id="7_6q5ci"]
+[ext_resource type="Texture2D" uid="uid://dcn35f86l4tgj" path="res://sprites/missions/chamados/TecladoHover.png" id="8_4o10s"]
+[ext_resource type="Texture2D" uid="uid://ck2nutxw21rak" path="res://sprites/missions/chamados/Gabinete.png" id="9_o7m0u"]
+[ext_resource type="Texture2D" uid="uid://es4menwsq544" path="res://sprites/missions/chamados/GabineteHover.png" id="10_tqpkx"]
+[ext_resource type="Theme" uid="uid://btj22rnkf1acj" path="res://close.tres" id="11_78xm2"]
+[ext_resource type="Texture2D" uid="uid://cx4o5l3ljep2d" path="res://sprites/decoração/recepcao.png" id="12_6q5ci"]
+[ext_resource type="Texture2D" uid="uid://cncno1uya3ute" path="res://sprites/missions/chamados/impressora.png" id="12_o7m0u"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="15_tqpkx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o10s"]
+texture = ExtResource("12_6q5ci")
+40:1/size_in_atlas = Vector2i(2, 3)
+40:1/0 = 0
+43:1/size_in_atlas = Vector2i(2, 3)
+43:1/0 = 0
+40:4/size_in_atlas = Vector2i(4, 3)
+40:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_o7m0u"]
+sources/0 = SubResource("TileSetAtlasSource_4o10s")
+
+[sub_resource type="Theme" id="Theme_gwfta"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/constants/line_spacing = 3
+Label/font_sizes/font_size = 11
+Label/fonts/font = ExtResource("15_tqpkx")
+
+[node name="BancadaTI" type="Control" unique_id=1253915407]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6q5ci")
+mouse_novo_texture = ExtResource("2_4o10s")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1061840007]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 400.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3vrjd")
+
+[node name="Equipamentos" type="Control" parent="." unique_id=509967996]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BtnMonitor" type="TextureButton" parent="Equipamentos" unique_id=1323696519]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 35.0
+offset_right = 246.0
+offset_bottom = 146.0
+texture_normal = ExtResource("3_m48o0")
+texture_hover = ExtResource("4_w1nmn")
+
+[node name="BtnMouse" type="TextureButton" parent="Equipamentos" unique_id=382164714]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 146.0
+offset_right = 258.0
+offset_bottom = 167.0
+texture_normal = ExtResource("5_8jn2a")
+texture_hover = ExtResource("6_78xm2")
+
+[node name="BtnTeclado" type="TextureButton" parent="Equipamentos" unique_id=1862971367]
+layout_mode = 0
+offset_left = 103.0
+offset_top = 146.0
+offset_right = 224.0
+offset_bottom = 176.0
+texture_normal = ExtResource("7_6q5ci")
+texture_hover = ExtResource("8_4o10s")
+
+[node name="BtnGabinete" type="TextureButton" parent="Equipamentos" unique_id=611146994]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 73.0
+offset_bottom = 153.0
+texture_normal = ExtResource("9_o7m0u")
+texture_hover = ExtResource("10_tqpkx")
+
+[node name="BtnImpressora" type="TextureButton" parent="Equipamentos" unique_id=1856189677]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 83.0
+offset_right = 424.0
+offset_bottom = 152.0
+texture_normal = ExtResource("12_o7m0u")
+
+[node name="BtnFechar" type="Button" parent="." unique_id=1978270738]
+layout_mode = 0
+offset_left = 457.0
+offset_top = 9.0
+offset_right = 473.0
+offset_bottom = 25.0
+theme = ExtResource("11_78xm2")
+text = "x"
+icon_alignment = 1
+
+[node name="Dercoracao" type="TileMapLayer" parent="." unique_id=1126194223]
+tile_map_data = PackedByteArray(0, 0, 20, 0, 9, 0, 0, 0, 40, 0, 4, 0, 0, 0, 1, 0, 9, 0, 0, 0, 40, 0, 1, 0, 0, 0, 22, 0, 7, 0, 0, 0, 43, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_o7m0u")
+
+[node name="PainelChamado" type="Panel" parent="." unique_id=1942156966]
+layout_mode = 0
+offset_left = 315.0
+offset_top = 2.0
+offset_right = 393.0
+offset_bottom = 83.0
+theme = SubResource("Theme_gwfta")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PainelChamado" unique_id=1416837605]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelTitulo" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1100311153]
+layout_mode = 2
+text = "titulo"
+
+[node name="LabelFuncionario" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1086094973]
+layout_mode = 2
+text = "funiconario"
+
+[node name="LabelSetor" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1629623085]
+layout_mode = 2
+text = "Setor"
+
+[node name="LabelProblema" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1011527748]
+layout_mode = 2
+text = "problema"
+
+[node name="LabelObjetivo" type="Label" parent="PainelChamado/VBoxContainer" unique_id=1845976953]
+layout_mode = 2
+text = "objetivo"
+
+[node name="PainelInteracao" type="Control" parent="." unique_id=599906410]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PainelInteracao" unique_id=2054711501]
+layout_mode = 0
+offset_left = -94.0
+offset_top = 67.0
+offset_right = -54.0
+offset_bottom = 107.0
+
+[node name="Button" type="Button" parent="PainelInteracao/VBoxContainer" unique_id=1321929488]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="PainelInteracao/VBoxContainer" unique_id=1910709317]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="PainelInteracao/VBoxContainer" unique_id=1623798118]
+layout_mode = 2
+
+[node name="NomeObjeto" type="Label" parent="." unique_id=848143873]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

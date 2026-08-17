@@ -8,6 +8,7 @@ func _ready() -> void:
 		preload("res://scene/fase RH/tutorial/etapa1.tscn"),
 		preload("res://scene/fase RH/tutorial/etapa2.tscn"),
 		preload("res://scene/fase RH/tutorial/etapa3.tscn"),
+		preload("res://scene/fase RH/tutorial/etapa4.tscn"),
 	]
 	
 	super._ready()

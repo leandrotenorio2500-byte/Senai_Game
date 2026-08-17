@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://bgo70nb27kcgj"]
+[gd_scene format=3 uid="uid://dt1ig1pqc5flw"]
 
-[ext_resource type="Texture2D" uid="uid://cly12un4gmtpn" path="res://sprites/tutoriais/rh/arrow_.png" id="1_hbosw"]
-[ext_resource type="Texture2D" uid="uid://c73c6qgyrv4yf" path="res://sprites/tutoriais/rh/curriculo.png" id="2_hbosw"]
+[ext_resource type="Texture2D" uid="uid://chgvjbesiehiw" path="res://sprites/tutoriais/riscos/seleciona_setor_b.png" id="1_gh2l8"]
+[ext_resource type="Texture2D" uid="uid://meiip7rgjcbt" path="res://sprites/tutoriais/riscos/arrow.png" id="2_1df8g"]
+[ext_resource type="Texture2D" uid="uid://cns3ri8ev5i5w" path="res://sprites/tutoriais/riscos/seleciona_setor_a.png" id="3_gi3wy"]
 
 [node name="Etapa3" type="Control" unique_id=959974667]
 layout_mode = 3
@@ -39,90 +40,69 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -157.25
-offset_right = 157.25
+offset_left = -151.5
+offset_right = 151.5
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "Objetivo: Avaliando candidatos"
+text = "Objetivo: Identificando no mapa"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
-
-[node name="apto" type="Label" parent="Control" unique_id=573316678]
-layout_mode = 0
-offset_left = 291.5
-offset_top = 133.0
-offset_right = 324.0
-offset_bottom = 156.0
-theme_override_font_sizes/font_size = 14
-text = "Apto"
-autowrap_mode = 2
-
-[node name="nao apto" type="Label" parent="Control" unique_id=1566538559]
-layout_mode = 0
-offset_left = 37.5
-offset_top = 138.0
-offset_right = 103.0
-offset_bottom = 159.0
-theme_override_font_sizes/font_size = 14
-text = "Não Apto"
-autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="Control" unique_id=1117693040]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 31.0
 offset_right = 364.0
-offset_bottom = 77.0
+offset_bottom = 85.0
 theme_override_font_sizes/font_size = 14
-text = "Para avaliar o candidato, basta deslizar o currículo para um dos lados:"
+text = "2. Com os riscos selecionados basta clicar em uma das bolinhas do setor, elas representam um dos riscos que o setor possui."
 autowrap_mode = 2
 
-[node name="arrow2" type="TextureRect" parent="Control" unique_id=281323898]
+[node name="TextureRect4" type="TextureRect" parent="Control" unique_id=1603786405]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -123.0
-offset_top = -117.0
-offset_right = -59.0
-offset_bottom = -66.0
+offset_left = 23.0
+offset_top = -93.0
+offset_right = 168.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_hbosw")
-expand_mode = 2
-flip_h = true
-
-[node name="arrow" type="TextureRect" parent="Control" unique_id=1658768810]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 59.0
-offset_top = -118.0
-offset_right = 123.0
-offset_bottom = -67.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("1_hbosw")
+texture = ExtResource("1_gh2l8")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=833356208]
+[node name="TextureRect4" type="TextureRect" parent="Control/TextureRect4" unique_id=54291728]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -52.0
-offset_top = -120.0
-offset_right = 51.5
-offset_bottom = -1.0
+offset_left = -122.5
+offset_top = -68.0
+offset_right = -75.5
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("2_hbosw")
-expand_mode = 4
+texture = ExtResource("2_1df8g")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=592669096]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -92.0
+offset_right = -34.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_gi3wy")
+expand_mode = 2

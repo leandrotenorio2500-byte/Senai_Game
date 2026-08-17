@@ -216,6 +216,10 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 				_aparecer_perto_do_player()
 
 			DialogManager.end_conversation()
+			
+			await get_tree().create_timer(1.5).timeout
+			
+			Transicao.mudar_cena("res://scene/fase mapa/tutorial/tutorial_mapa.tscn")
 
 		"exit":
 			DialogManager.end_conversation()

@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bsf2d1ru75xar"]
+[gd_scene format=3 uid="uid://by11yag6d0v0p"]
 
-[ext_resource type="Texture2D" uid="uid://gqjavqk04gk2" path="res://sprites/tutoriais/rh/papel.png" id="1_840u2"]
+[ext_resource type="Texture2D" uid="uid://d2dnv753qmvye" path="res://sprites/tutoriais/riscos/seleciona_risco.png" id="1_2t1fr"]
 
-[node name="Etapa2" type="Control" unique_id=959974667]
+[node name="Etapa5" type="Control" unique_id=959974667]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Control" type="Control" parent="." unique_id=1588080916]
+[node name="Control" type="Control" parent="." unique_id=1695018770]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -33,7 +33,7 @@ offset_bottom = 99.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="Control" unique_id=1634014780]
+[node name="Label2" type="Label" parent="Control" unique_id=1414148290]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -42,45 +42,44 @@ offset_left = -151.5
 offset_right = 151.5
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "Objetivo: Requisitos de cada vaga"
+text = "Objetivo: Identificando no mapa"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
 
-[node name="Label4" type="Label" parent="Control" unique_id=1373878566]
-layout_mode = 0
-offset_left = 176.5
-offset_top = 85.0
-offset_right = 365.0
-offset_bottom = 174.0
-theme_override_font_sizes/font_size = 14
-text = "A cada candidato 
-avaliado a vaga será
-atualizada."
-autowrap_mode = 2
-
-[node name="Label3" type="Label" parent="Control" unique_id=1259301239]
+[node name="Label3" type="Label" parent="Control" unique_id=675354276]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 31.0
 offset_right = 364.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 14
-text = "No canto superior esquerdo há um papel informando quais são os requisitos da vaga."
+text = "Para marcar no mapa qual o tipo de risco do setor siga os passos a seguir:"
 autowrap_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Control" unique_id=2048916065]
+[node name="Label4" type="Label" parent="Control" unique_id=5222137]
+layout_mode = 0
+offset_left = 27.5
+offset_top = 92.0
+offset_right = 189.5
+offset_bottom = 193.0
+theme_override_font_sizes/font_size = 14
+text = "1. Selecione um tipo
+de risco.
+"
+autowrap_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=1324602383]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -114.0
-offset_right = -37.0
-offset_bottom = -1.0
+offset_top = -115.0
+offset_right = 150.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_840u2")
+texture = ExtResource("1_2t1fr")
 expand_mode = 2

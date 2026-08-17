@@ -16,7 +16,7 @@ func get_dialogo_setor() -> Array[Dictionary]:
 
 func _ready() -> void:
 
-	npc_name = "Sarah"
+	npc_name = "Sarah - Líder do Deposito"
 	npc_faceset_path = "res://sprites/Mini UI/heads/Sarah.png"
 
 	atualizar_dialogo()

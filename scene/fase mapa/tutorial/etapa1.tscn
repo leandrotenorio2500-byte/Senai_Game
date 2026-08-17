@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cninccgei62y1"]
+[gd_scene format=3 uid="uid://cyrf836ly8s3u"]
 
 [node name="Etapa1" type="Control" unique_id=959974667]
 clip_contents = true
@@ -38,16 +38,17 @@ offset_left = 5.0
 offset_top = 5.0
 offset_right = 362.0
 offset_bottom = 33.0
-text = "Nesta missão você terá 2 objetivo a cumprir"
+text = "Nesta missão você terá 3 objetivos a cumprir:"
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="Control" unique_id=1634446849]
 layout_mode = 0
-offset_left = 6.5
-offset_top = 59.0
-offset_right = 363.5
-offset_bottom = 133.0
+offset_left = 7.0
+offset_top = 45.0
+offset_right = 364.0
+offset_bottom = 172.0
 theme_override_font_sizes/font_size = 14
-text = "1. Analisar o requisitos de cada vaga
-2. Identificar se o candidato está de acordo com a vaga ou não"
+text = "1. Localizar os setores
+2. Conversar com os lideres de cada setor
+3. Após conversar com o líder do setor você deve identificar no mapa quais são os tipos de risco daquele setor"
 autowrap_mode = 2

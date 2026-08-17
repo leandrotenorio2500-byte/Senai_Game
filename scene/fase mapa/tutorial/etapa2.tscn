@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://bsf2d1ru75xar"]
+[gd_scene format=3 uid="uid://blb5131bvhkkm"]
 
-[ext_resource type="Texture2D" uid="uid://gqjavqk04gk2" path="res://sprites/tutoriais/rh/papel.png" id="1_840u2"]
+[ext_resource type="Texture2D" uid="uid://3tg6s5c631fa" path="res://sprites/tutoriais/riscos/setor.png" id="1_xal7u"]
 
 [node name="Etapa2" type="Control" unique_id=959974667]
 layout_mode = 3
@@ -42,22 +42,10 @@ offset_left = -151.5
 offset_right = 151.5
 offset_bottom = 28.0
 grow_horizontal = 2
-text = "Objetivo: Requisitos de cada vaga"
+text = "Objetivo: Localizar setor"
 horizontal_alignment = 1
 autowrap_mode = 2
 uppercase = true
-
-[node name="Label4" type="Label" parent="Control" unique_id=1373878566]
-layout_mode = 0
-offset_left = 176.5
-offset_top = 85.0
-offset_right = 365.0
-offset_bottom = 174.0
-theme_override_font_sizes/font_size = 14
-text = "A cada candidato 
-avaliado a vaga será
-atualizada."
-autowrap_mode = 2
 
 [node name="Label3" type="Label" parent="Control" unique_id=1259301239]
 layout_mode = 0
@@ -66,7 +54,7 @@ offset_top = 31.0
 offset_right = 364.0
 offset_bottom = 85.0
 theme_override_font_sizes/font_size = 14
-text = "No canto superior esquerdo há um papel informando quais são os requisitos da vaga."
+text = "Cada porta da acesso a um setor, basta entrar nela e você estará dentro de um setor"
 autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Control" unique_id=2048916065]
@@ -76,11 +64,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -150.0
-offset_top = -114.0
-offset_right = -37.0
-offset_bottom = -1.0
+offset_left = -124.75
+offset_top = -113.0
+offset_right = 124.75
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("1_840u2")
+texture = ExtResource("1_xal7u")
 expand_mode = 2

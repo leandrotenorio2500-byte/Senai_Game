@@ -242,9 +242,9 @@ func _ready() -> void:
 	# BOTÕES PRINCIPAIS
 	# --------------------------------------------------------
 
-	btn_fechar.pressed.connect(
-		_fechar
-	)
+	#btn_fechar.pressed.connect(
+		#_fechar
+	#)
 
 	btn_gerenciador.pressed.connect(
 		_abrir_gerenciador
@@ -689,11 +689,11 @@ func _fechar_gerenciador() -> void:
 # FECHAR SOFTWARE
 # ============================================================
 
-func _fechar() -> void:
+#func _fechar() -> void:
 
-	if estado_atual == Estado.RESOLVENDO:
-		return
+	#if estado_atual == Estado.RESOLVENDO:
+		#return
 
-	print("[SOFTWARE] Fechando ambiente de software.")
+	#print("[SOFTWARE] Fechando ambiente de software.")
 
-	queue_free()
+	#queue_free()

@@ -138,7 +138,7 @@ static var curriculos = [
 			"Organização",
 			"Trabalho em equipe"
 		],
-		"horario":"Integral",
+		"horario":"Manhã",
 		"experiencia":"Auxiliar de Almoxarifado"
 	},
 
@@ -312,7 +312,7 @@ static var vagas = [
 		"Organização",
 		"Atendimento ao público"
 		],
-		"horario":"Comercial",
+		"horario":"Integral",
 		"experiencia":"Desejável"
 		}
 		]

@@ -90,7 +90,7 @@ Button/styles/hover = SubResource("StyleBoxFlat_jsk8i")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ek3t"]
 font = ExtResource("15_tqpkx")
-font_size = 9
+font_size = 8
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
@@ -99,7 +99,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6q5ci")
 mouse_novo_texture = ExtResource("2_4o10s")
-metadata/_edit_vertical_guides_ = [177.0]
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=1061840007]
 layout_mode = 1
@@ -156,10 +155,10 @@ texture_hover = ExtResource("10_tqpkx")
 
 [node name="BtnImpressora" type="TextureButton" parent="Equipamentos" unique_id=1856189677]
 layout_mode = 0
-offset_left = 290.0
+offset_left = 288.0
 offset_top = 62.0
-offset_right = 434.0
-offset_bottom = 131.0
+offset_right = 405.0
+offset_bottom = 127.0
 texture_normal = ExtResource("12_o7m0u")
 
 [node name="BtnFechar" type="Button" parent="." unique_id=1978270738]

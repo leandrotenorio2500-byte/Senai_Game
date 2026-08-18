@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="17_irflo"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="18_vrh26"]
 [ext_resource type="Script" uid="uid://dbscs6ak27tse" path="res://scripts/npcs/Daniel-ti.gd" id="19_bowb7"]
+[ext_resource type="Texture2D" uid="uid://djag20g054r8" path="res://sprites/npcs/coroa-run.png" id="21_cpjyn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muhhk"]
 texture = ExtResource("7_md420")
@@ -213,7 +214,7 @@ position = Vector2(92, 146)
 script = ExtResource("19_bowb7")
 follow_speed = 100.0
 stopping_distance = 32.0
-idle_spritesheet = null
-run_spritesheet = null
+idle_spritesheet = ExtResource("7_md420")
+run_spritesheet = ExtResource("21_cpjyn")
 hframes = 8
 vframes = 1

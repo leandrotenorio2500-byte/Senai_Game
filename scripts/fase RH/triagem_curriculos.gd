@@ -106,6 +106,11 @@ func avaliar_candidato():
 
 		if habilidade not in candidato.habilidades:
 			return false
+			
+	for horario in vaga.horario:
+
+		if horario not in candidato.horario:
+			return false
 
 	return true
 

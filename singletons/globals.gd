@@ -209,11 +209,14 @@ func spawn_michele():
 
 	var michele = npc_base_scene.instantiate()
 
-	michele.set_script(load("res://scripts/npcs/julia.gd"))
+	michele.set_script(
+		load("res://scripts/npcs/julia.gd")
+	)
 
 	get_tree().current_scene.add_child(michele)
 
 	michele.global_position = player.global_position + Vector2(-32, -2)
+
 	michele.iniciar_michele()
 
 func preparar_apresentacao_mapa_risco() -> void:

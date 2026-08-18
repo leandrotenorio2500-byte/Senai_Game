@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="6_h127m"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_6c8f1"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
-[ext_resource type="Texture2D" uid="uid://cdxo0rdrrcgt6" path="res://sprites/npcs/coroa2.png" id="10_6c8f1"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
 [ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
 [ext_resource type="Texture2D" uid="uid://bstrw36dejdpi" path="res://sprites/npcs/ana-recep.png" id="11_gnfdo"]
@@ -89,7 +88,7 @@ position = Vector2(227, 146)
 script = ExtResource("11_dhp2d")
 follow_speed = 100.0
 stopping_distance = 32.0
-idle_spritesheet = ExtResource("10_6c8f1")
+idle_spritesheet = null
 run_spritesheet = null
 hframes = 8
 vframes = 1

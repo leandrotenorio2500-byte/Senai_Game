@@ -5,10 +5,10 @@ const QUEST_ID := "treinamento_epi"
 func _ready() -> void:
 	print(QuestManager.obter_estado(QUEST_ID))
 
-	npc_name = "Júlio"
-	npc_faceset_path = "res://sprites/Mini UI/heads/Daniel.png"
+	npc_name = "Ricardo"
+	npc_faceset_path = "res://sprites/Mini UI/heads/Ricardo.png"
 
-	idle_spritesheet = load("res://sprites/npcs/operario3.png")
+	idle_spritesheet = load("res://sprites/npcs/ricardo.png")
 	hframes = 8
 
 	var quest = QuestManager.obter_missao(QUEST_ID)
@@ -52,7 +52,7 @@ func dialogo_inicio():
 	dialog_data = [
 		{
 			"title": npc_name,
-			"dialog": "Olá! Eu sou o Júlio. Faço parte do setor de Saúde e Segurança no Trabalho, o SST.",
+			"dialog": "Olá! Eu sou o Ricardo. Faço parte do setor de Saúde e Segurança no Trabalho, o SST.",
 			"faceset": npc_faceset_path
 		},
 		{

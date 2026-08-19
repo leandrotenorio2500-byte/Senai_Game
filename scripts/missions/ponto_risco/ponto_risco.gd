@@ -107,8 +107,13 @@ func iniciar() -> void:
 
 	super.iniciar()
 
-	carregar_setores_pre_registrados()
+	Globals.missao_mapa_risco_ativa = true
 
+	carregar_setores_pre_registrados()
+	
+func finalizar() -> void:
+	Globals.missao_mapa_risco_ativa = false
+	super.finalizar()
 
 func carregar_setores_pre_registrados() -> void:
 

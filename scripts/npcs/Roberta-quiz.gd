@@ -5,7 +5,7 @@ const QUEST_ID := "analise_curriculos"
 func _ready() -> void:
 	print(QuestManager.obter_estado("analise_curriculos"))
 	npc_name = "Roberta"
-	npc_faceset_path = "res://sprites/Mini UI/heads/Vitoria.png"
+	npc_faceset_path = "res://sprites/Mini UI/heads/Roberta.png"
 
 	idle_spritesheet = load("res://sprites/npcs/Roberta.png")
 	hframes = 2

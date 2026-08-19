@@ -16,7 +16,7 @@ func get_dialogo_setor() -> Array[Dictionary]:
 
 func _ready() -> void:
 	npc_faceset_path = "res://sprites/Mini UI/heads/Jobson.png"
-	npc_name = "Jobson"
+	npc_name = "Jobson - Líder da Produção"
 	idle_spritesheet = load("res://sprites/npcs/operario3.png")
 	hframes = 8
 	super._ready()

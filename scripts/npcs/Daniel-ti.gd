@@ -64,7 +64,7 @@ var _player_ref: Node2D = null
 func _ready() -> void:
 
 	npc_faceset_path = "res://sprites/Mini UI/heads/Daniel.png"
-	npc_name = "Daniel"
+	npc_name = "Daniel - Líder do TI"
 
 	idle_spritesheet = load("res://sprites/npcs/npc_ti.png")
 	run_spritesheet = load("res://sprites/npcs/daniel-run.png")

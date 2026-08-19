@@ -3,7 +3,7 @@ extends "res://scripts/npc.gd"
 
 func _ready() -> void:
 	npc_faceset_path = "res://sprites/Mini UI/heads/Ana.png"
-	npc_name = "Ana"
+	npc_name = "Ana - Recepcionista"
 	idle_spritesheet = load("res://sprites/npcs/ana-recep.png")
 	hframes = 2
 

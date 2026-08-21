@@ -152,7 +152,7 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 
 			await get_tree().create_timer(0.5).timeout
 
-			Transicao.mudar_cena("res://scene/fase RH/tutorial/tutorial_rh.tscn")
+			Transicao.mudar_cena("res://scene/fase RH/triagem_curriculos.tscn")
 
 		"exit":
 			DialogManager.end_conversation()

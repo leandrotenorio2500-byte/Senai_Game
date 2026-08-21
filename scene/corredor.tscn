@@ -47,6 +47,7 @@ tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAQAAkABgASAAoAAAAaAAkABgAZAAo
 tile_set = ExtResource("6_jc8m7")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Tiles" unique_id=1463095867]
+tile_map_data = PackedByteArray("AAAGAAkACAASABAAAAAEAAkACAASABIAABAUAAkACAASABQAAAA=")
 tile_set = ExtResource("7_5v705")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]

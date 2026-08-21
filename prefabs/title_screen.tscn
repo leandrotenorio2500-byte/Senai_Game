@@ -34,7 +34,7 @@ mouse_filter = 2
 script = ExtResource("1_agckt")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=2001037373]
-modulate = Color(0.38039216, 0.60784316, 1, 1)
+modulate = Color(0.8068016, 0.8794021, 1, 1)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5

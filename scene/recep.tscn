@@ -46,7 +46,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_dt7ot")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAAEAAQABgASAAIAAAAPAAkABgAMAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAAEAAkABgAQAAEAAAATAAcABgALAAUAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAANAAkABgAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAAEAAQABgASAAIAAAAHAAkABgACAAIAAAAJAAkABgALAAIAAAALAAkABgACAAAAAAAJAAUABgAOAAEAAAAEAAkABgAQAAEAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAAVAAkABgAQABEAAAASAAcABgALAAUAAAANAAkABgALAAIAAAAOAAgABgAXAAEAAAA=")
 tile_set = ExtResource("5_dhp2d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1618311414]
@@ -94,7 +94,7 @@ hframes = 8
 vframes = 1
 
 [node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]
-position = Vector2(300, 142)
+position = Vector2(285, 143)
 script = ExtResource("11_wm1ee")
 idle_spritesheet = ExtResource("11_gnfdo")
 run_spritesheet = null

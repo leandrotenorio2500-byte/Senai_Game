@@ -117,10 +117,9 @@ layout_mode = 2
 [node name="Nome" type="Label" parent="Marketing/Integrantes" unique_id=818395437]
 layout_mode = 2
 theme = SubResource("Theme_wnb2h")
-text = "Allessandra Evely Alves da Silva
-Hosanna Maria Rogério da Silva
-Lavinya Gabrieli dos Santos Ataíde
-Vitória Hillary Morais Barbosa"
+text = "Compras:
+Allessandra Evely Alves da Silva
+Lavinya Gabrieli dos Santos Ataíde"
 
 [node name="Art e design" type="VBoxContainer" parent="." unique_id=2100523204]
 layout_mode = 0
@@ -141,13 +140,15 @@ layout_mode = 2
 [node name="Nome" type="Label" parent="Art e design/Integrantes" unique_id=1449224138]
 layout_mode = 2
 theme = SubResource("Theme_wnb2h")
-text = "Anthony Albuquerque Gomes Santos
+text = "Pequenos detalhes:
+Ranny Ketilyn da Silva Moreira 
 Eduardo Mário Umbelino dos Santos
-Hugo Gabriel Penhafiel Pinheiro
+Wanda Nathaly Fidelix Silva
+Personagens:
 Júlia Kamily de Oliveira Silva
-Leandro Tenório da Silva
-Ranny Ketilyn da Silva Moreira
-Wanda Nathaly Fidelix Silva"
+Arte Geral:
+Leandro Tenório da Silva"
+autowrap_mode = 2
 
 [node name="Programacao" type="VBoxContainer" parent="." unique_id=116872765]
 layout_mode = 0
@@ -169,8 +170,9 @@ layout_mode = 2
 layout_mode = 2
 theme = SubResource("Theme_wnb2h")
 text = "Daniel Filipe Duarte Araújo de Morais 
-Anthony Albuquerque Gomes Santos
-Hugo Gabriel Penhafiel Pinheiro"
+Hugo Gabriel Penhafiel Pinheiro
+Idelização Sistemas:
+Anthony Albuquerque Gomes Santos"
 
 [node name="Roteiro" type="VBoxContainer" parent="." unique_id=1280539467]
 layout_mode = 0
@@ -192,10 +194,12 @@ layout_mode = 2
 layout_mode = 2
 theme = SubResource("Theme_wnb2h")
 text = "David Gabryel Teixeira dos Santos
-Guilherme Souza Pires
 Lavinya Gabrieli dos Santos Ataíde
 Livia Beatriz da Silva Costa
-Merielly Raiany Cardoso da Silva"
+Merielly Raiany Cardoso da Silva
+Idealização:
+Guilherme Souza Pires
+Anthony Albuquerque Gomes Santos"
 
 [node name="Audio" type="VBoxContainer" parent="." unique_id=2090877530]
 layout_mode = 0
@@ -216,12 +220,10 @@ layout_mode = 2
 [node name="Nome" type="Label" parent="Audio/Integrantes" unique_id=2086534748]
 layout_mode = 2
 theme = SubResource("Theme_wnb2h")
-text = "Júlio Cesar Serafim dos Santos
-Merielly Raiany Cardoso da Silva
-Lyvia Emanuelly Pereira dos Santos
-Daniele Karine Otavio da Silva
-Thiago Nunes de Lira
-Yasmin dos Santos Silva"
+text = "Triha Sonora:
+Júlio Cesar Serafim dos Santos
+Lyvia Emanuelly Pereira dos Santos"
+autowrap_mode = 2
 
 [node name="Gestao" type="VBoxContainer" parent="." unique_id=874398683]
 layout_mode = 0

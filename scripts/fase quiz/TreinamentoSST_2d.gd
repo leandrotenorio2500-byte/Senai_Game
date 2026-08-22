@@ -42,6 +42,8 @@ const TOTAL_SITUACOES := 13
 
 @onready var btn_continuar: Button = $Feedback/TextureRect/BtnContinuar
 
+@onready var tutorial: Control = $Tutorial
+@onready var introducao: Control = $Introducao
 
 
 
@@ -395,7 +397,8 @@ var respondendo := true
 # ============================================================
 
 func _ready() -> void:
-	
+	introducao.visible = true
+	tutorial.visible =false
 	feedback.visible = false
 	
 	btn_a.pressed.connect(_on_opcao_pressed.bind(0))
@@ -405,7 +408,6 @@ func _ready() -> void:
 	
 	btn_continuar.pressed.connect(_on_btn_continuar_pressed)
 	
-	mostrar_situacao()
 	resultado_final.visible = false
 
 	btn_finalizar.pressed.connect(_on_btn_finalizar_pressed)
@@ -636,3 +638,13 @@ func _on_btn_finalizar_pressed() -> void:
 	
 	atividade_finalizada.emit(resultado)
 	Transicao.mudar_cena("res://scene/rh.tscn")
+
+
+func _on_btn_continuar_introducao_pressed() -> void:
+	introducao.visible = false
+	tutorial.visible = true
+
+
+func _on_btn_continuar_tutorial_pressed() -> void:
+	tutorial.visible = false
+	mostrar_situacao()

@@ -10,8 +10,10 @@
 [ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="6_jc8m7"]
 [ext_resource type="TileSet" uid="uid://bpxrscpn85k2t" path="res://Npcs.tres" id="7_5v705"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_4nf00"]
+[ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="13_fu5uv"]
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="13_j4pwa"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="14_fu5uv"]
+[ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="14_hxmbc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmspj"]
 size = Vector2(20, 202.5)
@@ -43,7 +45,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("5_bdesv")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAQAAkABgASAAoAAAAaAAkABgAZAAoAAAACAAUABgAZAAUAAAAaAAUABgARAAUAAAAQAAYABgASAAkAAAAVAAcABgABAAwAAAAMAAgABgACAAgAAAAFAAgABgAOAAIAAAAIAAkABgAhAAYAAAAIAAUABgAZAAMAAAASAAkABgAQAAEAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAQAAkABgASAAoAAAAaAAkABgAZAAoAAAACAAUABgAZAAUAAAAaAAUABgARAAUAAAAQAAYABgASAAkAAAAVAAcABgABAAwAAAAFAAgABgAOAAIAAAAIAAkABgAhAAYAAAAIAAUABgAZAAMAAAASAAkABgAQAAEAAAADAAgABgACAAgAAAAMAAkABgAQABQAAAA=")
 tile_set = ExtResource("6_jc8m7")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="Tiles" unique_id=1463095867]
@@ -100,3 +102,14 @@ next_player_position = Vector2(394, 147)
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("14_fu5uv")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=89163627]
+
+[node name="Michele" parent="." unique_id=457078932 instance=ExtResource("13_fu5uv")]
+z_index = 2
+position = Vector2(216, 146)
+script = ExtResource("14_hxmbc")
+follow_speed = 100.0
+stopping_distance = 32.0
+idle_spritesheet = null
+run_spritesheet = null
+hframes = 8
+vframes = 1

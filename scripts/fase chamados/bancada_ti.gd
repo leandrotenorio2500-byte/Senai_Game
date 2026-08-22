@@ -2,6 +2,10 @@ extends Control
 
 signal atividade_finalizada(resultado: Dictionary)
 
+@onready var tutorial: Control = $Tutorial
+@onready var introducao: Control = $Introducao
+
+
 # ============================================================
 # PAINEL DO CHAMADO
 # ============================================================
@@ -95,7 +99,7 @@ var chamados := [
 		"setor": "Recepção",
 		"funcionario": "Ana - Recepção",
 		"problema": "mouse_com_defeito",
-		"descricao": "Não estou mais conseguindo clicar nas coisas. O cursor não mais do lugar!",
+		"descricao": "Não estou mais conseguindo clicar em nada! O cursor não sai do lugar.",
 		"equipamento": "mouse",
 		"acao": "substituir_mouse",
 		"visual": {
@@ -184,6 +188,8 @@ var background_texture_original: Texture2D
 
 func _ready() -> void:
 
+	introducao.visible = true
+	tutorial.visible = false
 	# --------------------------------------------------------
 	# EQUIPAMENTOS
 	# --------------------------------------------------------
@@ -290,7 +296,7 @@ func _ready() -> void:
 	# CARREGAR PRIMEIRO CHAMADO
 	# --------------------------------------------------------
 
-	carregar_chamado(0)
+
 
 
 
@@ -509,7 +515,7 @@ func _configurar_painel_interacao(objeto: String) -> void:
 
 			btn_interacao_1.text = "Testar mouse"
 			btn_interacao_2.text = "Verificar conexão"
-			btn_interacao_3.text = "Trocar mouse"
+			btn_interacao_3.text = "Verificar bateria"
 
 			_conectar_opcoes_mouse()
 
@@ -517,8 +523,8 @@ func _configurar_painel_interacao(objeto: String) -> void:
 		"monitor":
 
 			btn_interacao_1.text = "Testar monitor"
-			btn_interacao_2.text = "Verificar conexão"
-			btn_interacao_3.text = "Verificar energia"
+			btn_interacao_2.text = "Verificar energia"
+			btn_interacao_3.text = "Trocar monitor"
 
 			_conectar_opcoes_monitor()
 
@@ -572,37 +578,42 @@ func _conectar_opcoes_mouse() -> void:
 	)
 
 	btn_interacao_3.pressed.connect(
-		func(): _acao_mouse("trocar")
+		func(): _acao_mouse("bateria")
 	)
 
 
 func _acao_mouse(acao: String) -> void:
 
+	if executando_procedimento:
+		return
+
 	match acao:
 
 		"testar":
 
-			if etapa_atual == Etapa.INVESTIGACAO:
+			if chamado_atual.get("equipamento") == "mouse":
 
-				if chamado_atual.get("equipamento") == "mouse":
+				if etapa_atual == Etapa.INVESTIGACAO:
 
 					etapa_atual = Etapa.ACAO
+
+					# O botão muda de função
+					btn_interacao_1.text = "Substituir mouse"
+
 					atualizar_painel()
 
 					_mostrar_feedback(
 						"O cursor apresenta falhas durante o uso."
 					)
 
-				else:
+				elif etapa_atual == Etapa.ACAO:
 
-					_mostrar_feedback(
-						"O mouse parece estar funcionando normalmente."
-					)
+					_iniciar_substituicao_mouse()
 
 			else:
 
 				_mostrar_feedback(
-					"O mouse apresenta falhas durante o uso."
+					"O mouse parece estar funcionando normalmente."
 				)
 
 
@@ -613,17 +624,11 @@ func _acao_mouse(acao: String) -> void:
 			)
 
 
-		"trocar":
+		"bateria":
 
-			if etapa_atual == Etapa.ACAO:
-
-				_iniciar_substituicao_mouse()
-
-			else:
-
-				_mostrar_feedback(
-					"Não há necessidade de trocar o mouse agora."
-				)
+			_mostrar_feedback(
+				"O problema não parece ser na bateria do mouse."
+			)
 
 # ============================================================
 # INICIAR SUBSTITUIÇÃO DO MOUSE
@@ -734,11 +739,11 @@ func _conectar_opcoes_monitor() -> void:
 	)
 
 	btn_interacao_2.pressed.connect(
-		func(): _acao_monitor("conexao")
+		func(): _acao_monitor("energia")
 	)
 
 	btn_interacao_3.pressed.connect(
-		func(): _acao_monitor("energia")
+		func(): _acao_monitor("trocar")
 	)
 
 
@@ -756,6 +761,10 @@ func _acao_monitor(acao: String) -> void:
 				if chamado_atual.get("equipamento") == "monitor":
 
 					etapa_atual = Etapa.ACAO
+
+					# O botão muda de função
+					btn_interacao_1.text = "Verificar cabo VGA"
+
 					atualizar_painel()
 
 					_mostrar_feedback(
@@ -768,31 +777,24 @@ func _acao_monitor(acao: String) -> void:
 						"O monitor parece estar funcionando normalmente."
 					)
 
-			else:
-
-				_mostrar_feedback(
-					"O monitor continua sem apresentar imagem."
-				)
-
-
-		"conexao":
-
-			if etapa_atual == Etapa.ACAO:
+			elif etapa_atual == Etapa.ACAO:
 
 				_iniciar_verificacao_monitor()
-
-			else:
-
-				_mostrar_feedback(
-					"A conexão do monitor parece estar correta."
-				)
 
 
 		"energia":
 
 			_mostrar_feedback(
-				"O monitor está recebendo energia."
+				"O monitor está recebendo energia normalmente."
 			)
+
+
+		"trocar":
+
+			_mostrar_feedback(
+				"Vamos verificar as outras opções antes de trocar o monitor."
+			)
+
 
 # ============================================================
 # INICIAR VERIFICAÇÃO DO MONITOR
@@ -1059,6 +1061,12 @@ func _acao_impressora(acao: String) -> void:
 
 			_mostrar_feedback(
 				"Há papel disponível na impressora."
+			)
+			
+		"conexao":
+
+			_mostrar_feedback(
+				"A conexão da impressora parece estar em ordem."
 			)
 
 func _abrir_janela_fila() -> void:
@@ -1467,3 +1475,13 @@ func _ambiente_software_finalizado(resultado: Dictionary) -> void:
 	else:
 
 		print("[TI] O SOFTWARE NÃO FOI RESOLVIDO.")
+
+
+func _on_btn_continuar_introducao_pressed() -> void:
+	tutorial.visible = true
+	introducao.visible = false
+
+
+func _on_btn_continuar_tutorial_pressed() -> void:
+	tutorial.visible = false
+	carregar_chamado(0)

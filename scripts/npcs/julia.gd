@@ -58,197 +58,6 @@ func _ready() -> void:
 	call_deferred("_init_follow")
 
 
-# ============================================================
-# INICIALIZAÇÃO DO SEGUIMENTO
-# ============================================================
-
-func _init_follow() -> void:
-
-	await get_tree().process_frame
-	await get_tree().process_frame
-
-	_player_ref = get_tree().get_first_node_in_group("Player")
-
-	if Globals.michele_seguindo:
-
-		_interact_label.hide()
-
-		_aparecer_perto_do_player()
-
-
-func _aparecer_perto_do_player() -> void:
-
-	if _player_ref == null:
-		_player_ref = get_tree().get_first_node_in_group("Player")
-
-	if _player_ref == null:
-		return
-
-	global_position = _player_ref.global_position + Vector2(-32, offset_y)
-
-	play_idle()
-
-
-# ============================================================
-# PHYSICS
-# ============================================================
-
-func _physics_process(delta: float) -> void:
-
-	if not Globals.michele_seguindo:
-		return
-
-	if _player_ref == null:
-		_player_ref = get_tree().get_first_node_in_group("Player")
-
-		if _player_ref == null:
-			return
-
-	_seguir_jogador(delta)
-
-
-# ============================================================
-# VERIFICAÇÃO DO ESTADO DO PLAYER
-# ============================================================
-
-func _player_esta_agachado_ou_deslizando() -> bool:
-
-	if _player_ref == null:
-		return false
-
-	if "status" not in _player_ref:
-		return false
-
-	var p_status = _player_ref.status
-
-	if p_status == _player_ref.PlayerState.duck \
-	or p_status == _player_ref.PlayerState.slide:
-
-		return true
-
-	return false
-
-
-# ============================================================
-# SEGUIR JOGADOR
-# ============================================================
-
-func _seguir_jogador(delta: float) -> void:
-
-	if _player_ref == null:
-		return
-
-
-	# --------------------------------------------------------
-	# ALTURA
-	# --------------------------------------------------------
-
-	if _player_ref.is_on_floor() \
-	and not _player_esta_agachado_ou_deslizando():
-
-		global_position.y = lerp(
-			global_position.y,
-			_player_ref.global_position.y + offset_y,
-			12.0 * delta
-		)
-
-
-	# --------------------------------------------------------
-	# POSIÇÃO HORIZONTAL
-	# --------------------------------------------------------
-
-	var alvo_x := global_position.x
-
-
-	# Só troca de lado quando o jogador estiver andando
-	if abs(_player_ref.velocity.x) > 5:
-
-		if _player_ref.anim.flip_h:
-
-			alvo_x = _player_ref.global_position.x + stopping_distance
-
-		else:
-
-			alvo_x = _player_ref.global_position.x - stopping_distance
-
-
-	# --------------------------------------------------------
-	# MOVIMENTO
-	# --------------------------------------------------------
-
-	var posicao_antiga := global_position.x
-
-	global_position.x = move_toward(
-		global_position.x,
-		alvo_x,
-		follow_speed * delta
-	)
-
-
-	# --------------------------------------------------------
-	# ANIMAÇÃO
-	# --------------------------------------------------------
-
-	var velocidade := global_position.x - posicao_antiga
-
-
-	if abs(velocidade) > 0.05:
-
-		# ----------------------------------------------------
-		# MICHELE ESTÁ ANDANDO
-		# ----------------------------------------------------
-
-		if velocidade < 0:
-
-			_olhando_para_esquerda = true
-
-		else:
-
-			_olhando_para_esquerda = false
-
-
-		play_run()
-
-
-	else:
-
-		# ----------------------------------------------------
-		# MICHELE ESTÁ PARADA
-		# ----------------------------------------------------
-
-		play_idle()
-
-
-	# --------------------------------------------------------
-	# CORRIGE A ORIENTAÇÃO DE CADA SPRITESHEET
-	# --------------------------------------------------------
-
-	if _sprite.animation == "idle":
-
-		# Idle original olha para a esquerda
-		if _olhando_para_esquerda:
-			_sprite.flip_h = false
-		else:
-			_sprite.flip_h = true
-
-
-	elif _sprite.animation == "run":
-
-		# Run original olha para a direita
-		if _olhando_para_esquerda:
-			_sprite.flip_h = true
-		else:
-			_sprite.flip_h = false
-
-
-		# --------------------------------------------------------
-		# MANTÉM A DIREÇÃO ATUAL
-		# --------------------------------------------------------
-
-		if _olhando_para_esquerda:
-			look_left()
-		else:
-			look_right()
 
 # ============================================================
 # INICIALIZAÇÃO DA MICHELE
@@ -405,14 +214,12 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 				# Primeiro inicia a missão
 				QuestManager.iniciar_missao(QUEST_ID)
 
-				# Depois ativa o acompanhamento
-				Globals.michele_seguindo = true
 
 				# Michele deixa de ser uma NPC interativa
 				_interact_label.hide()
 
 				# Já posiciona Michele próxima ao jogador
-				_aparecer_perto_do_player()
+				#_aparecer_perto_do_player()
 
 
 			DialogManager.end_conversation()
@@ -420,7 +227,7 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 			await get_tree().create_timer(1.5).timeout
 
 			Transicao.mudar_cena(
-				"res://scene/fase mapa/tutorial/tutorial_mapa.tscn"
+				"res://scene/tutorials/tutorial_mapa.tscn"
 			)
 
 
@@ -517,11 +324,6 @@ func _on_quest_state_changed(quest_id: String) -> void:
 	# TERMINOU O LEVANTAMENTO
 	# --------------------------------------------------------
 
-	if quest.etapa_atual == QuestIdentificarRiscos.Etapa.AGUARDANDO_ENTREGA:
-
-		# Michele deixa de acompanhar o jogador.
-		# Agora ele precisa voltar até ela.
-		Globals.michele_seguindo = false
 
 
 	# --------------------------------------------------------
@@ -536,6 +338,6 @@ func _on_quest_state_changed(quest_id: String) -> void:
 	# GARANTE QUE FIQUE PERTO DO PLAYER
 	# --------------------------------------------------------
 
-	if Globals.michele_seguindo:
+	#if Globals.michele_seguindo:
 
-		_aparecer_perto_do_player()
+		#_aparecer_perto_do_player()

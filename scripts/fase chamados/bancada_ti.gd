@@ -756,13 +756,16 @@ func _acao_monitor(acao: String) -> void:
 
 		"testar":
 
-			if etapa_atual == Etapa.INVESTIGACAO:
+			# ====================================================
+			# CHAMADO DE MONITOR
+			# ====================================================
 
-				if chamado_atual.get("equipamento") == "monitor":
+			if chamado_atual.get("equipamento") == "monitor":
+
+				if etapa_atual == Etapa.INVESTIGACAO:
 
 					etapa_atual = Etapa.ACAO
 
-					# O botão muda de função
 					btn_interacao_1.text = "Verificar cabo VGA"
 
 					atualizar_painel()
@@ -771,15 +774,19 @@ func _acao_monitor(acao: String) -> void:
 						"O monitor está ligado, mas não apresenta imagem."
 					)
 
-				else:
+				elif etapa_atual == Etapa.ACAO:
 
-					_mostrar_feedback(
-						"O monitor parece estar funcionando normalmente."
-					)
+					_iniciar_verificacao_monitor()
 
-			elif etapa_atual == Etapa.ACAO:
+			# ====================================================
+			# OUTROS CHAMADOS
+			# ====================================================
 
-				_iniciar_verificacao_monitor()
+			else:
+
+				_mostrar_feedback(
+					"O monitor parece estar funcionando normalmente."
+				)
 
 
 		"energia":
@@ -792,7 +799,7 @@ func _acao_monitor(acao: String) -> void:
 		"trocar":
 
 			_mostrar_feedback(
-				"Vamos verificar as outras opções antes de trocar o monitor."
+				"Não há necessidade de trocar o monitor."
 			)
 
 

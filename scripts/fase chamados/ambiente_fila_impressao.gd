@@ -124,17 +124,18 @@ func _obter_status_documento(documento: Button) -> Label:
 
 func _configurar_fila() -> void:
 
-	documento_1.text = "Relatorio_Michele.pdf"
-	status_1.text = "Aguardando"
 
-	documento_2.text = "Memorando_Diretoria.docx"
-	status_2.text = "Aguardando"
+	documento_1.text = "Documento_03.pdf"
+	status_1.text = "Erro"
 
-	documento_3.text = "Documento_03.pdf"
-	status_3.text = "Erro"
+	documento_2.text = "Documento_04.pdf"
+	status_2.text = "Erro"
+	
+	documento_3.text = "Relatorio_Michele.pdf"
+	status_3.text = "Aguardando"
 
-	documento_4.text = "Documento_04.pdf"
-	status_4.text = "Erro"
+	documento_4.text = "Memorando_Diretoria.docx"
+	status_4.text = "Aguardando"
 
 
 	btn_cancelar_documento.disabled = false
@@ -185,21 +186,18 @@ func _cancelar_documento() -> void:
 	documento_selecionado = null
 
 
-	# --------------------------------------------------------
-	# VERIFICAR SE TODOS FORAM CANCELADOS
-	# --------------------------------------------------------
+# --------------------------------------------------------
+# VERIFICAR SE OS DOCUMENTOS COM ERRO FORAM CANCELADOS
+# --------------------------------------------------------
 
-	if (
-		documento_1.disabled
-		and documento_2.disabled
-		and documento_3.disabled
-		and documento_4.disabled
-	):
+	if documento_1.disabled and documento_2.disabled:
 
 		documentos_na_fila = false
 		estado_atual = Estado.FILA_LIMPA
 
-		label_feedback.text = "Fila de impressão limpa."
+		label_feedback.text = (
+			"Os trabalhos com erro foram removidos da fila."
+		)
 
 		btn_cancelar_documento.disabled = true
 		btn_cancelar_todos.disabled = true

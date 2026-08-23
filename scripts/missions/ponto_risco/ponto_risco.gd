@@ -273,37 +273,27 @@ func entregar_mapa() -> void:
 
 
 func avaliar_mapa() -> bool:
-
 	for setor in gabarito_riscos.keys():
-
 		if not Globals.respostas_mapa.has(setor):
-
 			print("Setor não encontrado:", setor)
-
 			return false
 
+		# Cria cópias para não alterar as listas originais
+		var resposta: Array = Globals.respostas_mapa[setor].duplicate()
+		var correta: Array = gabarito_riscos[setor].duplicate()
 
-		var resposta = Globals.respostas_mapa[setor]
-		var correta = gabarito_riscos[setor]
+		# Ordena ambas as listas (agora a ordem dos elementos fica idêntica)
+		resposta.sort()
+		correta.sort()
 
-
-		var resposta_contada = contar_riscos(resposta)
-		var correta_contada = contar_riscos(correta)
-
-
-		if resposta_contada != correta_contada:
-
+		# Se o tamanho ou os elementos forem diferentes, reprova
+		if resposta != correta:
 			print("Erro encontrado no setor:", setor)
-
-			print("Resposta:", resposta_contada)
-
-			print("Gabarito:", correta_contada)
-
+			print("Resposta do jogador (ordenada):", resposta)
+			print("Gabarito (ordenado):", correta)
 			return false
-
 
 	return true
-
 
 
 func verificar_setor_visitado(setor: String) -> bool:

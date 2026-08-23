@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cy6ic0m5ddvwn" path="res://sprites/npcs/NPCs.png" id="5_rpo43"]
 [ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="7_g4twj"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="10_lvw1u"]
+[ext_resource type="Texture2D" uid="uid://h55m1giguyb1" path="res://sprites/Mini UI/heads/Ricardo.png" id="11_fufes"]
+[ext_resource type="Texture2D" uid="uid://bvu64yi670qct" path="res://scene/fase RH/tutorial/folha.png" id="12_rtfiu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0hol4"]
 font = ExtResource("3_rpo43")
@@ -186,6 +188,102 @@ font = ExtResource("3_rpo43")
 font_size = 21
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3yf6f"]
+font = ExtResource("3_rpo43")
+font_size = 34
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p7cg7"]
+font = ExtResource("1_epypp")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ux5dn"]
+font = ExtResource("1_epypp")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5f8e7"]
+font = ExtResource("1_epypp")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aaba8"]
+font = ExtResource("1_epypp")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6foup"]
+font = ExtResource("1_epypp")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgwve"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_ipvyf"]
+Label/constants/line_spacing = -3
+Label/styles/normal = SubResource("StyleBoxFlat_cgwve")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vh1ks"]
+font = ExtResource("1_epypp")
+font_size = 7
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6xng"]
+bg_color = Color(0.8235294, 0.7294118, 1, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agckt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aedtt"]
+bg_color = Color(0.8235294, 0.7294118, 1, 0)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvgea"]
+bg_color = Color(1, 1, 1, 0)
+border_color = Color(1, 1, 1, 0)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_kqlm7"]
+default_font = ExtResource("3_rpo43")
+default_font_size = 8
+Button/colors/font_color = Color(0.82947975, 0.8294798, 0.82947975, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("3_rpo43")
+Button/styles/focus = SubResource("StyleBoxFlat_u6xng")
+Button/styles/hover = SubResource("StyleBoxFlat_agckt")
+Button/styles/normal = SubResource("StyleBoxFlat_aedtt")
+Button/styles/pressed = SubResource("StyleBoxFlat_nvgea")
 
 [node name="Control" type="Control" unique_id=853669689]
 layout_mode = 3
@@ -450,6 +548,7 @@ theme = SubResource("Theme_ir8iy")
 text = "Continuar"
 
 [node name="ResultadoFinal" type="Control" parent="." unique_id=379013212]
+visible = false
 anchors_preset = 0
 offset_right = 399.0
 offset_bottom = 286.0
@@ -579,4 +678,248 @@ grow_vertical = 0
 theme = ExtResource("10_lvw1u")
 text = "FINALIZAR"
 
+[node name="Introducao" type="Control" parent="." unique_id=1624399135]
+visible = false
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PainelIntroducao" type="Panel" parent="Introducao" unique_id=1436202759]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="LabelTitulo" type="Label" parent="Introducao/PainelIntroducao" unique_id=740053080]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_right = 116.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "Treinamento sst"
+label_settings = SubResource("LabelSettings_3yf6f")
+
+[node name="BalaoDialogo" type="NinePatchRect" parent="Introducao/PainelIntroducao" unique_id=500236100]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.75
+offset_top = -38.5
+offset_right = 144.75
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelIntroducao" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=2063827863]
+layout_mode = 0
+offset_left = 79.5
+offset_top = 5.0
+offset_right = 281.75
+offset_bottom = 72.5
+text = "Durante este treinamento, você irá analisar diferentes situações que podem acontecer no ambiente de trabalho.
+Em cada situação, observe atentamente o que está acontecendo e escolha a alternativa que apresenta a conduta mais segura e adequada."
+label_settings = SubResource("LabelSettings_p7cg7")
+autowrap_mode = 2
+
+[node name="NpcFace" type="TextureRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1613558273]
+layout_mode = 0
+offset_left = 11.75
+offset_top = 14.5
+offset_right = 65.75
+offset_bottom = 63.5
+texture = ExtResource("11_fufes")
+
+[node name="NpcNome" type="NinePatchRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1133936051]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -45.0
+offset_right = -74.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo/NpcNome" unique_id=791452648]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 56.0
+offset_bottom = 15.0
+text = "Ricardo"
+label_settings = SubResource("LabelSettings_ux5dn")
+
+[node name="BtnContinuarIntroducao" type="Button" parent="Introducao/PainelIntroducao" unique_id=2052265575]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_lvw1u")
+text = "Entendi"
+
+[node name="Tutorial" type="Control" parent="." unique_id=998482264]
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="ColorRect" parent="Tutorial" unique_id=1093269354]
+layout_mode = 0
+offset_right = 202.0
+offset_bottom = 220.0
+color = Color(0.19215687, 0.19215687, 0.19215687, 0.7176471)
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=677297501]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 30.0
+offset_right = 94.0
+offset_bottom = 126.0
+grow_horizontal = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1332420635]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 9.0
+offset_right = 183.0
+offset_bottom = 94.0
+text = "A cada situação, você verá uma pergunta acompanhada de uma ilustração.
+Leia a situação com atenção, observe a imagem e escolha uma das 4 alternativas disponíveis.
+"
+label_settings = SubResource("LabelSettings_5f8e7")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1530098956]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 12.0
+offset_right = 57.683674
+offset_bottom = 53.0
+texture = ExtResource("11_fufes")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=193257558]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -58.0
+offset_right = -28.5
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=2126102318]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 56.0
+offset_bottom = 15.0
+text = "Ricardo"
+label_settings = SubResource("LabelSettings_aaba8")
+
+[node name="ImagemExemplo" type="TextureRect" parent="Tutorial/PaineTutorial" unique_id=1270541228]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -43.0
+offset_right = 88.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_rtfiu")
+
+[node name="NaoApto" type="Label" parent="Tutorial/PaineTutorial/ImagemExemplo" unique_id=1157669535]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 58.0
+offset_right = 47.0
+offset_bottom = 81.0
+text = "Não Apto"
+label_settings = SubResource("LabelSettings_6foup")
+
+[node name="Apto" type="Label" parent="Tutorial/PaineTutorial/ImagemExemplo" unique_id=803600833]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 59.0
+offset_right = 180.0
+offset_bottom = 82.0
+text = "Apto"
+label_settings = SubResource("LabelSettings_6foup")
+
+[node name="TextTeclado" type="Label" parent="Tutorial/PaineTutorial" unique_id=311766318]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 139.0
+offset_right = 173.0
+offset_bottom = 180.0
+theme = SubResource("Theme_ipvyf")
+text = "Observe a situação antes de responder. Pense em qual atitude ajuda a prevenir acidentes e proteger a saúde dos trabalhadores."
+label_settings = SubResource("LabelSettings_vh1ks")
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial" type="Button" parent="Tutorial/PaineTutorial" unique_id=1737454886]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kqlm7")
+text = "Entendi"
+
+[connection signal="pressed" from="Feedback/TextureRect/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
 [connection signal="pressed" from="ResultadoFinal/BtnFinalizar" to="." method="_on_btn_finalizar_pressed"]
+[connection signal="pressed" from="Introducao/PainelIntroducao/BtnContinuarIntroducao" to="." method="_on_btn_continuar_introducao_pressed"]
+[connection signal="pressed" from="Tutorial/PaineTutorial/BtnContinuarTutorial" to="." method="_on_btn_continuar_tutorial_pressed"]

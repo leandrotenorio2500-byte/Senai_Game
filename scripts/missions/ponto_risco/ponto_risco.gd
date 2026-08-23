@@ -96,7 +96,7 @@ func _init() -> void:
 
 	title = "Identificando riscos do mapa"
 
-	description = "Converse com os responsáveis pelos setores e registre os riscos encontrados no mapa."
+	description = "Converse com os lideres dos setores e registre os riscos no mapa."
 
 
 # --------------------------------------------------
@@ -107,8 +107,13 @@ func iniciar() -> void:
 
 	super.iniciar()
 
-	carregar_setores_pre_registrados()
+	Globals.missao_mapa_risco_ativa = true
 
+	carregar_setores_pre_registrados()
+	
+func finalizar() -> void:
+	Globals.missao_mapa_risco_ativa = false
+	super.finalizar()
 
 func carregar_setores_pre_registrados() -> void:
 
@@ -268,37 +273,27 @@ func entregar_mapa() -> void:
 
 
 func avaliar_mapa() -> bool:
-
 	for setor in gabarito_riscos.keys():
-
 		if not Globals.respostas_mapa.has(setor):
-
 			print("Setor não encontrado:", setor)
-
 			return false
 
+		# Cria cópias para não alterar as listas originais
+		var resposta: Array = Globals.respostas_mapa[setor].duplicate()
+		var correta: Array = gabarito_riscos[setor].duplicate()
 
-		var resposta = Globals.respostas_mapa[setor]
-		var correta = gabarito_riscos[setor]
+		# Ordena ambas as listas (agora a ordem dos elementos fica idêntica)
+		resposta.sort()
+		correta.sort()
 
-
-		var resposta_contada = contar_riscos(resposta)
-		var correta_contada = contar_riscos(correta)
-
-
-		if resposta_contada != correta_contada:
-
+		# Se o tamanho ou os elementos forem diferentes, reprova
+		if resposta != correta:
 			print("Erro encontrado no setor:", setor)
-
-			print("Resposta:", resposta_contada)
-
-			print("Gabarito:", correta_contada)
-
+			print("Resposta do jogador (ordenada):", resposta)
+			print("Gabarito (ordenado):", correta)
 			return false
-
 
 	return true
-
 
 
 func verificar_setor_visitado(setor: String) -> bool:
@@ -329,3 +324,33 @@ func contar_riscos(lista: Array) -> Dictionary:
 
 
 	return contagem
+	
+func force_complete() -> void:
+	if estado_atual == "finalizada":
+		return
+
+	# 1. Preenche e emite sinais para todos os setores
+	for setor in gabarito_riscos.keys():
+		if not setores_visitados.has(setor):
+			setores_visitados.append(setor)
+			setor_visitado.emit(setor)
+			
+		if not setores_analisados.has(setor):
+			setores_analisados.append(setor)
+			setor_analisado.emit(setor)
+
+		# Força a resposta correta no dicionário Global do jogo
+		Globals.respostas_mapa[setor] = gabarito_riscos[setor].duplicate()
+
+		# Desbloqueia a visualização caso ainda não esteja liberado
+		if Globals.setores_desbloqueados.has(setor):
+			Globals.desbloquear_setor(setor)
+
+	# 2. Avanca para a última etapa
+	etapa_atual = Etapa.AGUARDANDO_ENTREGA
+	mapa_pronto.emit()
+
+	print("[QUEST] Riscos identificados e mapa preenchido via Force Complete.")
+
+	# 3. Finaliza a missão diretamente
+	finalizar()

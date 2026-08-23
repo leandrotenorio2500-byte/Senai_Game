@@ -1,8 +1,8 @@
 extends "res://scripts/npc.gd"
 
 func _ready() -> void:
-	npc_faceset_path = "res://sprites/npcs/npc3_dialog.png"
-	npc_name = "Vitória"
+	npc_faceset_path = "res://sprites/Mini UI/heads/Vitoria.png"
+	npc_name = "Vitória - Líder do RH"
 
 	idle_spritesheet = load("res://sprites/npcs/npc-rh.png")
 	hframes = 8

@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://buu4uwqhuciy4"]
+
+[ext_resource type="Texture2D" uid="uid://c3h21ry1hfsaw" path="res://sprites/tutoriais/riscos/mapa_risco.png" id="1_1xf65"]
+
+[node name="Etapa4" type="Control" unique_id=959974667]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=837203300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1695018770]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -99.0
+offset_right = 186.5
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Control" unique_id=1414148290]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_right = 151.5
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Objetivo: Identificando no mapa"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Label3" type="Label" parent="Control" unique_id=675354276]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 31.0
+offset_right = 368.5
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 14
+text = "Durante o diálogo, os personagens darão dicas sobre o setor para você marcar corretamente no mapa."
+autowrap_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=1526042752]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -116.0
+offset_right = 46.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_1xf65")
+expand_mode = 2
+
+[node name="Label4" type="Label" parent="Control" unique_id=544170147]
+layout_mode = 0
+offset_left = 245.5
+offset_top = 85.0
+offset_right = 373.5
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 12
+text = "Para acessar o mapa basta pressionar \"M\", ou clicar no icone do canto superior esquerdo"
+autowrap_mode = 2

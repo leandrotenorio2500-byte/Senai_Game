@@ -10,7 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_fp5cx"]
 [ext_resource type="PackedScene" uid="uid://7e1ekf0nhvlv" path="res://entities/level_changer.tscn" id="9_oj85h"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="11_4hj14"]
+[ext_resource type="Script" uid="uid://b6k2ouvjji25b" path="res://scripts/npcs/julio.gd" id="14_nqjsa"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="15_fp5cx"]
+[ext_resource type="Texture2D" uid="uid://dxqx1nkc5mcgw" path="res://sprites/npcs/ricardo.png" id="15_hhovy"]
 [ext_resource type="Script" uid="uid://bdkblsr85dgu1" path="res://scripts/npcs/Sarah.gd" id="16_hhovy"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="17_asn2w"]
 
@@ -49,7 +51,7 @@ tile_map_data = PackedByteArray("AAACAAgABQAOAAwAAAAFAAcABQADAAEAAAAJAAgABQAIAAw
 tile_set = ExtResource("5_hoit2")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=712453566]
-tile_map_data = PackedByteArray("AAAjAAkACAASAAAAAAAHAAkACAASAAAAABANAAkACAASAAAAAAALAAkACAASAAQAAAAqAAkACAASAAAAABASAAkACAASAAIAAAA=")
+tile_map_data = PackedByteArray("AAAjAAkACAASAAAAAAAHAAkACAASAAAAABANAAkACAASAAAAAAALAAkACAASAAQAAAAqAAkACAASAAAAABA=")
 tile_set = ExtResource("7_ve01p")
 
 [node name="LevelChanger" parent="." unique_id=1670860483 instance=ExtResource("9_oj85h")]
@@ -89,3 +91,11 @@ vframes = 1
 [node name="MissionProgress" parent="." unique_id=1124965179 instance=ExtResource("17_asn2w")]
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=2112695829]
+
+[node name="Ricardo" parent="." unique_id=1748258747 instance=ExtResource("15_fp5cx")]
+position = Vector2(310, 145)
+script = ExtResource("14_nqjsa")
+idle_spritesheet = ExtResource("15_hhovy")
+run_spritesheet = null
+hframes = 8
+vframes = 1

@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://dt1ig1pqc5flw"]
+
+[ext_resource type="Texture2D" uid="uid://chgvjbesiehiw" path="res://sprites/tutoriais/riscos/seleciona_setor_b.png" id="1_gh2l8"]
+[ext_resource type="Texture2D" uid="uid://meiip7rgjcbt" path="res://sprites/tutoriais/riscos/arrow.png" id="2_1df8g"]
+[ext_resource type="Texture2D" uid="uid://cns3ri8ev5i5w" path="res://sprites/tutoriais/riscos/seleciona_setor_a.png" id="3_gi3wy"]
+
+[node name="Etapa3" type="Control" unique_id=959974667]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=837203300]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="." unique_id=2022399104]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -186.5
+offset_top = -99.0
+offset_right = 186.5
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="Control" unique_id=719287898]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -151.5
+offset_right = 151.5
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Objetivo: Identificando no mapa"
+horizontal_alignment = 1
+autowrap_mode = 2
+uppercase = true
+
+[node name="Label3" type="Label" parent="Control" unique_id=1117693040]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 31.0
+offset_right = 364.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 14
+text = "2. Com os riscos selecionados basta clicar em uma das bolinhas do setor, elas representam um dos riscos que o setor possui."
+autowrap_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Control" unique_id=1603786405]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = -93.0
+offset_right = 168.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_gh2l8")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Control/TextureRect4" unique_id=54291728]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -122.5
+offset_top = -68.0
+offset_right = -75.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_1df8g")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Control" unique_id=592669096]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -92.0
+offset_right = -34.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_gi3wy")
+expand_mode = 2

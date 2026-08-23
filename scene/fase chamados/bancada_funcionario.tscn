@@ -17,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="16_2ek3t"]
 [ext_resource type="Texture2D" uid="uid://ddw4oew1v431n" path="res://sprites/Mini UI/heads/Ana.png" id="16_o8rnq"]
 [ext_resource type="Texture2D" uid="uid://8rqixc8l42ur" path="res://sprites/Mini UI/heads/Player.png" id="17_o8rnq"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="18_jsk8i"]
+[ext_resource type="Texture2D" uid="uid://bxox084laopn6" path="res://sprites/Mini UI/heads/Daniel.png" id="19_ir2ln"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="20_cjcp8"]
+[ext_resource type="Texture2D" uid="uid://dcn35f86l4tgj" path="res://sprites/missions/chamados/TecladoHover.png" id="21_jdl8w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o10s"]
 texture = ExtResource("12_6q5ci")
@@ -90,8 +94,50 @@ Button/styles/hover = SubResource("StyleBoxFlat_jsk8i")
 
 [sub_resource type="LabelSettings" id="LabelSettings_2ek3t"]
 font = ExtResource("15_tqpkx")
-font_size = 9
+font_size = 8
 outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fc72h"]
+font = ExtResource("18_jsk8i")
+font_size = 34
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0dmy"]
+font = ExtResource("15_tqpkx")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yxq2k"]
+font = ExtResource("15_tqpkx")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gqykr"]
+font = ExtResource("15_tqpkx")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0g4t4"]
+font = ExtResource("15_tqpkx")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qnfl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_5osq0"]
+Label/constants/line_spacing = -3
+Label/styles/normal = SubResource("StyleBoxFlat_8qnfl")
+
+[sub_resource type="LabelSettings" id="LabelSettings_55w0s"]
+font = ExtResource("15_tqpkx")
+font_size = 7
+outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
 [node name="BancadaTI" type="Control" unique_id=1253915407]
@@ -99,7 +145,6 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6q5ci")
 mouse_novo_texture = ExtResource("2_4o10s")
-metadata/_edit_vertical_guides_ = [177.0]
 
 [node name="BackGround" type="TextureRect" parent="." unique_id=1061840007]
 layout_mode = 1
@@ -156,10 +201,10 @@ texture_hover = ExtResource("10_tqpkx")
 
 [node name="BtnImpressora" type="TextureButton" parent="Equipamentos" unique_id=1856189677]
 layout_mode = 0
-offset_left = 290.0
+offset_left = 288.0
 offset_top = 62.0
-offset_right = 434.0
-offset_bottom = 131.0
+offset_right = 405.0
+offset_bottom = 127.0
 texture_normal = ExtResource("12_o7m0u")
 
 [node name="BtnFechar" type="Button" parent="." unique_id=1978270738]
@@ -177,6 +222,7 @@ tile_map_data = PackedByteArray(0, 0, 4, 0, 8, 0, 0, 0, 40, 0, 4, 0, 0, 16, 1, 0
 tile_set = SubResource("TileSet_o7m0u")
 
 [node name="PainelChamado" type="Control" parent="." unique_id=1490567267]
+visible = false
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 220.0
@@ -270,15 +316,17 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 35.0
-offset_top = -9.0
-offset_right = 111.0
+offset_left = 40.0
+offset_top = -10.0
+offset_right = 109.0
 offset_bottom = 14.0
 grow_vertical = 2
 text = "problema"
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PainelInteracao" type="Control" parent="." unique_id=599906410]
+visible = false
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 220.0
@@ -375,6 +423,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="NomeObjeto" type="Label" parent="." unique_id=848143873]
+visible = false
 layout_mode = 0
 offset_left = 176.0
 offset_top = 11.0
@@ -382,3 +431,365 @@ offset_right = 199.0
 offset_bottom = 21.0
 text = "nome"
 label_settings = SubResource("LabelSettings_2ek3t")
+
+[node name="Introducao" type="Control" parent="." unique_id=137652899]
+visible = false
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PainelIntroducao" type="ColorRect" parent="Introducao" unique_id=1573645990]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0, 0, 0, 0.56078434)
+
+[node name="LabelTitulo" type="Label" parent="Introducao/PainelIntroducao" unique_id=171044473]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.0
+offset_right = 98.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "chamdos de ti"
+label_settings = SubResource("LabelSettings_fc72h")
+
+[node name="BalaoDialogo" type="NinePatchRect" parent="Introducao/PainelIntroducao" unique_id=1671285096]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.75
+offset_top = -38.5
+offset_right = 144.75
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelIntroducao" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1292699475]
+layout_mode = 0
+offset_left = 79.5
+offset_top = 5.0
+offset_right = 281.75
+offset_bottom = 62.5
+theme_override_constants/line_spacing = -5
+text = "Alguns funcionários estão enfrentando problemas com seus equipamentos.
+
+Você deverá atender aos chamados e ajudar a identificar e solucionar esses problemas."
+label_settings = SubResource("LabelSettings_p0dmy")
+autowrap_mode = 2
+
+[node name="NpcFace" type="TextureRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=2081378105]
+layout_mode = 0
+offset_left = 11.75
+offset_top = 14.5
+offset_right = 65.75
+offset_bottom = 63.5
+texture = ExtResource("19_ir2ln")
+
+[node name="NpcNome" type="NinePatchRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1343059058]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -45.0
+offset_right = -74.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo/NpcNome" unique_id=1255604857]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 3.0
+offset_right = 61.0
+offset_bottom = 15.0
+text = "Daniel"
+label_settings = SubResource("LabelSettings_yxq2k")
+
+[node name="BtnContinuarIntroducao" type="Button" parent="Introducao/PainelIntroducao" unique_id=1483959016]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("20_cjcp8")
+text = "Entendi"
+
+[node name="Tutorial" type="Control" parent="." unique_id=601981925]
+visible = false
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="ColorRect" parent="Tutorial" unique_id=1431883080]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0, 0, 0, 0.6901961)
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=1300729557]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 9.0
+offset_right = 130.5
+offset_bottom = 61.0
+grow_horizontal = 2
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=310244522]
+layout_mode = 0
+offset_left = 70.5
+offset_top = 5.0
+offset_right = 260.5
+offset_bottom = 68.0
+text = "Você será direcionado para a mesa de cada funcionário.
+Em cada atendimento, descubra qual é o problema apresentado e encontre a solução adequada."
+label_settings = SubResource("LabelSettings_gqykr")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1773614958]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 6.0
+offset_right = 57.683674
+offset_bottom = 47.0
+texture = ExtResource("19_ir2ln")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=517347280]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -34.0
+offset_right = -67.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=542896184]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 3.0
+offset_right = 59.0
+offset_bottom = 15.0
+text = "Daniel"
+label_settings = SubResource("LabelSettings_0g4t4")
+
+[node name="ImagemExemplo" type="TextureRect" parent="Tutorial/PaineTutorial" unique_id=119708504]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = 22.0
+offset_right = 50.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_jdl8w")
+
+[node name="TextTeclado" type="Label" parent="Tutorial/PaineTutorial" unique_id=662234882]
+visible = false
+layout_mode = 0
+offset_left = 12.0
+offset_top = 163.0
+offset_right = 163.0
+offset_bottom = 182.0
+theme = SubResource("Theme_5osq0")
+text = "Você pode arrastar o currículo com o mouse ou utilizar as setas do teclado."
+label_settings = SubResource("LabelSettings_55w0s")
+autowrap_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=386181887]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -56.0
+offset_right = 108.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_nhdk4")
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/PaineTutorial/NinePatchRect" unique_id=1475696965]
+visible = false
+layout_mode = 0
+offset_left = 4.75
+offset_top = -1.0
+offset_right = 55.25
+offset_bottom = 46.0
+texture = ExtResource("17_o8rnq")
+
+[node name="LabelDescricao" type="Label" parent="Tutorial/PaineTutorial/NinePatchRect" unique_id=857645944]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 4.0
+offset_right = 119.0
+offset_bottom = 14.0
+text = "O que fazer? [Teclado]"
+
+[node name="opcao1" type="Button" parent="Tutorial/PaineTutorial/NinePatchRect" unique_id=1493833327]
+layout_mode = 0
+offset_left = 17.75
+offset_top = 15.0
+offset_right = 64.5
+offset_bottom = 30.0
+text = "Testar teclado"
+autowrap_mode = 2
+
+[node name="opcao2" type="Button" parent="Tutorial/PaineTutorial/NinePatchRect" unique_id=1045894452]
+layout_mode = 0
+offset_left = 17.75
+offset_top = 33.0
+offset_right = 64.5
+offset_bottom = 48.0
+text = "Verificar bateria"
+autowrap_mode = 2
+
+[node name="opcao3" type="Button" parent="Tutorial/PaineTutorial/NinePatchRect" unique_id=162743689]
+layout_mode = 0
+offset_left = 73.5
+offset_top = 15.0
+offset_right = 120.25
+offset_bottom = 30.0
+text = "Verificar conexão"
+autowrap_mode = 2
+
+[node name="fechar" type="Button" parent="Tutorial/PaineTutorial/NinePatchRect" unique_id=1586889688]
+layout_mode = 0
+offset_left = 73.5
+offset_top = 33.0
+offset_right = 120.25
+offset_bottom = 48.0
+theme = SubResource("Theme_o8rnq")
+text = "Fechar"
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial" type="Button" parent="Tutorial/PaineTutorial" unique_id=711761436]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 112.0
+offset_top = -33.0
+offset_right = 185.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("20_cjcp8")
+text = "Entendi"
+
+[node name="Queixa" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=1910377218]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 111.0
+offset_right = 124.0
+offset_bottom = 151.0
+theme = SubResource("Theme_jsk8i")
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Tutorial/PaineTutorial/Queixa" unique_id=324849685]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 58.0
+offset_bottom = 7.0
+texture = ExtResource("16_2ek3t")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="NPC" type="TextureRect" parent="Tutorial/PaineTutorial/Queixa" unique_id=1854103224]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 33.0
+offset_bottom = 34.0
+texture = ExtResource("16_o8rnq")
+
+[node name="LabelFuncionario" type="Label" parent="Tutorial/PaineTutorial/Queixa" unique_id=3453249]
+layout_mode = 0
+offset_left = 6.0
+offset_top = -2.0
+offset_right = 56.0
+offset_bottom = 4.0
+text = "Ana -Recepção"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="LabelProblema" type="Label" parent="Tutorial/PaineTutorial/Queixa" unique_id=951284671]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -10.0
+offset_right = 111.0
+offset_bottom = 14.0
+grow_vertical = 2
+theme_override_constants/paragraph_spacing = -1
+text = "Meu teclado parou de funcionar :( 
+
+Pode me ajudar?"
+autowrap_mode = 2
+
+[connection signal="pressed" from="Introducao/PainelIntroducao/BtnContinuarIntroducao" to="." method="_on_btn_continuar_introducao_pressed"]
+[connection signal="pressed" from="Tutorial/PaineTutorial/BtnContinuarTutorial" to="." method="_on_btn_continuar_tutorial_pressed"]

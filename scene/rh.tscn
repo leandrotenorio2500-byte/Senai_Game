@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="19_g8c4p"]
 [ext_resource type="Script" uid="uid://ce7yypr5g4yhk" path="res://scripts/npcs/Vitória-rh.gd" id="20_742wn"]
 [ext_resource type="Script" uid="uid://82ob1lywq0l7" path="res://scripts/npcs/Roberta-quiz.gd" id="21_cnx74"]
-[ext_resource type="Script" uid="uid://b6k2ouvjji25b" path="res://scripts/npcs/julio.gd" id="22_tsla6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cnx74"]
 texture = ExtResource("4_2clqo")
@@ -310,7 +309,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("2_md2p5")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=512127042]
-tile_map_data = PackedByteArray("AAAJAAQABgASAAIAAAAHAAkABgABABAAAAAKAAcABgAEABAAAAAOAAkABgAeAAsAAAAQAAkABgAMAAEAAAATAAkABgAEABEAAAADAAgABgAJAAgAAAAVAAkABgAaAA8AAAABAAkABgAMABAAAAAMAAkABgAQAAEAAAAYAAgABgAOAAIAAAA=")
+tile_map_data = PackedByteArray("AAAJAAQABgASAAIAAAAHAAkABgABABAAAAAKAAcABgAEABAAAAAOAAkABgAeAAsAAAAQAAkABgAMAAEAAAATAAkABgAEABEAAAADAAgABgAJAAgAAAAVAAkABgAaAA8AAAABAAkABgAMABAAAAAMAAkABgAQAAEAAAAYAAgABgAOAAIAAAAEAAkABgAHABMAAAA=")
 tile_set = ExtResource("3_w8fa7")
 
 [node name="npcs" type="TileMapLayer" parent="Tiles" unique_id=1406020534]
@@ -355,14 +354,6 @@ vframes = 1
 [node name="Roberta" parent="NpcsInteractive" unique_id=1024854852 instance=ExtResource("19_g8c4p")]
 position = Vector2(168, 137)
 script = ExtResource("21_cnx74")
-idle_spritesheet = null
-run_spritesheet = null
-hframes = 8
-vframes = 1
-
-[node name="Julio" parent="NpcsInteractive" unique_id=397096777 instance=ExtResource("19_g8c4p")]
-position = Vector2(71, 137)
-script = ExtResource("22_tsla6")
 idle_spritesheet = null
 run_spritesheet = null
 hframes = 8

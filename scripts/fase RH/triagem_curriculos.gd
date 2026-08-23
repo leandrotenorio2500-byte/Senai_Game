@@ -1,23 +1,31 @@
 extends Control
 class_name QuestAnaliseCurriculos
 
+
 @onready var painel: Control = $PainelCurriculos
 @onready var reaction: TextureRect = $Feedback/Reaction
+
+@onready var introducao: Control = $Introducao
+@onready var tutorial: Control = $Tutorial
+@onready var requisitos: Control = $PainelRequisitos
+
 
 var indice := 0
 var pontos := 0
 
+
 var reaction_neutro = preload(
-"res://sprites/Mini UI/neutro.png"
+	"res://sprites/Mini UI/neutro.png"
 )
 
 var reaction_correto = preload(
-"res://sprites/Mini UI/correto.png"
+	"res://sprites/Mini UI/correto.png"
 )
 
 var reaction_errado = preload(
-"res://sprites/Mini UI/errado.png"
+	"res://sprites/Mini UI/errado.png"
 )
+
 
 func _ready():
 
@@ -25,55 +33,75 @@ func _ready():
 		_on_decisao
 	)
 
+	# Primeiro aparece a introdução
+	introducao.visible = true
+	tutorial.visible = false
+
+	# A atividade fica bloqueada até terminar o tutorial
+	painel.visible = false
+	requisitos.visible = false
+	$Feedback.visible = false
+
+func _on_btn_continuar_tutorial_pressed():
+
+	tutorial.visible = false
+
+	painel.visible = true
+	requisitos.visible = true
+	$Feedback.visible = true
+
 	mostrar_vaga()
 	mostrar_curriculo()
+
 
 func mostrar_vaga():
 
 	var vaga = DadosCurriculos.vagas[indice]
 
 	$PainelRequisitos/VBoxContainer/Cargo.text = \
-	"Cargo: " + vaga["cargo"]
+		"Cargo: " + vaga["cargo"]
 
 	$PainelRequisitos/VBoxContainer/escolaridade.text = \
-	"- Escolaridade: " + vaga["escolaridade"]
+		"- Escolaridade: " + vaga["escolaridade"]
 
 	$PainelRequisitos/VBoxContainer/curso.text = \
-	"- Cursos: " + ", ".join(vaga["cursos"])
+		"- Cursos: " + ", ".join(vaga["cursos"])
 
 	$PainelRequisitos/VBoxContainer/habilidades.text = \
-	"- Habilidades: " + ", ".join(vaga["habilidades"])
+		"- Habilidades: " + ", ".join(vaga["habilidades"])
 
 	$PainelRequisitos/VBoxContainer/horario.text = \
-	"- Horário: " + vaga["horario"]
+		"- Horário: " + vaga["horario"]
 
 	$PainelRequisitos/VBoxContainer/experiencia.text = \
-	"- Experiência: " + vaga["experiencia"]
+		"- Experiência: " + vaga["experiencia"]
+
 
 func mostrar_curriculo():
-	
+
 	var candidato = DadosCurriculos.curriculos[indice]
 
 	$PainelCurriculos/HBoxContainer/Nome.text = \
-	"Nome: " + candidato["nome"]
+		"Nome: " + candidato["nome"]
 
 	$PainelCurriculos/HBoxContainer/Idade.text = \
-	"Idade: " + str(candidato["idade"])
+		"Idade: " + str(candidato["idade"])
 
 	$PainelCurriculos/HBoxContainer/Curso.text = \
-	"Cursos: " + ", ".join(candidato["cursos"])
+		"Cursos: " + ", ".join(candidato["cursos"])
 
 	$PainelCurriculos/HBoxContainer/Horario.text = \
-	"Disponibilidade: " + candidato["horario"]
+		"Disponibilidade: " + candidato["horario"]
 
 	$PainelCurriculos/HBoxContainer/Escolaridade.text = \
-	"Escolaridade: " + candidato["escolaridade"]
+		"Escolaridade: " + candidato["escolaridade"]
 
 	$PainelCurriculos/HBoxContainer/habilidades.text = \
-	"Habilidades: " + ", ".join(candidato["habilidades"])
+		"Habilidades: " + ", ".join(candidato["habilidades"])
 
 	$PainelCurriculos/HBoxContainer/Experiencia.text = \
-	"Experiência: " + candidato["experiencia"]	
+		"Experiência: " + candidato["experiencia"]
+
 
 func _on_decisao(aprovado):
 
@@ -82,12 +110,12 @@ func _on_decisao(aprovado):
 	if aprovado == correto:
 		pontos += 1
 		reaction.texture = reaction_correto
-
 	else:
 		reaction.texture = reaction_errado
 
 	await get_tree().create_timer(0.4).timeout
 	proximo_curriculo()
+
 
 func avaliar_candidato():
 
@@ -98,16 +126,19 @@ func avaliar_candidato():
 		return false
 
 	for curso in vaga.cursos:
-
 		if curso not in candidato.cursos:
 			return false
 
 	for habilidade in vaga.habilidades:
-
 		if habilidade not in candidato.habilidades:
 			return false
 
+	for horario in vaga.horario:
+		if horario not in candidato.horario:
+			return false
+
 	return true
+
 
 func proximo_curriculo():
 
@@ -121,6 +152,7 @@ func proximo_curriculo():
 
 	mostrar_vaga()
 	mostrar_curriculo()
+
 
 func finalizar():
 
@@ -136,5 +168,9 @@ func finalizar():
 	get_tree().current_scene.add_child(
 		tela_resultado
 	)
-	
+
 	Transicao.voltar()
+
+func _on_btn_continuar_pressed() -> void:
+	introducao.visible = false
+	tutorial.visible = true

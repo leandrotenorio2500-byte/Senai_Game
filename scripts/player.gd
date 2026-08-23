@@ -395,4 +395,8 @@ func drop_plataform():
 	if Input.is_key_pressed(KEY_SPACE) and Input.is_key_pressed(KEY_DOWN) :
 		position.y +=1
 	
-	
+func bloquear_para_interacao():
+	velocity = Vector2.ZERO
+	direction = 0
+	go_to_idle_state()
+	set_physics_process(false)

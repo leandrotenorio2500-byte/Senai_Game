@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bxox084laopn6" path="res://sprites/Mini UI/heads/Daniel.png" id="19_ir2ln"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="20_cjcp8"]
 [ext_resource type="Texture2D" uid="uid://dcn35f86l4tgj" path="res://sprites/missions/chamados/TecladoHover.png" id="21_jdl8w"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="22_ir2ln"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4o10s"]
 texture = ExtResource("12_6q5ci")
@@ -790,6 +791,8 @@ text = "Meu teclado parou de funcionar :(
 
 Pode me ajudar?"
 autowrap_mode = 2
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("22_ir2ln")]
 
 [connection signal="pressed" from="Introducao/PainelIntroducao/BtnContinuarIntroducao" to="." method="_on_btn_continuar_introducao_pressed"]
 [connection signal="pressed" from="Tutorial/PaineTutorial/BtnContinuarTutorial" to="." method="_on_btn_continuar_tutorial_pressed"]

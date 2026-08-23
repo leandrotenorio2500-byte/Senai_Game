@@ -12,6 +12,7 @@
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="10_lvw1u"]
 [ext_resource type="Texture2D" uid="uid://h55m1giguyb1" path="res://sprites/Mini UI/heads/Ricardo.png" id="11_fufes"]
 [ext_resource type="Texture2D" uid="uid://bvu64yi670qct" path="res://scene/fase RH/tutorial/folha.png" id="12_rtfiu"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="13_rtfiu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0hol4"]
 font = ExtResource("3_rpo43")
@@ -117,33 +118,54 @@ RichTextLabel/constants/line_separation = 0
 RichTextLabel/font_sizes/normal_font_size = 8
 RichTextLabel/fonts/normal_font = ExtResource("1_epypp")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q6r6c"]
-bg_color = Color(0.29803923, 0.29803923, 0.29803923, 0)
-border_width_left = 1
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kysr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vub76"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo5gs"]
+bg_color = Color(0.6745098, 0.6745098, 0.6745098, 0.2784314)
 border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 9
 expand_margin_left = 1.0
 expand_margin_top = 1.0
 expand_margin_right = 1.0
 expand_margin_bottom = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj586"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ool71"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="Theme" id="Theme_4d7sh"]
-Button/colors/font_color = Color(0.18072194, 0.18072197, 0.18072197, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ad5q"]
+bg_color = Color(0.6, 0.6, 0.6, 0.40784314)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="Theme" id="Theme_fufes"]
+Button/colors/font_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+Button/colors/font_disabled_color = Color(0.12941177, 0.12941177, 0.12941177, 0.84313726)
 Button/colors/font_focus_color = Color(0, 0, 0, 1)
 Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/colors/font_pressed_color = Color(0, 0, 0, 1)
-Button/constants/line_spacing = -1
-Button/font_sizes/font_size = 7
+Button/font_sizes/font_size = 5
 Button/fonts/font = ExtResource("1_epypp")
-Button/styles/focus = null
-Button/styles/hover = SubResource("StyleBoxFlat_q6r6c")
-Button/styles/normal = SubResource("StyleBoxFlat_rj586")
-Button/styles/pressed = null
+Button/styles/disabled = SubResource("StyleBoxFlat_5kysr")
+Button/styles/focus = SubResource("StyleBoxFlat_vub76")
+Button/styles/hover = SubResource("StyleBoxFlat_eo5gs")
+Button/styles/normal = SubResource("StyleBoxFlat_ool71")
+Button/styles/pressed = SubResource("StyleBoxFlat_0ad5q")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 7
+Label/fonts/font = ExtResource("1_epypp")
 
 [sub_resource type="LabelSettings" id="LabelSettings_d21ai"]
 font = ExtResource("1_epypp")
@@ -318,7 +340,7 @@ offset_left = 347.0
 offset_top = 3.0
 offset_right = 387.0
 offset_bottom = 21.0
-text = "1/12"
+text = "1/10"
 label_settings = SubResource("LabelSettings_q6r6c")
 
 [node name="AreaSituacao" type="Control" parent="." unique_id=1452622524]
@@ -408,14 +430,14 @@ offset_left = -239.0
 offset_top = -27.0
 offset_right = -199.0
 offset_bottom = 13.0
-theme = SubResource("Theme_4d7sh")
+theme = SubResource("Theme_fufes")
 
 [node name="BtnA" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=168310959]
 layout_mode = 0
 offset_left = 253.0
-offset_top = 129.0
+offset_top = 125.0
 offset_right = 338.0
-offset_bottom = 164.0
+offset_bottom = 162.0
 theme_override_constants/line_spacing = -1
 text = "[A] Usar assim mesmo"
 alignment = 0
@@ -424,9 +446,9 @@ autowrap_mode = 2
 [node name="BtnB" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=853198191]
 layout_mode = 0
 offset_left = 342.0
-offset_top = 129.0
+offset_top = 125.0
 offset_right = 427.0
-offset_bottom = 164.0
+offset_bottom = 162.0
 text = "[B] Improvisar"
 alignment = 0
 autowrap_mode = 2
@@ -434,9 +456,9 @@ autowrap_mode = 2
 [node name="BtnC" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=1715652332]
 layout_mode = 0
 offset_left = 253.0
-offset_top = 172.0
+offset_top = 169.0
 offset_right = 338.0
-offset_bottom = 207.0
+offset_bottom = 206.0
 text = "[C] Nao utilizar"
 alignment = 0
 autowrap_mode = 2
@@ -444,9 +466,9 @@ autowrap_mode = 2
 [node name="BtnD" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=687698251]
 layout_mode = 0
 offset_left = 342.0
-offset_top = 172.0
+offset_top = 169.0
 offset_right = 427.0
-offset_bottom = 207.0
+offset_bottom = 206.0
 text = "[D] Pedir ajuda
 "
 alignment = 0
@@ -784,6 +806,7 @@ theme = ExtResource("10_lvw1u")
 text = "Entendi"
 
 [node name="Tutorial" type="Control" parent="." unique_id=998482264]
+visible = false
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 220.0
@@ -918,6 +941,10 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_kqlm7")
 text = "Entendi"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("13_rtfiu")]
+volume_db = -31.417
+pitch_scale = 1.1
 
 [connection signal="pressed" from="Feedback/TextureRect/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
 [connection signal="pressed" from="ResultadoFinal/BtnFinalizar" to="." method="_on_btn_finalizar_pressed"]

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b3l0ehnc8f6ce" path="res://sprites/Mini UI/heads/Roberta.png" id="8_cgwve"]
 [ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="9_kht8c"]
 [ext_resource type="Texture2D" uid="uid://bvu64yi670qct" path="res://scene/fase RH/tutorial/folha.png" id="10_cgwve"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="11_l64el"]
 
 [sub_resource type="Theme" id="Theme_m5cup"]
 Label/colors/font_color = Color(6.180691e-05, 6.180692e-05, 6.180691e-05, 1)
@@ -588,6 +589,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("9_kht8c")
 text = "Entendi"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("11_l64el")]
 
 [connection signal="pressed" from="aprovado" to="." method="_on_aprovado_pressed"]
 [connection signal="pressed" from="reprovado" to="." method="_on_reprovado_pressed"]

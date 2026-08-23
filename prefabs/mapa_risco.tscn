@@ -10,6 +10,7 @@
 [ext_resource type="ButtonGroup" uid="uid://0jnruypxt8t7" path="res://button_group.tres" id="8_8504l"]
 [ext_resource type="Theme" uid="uid://btj22rnkf1acj" path="res://close.tres" id="9_8504l"]
 [ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="10_4dnr7"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="11_k5f81"]
 
 [sub_resource type="Theme" id="Theme_io3d6"]
 Label/colors/font_color = Color(0, 0, 0, 1)
@@ -190,7 +191,8 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 0.00015258789
+offset_top = 154.0
+offset_bottom = 154.00015
 texture = ExtResource("1_5yql7")
 
 [node name="PainelRisco" type="NinePatchRect" parent="TextureRect" unique_id=57864323]
@@ -967,6 +969,9 @@ text = "X"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=247484681]
 libraries/ = SubResource("AnimationLibrary_4s135")
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("11_k5f81")]
+pitch_scale = 1.1
 
 [connection signal="pressed" from="TextureRect/Legenda/Mecanico" to="." method="_on_mecanico_pressed"]
 [connection signal="pressed" from="TextureRect/Legenda/Fisico" to="." method="_on_fisico_pressed"]

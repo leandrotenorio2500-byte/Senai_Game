@@ -110,7 +110,12 @@ func dialogo_mapa_risco():
 		},
 		{
 			"title": npc_name,
-			"dialog": "Além disso, quase sempre trabalhamos com empilhadeiras e outros equipamentos em funcionamento. Dependendo do movimento e do barulho das operações, é preciso ficar atento ao ambiente e utilizar os equipamentos de proteção quando necessário.",
+			"dialog": "Além disso, quase sempre trabalhamos com empilhadeiras e outros equipamentos em funcionamento.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Então, dependendo do movimento e do barulho das operações, é preciso ficar atento ao ambiente e utilizar os equipamentos de proteção quando necessário.",
 			"faceset": npc_faceset_path
 		}
 	]

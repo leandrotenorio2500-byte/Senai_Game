@@ -4,6 +4,7 @@ signal atividade_finalizada(resultado: Dictionary)
 
 @onready var tutorial: Control = $Tutorial
 @onready var introducao: Control = $Introducao
+@onready var toque: AudioStreamPlayer = $toque
 
 
 # ============================================================
@@ -479,7 +480,7 @@ func _aplicar_visual_chamado() -> void:
 		npc.texture = npc_texture
 
 func _interagir(objeto: String) -> void:
-
+	toque.play()
 	if executando_procedimento:
 		return
 
@@ -1485,10 +1486,12 @@ func _ambiente_software_finalizado(resultado: Dictionary) -> void:
 
 
 func _on_btn_continuar_introducao_pressed() -> void:
+	toque.play()
 	tutorial.visible = true
 	introducao.visible = false
 
 
 func _on_btn_continuar_tutorial_pressed() -> void:
+	toque.play()
 	tutorial.visible = false
 	carregar_chamado(0)

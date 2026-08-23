@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var player_icon: TextureRect = $TextureRect/TextureRect2
 @onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var toque: AudioStreamPlayer = $toque
 
 @onready var painel_risco: NinePatchRect = $TextureRect/PainelRisco
 @onready var label_titulo_risco: Label = $TextureRect/PainelRisco/VBoxContainer/Titulo
@@ -158,22 +159,27 @@ enum TipoRisco {
 }
 
 func _on_mecanico_pressed() -> void:
+	toque.play()
 	risco_selecionado = TipoRisco.ACIDENTE
 	mostrar_informacao_risco(risco_selecionado)
 
 func _on_fisico_pressed() -> void:
+	toque.play()
 	risco_selecionado = TipoRisco.FISICO
 	mostrar_informacao_risco(risco_selecionado)
 
 func _on_quimico_pressed() -> void:
+	toque.play()
 	risco_selecionado = TipoRisco.QUIMICO
 	mostrar_informacao_risco(risco_selecionado)
 
 func _on_biologico_pressed() -> void:
+	toque.play()
 	risco_selecionado = TipoRisco.BIOLOGICO
 	mostrar_informacao_risco(risco_selecionado)
 
 func _on_ergonomico_pressed() -> void:
+	toque.play()
 	risco_selecionado = TipoRisco.ERGONOMICO
 	mostrar_informacao_risco(risco_selecionado)
 	

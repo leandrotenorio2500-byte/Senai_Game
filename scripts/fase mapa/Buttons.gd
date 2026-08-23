@@ -4,6 +4,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 var tipo_risco = 0
+@onready var toque: AudioStreamPlayer = $"../../../../../toque"
 
 @export var setor : String
 @export var mapa: CanvasLayer
@@ -31,6 +32,7 @@ func atualizar_cor():
 			modulate = Color.BLUE
 
 func _pressed():
+	toque.play()
 	if !Globals.setores_desbloqueados[setor]:
 		return
 	tipo_risco = mapa.risco_selecionado

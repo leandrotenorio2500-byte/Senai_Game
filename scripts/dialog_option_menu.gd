@@ -2,6 +2,8 @@ extends Control
 
 signal option_selected(option: Dictionary)
 
+@onready var toque: AudioStreamPlayer = $toque
+
 @onready var labels = [
 	$Opcao1,
 	$Opcao2,
@@ -88,10 +90,9 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 
 	elif event.is_action_pressed("interect"):
-
 		if options.is_empty():
 			return
-
+		toque.play()
 		get_viewport().set_input_as_handled()
 
 		option_selected.emit(options[current_option])

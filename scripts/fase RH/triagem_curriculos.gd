@@ -4,6 +4,7 @@ class_name QuestAnaliseCurriculos
 
 @onready var painel: Control = $PainelCurriculos
 @onready var reaction: TextureRect = $Feedback/Reaction
+@onready var toque: AudioStreamPlayer = $toque
 
 @onready var introducao: Control = $Introducao
 @onready var tutorial: Control = $Tutorial
@@ -43,7 +44,7 @@ func _ready():
 	$Feedback.visible = false
 
 func _on_btn_continuar_tutorial_pressed():
-
+	toque.play()
 	tutorial.visible = false
 
 	painel.visible = true
@@ -155,7 +156,7 @@ func proximo_curriculo():
 
 
 func finalizar():
-
+	toque.play()
 	await Transicao.transicao()
 
 	var tela_resultado = preload(
@@ -172,5 +173,6 @@ func finalizar():
 	Transicao.voltar()
 
 func _on_btn_continuar_pressed() -> void:
+	toque.play()
 	introducao.visible = false
 	tutorial.visible = true

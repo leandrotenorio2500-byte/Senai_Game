@@ -4,12 +4,6 @@ class_name TreinamentoSST
 signal atividade_finalizada(resultado: Dictionary)
 
 
-# ============================================================
-# CONFIGURAÇÕES
-# ============================================================
-
-const TOTAL_SITUACOES := 10
-
 
 # ============================================================
 # NÓS DA INTERFACE
@@ -109,144 +103,144 @@ var situacoes := [
 	# SITUAÇÃO 03 — EPI INADEQUADO
 	# ============================================================
 
-	{
-		"situacao": "Um trabalhador precisa realizar uma atividade que exige proteção específica para os olhos. Ele encontra um óculos de proteção de outro funcionário, mas o equipamento está com a lente riscada e não se ajusta corretamente ao seu rosto.",
-
-		"pergunta": "O que deve ser feito?",
-
-		"opcoes": [
-			"Utilizar o óculos mesmo assim, pois ele ainda protege parcialmente.",
-			"Usar o equipamento apenas durante os momentos mais perigosos.",
-			"Utilizar óculos comuns no lugar do EPI.",
-			"Solicitar um EPI adequado e em boas condições.",
-		],
-
-		"resposta": 3,
-
-		"explicacao": "O EPI precisa ser adequado ao risco, estar em boas condições e ser utilizado corretamente. Um equipamento danificado ou inadequado pode não oferecer a proteção necessária.",
-		
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Um trabalhador precisa realizar uma atividade que exige proteção específica para os olhos. Ele encontra um óculos de proteção de outro funcionário, mas o equipamento está com a lente riscada e não se ajusta corretamente ao seu rosto.",
+#
+		#"pergunta": "O que deve ser feito?",
+#
+		#"opcoes": [
+			#"Utilizar o óculos mesmo assim, pois ele ainda protege parcialmente.",
+			#"Usar o equipamento apenas durante os momentos mais perigosos.",
+			#"Utilizar óculos comuns no lugar do EPI.",
+			#"Solicitar um EPI adequado e em boas condições.",
+		#],
+#
+		#"resposta": 3,
+#
+		#"explicacao": "O EPI precisa ser adequado ao risco, estar em boas condições e ser utilizado corretamente. Um equipamento danificado ou inadequado pode não oferecer a proteção necessária.",
+		#
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
 
 	# ============================================================
 	# SITUAÇÃO 04 — TRABALHO EM ALTURA
 	# ============================================================
 
-	{
-		"situacao": "Um funcionário precisa alcançar um ponto elevado durante uma manutenção. Um colega sugere subir em uma cadeira para terminar o serviço rapidamente.",
-
-		"pergunta": "Qual é a atitude mais segura?",
-
-		"opcoes": [
-			"Utilizar outro meio mais adequado para esse trabalho, seguindo os procedimentos de segurança.",
-			"Não subir na cadeira, mas sim em uma mesa, pois ela apresenta maior estabilidade.",
-			"Subir cuidadosamente apenas se alguém estiver segurando.",
-			"Subir rapidamente para reduzir o tempo de exposição ao risco."
-		],
-
-		"resposta": 0,
-
-		"explicacao": "Cadeiras e outros objetos improvisados não devem ser utilizados como meios de acesso para atividades em altura. O trabalho deve ser realizado com os equipamentos, procedimentos e medidas de proteção adequados.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/4.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Um funcionário precisa alcançar um ponto elevado durante uma manutenção. Um colega sugere subir em uma cadeira para terminar o serviço rapidamente.",
+#
+		#"pergunta": "Qual é a atitude mais segura?",
+#
+		#"opcoes": [
+			#"Utilizar outro meio mais adequado para esse trabalho, seguindo os procedimentos de segurança.",
+			#"Não subir na cadeira, mas sim em uma mesa, pois ela apresenta maior estabilidade.",
+			#"Subir cuidadosamente apenas se alguém estiver segurando.",
+			#"Subir rapidamente para reduzir o tempo de exposição ao risco."
+		#],
+#
+		#"resposta": 0,
+#
+		#"explicacao": "Cadeiras e outros objetos improvisados não devem ser utilizados como meios de acesso para atividades em altura. O trabalho deve ser realizado com os equipamentos, procedimentos e medidas de proteção adequados.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/4.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
 
 	# ============================================================
 	# SITUAÇÃO 05 — TRABALHO EM ALTURA / PRESSA
 	# ============================================================
 
-	{
-		"situacao": "Durante uma atividade em altura, o funcionário percebe que seu equipamento de proteção apresenta um problema. O serviço está quase terminando e ele acredita que seria desperdício interromper a atividade.",
+	#{
+		#"situacao": "Durante uma atividade em altura, o funcionário percebe que seu equipamento de proteção apresenta um problema. O serviço está quase terminando e ele acredita que seria desperdício interromper a atividade.",
+#
+		#"pergunta": "O que ele deve fazer?",
+#
+		#"opcoes": [
+			#"Continuar, pois falta pouco para terminar.",
+			#"Continuar apenas se estiver se sentindo seguro.",
+			#"Interromper a atividade e comunicar o problema.",
+			#"Pedir para um colega observar enquanto termina."
+		#],
+#
+		#"resposta": 2,
+#
+		#"explicacao": "A proximidade do fim da atividade não elimina o risco. Quando um equipamento ou condição de segurança apresenta problema, a atividade deve ser interrompida e a situação comunicada.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/5.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
-		"pergunta": "O que ele deve fazer?",
-
-		"opcoes": [
-			"Continuar, pois falta pouco para terminar.",
-			"Continuar apenas se estiver se sentindo seguro.",
-			"Interromper a atividade e comunicar o problema.",
-			"Pedir para um colega observar enquanto termina."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "A proximidade do fim da atividade não elimina o risco. Quando um equipamento ou condição de segurança apresenta problema, a atividade deve ser interrompida e a situação comunicada.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/5.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
-
-{
-		"situacao": "Um funcionário precisa transportar uma caixa pesada até outro setor. Para terminar rapidamente, ele decide levantar a caixa sozinho, curvando bastante as costas e fazendo força de uma só vez.",
-
-		"pergunta": "Qual é a atitude mais segura?",
-
-		"opcoes": [
-			"Levantar rapidamente para reduzir o esforço.",
-			"Verificar o peso da carga, utilizar o meio adequado para transportá-la e pedir ajuda quando necessário.",
-			"Curvar as costas e manter os braços esticados durante o levantamento.",
-			"Segurar a caixa com apenas uma mão para facilitar o deslocamento."
-		],
-
-		"resposta": 1,
-
-		"explicacao": "A movimentação inadequada de cargas pode causar lesões. O trabalhador deve avaliar a carga, utilizar os equipamentos ou meios de transporte disponíveis e solicitar ajuda quando necessário.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/7.png",
-		},
+#{
+		#"situacao": "Um funcionário precisa transportar uma caixa pesada até outro setor. Para terminar rapidamente, ele decide levantar a caixa sozinho, curvando bastante as costas e fazendo força de uma só vez.",
+#
+		#"pergunta": "Qual é a atitude mais segura?",
+#
+		#"opcoes": [
+			#"Levantar rapidamente para reduzir o esforço.",
+			#"Verificar o peso da carga, utilizar o meio adequado para transportá-la e pedir ajuda quando necessário.",
+			#"Curvar as costas e manter os braços esticados durante o levantamento.",
+			#"Segurar a caixa com apenas uma mão para facilitar o deslocamento."
+		#],
+#
+		#"resposta": 1,
+#
+		#"explicacao": "A movimentação inadequada de cargas pode causar lesões. O trabalhador deve avaliar a carga, utilizar os equipamentos ou meios de transporte disponíveis e solicitar ajuda quando necessário.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/7.png",
+		#},
 
 
 	# ============================================================
 	# SITUAÇÃO 06 — ELETRICIDADE
 	# ============================================================
 
-	{
-		"situacao": "Um funcionário percebe que uma máquina elétrica apresenta uma falha. Ele pensa em abrir o equipamento para descobrir o que aconteceu, embora não seja responsável pela manutenção elétrica.",
-
-		"pergunta": "Qual seria a atitude correta?",
-
-		"opcoes": [
-			"Abrir a máquina e tentar identificar o problema.",
-			"Comunicar a falha e deixar a intervenção para profissional autorizado.",
-			"Desligar a máquina antes de realizar o reparo por conta própria.",
-			"Pedir ajuda a um colega que tenha experiência com máquinas."
-		],
-
-		"resposta": 1,
-
-		"explicacao": "Intervenções em instalações e equipamentos elétricos exigem procedimentos e competências específicas. O funcionário não deve improvisar reparos. A falha deve ser comunicada ao responsável.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/6.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Um funcionário percebe que uma máquina elétrica apresenta uma falha. Ele pensa em abrir o equipamento para descobrir o que aconteceu, embora não seja responsável pela manutenção elétrica.",
+#
+		#"pergunta": "Qual seria a atitude correta?",
+#
+		#"opcoes": [
+			#"Abrir a máquina e tentar identificar o problema.",
+			#"Comunicar a falha e deixar a intervenção para profissional autorizado.",
+			#"Desligar a máquina antes de realizar o reparo por conta própria.",
+			#"Pedir ajuda a um colega que tenha experiência com máquinas."
+		#],
+#
+		#"resposta": 1,
+#
+		#"explicacao": "Intervenções em instalações e equipamentos elétricos exigem procedimentos e competências específicas. O funcionário não deve improvisar reparos. A falha deve ser comunicada ao responsável.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/6.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
 
 	# ============================================================
 	# SITUAÇÃO 07 — PRINCÍPIOS DE INCÊNDIO
 	# ============================================================
 
-	{
-		"situacao": "Um funcionário percebe um pequeno princípio de incêndio em um equipamento. O ambiente começa a ficar com fumaça e algumas pessoas ainda estão próximas ao local.",
-
-		"pergunta": "Qual deve ser a prioridade?",
-
-		"opcoes": [
-			"Tentar apagar o incêndio imediatamente, independentemente da situação.",
-			"Filmar o incêndio para registrar o ocorrido.",
-			"Esperar alguns minutos para verificar se o fogo aumenta.",
-			"Alertar as pessoas, acionar o procedimento de emergência e evacuar quando necessário.",
-		],
-
-		"resposta": 3,
-
-		"explicacao": "A prioridade em uma emergência é preservar vidas. O alarme e os procedimentos de emergência devem ser acionados, e a evacuação deve ocorrer conforme as orientações estabelecidas.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/9.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Um funcionário percebe um pequeno princípio de incêndio em um equipamento. O ambiente começa a ficar com fumaça e algumas pessoas ainda estão próximas ao local.",
+#
+		#"pergunta": "Qual deve ser a prioridade?",
+#
+		#"opcoes": [
+			#"Tentar apagar o incêndio imediatamente, independentemente da situação.",
+			#"Filmar o incêndio para registrar o ocorrido.",
+			#"Esperar alguns minutos para verificar se o fogo aumenta.",
+			#"Alertar as pessoas, acionar o procedimento de emergência e evacuar quando necessário.",
+		#],
+#
+		#"resposta": 3,
+#
+		#"explicacao": "A prioridade em uma emergência é preservar vidas. O alarme e os procedimentos de emergência devem ser acionados, e a evacuação deve ocorrer conforme as orientações estabelecidas.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/9.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
 
 	# ============================================================
@@ -293,6 +287,12 @@ var situacoes := [
 	}
 
 ]
+
+# ============================================================
+# CONFIGURAÇÕES
+# ============================================================
+
+var TOTAL_SITUACOES := situacoes.size()
 
 # ============================================================
 # VARIÁVEIS

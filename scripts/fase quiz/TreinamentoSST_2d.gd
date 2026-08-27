@@ -551,7 +551,7 @@ func _on_btn_finalizar_pressed() -> void:
 	}
 	
 	atividade_finalizada.emit(resultado)
-	Transicao.mudar_cena("res://scene/rh.tscn")
+	Transicao.mudar_cena("res://scene/deposito.tscn")
 
 
 func _on_btn_continuar_introducao_pressed() -> void:

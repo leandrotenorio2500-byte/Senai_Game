@@ -673,7 +673,7 @@ func _executar_substituicao_mouse() -> void:
 
 	print("[TI] Removendo mouse antigo...")
 
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(1.8).timeout
 
 
 	# --------------------------------------------------------
@@ -684,7 +684,7 @@ func _executar_substituicao_mouse() -> void:
 
 	print("[TI] Instalando mouse novo...")
 
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(1.8).timeout
 
 
 	if mouse_novo_texture:
@@ -702,7 +702,7 @@ func _executar_substituicao_mouse() -> void:
 
 	print("[TI] Testando mouse...")
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(1.5).timeout
 
 
 	# --------------------------------------------------------
@@ -845,7 +845,7 @@ func _executar_verificacao_monitor() -> void:
 
 	print("[TI] Verificando conexão do monitor...")
 
-	await get_tree().create_timer(0.8).timeout
+	await get_tree().create_timer(1.8).timeout
 
 
 	# --------------------------------------------------------
@@ -856,7 +856,7 @@ func _executar_verificacao_monitor() -> void:
 
 	print("[TI] Cabo de vídeo desconectado.")
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 
 
 	# --------------------------------------------------------
@@ -867,7 +867,7 @@ func _executar_verificacao_monitor() -> void:
 
 	print("[TI] Reconectando cabo de vídeo...")
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 
 
 	# --------------------------------------------------------
@@ -878,7 +878,7 @@ func _executar_verificacao_monitor() -> void:
 
 	print("[TI] Testando sinal de vídeo...")
 
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 
 
 	# --------------------------------------------------------

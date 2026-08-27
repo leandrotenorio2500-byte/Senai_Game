@@ -117,9 +117,11 @@ layout_mode = 2
 [node name="Nome" type="Label" parent="Marketing/Integrantes" unique_id=818395437]
 layout_mode = 2
 theme = SubResource("Theme_wnb2h")
-text = "Compras:
+text = "Compras/Organização:
 Allessandra Evely Alves da Silva
-Lavinya Gabrieli dos Santos Ataíde"
+Lavinya Gabrieli dos Santos Ataíde
+Vitória Hillary Morais Barbosa
+Hossana Maria Rogério da Silva"
 
 [node name="Art e design" type="VBoxContainer" parent="." unique_id=2100523204]
 layout_mode = 0
@@ -222,7 +224,8 @@ layout_mode = 2
 theme = SubResource("Theme_wnb2h")
 text = "Triha Sonora:
 Júlio Cesar Serafim dos Santos
-Lyvia Emanuelly Pereira dos Santos"
+Lyvia Emanuelly Pereira dos Santos
+Danielle Karine Otávio da Silva"
 autowrap_mode = 2
 
 [node name="Gestao" type="VBoxContainer" parent="." unique_id=874398683]

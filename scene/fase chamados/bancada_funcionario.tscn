@@ -434,7 +434,6 @@ text = "nome"
 label_settings = SubResource("LabelSettings_2ek3t")
 
 [node name="Introducao" type="Control" parent="." unique_id=137652899]
-visible = false
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 220.0
@@ -454,7 +453,7 @@ offset_left = -98.0
 offset_right = 98.0
 offset_bottom = 32.0
 grow_horizontal = 2
-text = "chamdos de ti"
+text = "chamados de ti"
 label_settings = SubResource("LabelSettings_fc72h")
 
 [node name="BalaoDialogo" type="NinePatchRect" parent="Introducao/PainelIntroducao" unique_id=1671285096]

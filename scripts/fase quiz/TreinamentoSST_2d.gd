@@ -197,94 +197,94 @@ var situacoes := [
 	# SITUAÇÃO 06 — ELETRICIDADE
 	# ============================================================
 
-	#{
-		#"situacao": "Um funcionário percebe que uma máquina elétrica apresenta uma falha. Ele pensa em abrir o equipamento para descobrir o que aconteceu, embora não seja responsável pela manutenção elétrica.",
-#
-		#"pergunta": "Qual seria a atitude correta?",
-#
-		#"opcoes": [
-			#"Abrir a máquina e tentar identificar o problema.",
-			#"Comunicar a falha e deixar a intervenção para profissional autorizado.",
-			#"Desligar a máquina antes de realizar o reparo por conta própria.",
-			#"Pedir ajuda a um colega que tenha experiência com máquinas."
-		#],
-#
-		#"resposta": 1,
-#
-		#"explicacao": "Intervenções em instalações e equipamentos elétricos exigem procedimentos e competências específicas. O funcionário não deve improvisar reparos. A falha deve ser comunicada ao responsável.",
-		#"fundo": "res://sprites/BACKGROUND/Cenas SST/6.png",
-		#"animacao_personagem": "",
-		#"animacao_efeito": ""
-	#},
+	{
+		"situacao": "Um funcionário percebe que uma máquina elétrica apresenta uma falha. Ele pensa em abrir o equipamento para descobrir o que aconteceu, embora não seja responsável pela manutenção elétrica.",
+
+		"pergunta": "Qual seria a atitude correta?",
+
+		"opcoes": [
+			"Abrir a máquina e tentar identificar o problema.",
+			"Comunicar a falha e deixar a intervenção para profissional autorizado.",
+			"Desligar a máquina antes de realizar o reparo por conta própria.",
+			"Pedir ajuda a um colega que tenha experiência com máquinas."
+		],
+
+		"resposta": 1,
+
+		"explicacao": "Intervenções em instalações e equipamentos elétricos exigem procedimentos e competências específicas. O funcionário não deve improvisar reparos. A falha deve ser comunicada ao responsável.",
+		"fundo": "res://sprites/BACKGROUND/Cenas SST/6.png",
+		"animacao_personagem": "",
+		"animacao_efeito": ""
+	},
 
 
 	# ============================================================
 	# SITUAÇÃO 07 — PRINCÍPIOS DE INCÊNDIO
 	# ============================================================
 
-	#{
-		#"situacao": "Um funcionário percebe um pequeno princípio de incêndio em um equipamento. O ambiente começa a ficar com fumaça e algumas pessoas ainda estão próximas ao local.",
-#
-		#"pergunta": "Qual deve ser a prioridade?",
-#
-		#"opcoes": [
-			#"Tentar apagar o incêndio imediatamente, independentemente da situação.",
-			#"Filmar o incêndio para registrar o ocorrido.",
-			#"Esperar alguns minutos para verificar se o fogo aumenta.",
-			#"Alertar as pessoas, acionar o procedimento de emergência e evacuar quando necessário.",
-		#],
-#
-		#"resposta": 3,
-#
-		#"explicacao": "A prioridade em uma emergência é preservar vidas. O alarme e os procedimentos de emergência devem ser acionados, e a evacuação deve ocorrer conforme as orientações estabelecidas.",
-		#"fundo": "res://sprites/BACKGROUND/Cenas SST/9.png",
-		#"animacao_personagem": "",
-		#"animacao_efeito": ""
-	#},
+	{
+		"situacao": "Um funcionário percebe um pequeno princípio de incêndio em um equipamento. O ambiente começa a ficar com fumaça e algumas pessoas ainda estão próximas ao local.",
+
+		"pergunta": "Qual deve ser a prioridade?",
+
+		"opcoes": [
+			"Tentar apagar o incêndio imediatamente, independentemente da situação.",
+			"Filmar o incêndio para registrar o ocorrido.",
+			"Esperar alguns minutos para verificar se o fogo aumenta.",
+			"Alertar as pessoas, acionar o procedimento de emergência e evacuar quando necessário.",
+		],
+
+		"resposta": 3,
+
+		"explicacao": "A prioridade em uma emergência é preservar vidas. O alarme e os procedimentos de emergência devem ser acionados, e a evacuação deve ocorrer conforme as orientações estabelecidas.",
+		"fundo": "res://sprites/BACKGROUND/Cenas SST/9.png",
+		"animacao_personagem": "",
+		"animacao_efeito": ""
+	},
 
 
 	# ============================================================
 	# SITUAÇÃO 08 — ASSÉDIO
 	# ============================================================
 
-	{
-		"situacao": "Durante o expediente, um funcionário faz comentários constrangedores e repetitivos sobre um colega. Algumas pessoas riem, enquanto a pessoa alvo demonstra desconforto.",
-
-		"pergunta": "Qual atitude está de acordo com uma cultura de segurança e respeito?",
-
-		"opcoes": [
-			"Participar das brincadeiras para evitar conflitos.",
-			"Ignorar, pois é apenas uma brincadeira.",
-			"Não compactuar com a situação e buscar relatar o ocorrido.",
-			"Esperar que a própria vítima resolva a situação."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "Um ambiente de trabalho seguro também precisa ser respeitoso. Situações de assédio ou comportamento inadequado não devem ser normalizadas. Elas devem ser tratadas pelos canais apropriados da organização.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/8.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Durante o expediente, um funcionário faz comentários constrangedores e repetitivos sobre um colega. Algumas pessoas riem, enquanto a pessoa alvo demonstra desconforto.",
+#
+		#"pergunta": "Qual atitude está de acordo com uma cultura de segurança e respeito?",
+#
+		#"opcoes": [
+			#"Participar das brincadeiras para evitar conflitos.",
+			#"Ignorar, pois é apenas uma brincadeira.",
+			#"Não compactuar com a situação e buscar relatar o ocorrido.",
+			#"Esperar que a própria vítima resolva a situação."
+		#],
+#
+		#"resposta": 2,
+#
+		#"explicacao": "Um ambiente de trabalho seguro também precisa ser respeitoso. Situações de assédio ou comportamento inadequado não devem ser normalizadas. Elas devem ser tratadas pelos canais apropriados da organização.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/8.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 	
-	{
-		"situacao": "Durante uma atividade, um funcionário percebe que uma etapa não está sendo realizada de forma segura. Seu colega diz para ele continuar mesmo assim, pois a equipe precisa terminar o serviço rapidamente.",
-
-
-		"pergunta": "Qual é a atitude mais adequada?",
-
-		"opcoes": [
-			"Comunicar a condição insegura e seguir os procedimentos de segurança, mesmo que seja necessário interromper a atividade.",
-			"Continuar para não atrasar a equipe.",
-			"Fazer a atividade rapidamente para diminuir o risco, e, logo após, relatar a condição insegura.",
-			"Ignorar o problema porque o responsável pela equipe deve tomar todas as decisões."
-		],
-
-		"resposta": 0,
-
-		"explicacao": "A pressão por produtividade não deve levar os trabalhadores a ignorar condições inseguras. Todos devem poder comunicar riscos e interromper uma atividade quando houver uma condição que possa comprometer a segurança.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/10.png",
-	}
+	#{
+		#"situacao": "Durante uma atividade, um funcionário percebe que uma etapa não está sendo realizada de forma segura. Seu colega diz para ele continuar mesmo assim, pois a equipe precisa terminar o serviço rapidamente.",
+#
+#
+		#"pergunta": "Qual é a atitude mais adequada?",
+#
+		#"opcoes": [
+			#"Comunicar a condição insegura e seguir os procedimentos de segurança, mesmo que seja necessário interromper a atividade.",
+			#"Continuar para não atrasar a equipe.",
+			#"Fazer a atividade rapidamente para diminuir o risco, e, logo após, relatar a condição insegura.",
+			#"Ignorar o problema porque o responsável pela equipe deve tomar todas as decisões."
+		#],
+#
+		#"resposta": 0,
+#
+		#"explicacao": "A pressão por produtividade não deve levar os trabalhadores a ignorar condições inseguras. Todos devem poder comunicar riscos e interromper uma atividade quando houver uma condição que possa comprometer a segurança.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/10.png",
+	#}
 
 ]
 

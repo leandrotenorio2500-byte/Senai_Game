@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func _on_start_pressed() -> void:
 	toque.play()
-	Transicao.mudar_cena("res://scene/recep.tscn")
+	Transicao.mudar_cena("res://scene/chegada.tscn")
 
 func _on_skin_changer_pressed() -> void:
 	toque.play()

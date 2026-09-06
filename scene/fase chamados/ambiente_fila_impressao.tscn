@@ -4,59 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://j2tdib555tea" path="res://sprites/missions/chamados/TelaMonitor.png" id="1_ibixg"]
 [ext_resource type="Texture2D" uid="uid://d25024sm5rq7m" path="res://sprites/missions/chamados/AreaImpressora.png" id="2_5kysr"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_ool71"]
+[ext_resource type="Theme" uid="uid://duhom7snu461b" path="res://bttn_software.tres" id="3_vub76"]
 [ext_resource type="Texture2D" uid="uid://c50ixpm1wpxd2" path="res://sprites/missions/chamados/GerenciadorTarefas.png" id="4_vub76"]
 [ext_resource type="Texture2D" uid="uid://xtp05217a617" path="res://sprites/missions/chamados/FecharGeren.png" id="5_eo5gs"]
 [ext_resource type="Texture2D" uid="uid://c3twu5v6adoen" path="res://sprites/missions/chamados/Gerenciador_icon.png" id="6_0ad5q"]
 [ext_resource type="Texture2D" uid="uid://d1tklw7bidpa8" path="res://sprites/missions/chamados/Desligar.png" id="7_ex7ad"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kysr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vub76"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo5gs"]
-bg_color = Color(0.6745098, 0.6745098, 0.6745098, 0.2784314)
-border_width_top = 1
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-corner_detail = 9
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ool71"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ad5q"]
-bg_color = Color(0.6, 0.6, 0.6, 0.40784314)
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-
-[sub_resource type="Theme" id="Theme_vub76"]
-Button/colors/font_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
-Button/colors/font_disabled_color = Color(0.12941177, 0.12941177, 0.12941177, 0.84313726)
-Button/colors/font_focus_color = Color(0, 0, 0, 1)
-Button/colors/font_hover_color = Color(0, 0, 0, 1)
-Button/font_sizes/font_size = 4
-Button/fonts/font = ExtResource("3_ool71")
-Button/styles/disabled = SubResource("StyleBoxFlat_5kysr")
-Button/styles/focus = SubResource("StyleBoxFlat_vub76")
-Button/styles/hover = SubResource("StyleBoxFlat_eo5gs")
-Button/styles/normal = SubResource("StyleBoxFlat_ool71")
-Button/styles/pressed = SubResource("StyleBoxFlat_0ad5q")
-Label/colors/font_color = Color(0, 0, 0, 1)
-Label/font_sizes/font_size = 4
-Label/fonts/font = ExtResource("3_ool71")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1h6ix"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -139,7 +91,7 @@ offset_bottom = 69.0
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = SubResource("Theme_vub76")
+theme = ExtResource("3_vub76")
 
 [node name="Fundo" type="TextureRect" parent="AreaTrabalho/TelaMonitor/JanelaFila" unique_id=14245054]
 layout_mode = 0

@@ -5,6 +5,12 @@
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="3_m5cup"]
 [ext_resource type="Script" uid="uid://dmy0hqjpeduhg" path="res://scripts/fase RH/painel_curriculos.gd" id="4_lcu7l"]
 [ext_resource type="Texture2D" uid="uid://vsfx1kfyliuu" path="res://scene/fase RH/folha.png" id="5_gr7qo"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="6_goqej"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="7_kht8c"]
+[ext_resource type="Texture2D" uid="uid://b3l0ehnc8f6ce" path="res://sprites/Mini UI/heads/Roberta.png" id="8_cgwve"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="9_kht8c"]
+[ext_resource type="Texture2D" uid="uid://bvu64yi670qct" path="res://scene/fase RH/tutorial/folha.png" id="10_cgwve"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="11_l64el"]
 
 [sub_resource type="Theme" id="Theme_m5cup"]
 Label/colors/font_color = Color(6.180691e-05, 6.180692e-05, 6.180691e-05, 1)
@@ -109,6 +115,43 @@ Button/fonts/font = ExtResource("3_m5cup")
 Button/styles/hover = SubResource("StyleBoxFlat_gr7qo")
 Button/styles/normal = SubResource("StyleBoxFlat_mpe81")
 Button/styles/pressed = SubResource("StyleBoxFlat_goqej")
+
+[sub_resource type="LabelSettings" id="LabelSettings_l64el"]
+font = ExtResource("6_goqej")
+font_size = 34
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b7w58"]
+font = ExtResource("3_m5cup")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_62oph"]
+font = ExtResource("3_m5cup")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jjnv1"]
+font = ExtResource("3_m5cup")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgwve"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_b7w58"]
+Label/constants/line_spacing = -3
+Label/styles/normal = SubResource("StyleBoxFlat_cgwve")
+
+[sub_resource type="LabelSettings" id="LabelSettings_84lsh"]
+font = ExtResource("3_m5cup")
+font_size = 7
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
 
 [node name="TriagemCurriculos" type="Control" unique_id=711394065]
 layout_mode = 3
@@ -308,5 +351,248 @@ rotation = -0.0025035837
 theme = SubResource("Theme_goqej")
 text = "Reprovar"
 
+[node name="Introducao" type="Control" parent="." unique_id=1989183200]
+visible = false
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PainelIntroducao" type="Panel" parent="Introducao" unique_id=2116946389]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="LabelTitulo" type="Label" parent="Introducao/PainelIntroducao" unique_id=170014226]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.5
+offset_right = 160.5
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "Triagem de Curriculos"
+label_settings = SubResource("LabelSettings_l64el")
+
+[node name="BalaoDialogo" type="NinePatchRect" parent="Introducao/PainelIntroducao" unique_id=374156243]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.75
+offset_top = -38.5
+offset_right = 144.75
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_kht8c")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelIntroducao" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1139193007]
+layout_mode = 0
+offset_left = 79.5
+offset_top = 5.0
+offset_right = 281.75
+offset_bottom = 79.0
+theme_override_constants/line_spacing = -5
+text = "Você recebeu a tarefa de analisar os currículos dos candidatos para uma vaga.
+
+Sua responsabilidade será verificar as informações apresentadas e decidir quais candidatos estão aptos para seguir no processo seletivo."
+label_settings = SubResource("LabelSettings_b7w58")
+autowrap_mode = 2
+
+[node name="NpcFace" type="TextureRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1379780326]
+layout_mode = 0
+offset_left = 11.75
+offset_top = 14.5
+offset_right = 65.75
+offset_bottom = 63.5
+texture = ExtResource("8_cgwve")
+
+[node name="NpcNome" type="NinePatchRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1091174794]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -45.0
+offset_right = -74.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_kht8c")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo/NpcNome" unique_id=1429714134]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 56.0
+offset_bottom = 15.0
+text = "Roberta"
+label_settings = SubResource("LabelSettings_62oph")
+
+[node name="BtnContinuar" type="Button" parent="Introducao/PainelIntroducao" unique_id=1349055321]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_kht8c")
+text = "Entendi"
+
+[node name="Tutorial" type="Control" parent="." unique_id=2022875558]
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="Panel" parent="Tutorial" unique_id=1616383202]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=596235654]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 13.0
+offset_right = 130.5
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("7_kht8c")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1108477539]
+layout_mode = 0
+offset_left = 82.5
+offset_top = 10.0
+offset_right = 240.5
+offset_bottom = 44.0
+text = "Analise o currículo apresentado e decida se o candidato atende aos requisitos da vaga."
+label_settings = SubResource("LabelSettings_b7w58")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1762469678]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 6.0
+offset_right = 57.683674
+offset_bottom = 47.0
+texture = ExtResource("8_cgwve")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=464571042]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -34.0
+offset_right = -63.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_kht8c")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=1198847343]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 56.0
+offset_bottom = 15.0
+text = "Roberta"
+label_settings = SubResource("LabelSettings_62oph")
+
+[node name="ImagemExemplo" type="TextureRect" parent="Tutorial/PaineTutorial" unique_id=1453853395]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -43.0
+offset_right = 88.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_cgwve")
+
+[node name="NaoApto" type="Label" parent="Tutorial/PaineTutorial/ImagemExemplo" unique_id=1483571907]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 58.0
+offset_right = 47.0
+offset_bottom = 81.0
+text = "Não Apto"
+label_settings = SubResource("LabelSettings_jjnv1")
+
+[node name="Apto" type="Label" parent="Tutorial/PaineTutorial/ImagemExemplo" unique_id=1827671227]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 59.0
+offset_right = 180.0
+offset_bottom = 82.0
+text = "Apto"
+label_settings = SubResource("LabelSettings_jjnv1")
+
+[node name="TextTeclado" type="Label" parent="Tutorial/PaineTutorial" unique_id=984934167]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 163.0
+offset_right = 163.0
+offset_bottom = 182.0
+theme = SubResource("Theme_b7w58")
+text = "Você pode arrastar o currículo com o mouse ou utilizar as setas do teclado."
+label_settings = SubResource("LabelSettings_84lsh")
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial" type="Button" parent="Tutorial/PaineTutorial" unique_id=482871286]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_kht8c")
+text = "Entendi"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("11_l64el")]
+
 [connection signal="pressed" from="aprovado" to="." method="_on_aprovado_pressed"]
 [connection signal="pressed" from="reprovado" to="." method="_on_reprovado_pressed"]
+[connection signal="pressed" from="Introducao/PainelIntroducao/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
+[connection signal="pressed" from="Tutorial/PaineTutorial/BtnContinuarTutorial" to="." method="_on_btn_continuar_tutorial_pressed"]

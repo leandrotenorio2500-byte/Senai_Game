@@ -5,7 +5,7 @@ const QUEST_ID := "analise_curriculos"
 func _ready() -> void:
 	print(QuestManager.obter_estado("analise_curriculos"))
 	npc_name = "Roberta"
-	npc_faceset_path = "res://sprites/Mini UI/heads/Vitoria.png"
+	npc_faceset_path = "res://sprites/Mini UI/heads/Roberta.png"
 
 	idle_spritesheet = load("res://sprites/npcs/Roberta.png")
 	hframes = 2
@@ -152,7 +152,7 @@ func on_dialog_option_selected(option: Dictionary) -> void:
 
 			await get_tree().create_timer(0.5).timeout
 
-			Transicao.mudar_cena("res://scene/fase RH/tutorial/tutorial_rh.tscn")
+			Transicao.mudar_cena("res://scene/fase RH/triagem_curriculos.tscn")
 
 		"exit":
 			DialogManager.end_conversation()

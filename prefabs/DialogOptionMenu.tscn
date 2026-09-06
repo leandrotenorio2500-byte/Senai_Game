@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://7gj065l8ut2v" path="res://sprites/Mini UI/heads/Sarah.png" id="3_eekdg"]
 [ext_resource type="Theme" uid="uid://c468tt7n3qfjy" path="res://menudialogo.tres" id="4_773pr"]
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_l4eqe"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="6_eekdg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_r1j3p"]
 font_size = 9
@@ -183,5 +184,7 @@ text = "Sobre Empresa aa"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("6_eekdg")]
 
 [connection signal="ready" from="." to="." method="_on_ready"]

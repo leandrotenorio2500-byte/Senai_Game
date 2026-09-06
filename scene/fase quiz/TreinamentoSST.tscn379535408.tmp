@@ -1,0 +1,952 @@
+[gd_scene format=3 uid="uid://l2vptkwmji13"]
+
+[ext_resource type="Script" uid="uid://6iahtpp4f8nr" path="res://scripts/fase quiz/TreinamentoSST_2d.gd" id="1_0hol4"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="1_epypp"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="2_epypp"]
+[ext_resource type="Texture2D" uid="uid://buyaom35gsm51" path="res://sprites/BACKGROUND/Barra.png" id="2_kdubu"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="3_rpo43"]
+[ext_resource type="Texture2D" uid="uid://dk14lr2o3u0gd" path="res://sprites/BACKGROUND/estacao3.png" id="4_0kvlo"]
+[ext_resource type="Texture2D" uid="uid://bxox084laopn6" path="res://sprites/Mini UI/heads/Daniel.png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://cy6ic0m5ddvwn" path="res://sprites/npcs/NPCs.png" id="5_rpo43"]
+[ext_resource type="Texture2D" uid="uid://c2hgg2gppb4o2" path="res://sprites/fundo_titlescreen.png" id="7_g4twj"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="10_lvw1u"]
+[ext_resource type="Texture2D" uid="uid://h55m1giguyb1" path="res://sprites/Mini UI/heads/Ricardo.png" id="11_fufes"]
+[ext_resource type="Texture2D" uid="uid://bvu64yi670qct" path="res://scene/fase RH/tutorial/folha.png" id="12_rtfiu"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="13_rtfiu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hol4"]
+font = ExtResource("3_rpo43")
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q6r6c"]
+font = ExtResource("3_rpo43")
+font_size = 19
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0kvlo"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(288, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpo43"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(320, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvw1u"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(352, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8022"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(384, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fufes"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(416, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtfiu"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(448, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yf6f"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(480, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7cg7"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(512, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux5dn"]
+atlas = ExtResource("5_rpo43")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aaba8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0kvlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpo43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvw1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8022")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fufes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtfiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yf6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7cg7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux5dn")
+}],
+"loop": true,
+"name": &"None",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kvlo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdubu"]
+font = ExtResource("1_epypp")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_d21ai"]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/constants/line_spacing = 3
+Label/font_sizes/font_size = 16
+Label/fonts/font = ExtResource("1_epypp")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/normal_font = ExtResource("1_epypp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5kysr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vub76"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eo5gs"]
+bg_color = Color(0.6745098, 0.6745098, 0.6745098, 0.2784314)
+border_width_top = 1
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 9
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ool71"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ad5q"]
+bg_color = Color(0.6, 0.6, 0.6, 0.40784314)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="Theme" id="Theme_fufes"]
+Button/colors/font_color = Color(0.16062862, 0.16062862, 0.16062862, 1)
+Button/colors/font_disabled_color = Color(0.12941177, 0.12941177, 0.12941177, 0.84313726)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 5
+Button/fonts/font = ExtResource("1_epypp")
+Button/styles/disabled = SubResource("StyleBoxFlat_5kysr")
+Button/styles/focus = SubResource("StyleBoxFlat_vub76")
+Button/styles/hover = SubResource("StyleBoxFlat_eo5gs")
+Button/styles/normal = SubResource("StyleBoxFlat_ool71")
+Button/styles/pressed = SubResource("StyleBoxFlat_0ad5q")
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 7
+Label/fonts/font = ExtResource("1_epypp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_d21ai"]
+font = ExtResource("1_epypp")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_rj586"]
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/font_sizes/normal_font_size = 8
+RichTextLabel/fonts/normal_font = ExtResource("1_epypp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4d7sh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_ir8iy"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 11
+Button/fonts/font = ExtResource("1_epypp")
+Button/styles/normal = SubResource("StyleBoxFlat_4d7sh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_lvw1u"]
+font = ExtResource("3_rpo43")
+font_size = 32
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_lvw1u"]
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/constants/line_separation = -1
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/font_sizes/normal_font_size = 6
+RichTextLabel/fonts/normal_font = ExtResource("1_epypp")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fufes"]
+font = ExtResource("1_epypp")
+font_size = 8
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8022"]
+font = ExtResource("3_rpo43")
+font_size = 21
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3yf6f"]
+font = ExtResource("3_rpo43")
+font_size = 34
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p7cg7"]
+font = ExtResource("1_epypp")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ux5dn"]
+font = ExtResource("1_epypp")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5f8e7"]
+font = ExtResource("1_epypp")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aaba8"]
+font = ExtResource("1_epypp")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6foup"]
+font = ExtResource("1_epypp")
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgwve"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_ipvyf"]
+Label/constants/line_spacing = -3
+Label/styles/normal = SubResource("StyleBoxFlat_cgwve")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vh1ks"]
+font = ExtResource("1_epypp")
+font_size = 7
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u6xng"]
+bg_color = Color(0.8235294, 0.7294118, 1, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agckt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aedtt"]
+bg_color = Color(0.8235294, 0.7294118, 1, 0)
+border_width_left = 5
+border_width_right = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvgea"]
+bg_color = Color(1, 1, 1, 0)
+border_color = Color(1, 1, 1, 0)
+expand_margin_left = 3.0
+expand_margin_top = 4.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_kqlm7"]
+default_font = ExtResource("3_rpo43")
+default_font_size = 8
+Button/colors/font_color = Color(0.82947975, 0.8294798, 0.82947975, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("3_rpo43")
+Button/styles/focus = SubResource("StyleBoxFlat_u6xng")
+Button/styles/hover = SubResource("StyleBoxFlat_agckt")
+Button/styles/normal = SubResource("StyleBoxFlat_aedtt")
+Button/styles/pressed = SubResource("StyleBoxFlat_nvgea")
+
+[node name="Control" type="Control" unique_id=853669689]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0hol4")
+
+[node name="Header" type="Control" parent="." unique_id=1159415737]
+anchors_preset = 0
+offset_right = 394.0
+offset_bottom = 25.0
+
+[node name="ColorRect" type="TextureRect" parent="Header" unique_id=2100695762]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 50.0
+texture = ExtResource("2_kdubu")
+
+[node name="LabelTitulo" type="Label" parent="Header" unique_id=1967059776]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 143.0
+offset_bottom = 28.0
+text = "TREINAMENTO SST"
+label_settings = SubResource("LabelSettings_0hol4")
+
+[node name="LabelProgresso" type="Label" parent="Header" unique_id=1588192450]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 3.0
+offset_right = 387.0
+offset_bottom = 21.0
+text = "1/4"
+label_settings = SubResource("LabelSettings_q6r6c")
+
+[node name="AreaSituacao" type="Control" parent="." unique_id=1452622524]
+z_index = -1
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 205.0
+offset_bottom = 219.0
+
+[node name="Cena" type="Control" parent="AreaSituacao" unique_id=1806875304]
+anchors_preset = 0
+offset_right = 202.0
+offset_bottom = 191.0
+
+[node name="TextureRect" type="TextureRect" parent="AreaSituacao/Cena" unique_id=920332370]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -26.0
+offset_right = 204.0
+offset_bottom = 194.0
+texture = ExtResource("4_0kvlo")
+
+[node name="Personagem" type="AnimatedSprite2D" parent="AreaSituacao/Cena" unique_id=1637284708]
+position = Vector2(135, 143)
+sprite_frames = SubResource("SpriteFrames_aaba8")
+animation = &"None"
+autoplay = "Idle"
+
+[node name="Efeito" type="AnimatedSprite2D" parent="AreaSituacao/Cena" unique_id=1906087852]
+sprite_frames = SubResource("SpriteFrames_0kvlo")
+
+[node name="AreaPergunta" type="Control" parent="." unique_id=363297825]
+anchors_preset = 0
+offset_left = 241.0
+offset_top = 35.0
+offset_right = 400.0
+offset_bottom = 208.0
+
+[node name="FundoPergunta" type="NinePatchRect" parent="AreaPergunta" unique_id=680506868]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.5
+offset_top = -100.5
+offset_right = 78.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelSituacao" type="Label" parent="AreaPergunta/FundoPergunta" unique_id=1113555948]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_top = 8.0
+offset_right = 36.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Situação"
+label_settings = SubResource("LabelSettings_kdubu")
+
+[node name="LabelPergunta" type="RichTextLabel" parent="AreaPergunta/FundoPergunta" unique_id=161154086]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 33.0
+offset_right = 181.0
+offset_bottom = 101.0
+theme = SubResource("Theme_d21ai")
+theme_override_font_sizes/normal_font_size = 7
+text = "O funcionario percebe que o seu equipamento esta co defeito bla bla bla
+
+0 que voce faria?"
+
+[node name="Opcoes" type="Control" parent="AreaPergunta/FundoPergunta" unique_id=2095925585]
+anchors_preset = 0
+offset_left = -239.0
+offset_top = -27.0
+offset_right = -199.0
+offset_bottom = 13.0
+theme = SubResource("Theme_fufes")
+
+[node name="BtnA" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=168310959]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 125.0
+offset_right = 338.0
+offset_bottom = 162.0
+theme_override_constants/line_spacing = -1
+text = "[A] Usar assim mesmo"
+alignment = 0
+autowrap_mode = 2
+
+[node name="BtnB" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=853198191]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 125.0
+offset_right = 427.0
+offset_bottom = 162.0
+text = "[B] Improvisar"
+alignment = 0
+autowrap_mode = 2
+
+[node name="BtnC" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=1715652332]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 169.0
+offset_right = 338.0
+offset_bottom = 206.0
+text = "[C] Nao utilizar"
+alignment = 0
+autowrap_mode = 2
+
+[node name="BtnD" type="Button" parent="AreaPergunta/FundoPergunta/Opcoes" unique_id=687698251]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 169.0
+offset_right = 427.0
+offset_bottom = 206.0
+text = "[D] Pedir ajuda
+"
+alignment = 0
+autowrap_mode = 2
+
+[node name="Feedback" type="Control" parent="." unique_id=1858125994]
+visible = false
+anchors_preset = 0
+offset_left = 203.0
+offset_top = 38.0
+offset_right = 369.0
+offset_bottom = 109.0
+
+[node name="TextureRect" type="NinePatchRect" parent="Feedback" unique_id=637242858]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.048
+anchor_right = 1.0600001
+anchor_bottom = 1.074
+offset_left = 6.9680004
+offset_top = -17.0
+offset_right = 20.039993
+offset_bottom = 106.746
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelResultado" type="Label" parent="Feedback/TextureRect" unique_id=251308304]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 24.0
+offset_right = 137.0
+offset_bottom = 40.0
+text = "Resultado"
+label_settings = SubResource("LabelSettings_d21ai")
+horizontal_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Feedback/TextureRect" unique_id=1279788027]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 50.0
+offset_right = 192.0
+offset_bottom = 146.0
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="Feedback/TextureRect/NinePatchRect" unique_id=525233328]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -20.5
+offset_right = -46.25
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_q6r6c")
+
+[node name="LabelExplicacao" type="RichTextLabel" parent="Feedback/TextureRect/NinePatchRect" unique_id=1249206753]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -42.0
+offset_right = 87.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_rj586")
+theme_override_constants/line_separation = -1
+theme_override_font_sizes/normal_font_size = 7
+text = "Explicacao lalalalalalalalalalalalalalalaalalalalalalaalalalalalalalalalalalaalalalalalalalalalalalalalalal
+
+
+
+açaçaçaçaçaçaçaça"
+vertical_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="Feedback/TextureRect" unique_id=1009493230]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 166.0
+offset_right = 132.0
+offset_bottom = 189.0
+theme = SubResource("Theme_ir8iy")
+text = "Continuar"
+
+[node name="ResultadoFinal" type="Control" parent="." unique_id=379013212]
+visible = false
+anchors_preset = 0
+offset_right = 399.0
+offset_bottom = 286.0
+
+[node name="TextureRect" type="TextureRect" parent="ResultadoFinal" unique_id=1295904307]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_g4twj")
+
+[node name="LabelTitulo" type="Label" parent="ResultadoFinal" unique_id=1227731523]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -153.0
+offset_top = 16.0
+offset_right = 153.0
+offset_bottom = 46.0
+grow_horizontal = 2
+text = "TREINAMENTO CONCLUIDO"
+label_settings = SubResource("LabelSettings_lvw1u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ResultadoFinal" unique_id=1302881490]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -28.0
+offset_right = 83.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="TextureRect" type="TextureRect" parent="ResultadoFinal/NinePatchRect" unique_id=1795128374]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 10.0
+offset_right = 44.7
+offset_bottom = 46.0
+texture = ExtResource("5_q6r6c")
+
+[node name="LabelMensagem" type="RichTextLabel" parent="ResultadoFinal/NinePatchRect" unique_id=1221802982]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.5
+offset_top = -20.0
+offset_right = 78.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_lvw1u")
+text = "ALLALLALALALALALALALAL
+ALLALALALALALALALAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="NinePatchRect" parent="ResultadoFinal/NinePatchRect" unique_id=1803442399]
+layout_mode = 0
+offset_left = 12.5
+offset_top = -4.0
+offset_right = 39.5
+offset_bottom = 9.0
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="ResultadoFinal/NinePatchRect/TextureRect2" unique_id=2045209333]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 27.0
+offset_bottom = 13.0
+text = "Júlio"
+label_settings = SubResource("LabelSettings_fufes")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelDesempenho" type="Label" parent="ResultadoFinal" unique_id=287154274]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.5
+offset_top = -84.5
+offset_right = 70.5
+offset_bottom = -35.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "12/15
+DECISOS SEGURAS"
+label_settings = SubResource("LabelSettings_a8022")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnFinalizar" type="Button" parent="ResultadoFinal" unique_id=1496106654]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -44.5
+offset_top = -99.0
+offset_right = 44.5
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_lvw1u")
+text = "FINALIZAR"
+
+[node name="Introducao" type="Control" parent="." unique_id=1624399135]
+visible = false
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PainelIntroducao" type="Panel" parent="Introducao" unique_id=1436202759]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="LabelTitulo" type="Label" parent="Introducao/PainelIntroducao" unique_id=740053080]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_right = 116.0
+offset_bottom = 32.0
+grow_horizontal = 2
+text = "Treinamento sst"
+label_settings = SubResource("LabelSettings_3yf6f")
+
+[node name="BalaoDialogo" type="NinePatchRect" parent="Introducao/PainelIntroducao" unique_id=500236100]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.75
+offset_top = -38.5
+offset_right = 144.75
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelIntroducao" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=2063827863]
+layout_mode = 0
+offset_left = 79.5
+offset_top = 5.0
+offset_right = 281.75
+offset_bottom = 72.5
+text = "Durante este treinamento, você irá analisar diferentes situações que podem acontecer no ambiente de trabalho.
+Em cada situação, observe atentamente o que está acontecendo e escolha a alternativa que apresenta a conduta mais segura e adequada."
+label_settings = SubResource("LabelSettings_p7cg7")
+autowrap_mode = 2
+
+[node name="NpcFace" type="TextureRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1613558273]
+layout_mode = 0
+offset_left = 11.75
+offset_top = 14.5
+offset_right = 65.75
+offset_bottom = 63.5
+texture = ExtResource("11_fufes")
+
+[node name="NpcNome" type="NinePatchRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1133936051]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -45.0
+offset_right = -74.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo/NpcNome" unique_id=791452648]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 56.0
+offset_bottom = 15.0
+text = "Ricardo"
+label_settings = SubResource("LabelSettings_ux5dn")
+
+[node name="BtnContinuarIntroducao" type="Button" parent="Introducao/PainelIntroducao" unique_id=2052265575]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("10_lvw1u")
+text = "Entendi"
+
+[node name="Tutorial" type="Control" parent="." unique_id=998482264]
+visible = false
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="ColorRect" parent="Tutorial" unique_id=1093269354]
+layout_mode = 0
+offset_right = 202.0
+offset_bottom = 220.0
+color = Color(0.19215687, 0.19215687, 0.19215687, 0.7176471)
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=677297501]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 30.0
+offset_right = 94.0
+offset_bottom = 126.0
+grow_horizontal = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1332420635]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 9.0
+offset_right = 183.0
+offset_bottom = 94.0
+text = "A cada situação, você verá uma pergunta acompanhada de uma ilustração.
+Leia a situação com atenção, observe a imagem e escolha uma das 4 alternativas disponíveis.
+"
+label_settings = SubResource("LabelSettings_5f8e7")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1530098956]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 12.0
+offset_right = 57.683674
+offset_bottom = 53.0
+texture = ExtResource("11_fufes")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=193257558]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.5
+offset_top = -58.0
+offset_right = -28.5
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_epypp")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=2126102318]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 3.0
+offset_right = 56.0
+offset_bottom = 15.0
+text = "Ricardo"
+label_settings = SubResource("LabelSettings_aaba8")
+
+[node name="ImagemExemplo" type="TextureRect" parent="Tutorial/PaineTutorial" unique_id=1270541228]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = -43.0
+offset_right = 88.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_rtfiu")
+
+[node name="NaoApto" type="Label" parent="Tutorial/PaineTutorial/ImagemExemplo" unique_id=1157669535]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 58.0
+offset_right = 47.0
+offset_bottom = 81.0
+text = "Não Apto"
+label_settings = SubResource("LabelSettings_6foup")
+
+[node name="Apto" type="Label" parent="Tutorial/PaineTutorial/ImagemExemplo" unique_id=803600833]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 59.0
+offset_right = 180.0
+offset_bottom = 82.0
+text = "Apto"
+label_settings = SubResource("LabelSettings_6foup")
+
+[node name="TextTeclado" type="Label" parent="Tutorial/PaineTutorial" unique_id=311766318]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 139.0
+offset_right = 173.0
+offset_bottom = 180.0
+theme = SubResource("Theme_ipvyf")
+text = "Observe a situação antes de responder. Pense em qual atitude ajuda a prevenir acidentes e proteger a saúde dos trabalhadores."
+label_settings = SubResource("LabelSettings_vh1ks")
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial" type="Button" parent="Tutorial/PaineTutorial" unique_id=1737454886]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_kqlm7")
+text = "Entendi"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("13_rtfiu")]
+volume_db = -31.417
+pitch_scale = 1.1
+
+[connection signal="pressed" from="Feedback/TextureRect/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
+[connection signal="pressed" from="ResultadoFinal/BtnFinalizar" to="." method="_on_btn_finalizar_pressed"]
+[connection signal="pressed" from="Introducao/PainelIntroducao/BtnContinuarIntroducao" to="." method="_on_btn_continuar_introducao_pressed"]
+[connection signal="pressed" from="Tutorial/PaineTutorial/BtnContinuarTutorial" to="." method="_on_btn_continuar_tutorial_pressed"]

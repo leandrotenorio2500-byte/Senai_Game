@@ -16,7 +16,7 @@ func get_dialogo_setor() -> Array[Dictionary]:
 
 func _ready() -> void:
 
-	npc_name = "Sarah - Líder do Deposito"
+	npc_name = "Sarah - Líder do Depósito"
 	npc_faceset_path = "res://sprites/Mini UI/heads/Sarah.png"
 
 	atualizar_dialogo()
@@ -110,7 +110,12 @@ func dialogo_mapa_risco():
 		},
 		{
 			"title": npc_name,
-			"dialog": "Além disso, quase sempre trabalhamos com empilhadeiras e outros equipamentos em funcionamento. Dependendo do movimento e do barulho das operações, é preciso ficar atento ao ambiente e utilizar os equipamentos de proteção quando necessário.",
+			"dialog": "Além disso, quase sempre trabalhamos com empilhadeiras e outros equipamentos em funcionamento.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Então, dependendo do movimento e do barulho das operações, é preciso ficar atento ao ambiente e utilizar os equipamentos de proteção quando necessário.",
 			"faceset": npc_faceset_path
 		}
 	]

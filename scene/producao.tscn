@@ -50,7 +50,7 @@ tile_map_data = PackedByteArray("AAAWAAkABAAYABMAAAAMAAkABAAOAAcAAAAOAAkABAACAAE
 tile_set = ExtResource("5_jd5co")
 
 [node name="NPCS" type="TileMapLayer" parent="Tiles" unique_id=496240625]
-tile_map_data = PackedByteArray("AAAOAAkACAARAAAAAAAVAAkACAARAAAAAAARAAkACAARAAQAAAA=")
+tile_map_data = PackedByteArray("AAAOAAkACAARAAAAAAAVAAkACAASAAAAAAARAAkACAARAAQAAAAQAAkACAASAAAAAAASAAkACAASAAQAAAAIAAkACAASAAYAAAAGAAkACAASAAgAABA=")
 tile_set = ExtResource("7_ekdpn")
 
 [node name="LevelLimit" type="StaticBody2D" parent="." unique_id=378625645]
@@ -93,7 +93,7 @@ next_player_position = Vector2(425, 147)
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=1851013481]
 
 [node name="Carlos" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("14_42s4n")]
-position = Vector2(112, 145)
+position = Vector2(203, 145)
 script = ExtResource("15_d0l18")
 idle_spritesheet = null
 run_spritesheet = null

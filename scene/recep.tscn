@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cbkxbllj3s6kl" path="res://prefabs/pause_menu.tscn" id="8_6c8f1"]
 [ext_resource type="PackedScene" uid="uid://b28082otya1wm" path="res://prefabs/mapa_risco.tscn" id="9_ok7cm"]
 [ext_resource type="PackedScene" uid="uid://dkf0j03c140ag" path="res://entities/npc.tscn" id="10_dt7ot"]
-[ext_resource type="Script" uid="uid://b0nw5essrt6c1" path="res://scripts/npcs/julia.gd" id="11_dhp2d"]
 [ext_resource type="Texture2D" uid="uid://bstrw36dejdpi" path="res://sprites/npcs/ana-recep.png" id="11_gnfdo"]
 [ext_resource type="Script" uid="uid://dxwtiudpqhv0f" path="res://scripts/npcs/Ana-recepcao.gd" id="11_wm1ee"]
 [ext_resource type="PackedScene" uid="uid://cerrvdacga10x" path="res://scene/fase mapa/mission_progress.tscn" id="13_wm1ee"]
@@ -25,7 +24,7 @@ position = Vector2(0, -6)
 script = ExtResource("1_ok7cm")
 
 [node name="Player" parent="." unique_id=1967718643 instance=ExtResource("1_h127m")]
-position = Vector2(151, 147)
+position = Vector2(81, 148)
 
 [node name="Camera" parent="." unique_id=1322706424 instance=ExtResource("2_ok7cm")]
 position = Vector2(-49, 150)
@@ -46,7 +45,7 @@ tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAM
 tile_set = ExtResource("4_dt7ot")
 
 [node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
-tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAAEAAQABgASAAIAAAAPAAkABgAMAAEAAAAHAAkABgACAAIAAAAJAAkABgAFAAIAAAALAAkABgACAAIAAAAJAAUABgADAAEAAAAEAAkABgAQAAEAAAATAAcABgALAAUAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAANAAkABgAFAAIAAAA=")
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAABAAkABgANAAsAAAABAAYABgAHAAkAAAAEAAQABgASAAIAAAAHAAkABgACAAIAAAAJAAkABgALAAIAAAALAAkABgACAAAAAAAJAAUABgAOAAEAAAAEAAkABgAQAAEAAAAWAAkABgAQAAEAAAAXAAgABgAOAAIAAAAVAAkABgAQABEAAAANAAkABgALAAIAAAAOAAgABgAXAAEAAAASAAcABgALAAUAAAA=")
 tile_set = ExtResource("5_dhp2d")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Tiles" unique_id=1618311414]
@@ -82,19 +81,8 @@ tile_set = ExtResource("4_dt7ot")
 
 [node name="NpcsInteractive" type="Node2D" parent="." unique_id=364841456]
 
-[node name="Michele" parent="NpcsInteractive" unique_id=69025098 instance=ExtResource("10_dt7ot")]
-z_index = 2
-position = Vector2(227, 146)
-script = ExtResource("11_dhp2d")
-follow_speed = 100.0
-stopping_distance = 32.0
-idle_spritesheet = null
-run_spritesheet = null
-hframes = 8
-vframes = 1
-
 [node name="Ana" parent="NpcsInteractive" unique_id=457078932 instance=ExtResource("10_dt7ot")]
-position = Vector2(300, 142)
+position = Vector2(285, 143)
 script = ExtResource("11_wm1ee")
 idle_spritesheet = ExtResource("11_gnfdo")
 run_spritesheet = null

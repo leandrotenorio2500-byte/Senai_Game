@@ -1,0 +1,690 @@
+[gd_scene format=4 uid="uid://ci5ukhbceb4yf"]
+
+[ext_resource type="Script" uid="uid://c8wa3g3teu8v8" path="res://scripts/fase mapa/introducao_mapa.gd" id="1_cqyvf"]
+[ext_resource type="Texture2D" uid="uid://qxiqc0rcw7mi" path="res://sprites/BACKGROUND/recpcao7.png" id="1_ihdii"]
+[ext_resource type="TileSet" uid="uid://drncj1t53wpct" path="res://tiles/terrain.tres" id="2_12xoy"]
+[ext_resource type="TileSet" uid="uid://bkb8pd3egdhyb" path="res://tiles/decoration.tres" id="3_womp6"]
+[ext_resource type="TileSet" uid="uid://bpxrscpn85k2t" path="res://Npcs.tres" id="4_v8w02"]
+[ext_resource type="FontFile" uid="uid://cyxpgdd6c6dqg" path="res://fonts/ThaleahFat/ThaleahFat.ttf" id="5_hh0q3"]
+[ext_resource type="Texture2D" uid="uid://bwuklxovn5nqv" path="res://sprites/Mini UI/Dialog_Box(16 x 16).png" id="6_yscyw"]
+[ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="7_f0kax"]
+[ext_resource type="Texture2D" uid="uid://b4g4fnjtpmpid" path="res://sprites/Mini UI/heads/Michele.png" id="8_cqyvf"]
+[ext_resource type="Theme" uid="uid://cuwmlgken1bll" path="res://default_btn.tres" id="9_6e1ii"]
+[ext_resource type="Texture2D" uid="uid://d2dnv753qmvye" path="res://sprites/tutoriais/riscos/seleciona_risco.png" id="11_f0kax"]
+[ext_resource type="Texture2D" uid="uid://dit1a8e402vqf" path="res://sprites/tutoriais/riscos/fale.png" id="11_stcjp"]
+[ext_resource type="Texture2D" uid="uid://cns3ri8ev5i5w" path="res://sprites/tutoriais/riscos/seleciona_setor_a.png" id="12_cqyvf"]
+[ext_resource type="Texture2D" uid="uid://cigedpmep7t05" path="res://sprites/tutoriais/riscos/fim.png" id="13_6e1ii"]
+[ext_resource type="PackedScene" uid="uid://d0mguxmvkyl37" path="res://sounds/toque.tscn" id="15_6e1ii"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vkdjs"]
+font = ExtResource("5_hh0q3")
+font_size = 40
+outline_size = 7
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p8d6j"]
+line_spacing = 2.0
+paragraph_spacing = -2.0
+font = ExtResource("7_f0kax")
+font_size = 7
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f8anh"]
+font = ExtResource("7_f0kax")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r66up"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 4.0
+
+[sub_resource type="Theme" id="Theme_1ippe"]
+Label/constants/line_spacing = -3
+Label/styles/normal = SubResource("StyleBoxFlat_r66up")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1mfaj"]
+line_spacing = 0.0
+font = ExtResource("7_f0kax")
+font_size = 6
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s55mq"]
+bg_color = Color(0.9542096, 0.95420974, 0.9542095, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5f81"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dnr7"]
+bg_color = Color(0.7313315, 0.7313315, 0.7313314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 1
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="Theme" id="Theme_v75v8"]
+Button/colors/font_color = Color(0.15775308, 0.15775344, 0.15775314, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 6
+Button/fonts/font = ExtResource("7_f0kax")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_s55mq")
+Button/styles/normal = SubResource("StyleBoxFlat_k5f81")
+Button/styles/pressed = SubResource("StyleBoxFlat_4dnr7")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_stcjp"]
+
+[node name="Tutorial" type="Node2D" unique_id=1111527481]
+position = Vector2(0, -6)
+script = ExtResource("1_cqyvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=662053670]
+z_index = -1
+scale = Vector2(1.0050001, 0.99999994)
+texture = ExtResource("1_ihdii")
+centered = false
+
+[node name="Tiles" type="Node2D" parent="." unique_id=1042751921]
+
+[node name="Terrain" type="TileMapLayer" parent="Tiles" unique_id=90542639]
+tile_map_data = PackedByteArray("AAA/AAwAAQACAAMAAABAAAwAAQACAAMAAABBAAwAAQACAAMAAABCAAwAAQACAAMAAABDAAwAAQACAAMAAABEAAwAAQACAAMAAABFAAwAAQACAAMAAABGAAwAAQACAAMAAABHAAwAAQACAAMAAABIAAwAAQACAAMAAABJAAwAAQACAAMAAABKAAwAAQACAAMAAABLAAwAAQACAAMAAABMAAwAAQACAAMAAABNAAwAAQACAAMAAABOAAwAAQACAAMAAABPAAwAAQACAAMAAABQAAwAAQACAAMAAABRAAwAAQACAAMAAABSAAwAAQACAAMAAABTAAwAAQACAAMAAABUAAwAAQACAAMAAABVAAwAAQACAAMAAABWAAwAAQACAAMAAABXAAwAAQACAAMAAABYAAwAAQACAAMAAABZAAwAAQACAAMAAABaAAwAAQACAAMAAABbAAwAAQACAAMAAABcAAwAAQACAAMAAABdAAwAAQACAAMAAAAAAAsABAANAAYAAAAAAA0ABAANAAgAAAACAAsABAAPAAYAAAACAA0ABAAPAAgAAAAGAAsABAAPAAYAAAAGAA0ABAAPAAgAAAAKAAsABAANAAYAAAAKAA0ABAANAAgAAAAMAAsABAAPAAYAAAAMAA0ABAAPAAgAAAAOAAsABAANAAYAAAAOAA0ABAANAAgAAAAQAAsABAAPAAYAAAAQAA0ABAAPAAgAAAAWAAsABAANAAYAAAAWAA0ABAANAAgAAAAYAAsABAANAAYAAAAYAA0ABAANAAgAAAAEAAsABAANAAYAAAAEAA0ABAANAAgAAAARAA0ABAAPAAgAAAATAA0ABAANAAgAAAAVAA0ABAAPAAgAAAARAAsABAAPAAYAAAATAAsABAANAAYAAAAHAA0ABAANAAgAAAAJAA0ABAAPAAgAAAAPAA0ABAANAAgAAAAaAAsABAAPAAYAAAAaAA0ABAAPAAgAAAAHAAsABAANAAYAAAAJAAsABAAPAAYAAAAPAAsABAANAAYAAAAVAAsABAAPAAYAAAAcAAsABAANAAYAAAAcAA0ABAANAAgAAAAeAAsABAAPAAYAAAAeAA0ABAAPAAgAAAAfAAsABAANAAYAAAAfAA0ABAANAAgAAAAhAAsABAAPAAYAAAAhAA0ABAAPAAgAAAD8/wsABAANAAYAAAD8/w0ABAANAAgAAAD+/wsABAAPAAYAAAD+/w0ABAAPAAgAAAAjAAsABAANAAYAAAAjAA0ABAANAAgAAAAlAAsABAAPAAYAAAAlAA0ABAAPAAgAAAA=")
+tile_set = ExtResource("2_12xoy")
+
+[node name="Decoration" type="TileMapLayer" parent="Tiles" unique_id=1977338989]
+tile_map_data = PackedByteArray("AAAoAAsAAAADAAUAAAAQAAkABgASAAoAAAAaAAkABgAZAAoAAAACAAUABgAZAAUAAAAaAAUABgARAAUAAAAQAAYABgASAAkAAAAVAAcABgABAAwAAAAFAAgABgAOAAIAAAAIAAkABgAhAAYAAAAIAAUABgAZAAMAAAASAAkABgAQAAEAAAADAAgABgACAAgAAAAMAAkABgAQABQAAAA=")
+tile_set = ExtResource("3_womp6")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="Tiles" unique_id=1463095867]
+tile_map_data = PackedByteArray("AAAGAAkACAASABAAAAAEAAkACAASABIAABAUAAkACAASABQAAAANAAkACAAAAAQAAAA=")
+tile_set = ExtResource("4_v8w02")
+
+[node name="Introducao" type="Control" parent="." unique_id=94764137]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PainelIntroducao" type="Panel" parent="Introducao" unique_id=980881383]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="LabelTitulo" type="Label" parent="Introducao/PainelIntroducao" unique_id=503978071]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.5
+offset_top = 5.0
+offset_right = 160.5
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "Mapa de risco"
+label_settings = SubResource("LabelSettings_vkdjs")
+horizontal_alignment = 1
+
+[node name="BalaoDialogo" type="NinePatchRect" parent="Introducao/PainelIntroducao" unique_id=608258790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.75
+offset_top = -38.5
+offset_right = 144.75
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="LabelIntroducao" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=102695603]
+layout_mode = 0
+offset_left = 79.5
+offset_top = 5.0
+offset_right = 281.75
+offset_bottom = 79.0
+theme_override_constants/line_spacing = -5
+text = "Você recebeu a tarefa de identificar os riscos presentes nos diferentes setores da indústria e registrá-los no mapa de riscos.
+
+Para isso, será necessário explorar os setores e conversar com os responsáveis por cada área."
+label_settings = SubResource("LabelSettings_p8d6j")
+autowrap_mode = 2
+
+[node name="NpcFace" type="TextureRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=1708827213]
+layout_mode = 0
+offset_left = 11.75
+offset_top = 14.5
+offset_right = 65.75
+offset_bottom = 63.5
+texture = ExtResource("8_cqyvf")
+
+[node name="NpcNome" type="NinePatchRect" parent="Introducao/PainelIntroducao/BalaoDialogo" unique_id=862649086]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.0
+offset_top = -45.0
+offset_right = -74.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Introducao/PainelIntroducao/BalaoDialogo/NpcNome" unique_id=1918066174]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 15.0
+text = "Michele"
+label_settings = SubResource("LabelSettings_f8anh")
+horizontal_alignment = 1
+
+[node name="BtnContinuar" type="Button" parent="Introducao/PainelIntroducao" unique_id=1475048577]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_6e1ii")
+text = "Entendi"
+
+[node name="Tutorial" type="Control" parent="." unique_id=427894539]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="ColorRect" parent="Tutorial" unique_id=1104568005]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0, 0, 0, 0.65882355)
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial/PaineTutorial" unique_id=416978057]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 13.0
+offset_right = 130.5
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=1165542724]
+layout_mode = 0
+offset_left = 82.5
+offset_top = 5.0
+offset_right = 240.5
+offset_bottom = 47.0
+text = "Explore a indústria e converse com os responsáveis pelos setores.
+
+Eles fornecerão informações sobre os riscos presentes em suas áreas."
+label_settings = SubResource("LabelSettings_p8d6j")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=478642061]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 7.0
+offset_right = 57.683674
+offset_bottom = 48.0
+texture = ExtResource("8_cqyvf")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial/PaineTutorial/BakaoDialogo" unique_id=830070896]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -34.0
+offset_right = -63.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=138506227]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 15.0
+text = "Michele"
+label_settings = SubResource("LabelSettings_f8anh")
+
+[node name="ImagemExemplo2" type="TextureRect" parent="Tutorial/PaineTutorial" unique_id=106576740]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.5
+offset_top = -28.5
+offset_right = 108.5
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_stcjp")
+
+[node name="TextTeclado" type="Label" parent="Tutorial/PaineTutorial" unique_id=829156962]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 186.0
+offset_right = 147.0
+offset_bottom = 216.0
+theme = SubResource("Theme_1ippe")
+text = "Use essas informações para preencher corretamente o Mapa de Riscos."
+label_settings = SubResource("LabelSettings_1mfaj")
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial" type="Button" parent="Tutorial/PaineTutorial" unique_id=1340280715]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_6e1ii")
+text = "Entendi"
+
+[node name="Tutorial2" type="Control" parent="." unique_id=305398888]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="ColorRect" parent="Tutorial2" unique_id=1039341072]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0, 0, 0, 0.65882355)
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial2/PaineTutorial" unique_id=571695952]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 13.0
+offset_right = 130.5
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial2/PaineTutorial/BakaoDialogo" unique_id=1373763074]
+layout_mode = 0
+offset_left = 73.5
+offset_top = 8.0
+offset_right = 235.5
+offset_bottom = 62.0
+text = "Depois de conversar com o responsável pelo setor, você pode abrir o Mapa de Riscos pressionando a tecla [ M ] ou pressionando o icone no canto superior esquerdo.
+
+"
+label_settings = SubResource("LabelSettings_p8d6j")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial2/PaineTutorial/BakaoDialogo" unique_id=1177494809]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 7.0
+offset_right = 57.683674
+offset_bottom = 48.0
+texture = ExtResource("8_cqyvf")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial2/PaineTutorial/BakaoDialogo" unique_id=874621344]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -34.0
+offset_right = -63.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial2/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=1103453762]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 15.0
+text = "Michele"
+label_settings = SubResource("LabelSettings_f8anh")
+
+[node name="ImagemExemplo2" type="TextureRect" parent="Tutorial2/PaineTutorial" unique_id=1157396299]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -31.0
+offset_right = -41.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_f0kax")
+
+[node name="Legenda" type="Control" parent="Tutorial2/PaineTutorial/ImagemExemplo2" unique_id=1188035364]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -43.5
+offset_right = 5.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_v75v8")
+
+[node name="Mecanico" type="Button" parent="Tutorial2/PaineTutorial/ImagemExemplo2/Legenda" unique_id=420152283]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 87.0
+offset_bottom = 19.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_stcjp")
+text = " Risco Mecânico"
+alignment = 0
+
+[node name="Fisico" type="Button" parent="Tutorial2/PaineTutorial/ImagemExemplo2/Legenda" unique_id=703531802]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 19.0
+offset_right = 87.0
+offset_bottom = 34.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_stcjp")
+text = " Risco Físico"
+alignment = 0
+
+[node name="Quimico" type="Button" parent="Tutorial2/PaineTutorial/ImagemExemplo2/Legenda" unique_id=972332943]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 34.0
+offset_right = 87.0
+offset_bottom = 49.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_stcjp")
+text = " Risco Químico"
+alignment = 0
+
+[node name="Biologico" type="Button" parent="Tutorial2/PaineTutorial/ImagemExemplo2/Legenda" unique_id=1007569625]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 49.0
+offset_right = 87.0
+offset_bottom = 64.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_stcjp")
+text = " Risco Biológico"
+alignment = 0
+
+[node name="Ergonomico" type="Button" parent="Tutorial2/PaineTutorial/ImagemExemplo2/Legenda" unique_id=1972669825]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 64.0
+offset_right = 87.0
+offset_bottom = 79.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_stcjp")
+text = " Risco Ergonômico"
+alignment = 0
+
+[node name="ImagemExemplo3" type="TextureRect" parent="Tutorial2/PaineTutorial" unique_id=1111184049]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 133.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_cqyvf")
+
+[node name="TextTeclado" type="Label" parent="Tutorial2/PaineTutorial" unique_id=1376109409]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 91.0
+offset_right = 75.0
+offset_bottom = 126.0
+theme = SubResource("Theme_1ippe")
+text = "Selecione os tipos de risco que foram identificados naquele setor."
+label_settings = SubResource("LabelSettings_1mfaj")
+autowrap_mode = 2
+
+[node name="TextTeclado2" type="Label" parent="Tutorial2/PaineTutorial" unique_id=379613401]
+layout_mode = 0
+offset_left = 238.0
+offset_top = 174.0
+offset_right = 357.0
+offset_bottom = 189.0
+theme = SubResource("Theme_1ippe")
+text = "marque-os com as cores correspondentes."
+label_settings = SubResource("LabelSettings_1mfaj")
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial2" type="Button" parent="Tutorial2/PaineTutorial" unique_id=375346584]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_6e1ii")
+text = "Entendi"
+
+[node name="Tutorial3" type="Control" parent="." unique_id=1816296794]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 220.0
+
+[node name="PaineTutorial" type="ColorRect" parent="Tutorial3" unique_id=1699653641]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 220.0
+color = Color(0, 0, 0, 0.65882355)
+
+[node name="BakaoDialogo" type="NinePatchRect" parent="Tutorial3/PaineTutorial" unique_id=1428425373]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 13.0
+offset_right = 130.5
+offset_bottom = 65.0
+grow_horizontal = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial3/PaineTutorial/BakaoDialogo" unique_id=641551464]
+layout_mode = 0
+offset_left = 73.5
+offset_top = 8.0
+offset_right = 235.5
+offset_bottom = 41.0
+text = "Depois de analisar todos os setores e preencher o mapa, volte até mim para que eu verifique o mapa de risco corretamente."
+label_settings = SubResource("LabelSettings_p8d6j")
+autowrap_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial3/PaineTutorial/BakaoDialogo" unique_id=1590651189]
+layout_mode = 0
+offset_left = 12.5
+offset_top = 7.0
+offset_right = 57.683674
+offset_bottom = 48.0
+texture = ExtResource("8_cqyvf")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Tutorial3/PaineTutorial/BakaoDialogo" unique_id=1565112061]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -34.0
+offset_right = -63.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_yscyw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="Label" type="Label" parent="Tutorial3/PaineTutorial/BakaoDialogo/NinePatchRect2" unique_id=2044778872]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = 57.0
+offset_bottom = 15.0
+text = "Michele"
+label_settings = SubResource("LabelSettings_f8anh")
+
+[node name="ImagemExemplo3" type="TextureRect" parent="Tutorial3/PaineTutorial" unique_id=821429063]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -21.0
+offset_right = 34.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_6e1ii")
+
+[node name="TextTeclado" type="Label" parent="Tutorial3/PaineTutorial" unique_id=985409809]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 136.0
+offset_right = 330.0
+offset_bottom = 157.0
+theme = SubResource("Theme_1ippe")
+text = "⚠️ A missão só será concluída após a verificação do mapa."
+label_settings = SubResource("LabelSettings_1mfaj")
+autowrap_mode = 2
+
+[node name="TextTeclado2" type="Label" parent="Tutorial3/PaineTutorial" unique_id=1221464233]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 97.0
+offset_right = 136.0
+offset_bottom = 112.0
+theme = SubResource("Theme_1ippe")
+text = "Converse com ela para que o mapa seja verificado."
+label_settings = SubResource("LabelSettings_1mfaj")
+autowrap_mode = 2
+
+[node name="BtnContinuarTutorial3" type="Button" parent="Tutorial3/PaineTutorial" unique_id=982492786]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -36.5
+offset_top = -33.0
+offset_right = 36.5
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("9_6e1ii")
+text = "Entendi"
+
+[node name="toque" parent="." unique_id=2031439243 instance=ExtResource("15_6e1ii")]
+
+[connection signal="pressed" from="Introducao/PainelIntroducao/BtnContinuar" to="." method="_on_btn_continuar_pressed"]
+[connection signal="pressed" from="Tutorial/PaineTutorial/BtnContinuarTutorial" to="." method="_on_btn_continuar_tutorial_pressed"]
+[connection signal="pressed" from="Tutorial2/PaineTutorial/BtnContinuarTutorial2" to="." method="_on_btn_continuar_tutorial_2_pressed"]
+[connection signal="pressed" from="Tutorial3/PaineTutorial/BtnContinuarTutorial3" to="." method="_on_btn_continuar_tutorial_3_pressed"]

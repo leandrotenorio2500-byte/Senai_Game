@@ -4,16 +4,11 @@ class_name TreinamentoSST
 signal atividade_finalizada(resultado: Dictionary)
 
 
-# ============================================================
-# CONFIGURAÇÕES
-# ============================================================
-
-const TOTAL_SITUACOES := 13
-
 
 # ============================================================
 # NÓS DA INTERFACE
 # ============================================================
+@onready var toque: AudioStreamPlayer = $toque
 
 @onready var label_progresso: Label = $Header/LabelProgresso
 
@@ -42,6 +37,8 @@ const TOTAL_SITUACOES := 13
 
 @onready var btn_continuar: Button = $Feedback/TextureRect/BtnContinuar
 
+@onready var tutorial: Control = $Tutorial
+@onready var introducao: Control = $Introducao
 
 
 
@@ -64,7 +61,7 @@ var situacoes := [
 			"Usar o equipamento por pouco tempo.",
 			"Improvisar um reparo no cabo.",
 			"Não utilizar e comunicar o problema.",
-			"Pedir para outro funcionário testar."
+			"Pedir para um funcionário experiente testar."
 		],
 
 		"resposta": 2,
@@ -87,10 +84,10 @@ var situacoes := [
 		"pergunta": "Qual é a atitude mais adequada?",
 
 		"opcoes": [
-			"Guardar os EPIs exatamente como estão.",
+			"Guardar os EPIs em local seco e fechado.",
 			"Lavar todos os EPIs com qualquer produto disponível.",
 			"Realizar a higienização adequada e guardar os equipamentos corretamente.",
-			"Deixar os EPIs expostos para secarem naturalmente."
+			"Descarta-los adequadamente ao final do turno"
 		],
 
 		"resposta": 2,
@@ -106,76 +103,94 @@ var situacoes := [
 	# SITUAÇÃO 03 — EPI INADEQUADO
 	# ============================================================
 
-	{
-		"situacao": "Um trabalhador precisa realizar uma atividade que exige proteção específica para os olhos. Ele encontra um óculos de proteção de outro funcionário, mas o equipamento está com a lente riscada e não se ajusta corretamente ao seu rosto.",
-
-		"pergunta": "O que deve ser feito?",
-
-		"opcoes": [
-			"Utilizar o óculos mesmo assim, pois ele ainda protege parcialmente.",
-			"Usar o equipamento apenas durante os momentos mais perigosos.",
-			"Solicitar um EPI adequado e em boas condições.",
-			"Utilizar óculos comuns no lugar do EPI."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "O EPI precisa ser adequado ao risco, estar em boas condições e ser utilizado corretamente. Um equipamento danificado ou inadequado pode não oferecer a proteção necessária.",
-		
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Um trabalhador precisa realizar uma atividade que exige proteção específica para os olhos. Ele encontra um óculos de proteção de outro funcionário, mas o equipamento está com a lente riscada e não se ajusta corretamente ao seu rosto.",
+#
+		#"pergunta": "O que deve ser feito?",
+#
+		#"opcoes": [
+			#"Utilizar o óculos mesmo assim, pois ele ainda protege parcialmente.",
+			#"Usar o equipamento apenas durante os momentos mais perigosos.",
+			#"Utilizar óculos comuns no lugar do EPI.",
+			#"Solicitar um EPI adequado e em boas condições.",
+		#],
+#
+		#"resposta": 3,
+#
+		#"explicacao": "O EPI precisa ser adequado ao risco, estar em boas condições e ser utilizado corretamente. Um equipamento danificado ou inadequado pode não oferecer a proteção necessária.",
+		#
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
 
 	# ============================================================
 	# SITUAÇÃO 04 — TRABALHO EM ALTURA
 	# ============================================================
 
-	{
-		"situacao": "Um funcionário precisa alcançar um ponto elevado durante uma manutenção. Um colega sugere subir em uma cadeira para terminar o serviço rapidamente.",
-
-		"pergunta": "Qual é a atitude mais segura?",
-
-		"opcoes": [
-			"Subir na cadeira, tomando cuidado para não cair.",
-			"Subir na cadeira apenas se alguém estiver segurando.",
-			"Utilizar o meio adequado para trabalho em altura e seguir os procedimentos de segurança.",
-			"Subir rapidamente para reduzir o tempo de exposição ao risco."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "Cadeiras e outros objetos improvisados não devem ser utilizados como meios de acesso para atividades em altura. O trabalho deve ser realizado com os equipamentos, procedimentos e medidas de proteção adequados.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/4.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+	#{
+		#"situacao": "Um funcionário precisa alcançar um ponto elevado durante uma manutenção. Um colega sugere subir em uma cadeira para terminar o serviço rapidamente.",
+#
+		#"pergunta": "Qual é a atitude mais segura?",
+#
+		#"opcoes": [
+			#"Utilizar outro meio mais adequado para esse trabalho, seguindo os procedimentos de segurança.",
+			#"Não subir na cadeira, mas sim em uma mesa, pois ela apresenta maior estabilidade.",
+			#"Subir cuidadosamente apenas se alguém estiver segurando.",
+			#"Subir rapidamente para reduzir o tempo de exposição ao risco."
+		#],
+#
+		#"resposta": 0,
+#
+		#"explicacao": "Cadeiras e outros objetos improvisados não devem ser utilizados como meios de acesso para atividades em altura. O trabalho deve ser realizado com os equipamentos, procedimentos e medidas de proteção adequados.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/4.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
 
 	# ============================================================
 	# SITUAÇÃO 05 — TRABALHO EM ALTURA / PRESSA
 	# ============================================================
 
-	{
-		"situacao": "Durante uma atividade em altura, o funcionário percebe que seu equipamento de proteção apresenta um problema. O serviço está quase terminando e ele acredita que seria desperdício interromper a atividade.",
+	#{
+		#"situacao": "Durante uma atividade em altura, o funcionário percebe que seu equipamento de proteção apresenta um problema. O serviço está quase terminando e ele acredita que seria desperdício interromper a atividade.",
+#
+		#"pergunta": "O que ele deve fazer?",
+#
+		#"opcoes": [
+			#"Continuar, pois falta pouco para terminar.",
+			#"Continuar apenas se estiver se sentindo seguro.",
+			#"Interromper a atividade e comunicar o problema.",
+			#"Pedir para um colega observar enquanto termina."
+		#],
+#
+		#"resposta": 2,
+#
+		#"explicacao": "A proximidade do fim da atividade não elimina o risco. Quando um equipamento ou condição de segurança apresenta problema, a atividade deve ser interrompida e a situação comunicada.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/5.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
 
-		"pergunta": "O que ele deve fazer?",
-
-		"opcoes": [
-			"Continuar, pois falta pouco para terminar.",
-			"Continuar apenas se estiver se sentindo seguro.",
-			"Interromper a atividade e comunicar o problema.",
-			"Pedir para um colega observar enquanto termina."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "A proximidade do fim da atividade não elimina o risco. Quando um equipamento ou condição de segurança apresenta problema, a atividade deve ser interrompida e a situação comunicada.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/5.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
+#{
+		#"situacao": "Um funcionário precisa transportar uma caixa pesada até outro setor. Para terminar rapidamente, ele decide levantar a caixa sozinho, curvando bastante as costas e fazendo força de uma só vez.",
+#
+		#"pergunta": "Qual é a atitude mais segura?",
+#
+		#"opcoes": [
+			#"Levantar rapidamente para reduzir o esforço.",
+			#"Verificar o peso da carga, utilizar o meio adequado para transportá-la e pedir ajuda quando necessário.",
+			#"Curvar as costas e manter os braços esticados durante o levantamento.",
+			#"Segurar a caixa com apenas uma mão para facilitar o deslocamento."
+		#],
+#
+		#"resposta": 1,
+#
+		#"explicacao": "A movimentação inadequada de cargas pode causar lesões. O trabalhador deve avaliar a carga, utilizar os equipamentos ou meios de transporte disponíveis e solicitar ajuda quando necessário.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/7.png",
+		#},
 
 
 	# ============================================================
@@ -189,12 +204,12 @@ var situacoes := [
 
 		"opcoes": [
 			"Abrir a máquina e tentar identificar o problema.",
-			"Desligar a máquina e realizar o reparo por conta própria.",
 			"Comunicar a falha e deixar a intervenção para profissional autorizado.",
-			"Pedir ajuda a qualquer colega que tenha experiência com máquinas."
+			"Desligar a máquina antes de realizar o reparo por conta própria.",
+			"Pedir ajuda a um colega que tenha experiência com máquinas."
 		],
 
-		"resposta": 2,
+		"resposta": 1,
 
 		"explicacao": "Intervenções em instalações e equipamentos elétricos exigem procedimentos e competências específicas. O funcionário não deve improvisar reparos. A falha deve ser comunicada ao responsável.",
 		"fundo": "res://sprites/BACKGROUND/Cenas SST/6.png",
@@ -204,32 +219,7 @@ var situacoes := [
 
 
 	# ============================================================
-	# SITUAÇÃO 07 — ELETRICIDADE / ÁGUA
-	# ============================================================
-
-	{
-		"situacao": "Durante o trabalho, um funcionário percebe que há água próxima a uma extensão elétrica utilizada no setor. O equipamento continua funcionando normalmente.",
-
-		"pergunta": "O que deve ser feito?",
-
-		"opcoes": [
-			"Continuar trabalhando, desde que ninguém toque na água.",
-			"Retirar a extensão rapidamente com as mãos.",
-			"Comunicar o risco e seguir o procedimento adequado para eliminar a condição perigosa.",
-			"Colocar um pano sobre a água e continuar."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "Água e eletricidade podem criar uma situação de grave risco de choque elétrico. Não se deve improvisar nem tocar no equipamento de forma insegura. A condição deve ser comunicada e tratada conforme os procedimentos.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
-
-
-	# ============================================================
-	# SITUAÇÃO 08 — PRINCÍPIOS DE INCÊNDIO
+	# SITUAÇÃO 07 — PRINCÍPIOS DE INCÊNDIO
 	# ============================================================
 
 	{
@@ -240,144 +230,69 @@ var situacoes := [
 		"opcoes": [
 			"Tentar apagar o incêndio imediatamente, independentemente da situação.",
 			"Filmar o incêndio para registrar o ocorrido.",
+			"Esperar alguns minutos para verificar se o fogo aumenta.",
 			"Alertar as pessoas, acionar o procedimento de emergência e evacuar quando necessário.",
-			"Esperar alguns minutos para verificar se o fogo aumenta."
 		],
 
-		"resposta": 2,
+		"resposta": 3,
 
 		"explicacao": "A prioridade em uma emergência é preservar vidas. O alarme e os procedimentos de emergência devem ser acionados, e a evacuação deve ocorrer conforme as orientações estabelecidas.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
+		"fundo": "res://sprites/BACKGROUND/Cenas SST/9.png",
 		"animacao_personagem": "",
 		"animacao_efeito": ""
 	},
 
 
 	# ============================================================
-	# SITUAÇÃO 09 — EXTINTOR
+	# SITUAÇÃO 08 — ASSÉDIO
 	# ============================================================
 
-	{
-		"situacao": "Um funcionário treinado percebe um pequeno princípio de incêndio e identifica que há um extintor apropriado disponível. O fogo ainda está em uma proporção controlável.",
-
-		"pergunta": "Qual atitude é mais adequada?",
-
-		"opcoes": [
-			"Utilizar qualquer extintor disponível.",
-			"Utilizar o extintor adequado, seguindo o treinamento e mantendo uma rota segura de saída.",
-			"Entrar no meio da fumaça para alcançar o fogo mais rapidamente.",
-			"Jogar água no fogo independentemente do material que está queimando."
-		],
-
-		"resposta": 1,
-
-		"explicacao": "O extintor deve ser compatível com o tipo de incêndio e utilizado somente quando houver condições seguras e treinamento. Também é fundamental manter uma rota de fuga.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
-
-
-	# ============================================================
-	# SITUAÇÃO 12 — ASSÉDIO
-	# ============================================================
-
-	{
-		"situacao": "Durante o expediente, um funcionário faz comentários constrangedores e repetitivos sobre um colega. Algumas pessoas riem, enquanto a pessoa alvo demonstra desconforto.",
-
-		"pergunta": "Qual atitude está de acordo com uma cultura de segurança e respeito?",
-
-		"opcoes": [
-			"Participar das brincadeiras para evitar conflitos.",
-			"Ignorar, pois é apenas uma brincadeira.",
-			"Não compactuar com a situação e utilizar os canais adequados para comunicar o ocorrido.",
-			"Esperar que a própria vítima resolva a situação."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "Um ambiente de trabalho seguro também precisa ser respeitoso. Situações de assédio ou comportamento inadequado não devem ser normalizadas. Elas devem ser tratadas pelos canais apropriados da organização.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
-
-
-	# ============================================================
-	# SITUAÇÃO 13 — COMUNICAÇÃO DE RISCO
-	# ============================================================
-
-	{
-		"situacao": "Um trabalhador novo percebe uma condição que considera perigosa, mas fica com receio de comunicar o problema porque ainda está aprendendo como funciona o setor.",
-
-		"pergunta": "O que seria mais adequado?",
-
-		"opcoes": [
-			"Ficar em silêncio para não parecer inexperiente.",
-			"Esperar até conhecer melhor o setor.",
-			"Comunicar a condição ao responsável e pedir orientação.",
-			"Tentar corrigir sozinho sem avisar ninguém."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "Perceber e comunicar riscos é parte importante da prevenção. Ninguém deve deixar uma condição perigosa sem comunicação por medo de parecer inexperiente.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
-
-
-	# ============================================================
-	# SITUAÇÃO 14 — PROCEDIMENTO DE SEGURANÇA
-	# ============================================================
-
-	{
-		"situacao": "Um funcionário experiente afirma que determinado procedimento de segurança é desnecessário porque ele realiza aquela atividade há anos sem sofrer nenhum acidente.",
-
-		"pergunta": "Qual resposta representa uma atitude preventiva?",
-
-		"opcoes": [
-			"Concordar, pois experiência substitui os procedimentos.",
-			"Seguir o procedimento somente quando houver supervisão.",
-			"Seguir as medidas de segurança mesmo quando a atividade parece simples ou conhecida.",
-			"Imitar a maneira como os funcionários mais antigos trabalham."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "A ausência de acidentes anteriores não significa ausência de risco. Procedimentos de segurança existem para reduzir a possibilidade de acidentes e devem ser respeitados.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	},
-
-
-	# ============================================================
-	# SITUAÇÃO 15 — PRESSA PARA TERMINAR
-	# ============================================================
-
-	{
-		"situacao": "O turno está terminando e um funcionário percebe que ainda precisa concluir uma atividade. Para terminar mais rápido, ele pensa em ignorar algumas medidas de segurança que normalmente utiliza.",
-
-		"pergunta": "O que ele deve fazer?",
-
-		"opcoes": [
-			"Fazer a atividade rapidamente e compensar o risco.",
-			"Ignorar apenas os procedimentos que parecem menos importantes.",
-			"Manter os procedimentos de segurança mesmo que a atividade demore mais.",
-			"Continuar somente se outro funcionário estiver observando."
-		],
-
-		"resposta": 2,
-
-		"explicacao": "A pressa nunca deve justificar a retirada de medidas de segurança. Uma atividade segura pode levar mais tempo, mas reduzir riscos é mais importante do que terminar rapidamente.",
-		"fundo": "res://sprites/BACKGROUND/Cenas SST/3.png",
-		"animacao_personagem": "",
-		"animacao_efeito": ""
-	}
+	#{
+		#"situacao": "Durante o expediente, um funcionário faz comentários constrangedores e repetitivos sobre um colega. Algumas pessoas riem, enquanto a pessoa alvo demonstra desconforto.",
+#
+		#"pergunta": "Qual atitude está de acordo com uma cultura de segurança e respeito?",
+#
+		#"opcoes": [
+			#"Participar das brincadeiras para evitar conflitos.",
+			#"Ignorar, pois é apenas uma brincadeira.",
+			#"Não compactuar com a situação e buscar relatar o ocorrido.",
+			#"Esperar que a própria vítima resolva a situação."
+		#],
+#
+		#"resposta": 2,
+#
+		#"explicacao": "Um ambiente de trabalho seguro também precisa ser respeitoso. Situações de assédio ou comportamento inadequado não devem ser normalizadas. Elas devem ser tratadas pelos canais apropriados da organização.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/8.png",
+		#"animacao_personagem": "",
+		#"animacao_efeito": ""
+	#},
+	
+	#{
+		#"situacao": "Durante uma atividade, um funcionário percebe que uma etapa não está sendo realizada de forma segura. Seu colega diz para ele continuar mesmo assim, pois a equipe precisa terminar o serviço rapidamente.",
+#
+#
+		#"pergunta": "Qual é a atitude mais adequada?",
+#
+		#"opcoes": [
+			#"Comunicar a condição insegura e seguir os procedimentos de segurança, mesmo que seja necessário interromper a atividade.",
+			#"Continuar para não atrasar a equipe.",
+			#"Fazer a atividade rapidamente para diminuir o risco, e, logo após, relatar a condição insegura.",
+			#"Ignorar o problema porque o responsável pela equipe deve tomar todas as decisões."
+		#],
+#
+		#"resposta": 0,
+#
+		#"explicacao": "A pressão por produtividade não deve levar os trabalhadores a ignorar condições inseguras. Todos devem poder comunicar riscos e interromper uma atividade quando houver uma condição que possa comprometer a segurança.",
+		#"fundo": "res://sprites/BACKGROUND/Cenas SST/10.png",
+	#}
 
 ]
+
+# ============================================================
+# CONFIGURAÇÕES
+# ============================================================
+
+var TOTAL_SITUACOES := situacoes.size()
 
 # ============================================================
 # VARIÁVEIS
@@ -395,7 +310,8 @@ var respondendo := true
 # ============================================================
 
 func _ready() -> void:
-	
+	introducao.visible = true
+	tutorial.visible =false
 	feedback.visible = false
 	
 	btn_a.pressed.connect(_on_opcao_pressed.bind(0))
@@ -405,7 +321,6 @@ func _ready() -> void:
 	
 	btn_continuar.pressed.connect(_on_btn_continuar_pressed)
 	
-	mostrar_situacao()
 	resultado_final.visible = false
 
 	btn_finalizar.pressed.connect(_on_btn_finalizar_pressed)
@@ -485,7 +400,7 @@ func mostrar_situacao() -> void:
 # ============================================================
 
 func _on_opcao_pressed(indice: int) -> void:
-	
+	toque.play()
 	if not respondendo:
 		return
 	
@@ -558,7 +473,7 @@ func mostrar_feedback_errado(
 # ============================================================
 
 func _on_btn_continuar_pressed() -> void:
-	
+	toque.play()
 	situacao_atual += 1
 	
 	if situacao_atual >= situacoes.size():
@@ -628,6 +543,7 @@ func mostrar_resultado_final() -> void:
 
 
 func _on_btn_finalizar_pressed() -> void:
+	toque.play()
 	var resultado := {
 	"total": situacoes.size(),
 	"acertos": respostas_corretas,
@@ -635,4 +551,16 @@ func _on_btn_finalizar_pressed() -> void:
 	}
 	
 	atividade_finalizada.emit(resultado)
-	Transicao.mudar_cena("res://scene/rh.tscn")
+	Transicao.mudar_cena("res://scene/deposito.tscn")
+
+
+func _on_btn_continuar_introducao_pressed() -> void:
+	toque.play()
+	introducao.visible = false
+	tutorial.visible = true
+
+
+func _on_btn_continuar_tutorial_pressed() -> void:
+	toque.play()
+	tutorial.visible = false
+	mostrar_situacao()

@@ -14,7 +14,7 @@ func _ready() -> void:
 	start_floating_animation()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player") or body.name == "Player":		
+	if body.is_in_group("Player") or body.name == "Player":
 		jogador_on_area = true
 		label.visible = true
 		ref_player = body
@@ -33,7 +33,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			fechar.grab_focus()
 			
 			if ref_player:
-				ref_player.set_physics_process(false)
+				ref_player.bloquear_para_interacao()
 
 func start_floating_animation() -> void:
 	var original_y = label.position.y
@@ -55,8 +55,10 @@ func start_floating_animation() -> void:
 
 func _on_fechar_pressed() -> void:
 	painel.visible = false
+	
 	if jogador_on_area:
 		label.visible = true
 		
 	if ref_player:
-		ref_player.set_physics_process(true) # Devolve o controle ao jogador.
+		ref_player.set_physics_process(true)
+		

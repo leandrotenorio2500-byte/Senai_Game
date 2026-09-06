@@ -6,42 +6,14 @@
 [ext_resource type="FontFile" uid="uid://co0qlfg1wii2k" path="res://fonts/RevMiniPixel.ttf" id="4_p0ui4"]
 [ext_resource type="Texture2D" uid="uid://d1tklw7bidpa8" path="res://sprites/missions/chamados/Desligar.png" id="5_tsfnd"]
 [ext_resource type="Texture2D" uid="uid://c50ixpm1wpxd2" path="res://sprites/missions/chamados/GerenciadorTarefas.png" id="6_e82nk"]
+[ext_resource type="Theme" uid="uid://duhom7snu461b" path="res://bttn_software.tres" id="6_p0ui4"]
 [ext_resource type="Texture2D" uid="uid://xtp05217a617" path="res://sprites/missions/chamados/FecharGeren.png" id="7_p0ui4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1h6ix"]
+line_spacing = 1.5
 font = ExtResource("4_p0ui4")
-font_size = 3
-outline_size = 1
+font_size = 4
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1h6ix"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e82nk"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0ui4"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsfnd"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2i3b6"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="Theme" id="Theme_tsfnd"]
-Button/colors/font_color = Color(0.3560638, 0.35606462, 0.35606405, 1)
-Button/colors/font_disabled_color = Color(0.24695012, 0.24695033, 0.2469503, 1)
-Button/font_sizes/font_size = 4
-Button/fonts/font = ExtResource("4_p0ui4")
-Button/styles/disabled = SubResource("StyleBoxFlat_1h6ix")
-Button/styles/focus = SubResource("StyleBoxFlat_e82nk")
-Button/styles/hover = SubResource("StyleBoxFlat_p0ui4")
-Button/styles/normal = SubResource("StyleBoxFlat_tsfnd")
-Button/styles/pressed = SubResource("StyleBoxFlat_2i3b6")
-Label/colors/font_color = Color(0.2382622, 0.2382622, 0.23826218, 1)
-Label/font_sizes/font_size = 4
-Label/fonts/font = ExtResource("4_p0ui4")
 
 [node name="AmbienteSoftware" type="Control" unique_id=267615810]
 layout_mode = 3
@@ -88,8 +60,8 @@ texture_normal = ExtResource("3_e82nk")
 layout_mode = 0
 offset_left = -5.0
 offset_top = 11.0
-offset_right = 24.0
-offset_bottom = 22.0
+offset_right = 25.0
+offset_bottom = 25.0
 text = "Gerenciador de Tarefas"
 label_settings = SubResource("LabelSettings_1h6ix")
 autowrap_mode = 2
@@ -108,7 +80,7 @@ offset_left = 151.0
 offset_top = 58.0
 offset_right = 263.0
 offset_bottom = 154.0
-theme = SubResource("Theme_tsfnd")
+theme = ExtResource("6_p0ui4")
 
 [node name="TextureRect" type="TextureRect" parent="AreaTrabalho/Gerenc_Tarefas" unique_id=1473622647]
 layout_mode = 1

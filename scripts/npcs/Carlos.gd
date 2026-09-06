@@ -16,7 +16,7 @@ func get_dialogo_setor() -> Array[Dictionary]:
 
 func _ready() -> void:
 	npc_faceset_path = "res://sprites/Mini UI/heads/Jobson.png"
-	npc_name = "Jobson"
+	npc_name = "Jobson - Líder da Produção"
 	idle_spritesheet = load("res://sprites/npcs/operario3.png")
 	hframes = 8
 	super._ready()
@@ -88,28 +88,38 @@ func dialogo_mapa_concluido():
 	]
 
 func dialogo_mapa_risco():
-		dialog_data = [
-			{
-				"title": npc_name,
-				"dialog": "Opa, tudo bem? Você é o novo Jovem Aprendiz?",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Aqui na Produção trabalhamos com diversas máquinas que fazem bastante barulho durante todo o expediente.",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Além disso, utilizamos produtos químicos na limpeza dos equipamentos e há empilhadeiras circulando constantemente pelo setor.",
-				"faceset": npc_faceset_path
-			},
-			{
-				"title": npc_name,
-				"dialog": "Essas informações devem ajudar você a preencher o Mapa de Risco.",
-				"faceset": npc_faceset_path
-			}
-		]
+	dialog_data = [
+		{
+			"title": npc_name,
+			"dialog": "Opa, tudo bem? Você é o novo Jovem Aprendiz?",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Aqui na Produção temos bastante movimentação. As máquinas ficam funcionando durante boa parte do expediente e o barulho é constante.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Também utilizamos alguns produtos químicos para a limpeza e manutenção dos equipamentos, então é importante tomar cuidado com esses materiais.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "O trabalho também envolve atividades repetitivas, esforço físico e, dependendo da tarefa, precisamos manter certas posições por bastante tempo.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Além disso, temos máquinas, equipamentos e empilhadeiras circulando pelo setor. É importante ficar atento para evitar acidentes.",
+			"faceset": npc_faceset_path
+		},
+		{
+			"title": npc_name,
+			"dialog": "Acho que essas informações podem ajudar você a identificar os riscos da Produção no Mapa de Risco.",
+			"faceset": npc_faceset_path
+		}
+	]
 
 func dialogo_normal():
 	dialog_data = [
